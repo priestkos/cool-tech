@@ -1,5 +1,7 @@
 {
   "proposed": [],
-  "built": [],
+  "built": [
+    {"id": "react-bits-sound-lab", "title": "Sound Lab by React Bits", "url": "https://reactbits.dev/tools", "date": "2026-10-19"}
+  ],
   "skipped": []
 }
