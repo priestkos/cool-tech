@@ -1,49 +1,49 @@
-import { GlobalSoundControls } from '@/components/global-sound-controls'
-import { GalleryScene } from '@/components/gallery-scene'
-import { NotificationScene } from '@/components/notification-scene'
-import { SoundsAsCodeScene } from '@/components/sounds-as-code-scene'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Toaster } from '@/components/ui/sonner'
-import { SoundProvider } from '@/context/sound-provider'
+import { GlobalSoundControls } from "@/components/GlobalSoundControls"
+import { NotificationCenter } from "@/components/NotificationCenter"
+import { SoundGallery } from "@/components/SoundGallery"
+import { SoundsAsCode } from "@/components/SoundsAsCode"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Toaster } from "@/components/ui/sonner"
+import { SoundProvider } from "@/context/SoundProvider"
 
 function App() {
   return (
     <SoundProvider>
       <div className="min-h-svh bg-background text-foreground">
-        <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-10">
-          <header className="space-y-2 text-left">
-            <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-              Sonic UI Kit
+        <header className="border-b">
+          <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-6">
+            <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              React Bits · Sound Lab
             </p>
-            <h1 className="text-3xl font-semibold tracking-tight">
-              React Bits Sound Lab playground
+            <h1 className="font-heading text-2xl font-semibold tracking-tight">
+              Sonic UI Kit
             </h1>
             <p className="max-w-2xl text-sm text-muted-foreground">
-              Wire installable Sound Lab interface sounds into shadcn components — per-control
-              pickers, global mute/volume, and a notification center.
+              A shadcn playground wired to Sound Lab interface sounds — installable
+              recipes you own, tuned with global volume and per-component pickers.
             </p>
-          </header>
-
+          </div>
+        </header>
+        <main className="mx-auto max-w-5xl space-y-8 px-4 py-8">
           <GlobalSoundControls />
-
-          <Tabs defaultValue="gallery" className="w-full">
-            <TabsList className="w-full justify-start">
-              <TabsTrigger value="gallery">Gallery</TabsTrigger>
+          <Tabs defaultValue="gallery">
+            <TabsList>
+              <TabsTrigger value="gallery">Component gallery</TabsTrigger>
               <TabsTrigger value="notifications">Notifications</TabsTrigger>
               <TabsTrigger value="code">Sounds as code</TabsTrigger>
             </TabsList>
-            <TabsContent value="gallery" className="pt-4">
-              <GalleryScene />
+            <TabsContent value="gallery" className="mt-6">
+              <SoundGallery />
             </TabsContent>
-            <TabsContent value="notifications" className="pt-4">
-              <NotificationScene />
+            <TabsContent value="notifications" className="mt-6">
+              <NotificationCenter />
             </TabsContent>
-            <TabsContent value="code" className="pt-4">
-              <SoundsAsCodeScene />
+            <TabsContent value="code" className="mt-6">
+              <SoundsAsCode />
             </TabsContent>
           </Tabs>
-        </div>
-        <Toaster richColors position="top-center" />
+        </main>
+        <Toaster position="top-right" richColors closeButton />
       </div>
     </SoundProvider>
   )
