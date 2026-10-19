@@ -1,7 +1,18 @@
 {
   "proposed": [],
   "built": [
-    {"id": "react-bits-sound-lab", "title": "Sound Lab by React Bits", "url": "https://reactbits.dev/tools", "date": "2026-10-19"}
+    {
+      "id": "react-bits-sound-lab",
+      "title": "Sound Lab by React Bits",
+      "url": "https://reactbits.dev/tools",
+      "date": "2026-10-19"
+    },
+    {
+      "id": "openui-1-0",
+      "title": "OpenUI 1.0 (agents respond with UI)",
+      "url": "https://x.com/DataChaz/status/2111434406783279520",
+      "date": "2026-10-19"
+    }
   ],
   "skipped": []
 }
