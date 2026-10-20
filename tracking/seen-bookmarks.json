@@ -12,7 +12,20 @@
       "title": "OpenUI 1.0 (agents respond with UI)",
       "url": "https://x.com/DataChaz/status/2111434406783279520",
       "date": "2026-10-19"
+    },
+    {
+      "id": "topographic",
+      "title": "topographic (WebGL terrain)",
+      "url": "https://github.com/yahyabedirhan/topographic",
+      "date": "2026-10-20"
     }
   ],
-  "skipped": []
+  "skipped": [
+    {
+      "id": "tsc-ts",
+      "title": "tsc-ts (Vercel Labs)",
+      "url": "https://x.com/ctatedev/status/2111272070768185787",
+      "date": "2026-10-20"
+    }
+  ]
 }
