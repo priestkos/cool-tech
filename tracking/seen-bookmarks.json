@@ -18,6 +18,12 @@
       "title": "topographic (WebGL terrain)",
       "url": "https://github.com/yahyabedirhan/topographic",
       "date": "2026-10-20"
+    },
+    {
+      "id": "pele",
+      "title": "Pele (fast Mermaid renderer by Obsidian)",
+      "url": "https://github.com/obsidianmd/pele",
+      "date": "2026-10-21"
     }
   ],
   "skipped": [

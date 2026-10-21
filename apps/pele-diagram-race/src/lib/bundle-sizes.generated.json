@@ -1,0 +1,13 @@
+{
+  "pele": {
+    "label": "Vite chunks (1 files)",
+    "bytes": 664074,
+    "kind": "vite-chunk"
+  },
+  "mermaid": {
+    "label": "Vite chunks (1 files)",
+    "bytes": 4823618,
+    "kind": "vite-chunk"
+  },
+  "measuredAt": "2026-10-21T04:41:54.394Z"
+}
