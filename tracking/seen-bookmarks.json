@@ -36,6 +36,12 @@
       "title": "cve.now (free deduplicated CVE feed for agents)",
       "url": "https://x.com/i/trending/2113407075984585115",
       "date": "2026-10-23"
+    },
+    {
+      "id": "gradients-sh",
+      "title": "gradients.sh (animated GPU gradients for React)",
+      "url": "https://x.com/leodev/status/2112514949167907029",
+      "date": "2026-10-22"
     }
   ],
   "skipped": [
