@@ -1,16 +1,33 @@
 import {
   CAMERA_MOTIONS,
-  DEFAULT_STYLE,
+  DEFAULT_SHAPE,
   type CameraMotion,
   type SettingsInput,
-  type StyleId,
+  type ShapeId,
   type ThemeMode,
 } from 'topographic'
+import {
+  findLocation,
+  type LocationId,
+} from 'topographic/locations'
 
-const STORAGE_KEY = 'terrain-studio:v1'
+const STORAGE_KEY = 'terrain-studio:v2'
+
+/** Curated built-in places shown in the studio (ids from topographic 0.6). */
+export const REAL_PLACE_PRESETS: ReadonlyArray<{
+  label: string
+  location: LocationId
+}> = [
+  { label: 'Mount Fuji', location: 'fuji' },
+  { label: 'Grand Canyon', location: 'grand-canyon' },
+  { label: 'Swiss Alps', location: 'matterhorn' },
+  { label: 'Himalayas', location: 'everest' },
+]
 
 export interface StudioState {
-  styleName: StyleId
+  shape: ShapeId
+  /** Built-in real place, or null for procedural terrain from `shape`. */
+  location: LocationId | null
   seed: number
   mode: '2d' | '3d'
   elevation: number
@@ -52,7 +69,8 @@ export interface StudioState {
 }
 
 export const DEFAULT_STUDIO_STATE: StudioState = {
-  styleName: DEFAULT_STYLE,
+  shape: DEFAULT_SHAPE,
+  location: null,
   seed: 21,
   mode: '3d',
   elevation: 0.45,
@@ -75,8 +93,10 @@ export const DEFAULT_STUDIO_STATE: StudioState = {
 
 export function studioToTopographicInput(
   state: StudioState,
-): Omit<SettingsInput, 'style'> {
+): Omit<SettingsInput, 'look'> {
   return {
+    shape: state.shape,
+    location: state.location,
     seed: state.seed,
     mode: state.mode,
     elevation: state.elevation,
@@ -90,14 +110,77 @@ export function studioToTopographicInput(
   }
 }
 
+/** Applies library defaults for a built-in location (camera, lines, elevation, …). */
+export function patchForRealPlace(location: LocationId): Partial<StudioState> {
+  const info = findLocation(location)
+  const defaults = info?.defaults
+  const patch: Partial<StudioState> = {
+    location,
+    mode: '3d',
+  }
+  if (!defaults) return patch
+
+  patch.elevation = defaults.elevation
+  patch.lines = {
+    ...DEFAULT_STUDIO_STATE.lines,
+    ...defaults.lines,
+  }
+  patch.layout = {
+    ...DEFAULT_STUDIO_STATE.layout,
+    ...defaults.layout,
+  }
+  patch.camera = {
+    ...DEFAULT_STUDIO_STATE.camera,
+    elevation: defaults.camera.elevation,
+    radius: defaults.camera.radius,
+  }
+  return patch
+}
+
 export function loadStudioState(): StudioState {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
-    if (!raw) return DEFAULT_STUDIO_STATE
-    const parsed = JSON.parse(raw) as Partial<StudioState>
+    if (!raw) return migrateLegacyStorage()
+    const parsed = JSON.parse(raw) as Partial<StudioState> & {
+      styleName?: string
+    }
+    const shape =
+      parsed.shape ??
+      (parsed.styleName as ShapeId | undefined) ??
+      DEFAULT_STUDIO_STATE.shape
     return {
       ...DEFAULT_STUDIO_STATE,
       ...parsed,
+      shape,
+      location: parsed.location ?? null,
+      lines: { ...DEFAULT_STUDIO_STATE.lines, ...parsed.lines },
+      terrain: { ...DEFAULT_STUDIO_STATE.terrain, ...parsed.terrain },
+      motion: { ...DEFAULT_STUDIO_STATE.motion, ...parsed.motion },
+      layout: { ...DEFAULT_STUDIO_STATE.layout, ...parsed.layout },
+      theme: { ...DEFAULT_STUDIO_STATE.theme, ...parsed.theme },
+      camera: { ...DEFAULT_STUDIO_STATE.camera, ...parsed.camera },
+    }
+  } catch {
+    return DEFAULT_STUDIO_STATE
+  }
+}
+
+function migrateLegacyStorage(): StudioState {
+  try {
+    const legacy = localStorage.getItem('terrain-studio:v1')
+    if (!legacy) return DEFAULT_STUDIO_STATE
+    const parsed = JSON.parse(legacy) as Partial<StudioState> & {
+      styleName?: string
+    }
+    const shape =
+      (parsed.styleName as ShapeId | undefined) ??
+      parsed.shape ??
+      DEFAULT_STUDIO_STATE.shape
+    return {
+      ...DEFAULT_STUDIO_STATE,
+      ...parsed,
+      shape,
+      location: null,
       lines: { ...DEFAULT_STUDIO_STATE.lines, ...parsed.lines },
       terrain: { ...DEFAULT_STUDIO_STATE.terrain, ...parsed.terrain },
       motion: { ...DEFAULT_STUDIO_STATE.motion, ...parsed.motion },

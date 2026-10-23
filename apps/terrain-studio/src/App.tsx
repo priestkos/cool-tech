@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { TopographicBackground } from 'topographic-react'
-import type { TopographicBackground as TopographicInstance } from 'topographic'
+import { Topography } from 'topographic-react'
+import type { Topography as TopographyInstance } from 'topographic'
 import { ControlPanel } from '@/components/ControlPanel'
 import { Button } from '@/components/ui/button'
 import { Toaster } from '@/components/ui/sonner'
 import { toast } from 'sonner'
 import {
   loadStudioState,
+  REAL_PLACE_PRESETS,
   saveStudioState,
   studioToTopographicInput,
   type StudioState,
@@ -14,9 +15,17 @@ import {
 
 const PANEL_WIDTH = 360
 
+function sourceLabel(state: StudioState): string {
+  if (state.location) {
+    const preset = REAL_PLACE_PRESETS.find((p) => p.location === state.location)
+    return preset?.label ?? state.location
+  }
+  return state.shape
+}
+
 function App() {
   const [state, setState] = useState<StudioState>(() => loadStudioState())
-  const instanceRef = useRef<TopographicInstance | null>(null)
+  const instanceRef = useRef<TopographyInstance | null>(null)
   const [exporting, setExporting] = useState(false)
 
   const topoInput = useMemo(() => studioToTopographicInput(state), [state])
@@ -36,7 +45,7 @@ function App() {
   }, [state.panelOpen])
 
   const onReady = useCallback(
-    (instance: TopographicInstance | null) => {
+    (instance: TopographyInstance | null) => {
       instanceRef.current = instance
       if (instance?.status === 'fallback') {
         toast.error('WebGL is not available; showing paper colour only.')
@@ -70,7 +79,8 @@ function App() {
       const url = URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.href = url
-      link.download = `terrain-studio-${state.styleName}-${state.mode}.png`
+      const slug = state.location ?? state.shape
+      link.download = `terrain-studio-${slug}-${state.mode}.png`
       link.click()
       URL.revokeObjectURL(url)
       toast.success('PNG exported')
@@ -83,10 +93,9 @@ function App() {
 
   return (
     <div className="relative h-dvh w-full overflow-hidden bg-background text-foreground">
-      <TopographicBackground
+      <Topography
         className="absolute inset-0 h-full w-full"
         onReady={onReady}
-        styleName={state.styleName}
         {...topoInput}
       />
 
@@ -96,7 +105,8 @@ function App() {
         <div className="pointer-events-auto rounded-lg border border-border/60 bg-background/80 px-3 py-2 shadow-sm backdrop-blur-md">
           <p className="text-sm font-semibold tracking-tight">Terrain Studio</p>
           <p className="text-muted-foreground text-xs">
-            topographic · {state.styleName} · seed {state.seed}
+            topographic · {sourceLabel(state)}
+            {state.location ? '' : ` · seed ${state.seed}`}
           </p>
         </div>
         <div className="pointer-events-auto flex flex-wrap items-center justify-end gap-2">
