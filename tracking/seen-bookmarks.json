@@ -24,6 +24,12 @@
       "title": "Pele (fast Mermaid renderer by Obsidian)",
       "url": "https://github.com/obsidianmd/pele",
       "date": "2026-10-21"
+    },
+    {
+      "id": "drawio-react",
+      "title": "@drawio/react (draw.io editor as a React component)",
+      "url": "https://x.com/drawio/status/2112936953737797882",
+      "date": "2026-10-23"
     }
   ],
   "skipped": [
