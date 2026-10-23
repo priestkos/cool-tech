@@ -12,15 +12,16 @@ bun run dev
 
 ## Package pin
 
-This demo installs `topographic@0.3.0` and `topographic-react@0.3.0`, the newest versions allowed by `bunfig.toml` (`minimumReleaseAge = 259200`). That release exposes procedural **shapes** (`styleName`) and `snapshot()` export, but not the built-in **location** presets added in later releases. See `.env.example` for notes on upgrading.
+This demo uses `topographic@0.6.0` and `topographic-react@0.6.0` (the newest allowed under `bunfig.toml` `minimumReleaseAge = 259200` while 0.7.x is still too fresh).
 
 ## Features
 
-- Full-viewport `TopographicBackground` with 2D / 3D toggle
+- Full-viewport `Topography` with 2D / 3D toggle
+- **Real places**: Mount Fuji, Grand Canyon, Swiss Alps (Matterhorn), Himalayas (Everest) via the `location` setting
+- Procedural **shapes** and curated **looks** from the library
 - Side panel wired to documented params (`lines`, `terrain`, `motion`, `layout`, `theme`, `camera`, `elevation`, `detail`)
-- Curated `PRESETS` from the library
 - PNG export via `topography.snapshot()`
-- Settings saved under `terrain-studio:v1` in `localStorage`
+- Settings saved under `terrain-studio:v2` in `localStorage`
 
 ## Links
 

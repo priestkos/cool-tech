@@ -17,7 +17,7 @@ Source: launch post https://x.com/yahyabedirhan/status/2112256463607324996 · np
 ## Tasks (vertical slices)
 
 1. Scaffold Vite + React + TS (`bunx create-vite@latest . --template react-ts`, skip install), `bunfig.toml`, `bun install`, shadcn init (minimalist).
-2. Pin `topographic@0.3.0` and `topographic-react@0.3.0` (newest versions allowed under `minimumReleaseAge = 259200`; note newer 0.4+ in PR).
+2. Pin `topographic@0.6.0` and `topographic-react@0.6.0` (newest versions allowed under `minimumReleaseAge = 259200` while 0.7.x is too fresh).
 3. Layout: fixed full-viewport terrain + collapsible right panel (shadcn Sheet or fixed aside).
 4. Wire `Topography` props from React state; `onReady` stores instance for export.
 5. Source presets + generate controls; clearing `location` when generating.

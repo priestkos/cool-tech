@@ -1,4 +1,4 @@
-import { PRESETS, STYLES, paramsIn } from 'topographic'
+import { LOOKS, SHAPES, paramsIn } from 'topographic'
 import { ParamControl } from '@/components/ParamControl'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
@@ -13,6 +13,8 @@ import { Separator } from '@/components/ui/separator'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import {
   CAMERA_MOTION_OPTIONS,
+  REAL_PLACE_PRESETS,
+  patchForRealPlace,
   type StudioState,
 } from '@/lib/studio-settings'
 
@@ -42,23 +44,54 @@ export function ControlPanel({ state, onChange }: ControlPanelProps) {
         <div>
           <h2 className="text-sm font-semibold tracking-tight">Source</h2>
           <p className="text-muted-foreground mt-1 text-xs leading-relaxed">
-            Procedural terrain from a shape and seed. Built-in real places (
-            Fuji, Grand Canyon, …) ship in topographic ≥0.6; this demo pins
-            0.3.0 under the repo&apos;s 3-day install age rule.
+            Pick a real place from elevation data bundled in topographic, or
+            generate procedural terrain from a shape and seed.
           </p>
+        </div>
+
+        <div className="space-y-2">
+          <Label>Real places</Label>
+          <div className="flex flex-wrap gap-2">
+            {REAL_PLACE_PRESETS.map((preset) => (
+              <button
+                key={preset.location}
+                type="button"
+                className={`rounded-md border px-2 py-1 text-xs transition-colors ${
+                  state.location === preset.location
+                    ? 'border-primary bg-primary/15 font-medium'
+                    : 'border-border bg-muted/40 hover:bg-muted'
+                }`}
+                onClick={() => onChange(patchForRealPlace(preset.location))}
+              >
+                {preset.label}
+              </button>
+            ))}
+          </div>
+          {state.location ? (
+            <button
+              type="button"
+              className="text-muted-foreground text-xs underline-offset-2 hover:underline"
+              onClick={() => onChange({ location: null })}
+            >
+              Use procedural terrain instead
+            </button>
+          ) : null}
         </div>
 
         <div className="space-y-2">
           <Label>Shape</Label>
           <Select
-            value={state.styleName}
-            onValueChange={(v) => onChange({ styleName: v as StudioState['styleName'] })}
+            value={state.shape}
+            disabled={state.location !== null}
+            onValueChange={(v) =>
+              onChange({ shape: v as StudioState['shape'], location: null })
+            }
           >
             <SelectTrigger className="w-full">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              {STYLES.map((s) => (
+              {SHAPES.map((s) => (
                 <SelectItem key={s.id} value={s.id}>
                   {s.name}
                 </SelectItem>
@@ -74,6 +107,7 @@ export function ControlPanel({ state, onChange }: ControlPanelProps) {
             type="number"
             min={0}
             max={999999}
+            disabled={state.location !== null}
             value={state.seed}
             onChange={(e) =>
               onChange({ seed: Number.parseInt(e.target.value, 10) || 0 })
@@ -82,17 +116,18 @@ export function ControlPanel({ state, onChange }: ControlPanelProps) {
         </div>
 
         <div className="space-y-2">
-          <Label>Curated presets</Label>
+          <Label>Curated looks</Label>
           <div className="flex flex-wrap gap-2">
-            {PRESETS.map((preset) => (
+            {LOOKS.map((look) => (
               <button
-                key={preset.name}
+                key={look.id}
                 type="button"
                 className="rounded-md border border-border bg-muted/40 px-2 py-1 text-xs transition-colors hover:bg-muted"
                 onClick={() => {
-                  const s = preset.settings
+                  const s = look.settings
                   onChange({
-                    styleName: (s.style ?? state.styleName) as StudioState['styleName'],
+                    location: null,
+                    shape: (s.shape ?? state.shape) as StudioState['shape'],
                     seed: s.seed ?? state.seed,
                     lines: { ...state.lines, ...s.lines },
                     terrain: { ...state.terrain, ...s.terrain },
@@ -105,7 +140,7 @@ export function ControlPanel({ state, onChange }: ControlPanelProps) {
                   })
                 }}
               >
-                {preset.name}
+                {look.name}
               </button>
             ))}
           </div>
