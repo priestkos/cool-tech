@@ -1,0 +1,52 @@
+// Ported from glass-icon-reveal (MIT) — https://github.com/zanwei/glass-icon-reveal
+
+export const TEX = 1024
+export const BOX = 0.75
+
+export const FRAME_KEYS = [
+  'uPlateScale',
+  'uShapeN',
+  'uCornerN',
+  'uOptics',
+  'uPlateAlpha',
+  'uLogoHalf',
+  'uBold',
+  'uBlur',
+  'uFrost',
+  'uDome',
+  'uDrop',
+  'uPinch',
+  'uTilt',
+  'uBare',
+  'uReach',
+  'uCornerPull',
+  'uStreak',
+  'uWiden',
+  'uSlab',
+  'uEtaSpread',
+  'uFocus',
+  'uFocusK',
+  'uFocusSplit',
+  'uRimLine',
+  'uCornerOn',
+  'uDissolve',
+  'uGlow',
+  'uFaceDisp',
+  'uVivid',
+  'uRim',
+  'uHalo',
+  'uShadow',
+  'uGhost',
+  'uRipR',
+  'uRipA',
+  'uDepth',
+  'uDisp',
+  'uDouble',
+  'uBevelW',
+  'uSpec',
+  'uIconPlate',
+  'uUseColor',
+  'uLightScene',
+] as const
+
+export type FrameKey = (typeof FRAME_KEYS)[number]
