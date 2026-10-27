@@ -66,6 +66,12 @@
       "title": "AI SDK Web Fetch Tool (@ai-sdk/tool-web-fetch)",
       "url": "https://x.com/aisdk/status/2113669323483128111",
       "date": "2026-10-25"
+    },
+    {
+      "id": "sandbox-runtime",
+      "title": "Anthropic sandbox-runtime (srt)",
+      "url": "https://x.com/RoundtableSpace/status/2114699842601558046",
+      "date": "2026-10-27"
     }
   ],
   "skipped": [
