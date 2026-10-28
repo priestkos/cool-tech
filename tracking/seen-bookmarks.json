@@ -78,6 +78,12 @@
       "title": "bun fmt (Prettier-compatible formatter built into Bun v1.4.4)",
       "url": "https://x.com/bunjavascript/status/2113213103660032209",
       "date": "2026-10-28"
+    },
+    {
+      "id": "devl-dev-components",
+      "title": "devl.dev open-source shadcn components (JSON Explorer, Liquid Slider, File Tree, Voice Note)",
+      "url": "https://x.com/SeanBrydon13/status/2114768649336869231",
+      "date": "2026-10-27"
     }
   ],
   "skipped": [
