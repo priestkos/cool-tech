@@ -78,6 +78,12 @@
       "title": "bun fmt (Prettier-compatible formatter built into Bun v1.4.4)",
       "url": "https://x.com/bunjavascript/status/2113213103660032209",
       "date": "2026-10-28"
+    },
+    {
+      "id": "sharingan",
+      "title": "Sharingan (animated WebGPU/DOM hero sections via the shadcn registry)",
+      "url": "https://x.com/DilaneKombou/status/2114333976978751849",
+      "date": "2026-10-28"
     }
   ],
   "skipped": [
