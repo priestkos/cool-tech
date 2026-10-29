@@ -1,0 +1,27 @@
+{
+  "status": "completed",
+  "llm": {
+    "provider": "demo",
+    "model": "sample-fixture"
+  },
+  "summary": {
+    "files_reviewed": 1,
+    "comments": 1,
+    "total_tokens": 8420,
+    "input_tokens": 6100,
+    "output_tokens": 2320,
+    "elapsed": "12.4s"
+  },
+  "comments": [
+    {
+      "path": "app/db/users.py",
+      "content": "The query concatenates unsanitized request input into SQL. Use parameterized queries (`?` placeholders) so user-controlled values never appear in the query string.",
+      "start_line": 6,
+      "end_line": 7,
+      "existing_code": "    query = \"SELECT id, email FROM users WHERE id = \" + user_id\n    cursor = db.execute(query)",
+      "suggestion_code": "    cursor = db.execute(\n        \"SELECT id, email FROM users WHERE id = ?\",\n        (user_id,),\n    )",
+      "category": "security",
+      "severity": "high"
+    }
+  ]
+}

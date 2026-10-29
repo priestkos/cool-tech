@@ -1,0 +1,27 @@
+{
+  "status": "completed",
+  "llm": {
+    "provider": "demo",
+    "model": "sample-fixture"
+  },
+  "summary": {
+    "files_reviewed": 1,
+    "comments": 1,
+    "total_tokens": 5310,
+    "input_tokens": 4020,
+    "output_tokens": 1290,
+    "elapsed": "9.1s"
+  },
+  "comments": [
+    {
+      "path": "src/profile.ts",
+      "content": "`Map.get` can return `undefined`. Calling `toUpperCase()` without a guard will throw at runtime when the key is missing.",
+      "start_line": 3,
+      "end_line": 3,
+      "existing_code": "  return value.toUpperCase();",
+      "suggestion_code": "  if (value === undefined) {\n    return \"Unknown\";\n  }\n  return value.toUpperCase();",
+      "category": "bug",
+      "severity": "medium"
+    }
+  ]
+}

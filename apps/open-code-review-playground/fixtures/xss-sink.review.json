@@ -1,0 +1,27 @@
+{
+  "status": "completed",
+  "llm": {
+    "provider": "demo",
+    "model": "sample-fixture"
+  },
+  "summary": {
+    "files_reviewed": 1,
+    "comments": 1,
+    "total_tokens": 6888,
+    "input_tokens": 5200,
+    "output_tokens": 1688,
+    "elapsed": "11.0s"
+  },
+  "comments": [
+    {
+      "path": "src/WelcomeBanner.tsx",
+      "content": "Rendering user-controlled `headline` through `dangerouslySetInnerHTML` is an XSS sink. Render text as React children or sanitize HTML first.",
+      "start_line": 7,
+      "end_line": 8,
+      "existing_code": "      dangerouslySetInnerHTML={{ __html: headline }}",
+      "suggestion_code": "    >{headline}</h1>",
+      "category": "security",
+      "severity": "high"
+    }
+  ]
+}
