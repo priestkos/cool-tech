@@ -90,6 +90,54 @@
       "title": "Sharingan (animated WebGPU/DOM hero sections via the shadcn registry)",
       "url": "https://x.com/DilaneKombou/status/2114333976978751849",
       "date": "2026-10-28"
+    },
+    {
+      "id": "open-code-review",
+      "title": "Open Code Review (Alibaba's open-sourced AI code review CLI)",
+      "url": "https://x.com/thisdudelikesAI/status/2115010135588589932",
+      "date": "2026-10-29"
+    },
+    {
+      "id": "dotty-botty",
+      "title": "Dotty (tiny animated SVG mascot for AI agents, dotty-botty)",
+      "url": "https://x.com/roybarberuk/status/2115056957933445564",
+      "date": "2026-10-29"
+    },
+    {
+      "id": "bklit",
+      "title": "Bklit (open-source React chart kit via the shadcn registry)",
+      "url": "https://x.com/uixmat/status/2115528918748774462",
+      "date": "2026-10-30"
+    },
+    {
+      "id": "copilotkit-genui",
+      "title": "CopilotKit Generative UI: Catalog and Surfaces (A2UI 1.0)",
+      "url": "https://x.com/CopilotKit/status/2115499466182799400",
+      "date": "2026-10-30"
+    },
+    {
+      "id": "design-agent",
+      "title": "LangChain Design Agent (Content Studio): on-brand slides, charts and motion as HTML from a chat brief",
+      "url": "https://x.com/MattClark220/status/2115479468152438816",
+      "date": "2026-10-31"
+    },
+    {
+      "id": "agent-desktop",
+      "title": "Vercel Labs agent-desktop: coding agents drive native desktop apps through the OS accessibility tree",
+      "url": "https://x.com/ctatedev/status/2116323148706771302",
+      "date": "2026-11-01"
+    },
+    {
+      "id": "stageshow",
+      "title": "Stageshow by Benji Taylor: an agent skill for polished faux product UI stills, animations and bento grids",
+      "url": "https://x.com/benjitaylor/status/2116593247854453244",
+      "date": "2026-11-01"
+    },
+    {
+      "id": "spark-radix",
+      "title": "Spark Radix (WebGPU Gaussian splat renderer for three.js)",
+      "url": "https://x.com/sparkjsdev/status/2115852543708536881",
+      "date": "2026-10-31"
     }
   ],
   "skipped": [
