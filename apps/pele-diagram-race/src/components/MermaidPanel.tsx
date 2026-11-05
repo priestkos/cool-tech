@@ -1,15 +1,14 @@
+import DOMPurify from "dompurify"
 import mermaid from "mermaid"
 import { useEffect, useId, useRef, useState } from "react"
+import { MERMAID_CONFIG } from "@/lib/mermaidConfig"
 
 let mermaidReady = false
+let renderSequence = 0
 
 function ensureMermaid() {
   if (mermaidReady) return
-  mermaid.initialize({
-    startOnLoad: false,
-    theme: "neutral",
-    securityLevel: "loose",
-  })
+  mermaid.initialize(MERMAID_CONFIG)
   mermaidReady = true
 }
 
@@ -29,14 +28,20 @@ export function MermaidPanel({ source, onRendered }: MermaidPanelProps) {
     if (!container) return
 
     let cancelled = false
+    const id = `mmd-${renderId}-${++renderSequence}`
     const run = async () => {
       setError(null)
       const started = performance.now()
       try {
-        const id = `mmd-${renderId}-${Date.now()}`
         const { svg } = await mermaid.render(id, source)
         if (cancelled) return
-        container.innerHTML = svg
+        const sanitized = DOMPurify.sanitize(svg, {
+          USE_PROFILES: { svg: true, svgFilters: true },
+          FORBID_TAGS: ["style"],
+          FORBID_ATTR: ["style"],
+          RETURN_DOM_FRAGMENT: true,
+        })
+        container.replaceChildren(sanitized)
         onRendered(performance.now() - started)
       } catch (err) {
         if (cancelled) return

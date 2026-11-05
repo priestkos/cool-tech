@@ -117,6 +117,17 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Static styling replaces Mermaid's untrusted generated CSS. */
+.mermaid svg { font: 16px sans-serif; fill: #111; }
+.mermaid .node rect, .mermaid .node circle, .mermaid .node ellipse,
+.mermaid .node polygon, .mermaid .node path { fill: #eee; stroke: #777; }
+.mermaid .edgePath path, .mermaid .edgePaths > path, .mermaid .flowchart-link,
+.mermaid line[class^="messageLine"] { fill: none; stroke: #666; }
+.mermaid .marker path { fill: #666; stroke: #666; }
+.mermaid .section { fill: #f4f4f4; }
+.mermaid .task { fill: #ddd; stroke: #777; }
+.mermaid text { fill: #111; }
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

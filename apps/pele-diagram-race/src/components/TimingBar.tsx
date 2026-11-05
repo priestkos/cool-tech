@@ -11,6 +11,7 @@ type TimingBarProps = {
   peleLastMs: number | null
   mermaidLastMs: number | null
   raceBusy: boolean
+  raceError: string | null
   raceIterations: number
   peleRaceAvgMs: number | null
   mermaidRaceAvgMs: number | null
@@ -21,6 +22,7 @@ export function TimingBar({
   peleLastMs,
   mermaidLastMs,
   raceBusy,
+  raceError,
   raceIterations,
   peleRaceAvgMs,
   mermaidRaceAvgMs,
@@ -51,6 +53,7 @@ export function TimingBar({
           {raceBusy ? "Racing…" : `Race ×${raceIterations}`}
         </Button>
       </div>
+      {raceError ? <p role="alert" className="text-sm text-destructive">Race failed: {raceError}</p> : null}
       {peleRaceAvgMs !== null && mermaidRaceAvgMs !== null ? (
         <p className="text-sm text-muted-foreground">
           Avg over {raceIterations}: Pele {formatMs(peleRaceAvgMs)} ms · mermaid{" "}

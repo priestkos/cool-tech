@@ -25,3 +25,12 @@ Open the URL Vite prints (default `http://localhost:5173`).
 2. Compare last render times and run **Race ×50** for averages.
 3. Tweak **Pele theme** CSS variables (`--pele-*`) — colors change without re-rendering.
 4. Enable **Shrink Pele container** to watch responsive relayout.
+
+## Image safety
+
+Mermaid renders editable source in the live document before its output can be
+sanitized. The page CSP blocks network image URLs, including same-origin URLs,
+to prevent image nodes from making requests during rendering. Such image nodes
+may fail to render or complete a race; inline `data:` images remain permitted.
+Run `node scripts/security-browser.mjs` with Chromium installed to exercise the
+real browser boundary, presets, race, and sanitizer.

@@ -44,22 +44,14 @@ export async function handleFetchRequest(body: FetchRequestBody): Promise<FetchA
 
   return {
     rawHtml: rawResult.status === "fulfilled" ? rawResult.value : null,
-    rawError:
-      rawResult.status === "rejected"
-        ? rawResult.reason instanceof Error
-          ? rawResult.reason.message
-          : String(rawResult.reason)
-        : undefined,
+    rawError: rawResult.status === "rejected" ? "Unable to fetch raw HTML" : undefined,
     tool: toolResult.status === "fulfilled"
       ? toolResult.value
       : {
           type: "error",
           url,
           errorCode: "network_error",
-          message:
-            toolResult.reason instanceof Error
-              ? toolResult.reason.message
-              : String(toolResult.reason),
+          message: "Unable to fetch page",
         },
   }
 }

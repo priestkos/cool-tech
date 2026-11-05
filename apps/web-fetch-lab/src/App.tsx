@@ -65,6 +65,58 @@ type ChatResponse = {
 const DEFAULT_URL = "https://ai-sdk.dev/docs/introduction"
 const FIXTURE_URL = "https://fixture.web-fetch-lab.example/injection-test"
 
+class RequestError extends Error {}
+
+async function readResponse(response: Response): Promise<unknown> {
+  if (!response.ok) {
+    throw new RequestError(response.status === 400
+      ? "Invalid request body. Check the URL or message, allowed domains (bare hostnames), and maxLength."
+      : "The server could not process the request. Please try again.")
+  }
+  try {
+    return await response.json()
+  } catch {
+    throw new RequestError("The server returned an invalid response.")
+  }
+}
+
+function isToolOutput(value: unknown): value is ToolOutput {
+  if (!value || typeof value !== "object") return false
+  const tool = value as Record<string, unknown>
+  if (typeof tool.url !== "string") return false
+  if (tool.type === "error") return typeof tool.errorCode === "string" && typeof tool.message === "string"
+  return tool.type === "document" && typeof tool.content === "string" &&
+    typeof tool.finalUrl === "string" && typeof tool.contentType === "string" &&
+    typeof tool.offset === "number" && typeof tool.totalLength === "number" &&
+    (tool.nextOffset === undefined || typeof tool.nextOffset === "number") &&
+    (tool.title === undefined || typeof tool.title === "string")
+}
+
+function isFetchResponse(value: unknown): value is FetchResponse {
+  if (!value || typeof value !== "object") return false
+  const data = value as Record<string, unknown>
+  return (data.rawHtml === null || typeof data.rawHtml === "string") &&
+    (data.rawError === undefined || typeof data.rawError === "string") && isToolOutput(data.tool)
+}
+
+function isChatResponse(value: unknown): value is ChatResponse {
+  if (!value || typeof value !== "object") return false
+  const data = value as Record<string, unknown>
+  return typeof data.text === "string" && Array.isArray(data.steps) && data.steps.every((step: unknown) => {
+    if (!step || typeof step !== "object") return false
+    const item = step as Record<string, unknown>
+    if (!item.input || typeof item.input !== "object") return false
+    return typeof item.toolCallId === "string" && typeof item.toolName === "string" &&
+      typeof (item.input as Record<string, unknown>).url === "string" &&
+      Object.hasOwn(item, "output")
+  }) && (data.injectionOutcome === undefined || data.injectionOutcome === "leaked" || data.injectionOutcome === "blocked") &&
+    (data.realModelAvailable === undefined || typeof data.realModelAvailable === "boolean")
+}
+
+function errorMessage(error: unknown): string {
+  return error instanceof RequestError ? error.message : "Could not connect to the server. Please try again."
+}
+
 export default function App() {
   const [url, setUrl] = useState(DEFAULT_URL)
   const [allowedDomains, setAllowedDomains] = useState("")
@@ -73,6 +125,7 @@ export default function App() {
   const [useFixtureTransport, setUseFixtureTransport] = useState(false)
   const [loading, setLoading] = useState(false)
   const [fetchResult, setFetchResult] = useState<FetchResponse | null>(null)
+  const [fetchError, setFetchError] = useState<string | null>(null)
 
   const [chatMessage, setChatMessage] = useState(
     `Summarize this page: ${DEFAULT_URL}`,
@@ -82,6 +135,7 @@ export default function App() {
   const [realModelAvailable, setRealModelAvailable] = useState(false)
   const [chatLoading, setChatLoading] = useState(false)
   const [chatResult, setChatResult] = useState<ChatResponse | null>(null)
+  const [chatError, setChatError] = useState<string | null>(null)
 
   const safetyPayload = useMemo(
     () => ({
@@ -98,6 +152,8 @@ export default function App() {
   const runFetch = useCallback(
     async (nextOffset = 0) => {
       setLoading(true)
+      setFetchError(null)
+      setFetchResult(null)
       try {
         const response = await fetch("/api/fetch", {
           method: "POST",
@@ -116,8 +172,13 @@ export default function App() {
             },
           }),
         })
-        const data = (await response.json()) as FetchResponse
+        const data = await readResponse(response)
+        if (!isFetchResponse(data)) {
+          throw new RequestError("The server returned an invalid response.")
+        }
         setFetchResult(data)
+      } catch (error) {
+        setFetchError(errorMessage(error))
       } finally {
         setLoading(false)
       }
@@ -127,6 +188,8 @@ export default function App() {
 
   const runChat = useCallback(async () => {
     setChatLoading(true)
+    setChatError(null)
+    setChatResult(null)
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
@@ -145,11 +208,16 @@ export default function App() {
           },
         }),
       })
-      const data = (await response.json()) as ChatResponse
+      const data = await readResponse(response)
+      if (!isChatResponse(data)) {
+        throw new RequestError("The server returned an invalid response.")
+      }
       setChatResult(data)
       if (data.realModelAvailable !== undefined) {
         setRealModelAvailable(data.realModelAvailable)
       }
+    } catch (error) {
+      setChatError(errorMessage(error))
     } finally {
       setChatLoading(false)
     }
@@ -260,6 +328,8 @@ export default function App() {
                 <Label htmlFor="fixture-transport">Fixture transport (demo hosts only)</Label>
               </div>
             </div>
+
+            {fetchError && <p role="alert" className="text-sm text-destructive">{fetchError}</p>}
 
             {tool?.type === "document" && (
               <div className="flex flex-wrap items-center gap-2 text-sm">
@@ -374,6 +444,8 @@ export default function App() {
                     </Label>
                   </div>
                 </div>
+
+                {chatError && <p role="alert" className="text-sm text-destructive">{chatError}</p>}
 
                 {chatResult?.injectionOutcome && (
                   <div
