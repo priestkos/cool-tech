@@ -1,7 +1,7 @@
 import { injectionPageHtml } from "./fixtures"
 import { handleFetchRequest } from "./fetch-handler"
 import { handleChatRequest } from "./chat-handler"
-import type { FetchRequestBody } from "./tool-options"
+import { isChatRequest, isFetchRequest } from "./request-validation"
 
 const port = Number(process.env.WEB_FETCH_LAB_API_PORT ?? "3921")
 
@@ -12,8 +12,14 @@ function json(data: unknown, status = 200) {
   })
 }
 
-async function readJson<T>(request: Request): Promise<T> {
-  return (await request.json()) as T
+async function parseJson<T>(request: Request, validate: (value: unknown) => value is T): Promise<T | Response> {
+  let body: unknown
+  try {
+    body = await request.json()
+  } catch {
+    return json({ error: "Invalid JSON" }, 400)
+  }
+  return validate(body) ? body : json({ error: "Invalid request body" }, 400)
 }
 
 Bun.serve({
@@ -37,28 +43,20 @@ Bun.serve({
 
     if (request.method === "POST" && pathname === "/api/fetch") {
       try {
-        const body = await readJson<FetchRequestBody>(request)
+        const body = await parseJson(request, isFetchRequest)
+        if (body instanceof Response) return body
         const result = await handleFetchRequest(body)
         return json(result)
-      } catch (error) {
-        return json(
-          {
-            error: error instanceof Error ? error.message : String(error),
-          },
-          400,
-        )
+      } catch {
+        console.error("Fetch request failed")
+        return json({ error: "Unable to process request" }, 500)
       }
     }
 
     if (request.method === "POST" && pathname === "/api/chat") {
       try {
-        const body = await readJson<{
-          message: string
-          injectionDemo?: boolean
-          useRealModel?: boolean
-          useFixtureTransport?: boolean
-          safety?: FetchRequestBody["safety"]
-        }>(request)
+        const body = await parseJson(request, isChatRequest)
+        if (body instanceof Response) return body
         const result = await handleChatRequest({
           message: body.message,
           injectionDemo: body.injectionDemo ?? false,
@@ -70,13 +68,9 @@ Bun.serve({
           ...result,
           realModelAvailable: Boolean(process.env.OPENAI_API_KEY),
         })
-      } catch (error) {
-        return json(
-          {
-            error: error instanceof Error ? error.message : String(error),
-          },
-          400,
-        )
+      } catch {
+        console.error("Chat request failed")
+        return json({ error: "Unable to process request" }, 500)
       }
     }
 

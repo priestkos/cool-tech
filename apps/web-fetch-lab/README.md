@@ -17,6 +17,10 @@ Open the Vite URL printed in the terminal (default port 5173). No API key is req
 
 Optional: copy `.env.example` to `.env` and set `OPENAI_API_KEY` to enable the **Real model** toggle.
 
+## Tests
+
+Run `bun test` for the automated HTTP and unit tests. For the Chromium UI regression, start the dev server and run `node scripts/browser-errors.mjs` in another terminal (set `CHROMIUM` or `WEB_FETCH_LAB_URL` if needed). The browser test uses fixture transport for successful requests and simulates server and network failures in the browser.
+
 ## Architecture
 
 - **Bun.serve** (`server/index.ts`) runs the web fetch tool server-side (`POST /api/fetch`, `POST /api/chat`, `GET /api/fixtures/injection`).

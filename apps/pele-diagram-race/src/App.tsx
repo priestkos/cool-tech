@@ -13,6 +13,7 @@ import { useDebouncedValue } from "@/hooks/useDebouncedValue"
 import { DEFAULT_SOURCE, PRESETS, type PresetId } from "@/lib/presets"
 import { DEFAULT_PELE_THEME, type PeleTheme } from "@/lib/peleTheme"
 import { averageMs } from "@/lib/timing"
+import { MERMAID_CONFIG } from "@/lib/mermaidConfig"
 
 const RACE_ITERATIONS = 50
 
@@ -23,6 +24,7 @@ export default function App() {
   const [peleLastMs, setPeleLastMs] = useState<number | null>(null)
   const [mermaidLastMs, setMermaidLastMs] = useState<number | null>(null)
   const [raceBusy, setRaceBusy] = useState(false)
+  const [raceError, setRaceError] = useState<string | null>(null)
   const [peleRaceAvgMs, setPeleRaceAvgMs] = useState<number | null>(null)
   const [mermaidRaceAvgMs, setMermaidRaceAvgMs] = useState<number | null>(null)
   const [theme, setTheme] = useState<PeleTheme>(DEFAULT_PELE_THEME)
@@ -46,6 +48,9 @@ export default function App() {
 
   const runRace = async () => {
     setRaceBusy(true)
+    setRaceError(null)
+    setPeleRaceAvgMs(null)
+    setMermaidRaceAvgMs(null)
     try {
       const peleSamples: number[] = []
       for (let i = 0; i < RACE_ITERATIONS; i++) {
@@ -58,7 +63,7 @@ export default function App() {
         peleSamples.push(performance.now() - start)
       }
 
-      mermaid.initialize({ startOnLoad: false, theme: "neutral" })
+      mermaid.initialize(MERMAID_CONFIG)
       const mermaidSamples: number[] = []
       for (let i = 0; i < RACE_ITERATIONS; i++) {
         const start = performance.now()
@@ -68,6 +73,8 @@ export default function App() {
 
       setPeleRaceAvgMs(averageMs(peleSamples))
       setMermaidRaceAvgMs(averageMs(mermaidSamples))
+    } catch (err) {
+      setRaceError(err instanceof Error ? err.message : String(err))
     } finally {
       setRaceBusy(false)
     }
@@ -152,6 +159,7 @@ export default function App() {
             peleLastMs={peleLastMs}
             mermaidLastMs={mermaidLastMs}
             raceBusy={raceBusy}
+            raceError={raceError}
             raceIterations={RACE_ITERATIONS}
             peleRaceAvgMs={peleRaceAvgMs}
             mermaidRaceAvgMs={mermaidRaceAvgMs}
