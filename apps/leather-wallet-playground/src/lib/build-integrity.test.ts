@@ -19,6 +19,27 @@ function walk(dir: string): string[] {
   return files
 }
 
+/** Hostname literals with label boundaries (avoids bare substring matches on URLs). */
+const FORBIDDEN_HOST_PATTERNS: { host: string; pattern: RegExp }[] = [
+  {
+    host: "assets.chanhdai.com",
+    pattern: /(^|[^a-z0-9.-])assets\.chanhdai\.com(?![a-z0-9-])/i,
+  },
+  {
+    host: "chanhdai.com",
+    pattern: /(^|[^a-z0-9.-])chanhdai\.com(?![a-z0-9-])/i,
+  },
+]
+
+function findForbiddenHostLiterals(text: string): string[] {
+  const found: string[] = []
+  for (const { host, pattern } of FORBIDDEN_HOST_PATTERNS) {
+    pattern.lastIndex = 0
+    if (pattern.test(text)) found.push(host)
+  }
+  return found
+}
+
 describe("build integrity", () => {
   test("vendored wallet sha256 matches vendor-wallet.md", () => {
     const doc = readFileSync(VENDOR_DOC, "utf8")
@@ -36,8 +57,8 @@ describe("build integrity", () => {
         continue
       checked = true
       const text = readFileSync(file, "utf8")
-      expect(text.includes("chanhdai.com")).toBe(false)
-      expect(text.includes("assets.chanhdai.com")).toBe(false)
+      const forbidden = findForbiddenHostLiterals(text)
+      expect(forbidden).toEqual([])
     }
     expect(checked).toBe(true)
   })
