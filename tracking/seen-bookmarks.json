@@ -138,6 +138,54 @@
       "title": "Spark Radix (WebGPU Gaussian splat renderer for three.js)",
       "url": "https://x.com/sparkjsdev/status/2115852543708536881",
       "date": "2026-10-31"
+    },
+    {
+      "id": "reanimate",
+      "title": "Reanimate (Claude Code skill that clones animations frame by frame and compares until they match)",
+      "url": "https://x.com/niazmorshed_/status/2116006291852423247",
+      "date": "2026-10-30"
+    },
+    {
+      "id": "alembic-ornament-studio",
+      "title": "Alembic ornaments (seeded woodcut SVG ornaments and frames, @lauriparonen/alembic-ornaments)",
+      "url": "https://x.com/foodofthegods3/status/2116423919137632431",
+      "date": "2026-10-31"
+    },
+    {
+      "id": "stack-diagram-studio",
+      "title": "stack-diagram (agent skill that turns a one-sentence stack into an architecture diagram)",
+      "url": "https://x.com/caru_ini/status/2117422380935168035",
+      "date": "2026-11-03"
+    },
+    {
+      "id": "anatomy-machine-lab",
+      "title": "Anatomy (agent skill that turns how-does-X-work into an animated isometric machine)",
+      "url": "https://x.com/sumitdesk/status/2117563737968369925",
+      "date": "2026-11-03"
+    },
+    {
+      "id": "looseleaf-sketch-mode",
+      "title": "Looseleaf (shadcn/ui redrawn by hand on notebook paper, shadcn registry)",
+      "url": "https://x.com/kevin_t_ngo/status/2116929610122395995",
+      "date": "2026-11-01"
+    },
+    {
+      "id": "pixelfx",
+      "title": "pixelfx (244 code-driven pixel art game effects with palette recolor and sprite-sheet export)",
+      "url": "https://x.com/Mnilax/status/2117326790930907173",
+      "date": "2026-11-05"
+    },
+    {
+      "id": "glorpies",
+      "title": "glorpies (deterministic alien avatars from any string, with agent states)",
+      "url": "https://x.com/friednoodlz/status/2117254897506902154",
+      "date": "2026-11-05"
+    },
+    {
+      "id": "ncdai-wallet",
+      "title": "@ncdai/wallet (leather wallet with peek and pull-out cards, shadcn registry, Motion)",
+      "url": "https://x.com/iamncdai/status/2117279668240044542",
+      "date": "2026-11-02"
     }
   ],
   "skipped": [
