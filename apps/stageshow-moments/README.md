@@ -75,7 +75,7 @@ Self-review from `references/verify.md` / `review.md` at pin `8020574`:
 | tw-animate-css | 1.4.0 | (shadcn) | MIT |
 | @hugeicons/react | 1.1.10 | (shadcn icons) | MIT |
 | oxlint | 1.88.0 | dev | MIT |
-| happy-dom | 17.4.4 | dev | MIT |
+| happy-dom | 21.0.4 | dev | MIT |
 
 `bunfig.toml` sets `[install] minimumReleaseAge = 259200` (no excludes).
 
