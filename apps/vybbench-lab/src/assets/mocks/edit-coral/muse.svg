@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="160" viewBox="0 0 280 160">
+  <rect width="280" height="160" rx="12" fill="#ffe4e6"/>
+  <text x="24" y="48" font-family="system-ui,sans-serif" font-size="22" fill="#be123c">Summer Sale</text>
+  <rect x="24" y="64" width="120" height="36" rx="6" fill="#fda4af"/>
+  <text x="36" y="88" font-size="16" fill="#9f1239">30% OFF</text>
+  <text x="24" y="140" font-size="11" fill="#64748b">Mock · Muse</text>
+</svg>

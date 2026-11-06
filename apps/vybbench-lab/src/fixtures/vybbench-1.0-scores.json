@@ -1,0 +1,129 @@
+{
+  "run": "October 2026",
+  "sources": [
+    "https://huggingface.co/datasets/cocolabs/vybbench",
+    "https://cocolabs.ai/research/vybbench"
+  ],
+  "footnote": "Research page reports finer decimals (e.g. Vyb 90.3% font mean); this fixture uses the HuggingFace README rounded values.",
+  "models": [
+    {
+      "id": "vyb-1.0",
+      "name": "Vyb 1.0",
+      "vendor": "Coco Labs"
+    },
+    {
+      "id": "chatgpt-image",
+      "name": "ChatGPT Image",
+      "vendor": "OpenAI",
+      "note": "gpt-image-2.5-sunburst"
+    },
+    {
+      "id": "muse",
+      "name": "Muse",
+      "vendor": "Meta",
+      "note": "meta/muse-image"
+    },
+    {
+      "id": "recraft-v41",
+      "name": "Recraft v4.1",
+      "vendor": "Recraft"
+    },
+    {
+      "id": "noise-floor",
+      "name": "Measurement noise floor",
+      "vendor": "Benchmark",
+      "fontOnly": true
+    }
+  ],
+  "font": {
+    "title": "Font fidelity",
+    "methodology": "Ink IoU after crop and rescale to the reference text box. Higher is better.",
+    "polarity": "higher",
+    "columns": [
+      { "key": "mean", "label": "Mean IoU", "format": "decimal" },
+      { "key": "worst5", "label": "Worst 5%", "format": "decimal" }
+    ],
+    "rows": [
+      { "modelId": "vyb-1.0", "mean": 0.9, "worst5": 0.78, "rank": 1 },
+      { "modelId": "chatgpt-image", "mean": 0.76, "worst5": 0.28, "rank": 2 },
+      { "modelId": "muse", "mean": 0.51, "worst5": 0.18, "rank": 3 },
+      { "modelId": "recraft-v41", "mean": 0.46, "worst5": 0.14, "rank": 4 },
+      { "modelId": "noise-floor", "mean": 0.94, "worst5": 0.88, "rank": 0, "isBaseline": true }
+    ]
+  },
+  "color": {
+    "title": "Color fidelity",
+    "methodology": "Maximum per-channel RGB error (0–255 scale). Lower is better.",
+    "polarity": "lower",
+    "columns": [
+      { "key": "mean", "label": "Mean Δ", "format": "decimal1" },
+      { "key": "worst5", "label": "Worst 5%", "format": "integer" }
+    ],
+    "rows": [
+      { "modelId": "vyb-1.0", "mean": 0.0, "worst5": 0, "rank": 1 },
+      { "modelId": "chatgpt-image", "mean": 3.9, "worst5": 8, "rank": 2 },
+      { "modelId": "muse", "mean": 5.7, "worst5": 10, "rank": 3 },
+      { "modelId": "recraft-v41", "mean": 27.2, "worst5": 56, "rank": 4 }
+    ]
+  },
+  "edit": {
+    "title": "Edit fidelity",
+    "methodology": "Non-destructive edits: % pixels changed (lower better) plus LLM-judge acceptance (higher better).",
+    "polarity": "mixed",
+    "columns": [
+      { "key": "pixelsMean", "label": "Pixels changed (mean)", "format": "percent" },
+      { "key": "pixelsWorst5", "label": "Worst 5%", "format": "percent" },
+      { "key": "acceptance", "label": "Acceptance", "format": "percent" }
+    ],
+    "rows": [
+      {
+        "modelId": "vyb-1.0",
+        "pixelsMean": 7.3,
+        "pixelsWorst5": 31.4,
+        "acceptance": 99.2,
+        "rank": 1
+      },
+      {
+        "modelId": "chatgpt-image",
+        "pixelsMean": 95.5,
+        "pixelsWorst5": 99.7,
+        "acceptance": 100,
+        "rank": 4
+      },
+      {
+        "modelId": "muse",
+        "pixelsMean": 91.9,
+        "pixelsWorst5": 99.6,
+        "acceptance": 98.0,
+        "rank": 2
+      },
+      {
+        "modelId": "recraft-v41",
+        "pixelsMean": 98.9,
+        "pixelsWorst5": 100,
+        "acceptance": 51.2,
+        "rank": 3
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "font-harbor",
+      "family": "font",
+      "label": "Font: Harbor in Averia Libre",
+      "description": "Fictional Harbor brand wordmark — illustrative only."
+    },
+    {
+      "id": "color-gray",
+      "family": "color",
+      "label": "Color: #808080 swatch",
+      "description": "Neutral gray fill patch."
+    },
+    {
+      "id": "edit-coral",
+      "family": "edit",
+      "label": "Edit: recolor 30% OFF to coral",
+      "description": "Minimal edit — only the discount badge should change."
+    }
+  ]
+}
