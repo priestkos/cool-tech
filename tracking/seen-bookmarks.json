@@ -186,6 +186,18 @@
       "title": "@ncdai/wallet (leather wallet with peek and pull-out cards, shadcn registry, Motion)",
       "url": "https://x.com/iamncdai/status/2117279668240044542",
       "date": "2026-11-02"
+    },
+    {
+      "id": "screenshot-to-tokens",
+      "title": "Screenshot to Tokens (screenshot → three-tier design tokens, CSS rewrite, pixel+WCAG verify; fixture lab)",
+      "url": "https://x.com/precogpunk/status/2117740495526834365",
+      "date": "2026-11-06"
+    },
+    {
+      "id": "vybbench",
+      "title": "VybBench (open AI image-edit design-fidelity bench: fonts, colors, non-destructive edits; scoreboard lab)",
+      "url": "https://x.com/anurahk/status/2118423168612528242",
+      "date": "2026-11-06"
     }
   ],
   "skipped": [
