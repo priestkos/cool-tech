@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Fictional Orbit Commerce dashboard">
+  <rect width="640" height="360" fill="#fef3c7"/>
+  <rect width="120" height="360" fill="#fff7ed"/>
+  <rect x="140" y="20" width="480" height="60" rx="8" fill="#ffffff" stroke="#fed7aa"/>
+  <rect x="140" y="100" width="220" height="120" rx="10" fill="#ffffff" stroke="#fed7aa"/>
+  <rect x="380" y="100" width="240" height="120" rx="10" fill="#ffffff" stroke="#fed7aa"/>
+  <rect x="140" y="240" width="480" height="96" rx="10" fill="#ffffff" stroke="#fed7aa"/>
+  <rect x="160" y="118" width="64" height="22" rx="6" fill="#f97316"/>
+  <rect x="400" y="260" width="100" height="32" rx="8" fill="#f97316"/>
+  <text x="20" y="36" fill="#1e293b" font-family="system-ui,sans-serif" font-size="11">Orbit</text>
+</svg>
