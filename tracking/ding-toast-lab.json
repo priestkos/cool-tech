@@ -1,0 +1,19 @@
+{
+  "id": "ding-toast",
+  "title": "Ding Toast Lab (inspired single-toast morph playground)",
+  "url": "https://github.com/YusufCeng1z/ding",
+  "date": "2026-11-07",
+  "sourceRefs": [
+    "https://21st.dev/@yusufceng1z/components/ding-toast"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "inspired-fixture-only",
+    "latestCommit": "a4931673435acd02a6887f72c3f17317bc541318",
+    "latestCommitAt": "2026-11-07T08:09:04+05:30",
+    "releaseTag": "v0.0.2",
+    "releaseAt": "2026-11-07T08:29:18+05:30",
+    "eligibleAfterCommit": "2026-11-10T08:09:04+05:30",
+    "eligibleAfterRelease": "2026-11-10T08:29:18+05:30",
+    "note": "No @yusufceng1z/ding install; independent implementation only."
+  }
+}
