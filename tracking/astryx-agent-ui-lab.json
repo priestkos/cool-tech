@@ -13,6 +13,6 @@
     "releaseAt": "2026-11-05T00:12:07+05:30",
     "npmCorePublished": "2026-11-04T18:35:32.553Z",
     "eligibleAtLaunchCutoff": true,
-    "note": "Side-by-side compare with vendored shadcn/ui; no fixture-first fallback required."
+    "note": "Side-by-side compare with vendored shadcn/ui; Astryx preview in isolated iframe document; lockfile age audit 407/407 eligible at cutoff."
   }
 }

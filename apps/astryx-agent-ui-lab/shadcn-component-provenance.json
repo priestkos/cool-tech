@@ -1,0 +1,86 @@
+{
+  "stylePreset": "base-mira",
+  "eligibleCommitNote": "Commit predates cutoff 2026-11-05T03:32:00.000Z (72h before Nov 8 09:02 IST)",
+  "styleCssAtCommit": "apps/v4/registry/styles/style-mira.css",
+  "siblingCopyRejectedAsSoleProvenance": true,
+  "components": [
+    {
+      "localFile": "src/components/ui/badge.tsx",
+      "localSha256": "6284639f30019eca6306a5ff6626c184e4126b5311fab9d4e3b9e9d5d6e4e190",
+      "upstreamRepo": "https://github.com/shadcn-ui/ui",
+      "upstreamCommit": "8a3536678a528cc012b9e62484290e79d0be410f",
+      "upstreamCommitAt": "2026-11-04T07:50:45Z",
+      "upstreamRegistryPath": "apps/v4/registry/bases/base/ui/badge.tsx",
+      "upstreamRawSha256": "cad65ac68df79093dc7e9655a94cc60011a2f82b45fc42a0ad74a6e6323c4389",
+      "byteIdenticalToUpstream": false,
+      "license": "MIT"
+    },
+    {
+      "localFile": "src/components/ui/button.tsx",
+      "localSha256": "10d27fe76a393ebc5dde732f8caa86c92bf58ba0014d2e2a6f6daa7dc26ae5c9",
+      "upstreamRepo": "https://github.com/shadcn-ui/ui",
+      "upstreamCommit": "8a3536678a528cc012b9e62484290e79d0be410f",
+      "upstreamCommitAt": "2026-11-04T07:50:45Z",
+      "upstreamRegistryPath": "apps/v4/registry/bases/base/ui/button.tsx",
+      "upstreamRawSha256": "74f982d7ad7a764e3c95a519fc063a671e66ad758ea31dc89d747838e20c2487",
+      "byteIdenticalToUpstream": false,
+      "license": "MIT"
+    },
+    {
+      "localFile": "src/components/ui/card.tsx",
+      "localSha256": "473e531510792d68e873cfc53dad55f37c19236d30a44ba730a006199ab127ec",
+      "upstreamRepo": "https://github.com/shadcn-ui/ui",
+      "upstreamCommit": "8a3536678a528cc012b9e62484290e79d0be410f",
+      "upstreamCommitAt": "2026-11-04T07:50:45Z",
+      "upstreamRegistryPath": "apps/v4/registry/bases/base/ui/card.tsx",
+      "upstreamRawSha256": "0d525c03e086b0047f7c0700850281023359cfc020eb233fdb0d74ec870ebea0",
+      "byteIdenticalToUpstream": false,
+      "license": "MIT"
+    },
+    {
+      "localFile": "src/components/ui/input.tsx",
+      "localSha256": "b0a8546054e6f2dc7291c18c0d4ac221b8f23e66e847224ed6253adc5c02ff9e",
+      "upstreamRepo": "https://github.com/shadcn-ui/ui",
+      "upstreamCommit": "8a3536678a528cc012b9e62484290e79d0be410f",
+      "upstreamCommitAt": "2026-11-04T07:50:45Z",
+      "upstreamRegistryPath": "apps/v4/registry/bases/base/ui/input.tsx",
+      "upstreamRawSha256": "00213ec177e4556e69b6680128c18023d859a8e4eaf4106fbcf6abdc4f2c419b",
+      "byteIdenticalToUpstream": false,
+      "license": "MIT"
+    },
+    {
+      "localFile": "src/components/ui/label.tsx",
+      "localSha256": "dead9c882daf80a129f1f111d038ca13c602444e8d106db2e82de8545464202a",
+      "upstreamRepo": "https://github.com/shadcn-ui/ui",
+      "upstreamCommit": "8a3536678a528cc012b9e62484290e79d0be410f",
+      "upstreamCommitAt": "2026-11-04T07:50:45Z",
+      "upstreamRegistryPath": "apps/v4/registry/bases/base/ui/label.tsx",
+      "upstreamRawSha256": "d11f6ddea1304473d829329f36238c164dbee9fe04c038fd169d70d352b75704",
+      "byteIdenticalToUpstream": false,
+      "license": "MIT"
+    },
+    {
+      "localFile": "src/components/ui/switch.tsx",
+      "localSha256": "fba468089e1ebcc3d7328298d6e7ea7eea6dbb264c18554a28969af9cd1766a3",
+      "upstreamRepo": "https://github.com/shadcn-ui/ui",
+      "upstreamCommit": "8a3536678a528cc012b9e62484290e79d0be410f",
+      "upstreamCommitAt": "2026-11-04T07:50:45Z",
+      "upstreamRegistryPath": "apps/v4/registry/bases/base/ui/switch.tsx",
+      "upstreamRawSha256": "87aaf20b3209fabbcf0a9520c8b34733ddf2c91524c80ec72ed3dd3684f1bca3",
+      "byteIdenticalToUpstream": false,
+      "license": "MIT"
+    },
+    {
+      "localFile": "src/components/ui/tabs.tsx",
+      "localSha256": "f693f137182d25a3c36d2c88636afb901d0f9b4d39d8ea5b3121848b64cacbc3",
+      "upstreamRepo": "https://github.com/shadcn-ui/ui",
+      "upstreamCommit": "8a3536678a528cc012b9e62484290e79d0be410f",
+      "upstreamCommitAt": "2026-11-04T07:50:45Z",
+      "upstreamRegistryPath": "apps/v4/registry/bases/base/ui/tabs.tsx",
+      "upstreamRawSha256": "1eda25325a7aae9184224247d837b94f98f162d4f697740cc2b1bd53bd35cec6",
+      "byteIdenticalToUpstream": false,
+      "license": "MIT"
+    }
+  ],
+  "notes": "components.json style base-mira; upstream registry lineage apps/v4/registry/bases/base/ui (shadcn v4 base primitives + style-mira.css at pinned commit)"
+}
