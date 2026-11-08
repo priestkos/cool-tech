@@ -1,0 +1,77 @@
+{
+  "cutoffIst": "2026-11-05T09:02:00+05:30",
+  "minimumReleaseAgeSeconds": 259200,
+  "bunfigMinimumReleaseAge": 259200,
+  "upstreamSoundcn": {
+    "repo": "https://github.com/kapishdima/soundcn",
+    "commit": "7cbfbb3f56e8548b81fb26410bdcea657447d087",
+    "commitAt": "2026-06-09T14:03:07+05:30",
+    "codeLicense": "MIT",
+    "integration": "registry/soundcn/{hooks,lib,sounds} copied/adapted",
+    "assets": [
+      {
+        "path": "registry/soundcn/sounds/click-soft/click-soft.ts",
+        "blobSha": "a515db56c0116fd70f63f4c168a2b3557189d2a1",
+        "license": "CC0",
+        "author": "Kenney"
+      },
+      {
+        "path": "registry/soundcn/sounds/switch-on/switch-on.ts",
+        "blobSha": "bb731dea1bb48e4e879239db6c449a4a6f78b3b2",
+        "license": "CC0",
+        "author": "Kenney"
+      },
+      {
+        "path": "registry/soundcn/sounds/switch-off/switch-off.ts",
+        "blobSha": "e15a97b4ad123d0b349c416ec3f17dc47b3266dc",
+        "license": "CC0",
+        "author": "Kenney"
+      },
+      {
+        "path": "registry/soundcn/sounds/notification-pop/notification-pop.ts",
+        "blobSha": "182a038a7c425758e7f8eb096377673a3e210f81",
+        "license": "CC0",
+        "author": "Kenney"
+      },
+      {
+        "path": "registry/soundcn/sounds/confirmation-001/confirmation-001.ts",
+        "blobSha": "3dd6205d43e8da12ba8ea28e675a72fa5079436b",
+        "license": "CC0",
+        "author": "Kenney"
+      }
+    ]
+  },
+  "shadcnUiSource": {
+    "repo": "https://github.com/shadcn-ui/ui",
+    "commit": "8a3536678a528cc012b9e62484290e79d0be410f",
+    "commitAt": "2026-11-04T13:20:45+05:30",
+    "note": "Components reused from apps/ding-toast-lab after sibling provenance; no live @latest registry fetch."
+  },
+  "directDependencies": {
+    "note": "Pinned versions and eligibility from nov8-dependency-evidence; re-verify lockfile after install.",
+    "packages": [
+      "create-vite@9.3.3",
+      "react@19.3.1",
+      "react-dom@19.3.1",
+      "vite@8.3.5",
+      "@vitejs/plugin-react@6.1.2",
+      "typescript@6.0.3",
+      "shadcn@4.22.1",
+      "@base-ui/react@1.9.0",
+      "class-variance-authority@0.7.1",
+      "clsx@2.1.1",
+      "tailwind-merge@3.7.0",
+      "tw-animate-css@1.4.0",
+      "@tailwindcss/vite@4.3.3",
+      "tailwindcss@4.3.3",
+      "@types/bun@1.4.4",
+      "@types/node@24.19.2",
+      "@types/react@19.3.0",
+      "@types/react-dom@19.3.0"
+    ]
+  },
+  "transitiveAudit": {
+    "status": "partial",
+    "detail": "Lockfile transitives should be spot-checked via `bun pm ls` and npm `time` fields; Bun age gate enforces 72h at install."
+  }
+}
