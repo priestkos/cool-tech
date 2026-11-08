@@ -231,6 +231,41 @@
         "eligibleAfterRelease": "2026-11-10T08:29:18+05:30",
         "note": "No @yusufceng1z/ding install; independent implementation only."
       }
+    },
+    {
+      "id": "astryx",
+      "title": "Astryx Agent UI Lab",
+      "url": "https://github.com/meta/astryx",
+      "date": "2026-11-08",
+      "sourceRefs": [
+        "https://www.npmjs.com/package/@astryxdesign/core/v/0.7.8",
+        "https://github.com/meta/astryx/releases/tag/v0.7.8"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-integration",
+        "pinnedVersion": "0.7.8",
+        "releaseAt": "2026-11-05T00:12:07+05:30",
+        "npmCorePublished": "2026-11-04T18:35:32.553Z",
+        "eligibleAtLaunchCutoff": true,
+        "note": "Side-by-side compare with vendored shadcn/ui; Astryx preview in isolated iframe document; lockfile age audit 407/407 eligible at cutoff."
+      }
+    },
+    {
+      "id": "soundcn",
+      "title": "soundcn Board (registry-integrated UI soundboard)",
+      "url": "https://github.com/kapishdima/soundcn",
+      "date": "2026-11-08",
+      "sourceRefs": [
+        "https://github.com/kapishdima/soundcn/tree/7cbfbb3f56e8548b81fb26410bdcea657447d087/registry/soundcn"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-registry-integration",
+        "pinnedCommit": "7cbfbb3f56e8548b81fb26410bdcea657447d087",
+        "pinnedCommitAt": "2026-06-09T14:03:07+05:30",
+        "cutoffIst": "2026-11-05T09:02:00+05:30",
+        "eligible": true,
+        "note": "Five Kenney CC0 sounds + useSound hook from immutable SHA; Blizzard assets excluded."
+      }
     }
   ],
   "skipped": [
