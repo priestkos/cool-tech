@@ -1,0 +1,59 @@
+{
+  "cutoff": {
+    "description": "Launch minus 72h (Nov 8 2026 09:02 IST)",
+    "instantUtc": "2026-11-05T03:32:00.000Z"
+  },
+  "bunInstallPolicy": {
+    "minimumReleaseAgeSeconds": 259200,
+    "configPath": "bunfig.toml",
+    "gateDisabled": false
+  },
+  "lockfileAudit": {
+    "path": "dependency-evidence-lockfile-audit.json",
+    "resolvedPackageCount": 407,
+    "allEligibleAtCutoff": true,
+    "tooYoungCount": 0,
+    "method": "npm registry packument time[] per name@version in bun.lock (2026-11-08 audit script)",
+    "claim": "Complete resolved lockfile age audit at stated cutoff; see nested file for per-package published, license, eligibleAtCutoff."
+  },
+  "directPins": [
+    {
+      "name": "@astryxdesign/core",
+      "version": "0.7.8",
+      "published": "2026-11-04T18:35:32.553Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@astryxdesign/theme-neutral",
+      "version": "0.7.8",
+      "published": "2026-11-04T18:31:00.426Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@stylexjs/stylex",
+      "version": "0.19.1",
+      "published": "2026-09-15T21:19:27.336Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    }
+  ],
+  "shadcnProvenance": {
+    "path": "shadcn-component-provenance.json",
+    "upstreamCommit": "8a3536678a528cc012b9e62484290e79d0be410f",
+    "upstreamCommitAt": "2026-11-04T07:50:45Z",
+    "eligibleAtCutoff": true,
+    "note": "Local UI files are not byte-identical to registry raw (import aliases, monorepo vendoring); lineage traced to apps/v4/registry/bases/base/ui at pinned commit."
+  },
+  "cssIsolation": {
+    "method": "separate-document-iframe",
+    "astryxStylesheetEntry": "astryx-frame.html + src/astryx-frame/astryx.css",
+    "shellStylesheetEntry": "index.html + src/index.css (Tailwind/shadcn only)",
+    "verifiedLimitation": "Shell chrome still shares one parent document; only preview columns are isolated."
+  },
+  "integrationMode": {
+    "astryx": "real-package",
+    "shadcn": "vendored-source-with-registry-provenance"
+  }
+}

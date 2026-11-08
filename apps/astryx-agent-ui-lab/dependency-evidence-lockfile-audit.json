@@ -1,0 +1,2863 @@
+407 too_young 0
+tedAt": "2026-11-08T03:50:00.000Z",
+  "cutoff": {
+    "description": "Launch minus 72h (Nov 8 2026 09:02 IST)",
+    "instantUtc": "2026-11-05T03:32:00.000Z"
+  },
+  "lockfilePath": "bun.lock",
+  "resolvedPackageCount": 407,
+  "tooYoungCount": 0,
+  "allEligible": true,
+  "tooYoung": [],
+  "packages": [
+    {
+      "name": "@astryxdesign/core",
+      "version": "0.7.8",
+      "published": "2026-11-04T18:35:32.553Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@astryxdesign/theme-neutral",
+      "version": "0.7.8",
+      "published": "2026-11-04T18:31:00.426Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/code-frame",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:15:38.208Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/compat-data",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:15:28.103Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/core",
+      "version": "7.29.13",
+      "published": "2026-11-04T16:35:01.415Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/generator",
+      "version": "7.29.13",
+      "published": "2026-11-04T16:34:51.656Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-annotate-as-pure",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:16:19.065Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-compilation-targets",
+      "version": "7.29.13",
+      "published": "2026-11-04T16:35:03.800Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-create-class-features-plugin",
+      "version": "7.29.13",
+      "published": "2026-11-04T16:35:22.099Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-globals",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:15:30.361Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-member-expression-to-functions",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:16:37.358Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-module-imports",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:16:37.417Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-module-transforms",
+      "version": "7.29.13",
+      "published": "2026-11-04T16:36:09.270Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-optimise-call-expression",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:16:19.038Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-plugin-utils",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:15:30.789Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-replace-supers",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:16:44.038Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-skip-transparent-expression-wrappers",
+      "version": "7.29.13",
+      "published": "2026-11-04T16:35:39.884Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-string-parser",
+      "version": "7.29.13",
+      "published": "2026-11-04T16:35:53.596Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-validator-identifier",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:15:31.539Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helper-validator-option",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:15:32.613Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/helpers",
+      "version": "7.29.13",
+      "published": "2026-11-04T16:35:54.874Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/parser",
+      "version": "7.29.13",
+      "published": "2026-11-04T16:35:05.428Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/plugin-syntax-jsx",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:15:52.037Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/plugin-syntax-typescript",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:15:55.177Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/plugin-transform-modules-commonjs",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:16:57.909Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/plugin-transform-typescript",
+      "version": "7.29.9",
+      "published": "2026-09-18T13:51:53.125Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/preset-typescript",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:17:08.948Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/runtime",
+      "version": "8.1.0",
+      "published": "2026-11-02T12:08:32.900Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/template",
+      "version": "7.29.7",
+      "published": "2026-05-25T11:16:25.858Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/traverse",
+      "version": "7.29.13",
+      "published": "2026-11-04T16:34:55.502Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@babel/types",
+      "version": "7.29.11",
+      "published": "2026-10-23T22:45:13.368Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@base-ui/react",
+      "version": "1.9.0",
+      "published": "2026-10-09T08:52:43.788Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@base-ui/utils",
+      "version": "0.5.0",
+      "published": "2026-10-09T08:50:42.770Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@dotenvx/dotenvx",
+      "version": "1.75.1",
+      "published": "2026-06-20T22:08:03.057Z",
+      "license": "BSD-3-Clause",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@dotenvx/primitives",
+      "version": "0.8.0",
+      "published": "2026-06-20T18:26:23.247Z",
+      "license": "BSD-3-Clause",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@emnapi/core",
+      "version": "1.11.3",
+      "published": "2026-07-25T07:00:26.679Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@emnapi/runtime",
+      "version": "1.11.3",
+      "published": "2026-07-25T07:00:08.497Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@emnapi/wasi-threads",
+      "version": "1.2.3",
+      "published": "2026-07-25T06:53:39.713Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@floating-ui/core",
+      "version": "1.8.0",
+      "published": "2026-07-11T08:41:32.920Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@floating-ui/dom",
+      "version": "1.8.0",
+      "published": "2026-07-11T08:41:32.794Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@floating-ui/react-dom",
+      "version": "2.1.9",
+      "published": "2026-07-11T08:41:32.791Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@floating-ui/utils",
+      "version": "0.2.12",
+      "published": "2026-07-11T08:41:33.036Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@formatjs/fast-memoize",
+      "version": "3.1.7",
+      "published": "2026-07-11T03:58:32.132Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@formatjs/icu-messageformat-parser",
+      "version": "3.5.18",
+      "published": "2026-09-12T16:01:51.090Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@formatjs/icu-skeleton-parser",
+      "version": "2.1.11",
+      "published": "2026-07-11T03:58:39.908Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@hono/node-server",
+      "version": "2.1.6",
+      "published": "2026-11-02T10:22:05.655Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@jridgewell/gen-mapping",
+      "version": "0.3.13",
+      "published": "2025-08-12T06:43:21.134Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@jridgewell/remapping",
+      "version": "2.3.5",
+      "published": "2025-08-12T06:43:35.321Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@jridgewell/resolve-uri",
+      "version": "3.1.2",
+      "published": "2024-02-14T19:32:38.143Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@jridgewell/sourcemap-codec",
+      "version": "1.6.0",
+      "published": "2026-08-28T01:14:47.331Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@jridgewell/trace-mapping",
+      "version": "0.3.31",
+      "published": "2025-09-10T20:12:49.468Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@modelcontextprotocol/sdk",
+      "version": "1.32.2",
+      "published": "2026-10-23T18:11:38.362Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@napi-rs/wasm-runtime",
+      "version": "1.2.7",
+      "published": "2026-11-03T04:09:58.667Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@nodelib/fs.scandir",
+      "version": "2.1.5",
+      "published": "2021-06-04T07:43:24.492Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@nodelib/fs.stat",
+      "version": "2.0.5",
+      "published": "2021-06-04T07:43:20.317Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@nodelib/fs.walk",
+      "version": "1.2.8",
+      "published": "2021-07-08T18:41:05.552Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@oxc-project/types",
+      "version": "0.156.0",
+      "published": "2026-10-27T03:22:38.894Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-android-arm-eabi",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:32:43.743Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-android-arm64",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:31:52.302Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-darwin-arm64",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:31:45.483Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-darwin-x64",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:33:43.078Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-freebsd-x64",
+      "version": "1.2.16",
+      "published": "2026-10-29T14:28:13.274Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-linux-arm-gnueabihf",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:35:45.888Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-linux-arm64-gnu",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:33:29.841Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-linux-arm64-musl",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:32:17.008Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-linux-ppc64-gnu",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:34:57.616Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-linux-s390x-gnu",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:33:23.570Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-linux-x64-gnu",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:37:09.539Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-linux-x64-musl",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:37:20.869Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-openharmony-arm64",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:33:20.879Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-win32-arm64-msvc",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:33:52.340Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/binding-win32-x64-msvc",
+      "version": "1.2.16",
+      "published": "2026-10-29T13:34:12.503Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@rolldown/pluginutils",
+      "version": "1.0.1",
+      "published": "2026-05-13T03:52:29.927Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@sec-ant/readable-stream",
+      "version": "0.4.1",
+      "published": "2024-03-16T03:01:29.447Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@shadcn/registry",
+      "version": "0.2.0",
+      "published": "2026-10-16T13:24:03.179Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@sindresorhus/merge-streams",
+      "version": "4.0.0",
+      "published": "2024-05-04T19:40:43.039Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@stylexjs/stylex",
+      "version": "0.19.1",
+      "published": "2026-09-15T21:19:27.336Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/node",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:03:45.588Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/oxide-android-arm64",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:02:16.125Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/oxide-darwin-arm64",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:02:23.502Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/oxide-darwin-x64",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:02:30.305Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/oxide-freebsd-x64",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:02:38.773Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/oxide-linux-arm-gnueabihf",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:02:44.010Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/oxide-linux-arm64-gnu",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:02:50.692Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/oxide-linux-arm64-musl",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:02:58.961Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/oxide-linux-x64-gnu",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:03:09.029Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/oxide-linux-x64-musl",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:03:15.491Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/oxide-wasm32-wasi",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:04:17.028Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/oxide-win32-arm64-msvc",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:03:19.935Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/oxide-win32-x64-msvc",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:03:24.526Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/oxide",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:03:29.017Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tailwindcss/vite",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:04:06.316Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@ts-morph/common",
+      "version": "0.27.0",
+      "published": "2025-05-19T19:12:52.018Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@tybys/wasm-util",
+      "version": "0.10.4",
+      "published": "2026-09-13T08:00:13.464Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@types/bun",
+      "version": "1.4.4",
+      "published": "2026-10-23T00:09:43.191Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@types/node",
+      "version": "24.19.2",
+      "published": "2026-10-09T18:44:25.189Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@types/react-dom",
+      "version": "19.3.0",
+      "published": "2026-09-09T18:07:51.886Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@types/react",
+      "version": "19.3.0",
+      "published": "2026-09-09T18:08:49.750Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@types/validate-npm-package-name",
+      "version": "4.0.2",
+      "published": "2023-11-07T18:40:02.727Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@vitejs/plugin-react",
+      "version": "6.1.2",
+      "published": "2026-10-05T10:08:27.143Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "accepts",
+      "version": "2.0.0",
+      "published": "2024-08-31T15:50:05.694Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ajv-formats",
+      "version": "2.1.1",
+      "published": "2021-08-14T09:48:37.420Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ajv-formats",
+      "version": "3.0.1",
+      "published": "2024-03-30T11:30:26.728Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ajv",
+      "version": "8.20.0",
+      "published": "2026-04-24T15:22:16.529Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ansi-colors",
+      "version": "4.1.3",
+      "published": "2022-05-16T15:48:22.352Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ansi-regex",
+      "version": "5.0.1",
+      "published": "2021-09-14T15:55:19.540Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ansi-regex",
+      "version": "6.5.0",
+      "published": "2026-10-29T13:35:20.896Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ast-types",
+      "version": "0.16.3",
+      "published": "2026-08-30T20:40:14.973Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "atomically",
+      "version": "1.7.0",
+      "published": "2020-11-11T13:25:10.090Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "balanced-match",
+      "version": "4.0.4",
+      "published": "2026-02-22T11:38:25.951Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "baseline-browser-mapping",
+      "version": "2.11.35",
+      "published": "2026-11-02T22:41:42.113Z",
+      "license": "Apache-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "body-parser",
+      "version": "2.4.0",
+      "published": "2026-10-22T11:39:38.614Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "brace-expansion",
+      "version": "5.0.12",
+      "published": "2026-09-14T21:59:00.288Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "braces",
+      "version": "3.0.3",
+      "published": "2024-05-21T08:59:11.390Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "browserslist",
+      "version": "4.29.5",
+      "published": "2026-10-26T18:51:08.696Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "bun-types",
+      "version": "1.4.4",
+      "published": "2026-10-22T10:17:50.170Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "bundle-name",
+      "version": "4.1.1",
+      "published": "2026-09-25T18:08:21.646Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "bytes",
+      "version": "3.1.2",
+      "published": "2022-01-28T05:02:37.661Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "call-bind-apply-helpers",
+      "version": "1.0.2",
+      "published": "2025-02-12T19:24:56.950Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "call-bound",
+      "version": "1.0.4",
+      "published": "2025-03-03T17:50:03.505Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "caniuse-lite",
+      "version": "1.0.30001820",
+      "published": "2026-10-29T07:41:36.131Z",
+      "license": "CC-BY-4.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "chalk",
+      "version": "5.6.2",
+      "published": "2025-09-08T14:47:54.486Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "class-variance-authority",
+      "version": "0.7.1",
+      "published": "2024-11-26T08:20:34.604Z",
+      "license": "Apache-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "cli-cursor",
+      "version": "5.0.0",
+      "published": "2024-07-26T14:02:26.233Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "cli-spinners",
+      "version": "2.9.2",
+      "published": "2023-11-24T16:52:19.154Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "clsx",
+      "version": "2.1.1",
+      "published": "2024-04-23T05:26:04.645Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "cn",
+      "version": "0.2.6",
+      "published": "2026-09-06T12:13:35.681Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "code-block-writer",
+      "version": "13.0.3",
+      "published": "2024-10-05T13:30:28.911Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "commander",
+      "version": "11.1.0",
+      "published": "2023-10-13T00:29:34.905Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "commander",
+      "version": "14.0.3",
+      "published": "2026-01-31T01:47:17.592Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "conf",
+      "version": "10.2.0",
+      "published": "2022-07-30T06:16:43.225Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "content-disposition",
+      "version": "2.0.1",
+      "published": "2026-05-28T02:54:30.497Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "content-type",
+      "version": "1.0.5",
+      "published": "2023-01-29T19:25:59.622Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "content-type",
+      "version": "2.1.0",
+      "published": "2026-08-13T20:32:58.206Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "convert-source-map",
+      "version": "2.0.0",
+      "published": "2022-10-17T22:06:48.628Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "cookie-signature",
+      "version": "1.2.2",
+      "published": "2024-10-29T19:39:47.642Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "cookie",
+      "version": "0.7.2",
+      "published": "2024-10-07T03:41:28.828Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "cors",
+      "version": "2.8.6",
+      "published": "2026-01-22T14:41:30.223Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "cross-spawn",
+      "version": "7.0.6",
+      "published": "2024-11-18T13:59:52.129Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "css-mediaquery",
+      "version": "0.1.2",
+      "published": "2014-01-21T18:39:10.562Z",
+      "license": "UNKNOWN",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "cssesc",
+      "version": "3.0.0",
+      "published": "2019-02-04T16:34:20.250Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "csstype",
+      "version": "3.2.3",
+      "published": "2025-11-17T11:42:27.045Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "debounce-fn",
+      "version": "4.0.0",
+      "published": "2020-02-19T15:01:00.795Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "debug",
+      "version": "4.4.3",
+      "published": "2025-09-13T17:25:19.732Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "dedent",
+      "version": "1.7.2",
+      "published": "2026-03-01T16:03:38.941Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "deepmerge",
+      "version": "4.3.1",
+      "published": "2023-03-16T22:58:56.511Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "default-browser-id",
+      "version": "5.0.1",
+      "published": "2025-11-14T07:11:37.981Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "default-browser",
+      "version": "5.5.1",
+      "published": "2026-08-16T19:49:09.001Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "define-lazy-prop",
+      "version": "2.0.0",
+      "published": "2019-04-10T08:37:45.646Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "define-lazy-prop",
+      "version": "3.0.0",
+      "published": "2021-04-14T07:54:05.644Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "depd",
+      "version": "2.0.0",
+      "published": "2018-10-26T17:52:55.936Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "detect-libc",
+      "version": "2.1.2",
+      "published": "2025-10-05T12:46:33.077Z",
+      "license": "Apache-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "diff",
+      "version": "8.0.4",
+      "published": "2026-03-23T11:24:30.551Z",
+      "license": "BSD-3-Clause",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "dot-prop",
+      "version": "6.0.1",
+      "published": "2020-11-19T10:00:04.839Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "dotenv",
+      "version": "17.4.2",
+      "published": "2026-04-12T16:41:11.574Z",
+      "license": "BSD-2-Clause",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "dunder-proto",
+      "version": "1.0.1",
+      "published": "2024-12-17T02:12:47.047Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ee-first",
+      "version": "1.1.1",
+      "published": "2015-05-25T19:18:28.732Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "electron-to-chromium",
+      "version": "1.5.477",
+      "published": "2026-11-04T23:03:59.094Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "emoji-regex",
+      "version": "10.6.0",
+      "published": "2025-10-13T08:13:51.804Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "encodeurl",
+      "version": "2.0.1",
+      "published": "2026-10-28T23:32:20.526Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "enhanced-resolve",
+      "version": "5.26.1",
+      "published": "2026-11-03T09:15:19.164Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "enquirer",
+      "version": "2.4.1",
+      "published": "2023-07-28T12:26:30.586Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "env-paths",
+      "version": "2.2.1",
+      "published": "2021-03-08T12:31:06.769Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "es-define-property",
+      "version": "1.0.1",
+      "published": "2024-12-06T18:16:02.148Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "es-errors",
+      "version": "1.3.0",
+      "published": "2024-02-05T08:05:51.479Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "es-object-atoms",
+      "version": "1.1.2",
+      "published": "2026-05-22T14:40:03.961Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "escalade",
+      "version": "3.2.0",
+      "published": "2024-08-29T22:59:36.690Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "escape-html",
+      "version": "1.0.3",
+      "published": "2015-09-01T04:47:22.713Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "esprima",
+      "version": "4.0.1",
+      "published": "2018-07-13T08:39:14.711Z",
+      "license": "BSD-2-Clause",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "etag",
+      "version": "1.8.1",
+      "published": "2017-09-13T02:43:44.422Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "eventsource-parser",
+      "version": "3.1.1",
+      "published": "2026-08-10T15:55:29.938Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "eventsource",
+      "version": "3.0.7",
+      "published": "2025-05-09T10:32:51.243Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "execa",
+      "version": "5.1.1",
+      "published": "2021-06-04T16:38:11.620Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "execa",
+      "version": "9.6.1",
+      "published": "2025-11-29T20:53:46.888Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "express-rate-limit",
+      "version": "8.7.3",
+      "published": "2026-11-02T18:37:20.838Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "express",
+      "version": "5.3.0",
+      "published": "2026-10-09T12:56:54.505Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "fast-deep-equal",
+      "version": "3.1.3",
+      "published": "2020-06-08T07:27:28.474Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "fast-glob",
+      "version": "3.3.3",
+      "published": "2025-01-05T10:38:42.236Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "fast-uri",
+      "version": "3.1.9",
+      "published": "2026-10-19T23:05:26.357Z",
+      "license": "BSD-3-Clause",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "fastq",
+      "version": "1.20.3",
+      "published": "2026-08-29T06:32:00.667Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "fdir",
+      "version": "6.5.0",
+      "published": "2025-08-14T16:56:03.948Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "figures",
+      "version": "6.1.0",
+      "published": "2024-03-04T19:16:04.779Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "fill-range",
+      "version": "7.1.1",
+      "published": "2024-05-21T08:45:51.224Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "finalhandler",
+      "version": "2.1.1",
+      "published": "2025-12-01T16:05:02.140Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "find-up",
+      "version": "3.0.0",
+      "published": "2018-06-18T09:19:21.364Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "forwarded",
+      "version": "0.2.0",
+      "published": "2021-05-31T23:23:02.495Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "fresh",
+      "version": "2.0.0",
+      "published": "2024-09-04T23:24:48.361Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "fs-extra",
+      "version": "11.4.1",
+      "published": "2026-09-22T16:20:08.500Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "fsevents",
+      "version": "2.3.3",
+      "published": "2023-08-21T16:24:22.854Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "function-bind",
+      "version": "1.1.2",
+      "published": "2023-10-12T19:08:19.687Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "fuzzysort",
+      "version": "3.1.0",
+      "published": "2024-10-14T06:02:48.889Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "gensync",
+      "version": "1.0.0-beta.2",
+      "published": "2020-10-27T20:43:40.443Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "get-east-asian-width",
+      "version": "1.7.0",
+      "published": "2026-09-17T05:04:29.873Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "get-intrinsic",
+      "version": "1.3.0",
+      "published": "2025-02-22T20:54:20.619Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "get-own-enumerable-keys",
+      "version": "1.0.0",
+      "published": "2023-01-16T02:39:04.615Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "get-proto",
+      "version": "1.0.1",
+      "published": "2025-01-02T20:08:02.949Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "get-stream",
+      "version": "6.0.1",
+      "published": "2021-04-15T04:56:42.936Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "get-stream",
+      "version": "9.0.1",
+      "published": "2024-03-16T18:05:50.308Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "glob-parent",
+      "version": "5.1.2",
+      "published": "2021-03-06T21:21:44.487Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "gopd",
+      "version": "1.2.0",
+      "published": "2024-12-04T16:21:52.727Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "graceful-fs",
+      "version": "4.2.11",
+      "published": "2023-03-16T19:30:19.323Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "has-symbols",
+      "version": "1.1.0",
+      "published": "2024-12-02T16:34:17.679Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "hasown",
+      "version": "2.0.4",
+      "published": "2026-05-28T18:11:39.940Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "hono",
+      "version": "4.13.16",
+      "published": "2026-11-01T03:04:37.067Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "human-signals",
+      "version": "2.1.0",
+      "published": "2020-03-14T15:10:37.036Z",
+      "license": "Apache-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "human-signals",
+      "version": "8.0.1",
+      "published": "2025-03-29T02:43:46.398Z",
+      "license": "Apache-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "iconv-lite",
+      "version": "0.7.3",
+      "published": "2026-07-03T17:53:11.119Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ignore",
+      "version": "5.3.2",
+      "published": "2024-08-12T08:51:00.065Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "inherits",
+      "version": "2.0.4",
+      "published": "2019-06-19T20:18:52.465Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "intl-messageformat",
+      "version": "11.2.15",
+      "published": "2026-09-12T16:09:09.984Z",
+      "license": "BSD-3-Clause",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "invariant",
+      "version": "2.2.4",
+      "published": "2018-03-13T18:36:10.235Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ip-address",
+      "version": "10.7.6",
+      "published": "2026-11-03T16:58:46.090Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ipaddr.js",
+      "version": "1.9.1",
+      "published": "2019-07-17T02:28:19.618Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-docker",
+      "version": "2.2.1",
+      "published": "2021-04-09T08:59:11.367Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-docker",
+      "version": "3.0.0",
+      "published": "2021-08-31T23:02:35.148Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-extglob",
+      "version": "2.1.1",
+      "published": "2016-12-11T04:04:24.390Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-glob",
+      "version": "4.0.3",
+      "published": "2021-09-29T16:52:47.977Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-in-ssh",
+      "version": "1.0.0",
+      "published": "2025-11-12T15:31:49.173Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-inside-container",
+      "version": "1.0.0",
+      "published": "2023-02-15T06:50:49.428Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-interactive",
+      "version": "2.0.0",
+      "published": "2021-05-03T20:19:09.981Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-number",
+      "version": "7.0.0",
+      "published": "2018-07-04T15:08:58.238Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-obj",
+      "version": "2.0.0",
+      "published": "2019-04-19T15:37:37.870Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-obj",
+      "version": "3.0.0",
+      "published": "2021-04-16T19:05:38.181Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-plain-obj",
+      "version": "4.1.0",
+      "published": "2022-06-15T15:47:13.746Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-promise",
+      "version": "4.0.0",
+      "published": "2020-04-27T15:34:23.345Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-regexp",
+      "version": "3.1.0",
+      "published": "2021-10-31T05:37:37.669Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-stream",
+      "version": "2.0.1",
+      "published": "2021-07-26T10:51:04.495Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-stream",
+      "version": "4.0.1",
+      "published": "2024-02-19T19:14:12.256Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-unicode-supported",
+      "version": "1.3.0",
+      "published": "2022-09-08T03:50:49.956Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-unicode-supported",
+      "version": "2.1.0",
+      "published": "2024-09-09T06:26:03.073Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-wsl",
+      "version": "2.2.0",
+      "published": "2020-05-03T07:57:13.100Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "is-wsl",
+      "version": "3.1.1",
+      "published": "2026-02-15T08:45:04.136Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "isexe",
+      "version": "2.0.0",
+      "published": "2017-03-23T00:53:16.356Z",
+      "license": "BlueOak-1.0.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "isexe",
+      "version": "3.1.5",
+      "published": "2026-02-09T16:27:21.677Z",
+      "license": "BlueOak-1.0.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "jiti",
+      "version": "2.7.0",
+      "published": "2026-05-05T21:02:47.918Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "jose",
+      "version": "6.2.15",
+      "published": "2026-11-01T22:28:55.912Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "js-tokens",
+      "version": "4.0.0",
+      "published": "2018-01-28T11:58:58.170Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "jsesc",
+      "version": "3.1.0",
+      "published": "2024-12-11T08:24:34.551Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "json-schema-traverse",
+      "version": "1.0.0",
+      "published": "2020-12-13T10:56:54.719Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "json-schema-typed",
+      "version": "7.0.3",
+      "published": "2019-12-08T13:32:06.775Z",
+      "license": "BSD-3-Clause",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "json-schema-typed",
+      "version": "8.0.2",
+      "published": "2025-11-17T20:30:24.942Z",
+      "license": "BSD-3-Clause",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "json5",
+      "version": "2.2.3",
+      "published": "2022-12-31T17:11:32.047Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "jsonfile",
+      "version": "6.2.1",
+      "published": "2026-04-20T15:28:28.409Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "kleur",
+      "version": "3.0.3",
+      "published": "2019-04-07T22:02:01.149Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "kleur",
+      "version": "4.1.5",
+      "published": "2022-06-26T18:50:12.559Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-android-arm64",
+      "version": "1.32.0",
+      "published": "2026-03-09T04:23:04.650Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-android-arm64",
+      "version": "1.33.0",
+      "published": "2026-07-20T05:10:36.404Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-darwin-arm64",
+      "version": "1.32.0",
+      "published": "2026-03-09T04:23:07.357Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-darwin-arm64",
+      "version": "1.33.0",
+      "published": "2026-07-20T05:10:38.380Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-darwin-x64",
+      "version": "1.32.0",
+      "published": "2026-03-09T04:23:10.192Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-darwin-x64",
+      "version": "1.33.0",
+      "published": "2026-07-20T05:10:40.758Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-freebsd-x64",
+      "version": "1.32.0",
+      "published": "2026-03-09T04:23:12.887Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-freebsd-x64",
+      "version": "1.33.0",
+      "published": "2026-07-20T05:10:43.067Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-linux-arm-gnueabihf",
+      "version": "1.32.0",
+      "published": "2026-03-09T04:23:15.620Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-linux-arm-gnueabihf",
+      "version": "1.33.0",
+      "published": "2026-07-20T05:10:45.198Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-linux-arm64-gnu",
+      "version": "1.32.0",
+      "published": "2026-03-09T04:23:18.594Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-linux-arm64-gnu",
+      "version": "1.33.0",
+      "published": "2026-07-20T05:10:47.355Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-linux-arm64-musl",
+      "version": "1.32.0",
+      "published": "2026-03-09T04:23:21.203Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-linux-arm64-musl",
+      "version": "1.33.0",
+      "published": "2026-07-20T05:10:49.830Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-linux-x64-gnu",
+      "version": "1.32.0",
+      "published": "2026-03-09T04:23:24.274Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-linux-x64-gnu",
+      "version": "1.33.0",
+      "published": "2026-07-20T05:10:52.507Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-linux-x64-musl",
+      "version": "1.32.0",
+      "published": "2026-03-09T04:23:27.400Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-linux-x64-musl",
+      "version": "1.33.0",
+      "published": "2026-07-20T05:10:54.935Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-win32-arm64-msvc",
+      "version": "1.32.0",
+      "published": "2026-03-09T04:23:30.176Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-win32-arm64-msvc",
+      "version": "1.33.0",
+      "published": "2026-07-20T05:10:57.219Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-win32-x64-msvc",
+      "version": "1.32.0",
+      "published": "2026-03-09T04:23:33.073Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss-win32-x64-msvc",
+      "version": "1.33.0",
+      "published": "2026-07-20T05:10:59.727Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss",
+      "version": "1.32.0",
+      "published": "2026-03-09T04:23:43.754Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lightningcss",
+      "version": "1.33.0",
+      "published": "2026-07-20T05:11:09.509Z",
+      "license": "MPL-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "locate-path",
+      "version": "3.0.0",
+      "published": "2018-06-17T20:59:26.704Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "log-symbols",
+      "version": "6.0.0",
+      "published": "2023-10-22T19:38:10.487Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "loose-envify",
+      "version": "1.4.0",
+      "published": "2018-07-10T11:09:45.917Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lru-cache",
+      "version": "5.1.1",
+      "published": "2018-11-21T01:44:45.407Z",
+      "license": "BlueOak-1.0.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "lucide-react",
+      "version": "1.66.0",
+      "published": "2026-10-31T06:12:30.583Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "magic-string",
+      "version": "0.30.21",
+      "published": "2025-10-24T00:59:47.122Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "math-intrinsics",
+      "version": "1.1.0",
+      "published": "2024-12-19T05:58:09.877Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "media-typer",
+      "version": "1.1.1",
+      "published": "2026-07-23T20:20:25.641Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "merge-descriptors",
+      "version": "2.0.0",
+      "published": "2023-11-16T18:49:20.714Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "merge-stream",
+      "version": "2.0.0",
+      "published": "2019-05-23T13:36:45.932Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "merge2",
+      "version": "1.4.1",
+      "published": "2020-06-03T07:39:10.563Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "micromatch",
+      "version": "4.0.8",
+      "published": "2024-08-23T16:31:18.748Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "mime-db",
+      "version": "1.54.0",
+      "published": "2025-03-18T15:06:44.354Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "mime-types",
+      "version": "3.0.2",
+      "published": "2025-11-20T11:12:29.693Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "mimic-fn",
+      "version": "2.1.0",
+      "published": "2019-03-31T17:53:34.125Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "mimic-fn",
+      "version": "3.1.0",
+      "published": "2020-07-24T09:13:36.810Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "mimic-function",
+      "version": "5.0.1",
+      "published": "2024-03-14T08:37:42.297Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "minimatch",
+      "version": "10.2.6",
+      "published": "2026-07-27T19:00:09.469Z",
+      "license": "BlueOak-1.0.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "minimist",
+      "version": "1.2.8",
+      "published": "2023-02-09T20:59:49.233Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ms",
+      "version": "2.1.3",
+      "published": "2020-12-08T13:54:35.223Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "nanoid",
+      "version": "3.3.20",
+      "published": "2026-10-05T09:44:40.679Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "negotiator",
+      "version": "1.1.0",
+      "published": "2026-08-20T16:45:05.235Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "node-releases",
+      "version": "2.0.63",
+      "published": "2026-10-31T09:30:34.748Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "npm-run-path",
+      "version": "4.0.1",
+      "published": "2019-12-22T22:04:32.828Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "npm-run-path",
+      "version": "6.0.0",
+      "published": "2024-08-26T08:40:09.814Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "object-assign",
+      "version": "4.1.1",
+      "published": "2017-01-16T15:35:15.282Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "object-inspect",
+      "version": "1.13.4",
+      "published": "2025-02-05T01:26:10.272Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "object-treeify",
+      "version": "1.1.33",
+      "published": "2021-03-09T15:10:25.442Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "on-finished",
+      "version": "2.4.2",
+      "published": "2026-10-22T13:21:19.221Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "once",
+      "version": "1.4.0",
+      "published": "2016-09-06T21:11:09.367Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "onetime",
+      "version": "5.1.2",
+      "published": "2020-08-09T20:29:04.963Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "onetime",
+      "version": "7.0.0",
+      "published": "2023-11-05T20:42:03.405Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "open",
+      "version": "11.0.4",
+      "published": "2026-09-14T20:36:00.110Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "open",
+      "version": "8.4.2",
+      "published": "2023-02-20T12:43:33.252Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ora",
+      "version": "8.2.0",
+      "published": "2025-02-02T07:26:16.712Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "p-limit",
+      "version": "2.3.0",
+      "published": "2020-04-05T15:40:45.137Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "p-locate",
+      "version": "3.0.0",
+      "published": "2018-06-15T12:47:57.897Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "p-try",
+      "version": "2.2.0",
+      "published": "2019-03-31T12:34:35.198Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "parse-ms",
+      "version": "4.0.0",
+      "published": "2024-01-07T14:14:09.614Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "parseurl",
+      "version": "1.3.3",
+      "published": "2019-04-16T04:16:26.547Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "path-browserify",
+      "version": "1.0.1",
+      "published": "2020-03-03T16:52:38.480Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "path-exists",
+      "version": "3.0.0",
+      "published": "2016-05-01T11:44:53.762Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "path-key",
+      "version": "3.1.1",
+      "published": "2019-11-22T16:47:18.153Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "path-key",
+      "version": "4.0.0",
+      "published": "2021-04-09T12:04:51.822Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "path-to-regexp",
+      "version": "8.4.2",
+      "published": "2026-04-01T21:17:05.201Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "picocolors",
+      "version": "1.1.1",
+      "published": "2024-10-16T18:20:03.921Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "picomatch",
+      "version": "2.3.2",
+      "published": "2026-03-23T20:39:08.118Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "picomatch",
+      "version": "4.0.7",
+      "published": "2026-08-24T14:36:23.690Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "pkce-challenge",
+      "version": "5.0.1",
+      "published": "2025-11-23T03:54:38.460Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "pkg-up",
+      "version": "3.1.0",
+      "published": "2019-04-15T04:03:00.078Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "postcss-selector-parser",
+      "version": "7.1.7",
+      "published": "2026-10-20T09:08:33.097Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "postcss",
+      "version": "8.5.32",
+      "published": "2026-10-26T20:36:42.832Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "powershell-utils",
+      "version": "0.2.1",
+      "published": "2026-08-29T12:58:14.937Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "pretty-ms",
+      "version": "9.3.1",
+      "published": "2026-08-28T12:32:04.471Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "prompts",
+      "version": "2.4.2",
+      "published": "2021-10-07T21:23:57.263Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "proxy-addr",
+      "version": "2.0.8",
+      "published": "2026-09-15T06:12:45.377Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "qs",
+      "version": "6.17.1",
+      "published": "2026-10-28T23:41:47.540Z",
+      "license": "BSD-3-Clause",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "queue-microtask",
+      "version": "1.2.3",
+      "published": "2021-03-22T05:37:10.418Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "range-parser",
+      "version": "1.3.0",
+      "published": "2026-06-25T20:55:41.875Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "raw-body",
+      "version": "3.0.2",
+      "published": "2025-11-21T20:47:27.523Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "react-dom",
+      "version": "19.3.1",
+      "published": "2026-10-14T16:49:10.081Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "react",
+      "version": "19.3.1",
+      "published": "2026-10-14T16:47:15.290Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "recast",
+      "version": "0.23.21",
+      "published": "2026-08-10T13:09:00.674Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "require-from-string",
+      "version": "2.0.2",
+      "published": "2018-04-09T09:49:47.301Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "reselect",
+      "version": "5.3.0",
+      "published": "2026-08-22T02:13:00.013Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "restore-cursor",
+      "version": "5.1.0",
+      "published": "2024-07-26T13:56:42.169Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "reusify",
+      "version": "1.1.0",
+      "published": "2025-02-25T16:00:49.941Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "rolldown",
+      "version": "1.2.16",
+      "published": "2026-10-29T14:31:26.357Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "router",
+      "version": "2.2.0",
+      "published": "2025-03-27T00:38:18.615Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "run-applescript",
+      "version": "7.1.0",
+      "published": "2025-09-09T13:42:36.477Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "run-parallel",
+      "version": "1.2.0",
+      "published": "2021-02-10T02:58:08.152Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "safer-buffer",
+      "version": "2.1.2",
+      "published": "2018-04-08T10:42:42.130Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "scheduler",
+      "version": "0.28.0",
+      "published": "2026-09-09T17:17:30.281Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "semver",
+      "version": "6.3.2",
+      "published": "2026-11-02T19:47:36.521Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "semver",
+      "version": "7.8.6",
+      "published": "2026-11-02T17:05:43.359Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "send",
+      "version": "1.2.1",
+      "published": "2025-12-15T19:36:11.862Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "serve-static",
+      "version": "2.2.1",
+      "published": "2025-12-15T19:17:31.514Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "setprototypeof",
+      "version": "1.2.0",
+      "published": "2019-07-18T04:49:56.614Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "shadcn",
+      "version": "4.22.1",
+      "published": "2026-10-18T18:12:18.511Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "shebang-command",
+      "version": "2.0.0",
+      "published": "2019-09-06T14:53:25.901Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "shebang-regex",
+      "version": "3.0.0",
+      "published": "2019-04-27T10:46:19.256Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "side-channel-list",
+      "version": "1.0.1",
+      "published": "2026-04-08T16:55:13.603Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "side-channel-map",
+      "version": "1.0.1",
+      "published": "2024-12-11T04:53:18.943Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "side-channel-weakmap",
+      "version": "1.0.2",
+      "published": "2024-12-11T05:39:11.495Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "side-channel",
+      "version": "1.1.1",
+      "published": "2026-06-08T20:34:47.001Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "signal-exit",
+      "version": "3.0.7",
+      "published": "2022-02-03T21:05:34.544Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "signal-exit",
+      "version": "4.1.0",
+      "published": "2023-07-29T05:44:56.721Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "sisteransi",
+      "version": "1.0.5",
+      "published": "2020-03-18T12:53:26.602Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "smart-buffer",
+      "version": "4.2.0",
+      "published": "2021-08-07T06:18:54.397Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "socks",
+      "version": "2.8.10",
+      "published": "2026-09-02T21:42:49.608Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "source-map-js",
+      "version": "1.2.2",
+      "published": "2026-09-30T14:08:09.382Z",
+      "license": "BSD-3-Clause",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "source-map",
+      "version": "0.6.1",
+      "published": "2017-09-29T14:42:30.948Z",
+      "license": "BSD-3-Clause",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "statuses",
+      "version": "2.0.2",
+      "published": "2025-06-06T19:56:01.385Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "stdin-discarder",
+      "version": "0.2.2",
+      "published": "2024-01-06T09:21:37.285Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "string-width",
+      "version": "7.2.0",
+      "published": "2024-06-30T14:48:16.656Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "stringify-object",
+      "version": "5.0.0",
+      "published": "2023-01-16T02:50:33.300Z",
+      "license": "BSD-2-Clause",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "strip-ansi",
+      "version": "6.0.1",
+      "published": "2021-09-23T16:34:41.798Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "strip-ansi",
+      "version": "7.2.0",
+      "published": "2026-02-26T13:51:11.099Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "strip-bom",
+      "version": "3.0.0",
+      "published": "2016-04-30T16:02:44.907Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "strip-final-newline",
+      "version": "2.0.0",
+      "published": "2018-10-28T08:36:42.180Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "strip-final-newline",
+      "version": "4.0.0",
+      "published": "2023-12-13T19:31:50.243Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "styleq",
+      "version": "0.2.1",
+      "published": "2025-02-10T19:10:04.000Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "systeminformation",
+      "version": "5.33.19",
+      "published": "2026-10-30T05:08:10.331Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "tailwind-merge",
+      "version": "3.7.0",
+      "published": "2026-09-12T20:10:15.257Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "tailwindcss",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:03:35.267Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "tapable",
+      "version": "2.3.3",
+      "published": "2026-04-21T13:37:30.215Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "tiny-invariant",
+      "version": "1.3.3",
+      "published": "2024-02-23T21:50:05.584Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "tinyglobby",
+      "version": "0.2.17",
+      "published": "2026-05-30T19:57:21.717Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "to-regex-range",
+      "version": "5.0.1",
+      "published": "2019-04-07T06:04:37.030Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "toidentifier",
+      "version": "1.0.1",
+      "published": "2021-11-14T22:19:09.631Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "ts-morph",
+      "version": "26.0.0",
+      "published": "2025-05-19T19:12:59.064Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "tsconfig-paths",
+      "version": "4.2.0",
+      "published": "2023-03-29T20:47:10.433Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "tslib",
+      "version": "2.9.1",
+      "published": "2026-10-30T20:20:28.741Z",
+      "license": "0BSD",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "tw-animate-css",
+      "version": "1.4.0",
+      "published": "2025-09-24T05:25:53.055Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "type-fest",
+      "version": "4.41.0",
+      "published": "2025-05-06T07:20:19.356Z",
+      "license": "(MIT OR CC0-1.0)",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "type-is",
+      "version": "2.1.0",
+      "published": "2026-05-13T15:30:24.508Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "typescript",
+      "version": "6.0.3",
+      "published": "2026-04-16T23:38:27.905Z",
+      "license": "Apache-2.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "undici-types",
+      "version": "7.24.6",
+      "published": "2026-03-25T16:01:36.357Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "undici-types",
+      "version": "8.12.3",
+      "published": "2026-10-19T14:07:58.069Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "undici",
+      "version": "7.30.1",
+      "published": "2026-10-15T14:18:31.283Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "unicorn-magic",
+      "version": "0.3.0",
+      "published": "2024-07-25T16:24:34.405Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "universalify",
+      "version": "2.0.1",
+      "published": "2023-11-01T17:12:45.392Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "unpipe",
+      "version": "1.0.0",
+      "published": "2015-06-14T20:30:19.934Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "update-browserslist-db",
+      "version": "1.3.4",
+      "published": "2026-10-07T20:28:48.154Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "use-sync-external-store",
+      "version": "1.7.0",
+      "published": "2026-09-09T17:19:07.352Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "util-deprecate",
+      "version": "1.0.2",
+      "published": "2015-10-07T18:37:40.665Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "validate-npm-package-name",
+      "version": "7.0.2",
+      "published": "2026-01-06T20:02:27.897Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "vary",
+      "version": "1.1.2",
+      "published": "2017-09-24T01:47:11.325Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "vite",
+      "version": "8.3.5",
+      "published": "2026-10-21T06:38:54.907Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "which",
+      "version": "2.0.2",
+      "published": "2019-11-18T22:26:15.325Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "which",
+      "version": "4.0.0",
+      "published": "2023-08-29T18:39:57.339Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "wrappy",
+      "version": "1.0.2",
+      "published": "2016-05-17T23:30:52.415Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "wsl-utils",
+      "version": "1.0.1",
+      "published": "2026-09-30T04:38:28.398Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "yallist",
+      "version": "3.1.1",
+      "published": "2019-09-30T20:07:18.343Z",
+      "license": "BlueOak-1.0.0",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "yocto-spinner",
+      "version": "1.2.2",
+      "published": "2026-07-16T10:39:28.265Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "yoctocolors",
+      "version": "2.2.0",
+      "published": "2026-07-26T13:39:35.966Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "zod-to-json-schema",
+      "version": "3.25.2",
+      "published": "2026-03-27T07:09:39.645Z",
+      "license": "ISC",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "zod",
+      "version": "4.6.7",
+      "published": "2026-10-12T16:29:37.778Z",
+      "license": "MIT",
+      "eligibleAtCutoff": true
+    }
+  ]
+}
