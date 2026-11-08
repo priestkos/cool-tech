@@ -1,0 +1,36 @@
+{
+  "cutoffNote": "Launch minus 72h (Nov 5 2026 09:02 IST); Bun minimumReleaseAge=259200 enforced in bunfig.toml",
+  "directPinsSource": "nov8-dependency-evidence.json (user-attached) + ding-toast-lab/package.json cross-check",
+  "integrationMode": {
+    "astryx": "real-package",
+    "shadcn": "real-package-vendored-from-sibling-apps"
+  },
+  "upstream": [
+    {
+      "name": "@astryxdesign/core",
+      "version": "0.7.8",
+      "license": "MIT",
+      "source": "https://github.com/meta/astryx",
+      "npmPublished": "2026-11-04T18:35:32.553Z",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@astryxdesign/theme-neutral",
+      "version": "0.7.8",
+      "license": "MIT",
+      "npmPublished": "2026-11-04T18:31:00.426Z",
+      "eligibleAtCutoff": true
+    },
+    {
+      "name": "@stylexjs/stylex",
+      "version": "0.19.1",
+      "npmPublished": "2026-09-15T21:19:27.336Z",
+      "eligibleAtCutoff": true
+    }
+  ],
+  "transitiveAudit": {
+    "status": "partial",
+    "verifiedViaLockfile": true,
+    "notes": "Lockfile generated 2026-11-08 after install; intl-messageformat and lucide-react resolved under age gate. Full recursive npm provenance not re-fetched for every transitive in this MVP."
+  }
+}
