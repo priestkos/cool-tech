@@ -19,7 +19,9 @@ bun run build
 - `src/hooks/use-sound.ts` — adapted registry hook (MIT) with stop-on-mute
 - `src/features/board/` — UI slots, master controls, event log
 
-Playback requires an explicit user gesture (click / toggle / preview). Audio stays locked behind **Enable sound** until the user opts in.
+Playback requires an explicit user gesture (click / toggle / preview). Audio stays locked behind **Enable sound** until the user opts in — no `AudioContext`, resume, or decode runs before that gesture (lazy decode on first play only).
+
+Lockfile age evidence: `dependency-evidence.json` + full per-package `lockfile-dependency-evidence.json` (356 packages audited).
 
 ## Attribution
 

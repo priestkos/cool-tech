@@ -1,7 +1,20 @@
 {
   "cutoffIst": "2026-11-05T09:02:00+05:30",
+  "cutoffUtc": "2026-11-05T03:32:00+00:00",
   "minimumReleaseAgeSeconds": 259200,
   "bunfigMinimumReleaseAge": 259200,
+  "transitiveAudit": {
+    "status": "complete",
+    "auditedAtUtc": "2026-11-08T04:15:00Z",
+    "method": "Every resolved bun.lock package version queried via registry.npmjs.org package metadata time field",
+    "totalResolved": 356,
+    "audited": 356,
+    "eligibleCount": 356,
+    "ineligibleCount": 0,
+    "errorCount": 0,
+    "rule": "publishedAt <= cutoffUtc (launch minus 72h)",
+    "fullPerPackageEvidence": "lockfile-dependency-evidence.json"
+  },
   "upstreamSoundcn": {
     "repo": "https://github.com/kapishdima/soundcn",
     "commit": "7cbfbb3f56e8548b81fb26410bdcea657447d087",
@@ -45,10 +58,13 @@
     "repo": "https://github.com/shadcn-ui/ui",
     "commit": "8a3536678a528cc012b9e62484290e79d0be410f",
     "commitAt": "2026-11-04T13:20:45+05:30",
-    "note": "Components reused from apps/ding-toast-lab after sibling provenance; no live @latest registry fetch."
+    "license": "MIT",
+    "registryPath": "apps/v4/registry/bases/base/ui/",
+    "localEvidence": "src/components/ui/SOURCING.md",
+    "note": "Components copied from immutable Git tree; only cn import path adapted to @/lib/utils."
   },
   "directDependencies": {
-    "note": "Pinned versions and eligibility from nov8-dependency-evidence; re-verify lockfile after install.",
+    "note": "Pins from approved nov8-dependency-evidence; all direct packages appear in lockfile audit.",
     "packages": [
       "create-vite@9.3.3",
       "react@19.3.1",
@@ -69,9 +85,5 @@
       "@types/react@19.3.0",
       "@types/react-dom@19.3.0"
     ]
-  },
-  "transitiveAudit": {
-    "status": "partial",
-    "detail": "Lockfile transitives should be spot-checked via `bun pm ls` and npm `time` fields; Bun age gate enforces 72h at install."
   }
 }

@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from "react"
-import { getAudioContext } from "@/lib/soundcn/sound-engine"
+import { unlockAudioEngine } from "@/lib/soundcn/sound-engine"
 import {
   DEFAULT_SLOT_PRESETS,
   SWITCH_OFF_PRESET,
@@ -41,11 +41,9 @@ export function useSoundBoard() {
   )
 
   const unlockSound = useCallback(() => {
-    const ctx = getAudioContext()
-    void ctx.resume().then(() => {
-      setUnlocked(true)
-      pushLog("Audio unlocked via Enable sound")
-    })
+    unlockAudioEngine()
+    setUnlocked(true)
+    pushLog("Audio unlocked via Enable sound")
   }, [pushLog])
 
   const setSlotPreset = useCallback((slot: BoardSlot, presetId: PresetId) => {

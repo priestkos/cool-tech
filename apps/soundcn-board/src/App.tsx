@@ -88,23 +88,32 @@ export default function App() {
 
       <main className="mx-auto grid max-w-5xl gap-8 px-4 py-8 lg:grid-cols-[1fr_0.95fr]">
         <div className="space-y-8">
-          <BoardSlots
-            soundEnabled={board.soundEnabled}
-            volume={board.effectiveVolume}
-            slotPresets={board.slotPresets}
-            toggleOn={board.toggleOn}
-            switchOffPreset={board.switchOffPreset}
-            onSlotPreset={board.setSlotPreset}
-            onToggle={board.setToggleOn}
-            onPlayed={board.markPlayed}
-          />
-          <SoundLibrary
-            soundEnabled={board.soundEnabled}
-            volume={board.effectiveVolume}
-            lastPlayed={board.lastPlayed}
-            onPreview={(id) => board.markPlayed(id, "Library preview")}
-            motionOn={motionOn}
-          />
+          {board.unlocked ? (
+            <>
+              <BoardSlots
+                soundEnabled={board.soundEnabled}
+                volume={board.effectiveVolume}
+                slotPresets={board.slotPresets}
+                toggleOn={board.toggleOn}
+                switchOffPreset={board.switchOffPreset}
+                onSlotPreset={board.setSlotPreset}
+                onToggle={board.setToggleOn}
+                onPlayed={board.markPlayed}
+              />
+              <SoundLibrary
+                soundEnabled={board.soundEnabled}
+                volume={board.effectiveVolume}
+                lastPlayed={board.lastPlayed}
+                onPreview={(id) => board.markPlayed(id, "Library preview")}
+                motionOn={motionOn}
+              />
+            </>
+          ) : (
+            <p className="text-muted-foreground rounded-lg border border-dashed p-8 text-center text-sm">
+              Interactive soundboard controls appear after you enable sound (no AudioContext or decode
+              runs until then).
+            </p>
+          )}
         </div>
 
         <aside className="space-y-4">
