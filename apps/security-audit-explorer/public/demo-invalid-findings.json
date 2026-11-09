@@ -1,0 +1,7 @@
+[
+  {
+    "verdict": "confirmed",
+    "title": "Deliberately invalid drop demo",
+    "description": "Missing required fields to exercise inline validation errors in the UI."
+  }
+]
