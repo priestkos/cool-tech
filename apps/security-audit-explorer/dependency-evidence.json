@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "app": "security-audit-explorer",
+    "preparedAtIst": "2026-11-09T09:00:00+05:30",
+    "launchApproxUtc": "2026-11-09T03:30:00Z",
+    "cutoffUtc": "2026-11-06T03:30:00Z",
+    "cutoffIst": "2026-11-06T09:00:00+05:30",
+    "minimumReleaseAgeSeconds": 259200,
+    "bunfigGate": "apps/security-audit-explorer/bunfig.toml",
+    "lockfileAudit": {
+      "script": "scripts/audit-lockfile-age.mjs",
+      "reportFile": "lockfile-age-audit.json",
+      "packageCount": 396,
+      "ineligibleCount": 0,
+      "allEligible": true,
+      "auditedAtUtc": "2026-11-09T03:29:00.000Z"
+    }
+  },
+  "directDependencies": {
+    "create-vite": { "version": "9.3.3", "published": "2026-10-27T09:28:12.933Z", "eligible": true },
+    "react": { "version": "19.3.1", "published": "2026-10-14T16:47:15.290Z", "eligible": true },
+    "react-dom": { "version": "19.3.1", "published": "2026-10-14T16:49:10.081Z", "eligible": true },
+    "vite": { "version": "8.3.5", "published": "2026-10-21T06:38:54.907Z", "eligible": true },
+    "@vitejs/plugin-react": { "version": "6.1.2", "published": "2026-10-05T10:08:27.143Z", "eligible": true },
+    "typescript": { "version": "6.0.3", "published": "2026-04-16T23:38:27.905Z", "eligible": true },
+    "shadcn": { "version": "4.22.1", "published": "2026-10-18T18:12:18.511Z", "eligible": true },
+    "@base-ui/react": { "version": "1.9.0", "published": "2026-10-09T08:52:43.788Z", "eligible": true },
+    "class-variance-authority": { "version": "0.7.1", "published": "2024-11-26T08:20:34.604Z", "eligible": true },
+    "clsx": { "version": "2.1.1", "published": "2024-04-23T05:26:04.645Z", "eligible": true },
+    "tailwind-merge": { "version": "3.7.0", "published": "2026-09-12T20:10:15.257Z", "eligible": true },
+    "tw-animate-css": { "version": "1.4.0", "published": "2025-09-24T05:25:53.055Z", "eligible": true },
+    "@tailwindcss/vite": { "version": "4.3.3", "published": "2026-07-16T12:04:06.316Z", "eligible": true },
+    "tailwindcss": { "version": "4.3.3", "published": "2026-07-16T12:03:35.267Z", "eligible": true },
+    "@types/bun": { "version": "1.4.4", "published": "2026-10-23T00:09:43.191Z", "eligible": true },
+    "@types/node": { "version": "24.19.2", "published": "2026-10-09T18:44:25.189Z", "eligible": true },
+    "@types/react": { "version": "19.3.0", "published": "2026-09-09T18:08:49.750Z", "eligible": true },
+    "@types/react-dom": { "version": "19.3.0", "published": "2026-09-09T18:07:51.886Z", "eligible": true }
+  },
+  "vendoredUpstream": {
+    "repo": "https://github.com/cloudflare/security-audit-skill",
+    "license": "MIT",
+    "pinnedCommit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+    "committerDateUtc": "2026-09-14T19:28:54Z",
+    "eligible": true,
+    "paths": [
+      "vendor/cloudflare-security-audit-skill/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/report-schema.json",
+      "vendor/cloudflare-security-audit-skill/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/validate-findings.cjs",
+      "vendor/cloudflare-security-audit-skill/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/validate-coverage-ledger.cjs"
+    ]
+  },
+  "shadcnSourceCandidate": {
+    "repo": "https://github.com/shadcn-ui/ui",
+    "commit": "8a3536678a528cc012b9e62484290e79d0be410f",
+    "committedIst": "2026-11-04T13:20:45+05:30",
+    "note": "UI primitives copied from apps/ding-toast-lab (same pin set); no live registry fetch at runtime."
+  },
+  "decision": "Pinned direct deps + full lockfile npm time audit; vendored Cloudflare validators only (no ajv)."
+}

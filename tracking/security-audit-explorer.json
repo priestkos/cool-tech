@@ -1,0 +1,16 @@
+{
+  "id": "security-audit-explorer",
+  "title": "Security Audit Explorer (offline Cloudflare audit artifact browser)",
+  "url": "https://github.com/cloudflare/security-audit-skill",
+  "date": "2026-11-09",
+  "sourceRefs": [
+    "https://github.com/cloudflare/security-audit-skill/tree/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "vendored-schema-validators",
+    "pinnedCommit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+    "pinnedCommitAtUtc": "2026-09-14T19:28:54Z",
+    "eligibleAtLaunch": true,
+    "note": "Only report-schema.json and dependency-free .cjs validators vendored with MIT notice."
+  }
+}

@@ -1,0 +1,85 @@
+[
+  {
+    "coverage_id": "src%2Fadmin.ts%23GET%20%2Fdebug::src%2Fadmin.ts%23requireAdmin::packages%2Fadmin::ATTACK-CLASSES.md%23Privilege%20escalation",
+    "canonical_refs": {
+      "surface": "src/admin.ts#GET /debug",
+      "boundary": "src/admin.ts#requireAdmin",
+      "subsystem": "packages/admin",
+      "attack_class": "ATTACK-CLASSES.md#Privilege escalation"
+    },
+    "surface": "Debug endpoint",
+    "boundary": "Admin gate",
+    "subsystem": "Admin",
+    "attack_class": "Privilege escalation",
+    "starting_paths": [
+      "src/router.ts",
+      "src/authz.ts"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Access control",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [
+      {
+        "block": "WEB-PROTOCOL-AND-AUTH.md#Cache behavior",
+        "reason": "The route is not cached."
+      }
+    ],
+    "prior_status": "new",
+    "attempts": [],
+    "wave": 1,
+    "status": "not_applicable",
+    "agent_id": null,
+    "reviewed_paths": [],
+    "local_checks": [],
+    "result_fingerprints": [],
+    "unresolved": [
+      "Debug route absent in fixture tree."
+    ]
+  },
+  {
+    "coverage_id": "src%2Frouter.ts%23POST%20%2Fusers%2F%3Aid::src%2Fauthz.ts%23requireOwner::packages%2Fapi::ATTACK-CLASSES.md%23Access%20control",
+    "canonical_refs": {
+      "surface": "src/router.ts#POST /users/:id",
+      "boundary": "src/authz.ts#requireOwner",
+      "subsystem": "packages/api",
+      "attack_class": "ATTACK-CLASSES.md#Access control"
+    },
+    "surface": "Update-user route",
+    "boundary": "Object ownership",
+    "subsystem": "API",
+    "attack_class": "Access control",
+    "starting_paths": [
+      "src/router.ts",
+      "src/authz.ts"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Access control",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [
+      {
+        "block": "WEB-PROTOCOL-AND-AUTH.md#Cache behavior",
+        "reason": "The route is not cached."
+      }
+    ],
+    "prior_status": "new",
+    "attempts": [],
+    "wave": 1,
+    "status": "covered",
+    "agent_id": "hunter-1",
+    "reviewed_paths": [
+      "src/router.ts"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunter-1",
+        "reviewed_paths": [
+          "src/router.ts"
+        ],
+        "invariant": "The route checks object ownership.",
+        "method": "source",
+        "result": "The owner check applies before the update.",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [],
+    "unresolved": []
+  }
+]
