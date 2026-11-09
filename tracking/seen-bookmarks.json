@@ -266,6 +266,40 @@
         "eligible": true,
         "note": "Five Kenney CC0 sounds + useSound hook from immutable SHA; Blizzard assets excluded."
       }
+    },
+    {
+      "id": "security-audit-skill",
+      "title": "Security Audit Explorer",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "date": "2026-11-09",
+      "sourceRefs": [
+        "https://github.com/cloudflare/security-audit-skill/tree/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+        "https://blog.cloudflare.com/build-your-own-vulnerability-harness"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-integration-vendored",
+        "pinnedCommit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+        "pinnedCommitAt": "2026-09-14T19:28:54Z",
+        "eligible": true,
+        "note": "Vendored MIT schema and validators from immutable SHA; offline explorer with example-data fixtures; lockfile age audit 396/396 eligible at cutoff."
+      }
+    },
+    {
+      "id": "agent-swarm-effect",
+      "title": "Agent Swarm Lab (clean-room re-creation)",
+      "url": "https://github.com/zadescoxp/agent-swarm-effect",
+      "date": "2026-11-09",
+      "sourceRefs": [
+        "https://zadescoxp.github.io/agent-swarm-effect/",
+        "https://x.com/zadescoxp/status/2119338919544463556"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "clean-room",
+        "npmCreated": "2026-11-08T07:17:26.640Z",
+        "eligible": false,
+        "eligibleFromIst": "2026-11-11T13:50:00+05:30",
+        "note": "Upstream under 72h at build; independent re-creation, no install or copied code; lockfile age audit 356/356 eligible. Real package swap possible after eligibility."
+      }
     }
   ],
   "skipped": [
