@@ -300,6 +300,26 @@
         "eligibleFromIst": "2026-11-11T13:50:00+05:30",
         "note": "Upstream under 72h at build; independent re-creation, no install or copied code; lockfile age audit 356/356 eligible. Real package swap possible after eligibility."
       }
+    },
+    {
+      "id": "benchup",
+      "title": "BenchUp Board Lab (independent three.js board workflow)",
+      "url": "https://github.com/BenchUp3D/editor",
+      "date": "2026-11-10",
+      "sourceRefs": [
+        "https://benchup3d.github.io/editor/",
+        "https://benchup3d.github.io/editor/play/",
+        "https://github.com/BenchUp3D/editor/releases/tag/v0.6.4"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "clean-room-recreation-only",
+        "latestEligibleCommit": "290b1674477d3b7a0515b42a00f747fff0fd6ae1",
+        "latestEligibleCommitAt": "2026-11-07T05:28:07+05:30",
+        "releaseTag": "v0.6.4",
+        "releaseAt": "2026-11-07T05:40:32+05:30",
+        "eligible": true,
+        "note": "No BenchUp/KetchUp clone or WASM install; independent three.js MVP in apps/benchup-board-lab."
+      }
     }
   ],
   "skipped": [
