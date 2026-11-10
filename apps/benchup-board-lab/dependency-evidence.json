@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "app": "benchup-board-lab",
+    "auditedAtUtc": "2026-11-10T03:40:27Z",
+    "cutoffUtc": "2026-11-07T03:23:00Z",
+    "cutoffIst": "2026-11-07T08:53:00+05:30",
+    "minimumReleaseAgeSeconds": 259200,
+    "lockfile": "bun.lock",
+    "lockfilePackageCount": 408,
+    "transitiveSpotCheckCount": 121,
+    "transitiveIneligibleInSpotCheck": 0,
+    "preLaunchSnapshot": "nov10-dependency-evidence.json (brief attachment)",
+    "decision": "All 19 direct deps eligible vs cutoff; spot-check of 121 lockfile entries found zero post-cutoff publishes."
+  },
+  "directDependencies": [
+    {
+      "name": "three",
+      "version": "0.187.0",
+      "published": "2026-10-30T08:09:24.504Z",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-Qiu7R+Cmh8CstZsY1uJOSWnVlfo7ZtNLV7mF8Jltk3LB3AtDu9cRZlcnRKkAk8Y4z6KKw35z7Y7Urd7jWY8etA=="
+    },
+    {
+      "name": "@types/three",
+      "version": "0.187.0",
+      "published": "2026-10-30T18:05:26.397Z",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-v+vKNarUtk4n2QRZ4+CN5ygMM0ARUjXjIQl0R/unMUfmStFeVqGbgqarbrpoGTXRZoulSH16ePrVJVxPJEbMUA=="
+    },
+    {
+      "name": "vite",
+      "version": "8.3.5",
+      "published": "2026-10-21T06:38:54.907Z",
+      "eligible": true,
+      "license": "MIT",
+      "note": "vite@8.3.7 intentionally not used (younger than cutoff)"
+    },
+    {
+      "name": "@vitejs/plugin-react",
+      "version": "6.1.2",
+      "published": "2026-10-05T10:08:27.143Z",
+      "eligible": true,
+      "license": "MIT",
+      "note": "@vitejs/plugin-react@6.3.0 intentionally not used"
+    },
+    {
+      "name": "react",
+      "version": "19.3.1",
+      "published": "2026-10-14T16:47:15.290Z",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "react-dom",
+      "version": "19.3.1",
+      "published": "2026-10-14T16:49:10.081Z",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "typescript",
+      "version": "6.0.3",
+      "published": "2026-04-16T23:38:27.905Z",
+      "eligible": true,
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "shadcn",
+      "version": "4.22.1",
+      "published": "2026-10-18T18:12:18.511Z",
+      "eligible": true,
+      "license": "MIT",
+      "registrySourcePin": "shadcn-ui/ui@8a3536678a528cc012b9e62484290e79d0be410f"
+    },
+    {
+      "name": "tailwindcss",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:03:35.267Z",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "@tailwindcss/vite",
+      "version": "4.3.3",
+      "published": "2026-07-16T12:04:06.316Z",
+      "eligible": true,
+      "license": "MIT"
+    }
+  ],
+  "benchupUpstream": {
+    "creditedOnly": true,
+    "vendored": false,
+    "eligibleDocSnapshot": "290b167 / v0.6.4",
+    "website": "https://benchup3d.github.io/editor/",
+    "repo": "https://github.com/BenchUp3D/editor"
+  }
+}
