@@ -328,6 +328,23 @@
       "title": "tsc-ts (Vercel Labs)",
       "url": "https://x.com/ctatedev/status/2111272070768185787",
       "date": "2026-10-20"
+    },
+    {
+      "id": "intent-ui-iap",
+      "title": "Intent UI: Intents and Persistence (IAP) RFC",
+      "url": "https://x.com/BraydenWilmoth/status/2119813513006993813",
+      "date": "2026-11-11",
+      "sourceRefs": ["https://intent-ui.com", "https://intent-ui.com/rfc"],
+      "note": "Seen in Nov 11 scout (main pick); owner chose Skip today. Seen but not built."
+    },
+    {
+      "id": "mintlify-agent-traffic",
+      "title": "Mintlify agent-traffic (AI agent and bot traffic classifier)",
+      "url": "https://x.com/mintlify/status/2120234021368254922",
+      "date": "2026-11-11",
+      "sourceRefs": ["https://github.com/mintlify/agent-traffic", "https://agent-traffic.mintlify.site"],
+      "note": "Seen in Nov 11 scout (runner-up); owner chose Skip today. Seen but not built."
     }
   ]
 }
+
