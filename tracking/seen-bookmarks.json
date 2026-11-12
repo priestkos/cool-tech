@@ -344,6 +344,22 @@
       "date": "2026-11-11",
       "sourceRefs": ["https://github.com/mintlify/agent-traffic", "https://agent-traffic.mintlify.site"],
       "note": "Seen in Nov 11 scout (runner-up); owner chose Skip today. Seen but not built."
+    },
+    {
+      "id": "shadcn-lint",
+      "title": "@shadcn/lint (Tailwind v4 design-system linter for coding agents)",
+      "url": "https://x.com/awe0_io/status/2119116454360658418",
+      "date": "2026-11-12",
+      "sourceRefs": ["https://github.com/shadcn-ui/lint", "https://x.com/VarunChopr17597/status/2120359834264523131"],
+      "note": "Seen in Nov 12 scout (main pick); owner chose Skip today. Seen but not built."
+    },
+    {
+      "id": "vlt-security-insights",
+      "title": "vlt Security Insights (dependency-graph selector queries)",
+      "url": "https://x.com/vltpkg/status/2120258033007653300",
+      "date": "2026-11-12",
+      "sourceRefs": ["https://github.com/vltpkg/vltpkg", "https://docs.vlt.sh/client/selectors/security-insights"],
+      "note": "Seen in Nov 12 scout (runner-up); owner chose Skip today. Seen but not built."
     }
   ]
 }
