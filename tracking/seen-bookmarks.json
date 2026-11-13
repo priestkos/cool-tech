@@ -320,6 +320,45 @@
         "eligible": true,
         "note": "No BenchUp/KetchUp clone or WASM install; independent three.js MVP in apps/benchup-board-lab."
       }
+    },
+    {
+      "id": "ui-sdk",
+      "title": "UI SDK Behavior Lab (clean-room behavior primitives)",
+      "url": "https://ui-sdk.dev",
+      "date": "2026-11-13",
+      "sourceRefs": [
+        "https://ui-sdk.dev",
+        "https://github.com/vercel-labs/ui",
+        "https://x.com/vercel/status/2120950020249895314",
+        "https://github.com/vercel-labs/ui/commit/26ac6b3441335614cb413b54e56a9f9b0ff70f15"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "clean-room",
+        "npmLatest": "@ui-sdk/core@0.1.0-beta.1",
+        "npmLatestPublished": "2026-11-12T17:12:06.305Z",
+        "eligibleFromIst": "2026-11-15T22:42:06.305+05:30",
+        "creditSnapshotCommit": "26ac6b3441335614cb413b54e56a9f9b0ff70f15",
+        "note": "No @ui-sdk/* install; independent behaviors in apps/ui-sdk-behavior-lab."
+      }
+    },
+    {
+      "id": "hyper-elements",
+      "title": "Hyper Elements Studio (multi-root render lab)",
+      "url": "https://hyperelements.dev/",
+      "date": "2026-11-13",
+      "sourceRefs": [
+        "https://github.com/hyper-elements/hyper-elements",
+        "https://github.com/hyper-elements/hyper-elements/releases/tag/v0.3.1",
+        "https://www.npmjs.com/package/@hyper-elements/react/v/0.3.1",
+        "https://x.com/unlayer/status/2120874197102575864"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-integration",
+        "pinnedVersion": "0.3.1",
+        "releaseTag": "v0.3.1",
+        "pinnedCommit": "571ec52fef7285f583e53123bae71594d886f88b",
+        "note": "Pinned @hyper-elements/react@0.3.1 with satori@0.33.5, @resvg/resvg-js@2.6.2, @react-pdf/renderer@4.9.0. No email-client emulator packages."
+      }
     }
   ],
   "skipped": [
