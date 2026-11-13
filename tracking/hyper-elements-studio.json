@@ -1,0 +1,19 @@
+{
+  "id": "hyper-elements",
+  "title": "Hyper Elements Studio (multi-root render lab)",
+  "url": "https://hyperelements.dev/",
+  "date": "2026-11-13",
+  "sourceRefs": [
+    "https://github.com/hyper-elements/hyper-elements",
+    "https://github.com/hyper-elements/hyper-elements/releases/tag/v0.3.1",
+    "https://www.npmjs.com/package/@hyper-elements/react/v/0.3.1",
+    "https://x.com/unlayer/status/2120874197102575864"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-integration",
+    "pinnedVersion": "0.3.1",
+    "releaseTag": "v0.3.1",
+    "pinnedCommit": "571ec52fef7285f583e53123bae71594d886f88b",
+    "note": "Pinned @hyper-elements/react@0.3.1 with satori@0.33.5, @resvg/resvg-js@2.6.2, @react-pdf/renderer@4.9.0. No email-client emulator packages."
+  }
+}
