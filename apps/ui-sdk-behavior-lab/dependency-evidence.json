@@ -1,0 +1,24 @@
+{
+  "preparedAtIst": "2026-11-13T09:15:00+05:30",
+  "cutoffUtc": "2026-11-10T03:45:00Z",
+  "minimumReleaseAgeSeconds": 259200,
+  "decision": "clean-room-no-ui-sdk-npm",
+  "directDependencies": {
+    "source": "/agent/repos/cool-tech/uploads/nov13-dependency-evidence_d18d.json",
+    "toolchain": "toolchain section — all direct pins eligible at launch"
+  },
+  "uiSdk": {
+    "install": false,
+    "reason": "All @ui-sdk/* versions younger than 72h cutoff",
+    "eligibleSwapAfterIst": "2026-11-15T22:42:06.305+05:30"
+  },
+  "lockfile": {
+    "path": "bun.lock",
+    "note": "Full transitive audit performed at install via bun with minimumReleaseAge=259200 in bunfig.toml; see CI/agent validation in PR."
+  },
+  "shadcnRegistryPin": {
+    "repo": "shadcn-ui/ui",
+    "commit": "8a3536678a528cc012b9e62484290e79d0be410f",
+    "committedUtc": "2026-11-04T07:50:45Z"
+  }
+}

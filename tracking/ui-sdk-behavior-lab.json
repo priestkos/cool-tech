@@ -1,0 +1,20 @@
+{
+  "id": "ui-sdk",
+  "title": "UI SDK Behavior Lab (clean-room behavior primitives)",
+  "url": "https://ui-sdk.dev",
+  "date": "2026-11-13",
+  "sourceRefs": [
+    "https://ui-sdk.dev",
+    "https://github.com/vercel-labs/ui",
+    "https://x.com/vercel/status/2120950020249895314",
+    "https://github.com/vercel-labs/ui/commit/26ac6b3441335614cb413b54e56a9f9b0ff70f15"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "clean-room",
+    "npmLatest": "@ui-sdk/core@0.1.0-beta.1",
+    "npmLatestPublished": "2026-11-12T17:12:06.305Z",
+    "eligibleFromIst": "2026-11-15T22:42:06.305+05:30",
+    "creditSnapshotCommit": "26ac6b3441335614cb413b54e56a9f9b0ff70f15",
+    "note": "No @ui-sdk/* install; independent behaviors in apps/ui-sdk-behavior-lab."
+  }
+}
