@@ -1,0 +1,896 @@
+{
+  "meta": {
+    "preparedFor": [
+      "ui-sdk-behavior-lab",
+      "hyper-elements-studio"
+    ],
+    "preparedAtIst": "2026-11-13T09:15:00+05:30",
+    "launchApproxUtc": "2026-11-13T03:45:00Z",
+    "approvalIst": "2026-11-13T09:00:00+05:30",
+    "approvalNote": "Sai approved 'Build both' on the Nov 13 scout (main: Vercel UI SDK, runner-up: Hyper Elements).",
+    "cutoffUtc": "2026-11-10T03:45:00Z",
+    "cutoffIst": "2026-11-10T09:15:00+05:30",
+    "minimumReleaseAgeSeconds": 259200,
+    "sources": [
+      "https://registry.npmjs.org/{package}",
+      "https://registry.npmjs.org/@hyper-elements/react/-/react-0.3.1.tgz (README.md, GUIDE.md, REFERENCE.md, dist/*.d.ts, LICENSE, package.json)",
+      "https://api.github.com/repos/vercel-labs/ui",
+      "https://api.github.com/repos/vercel-labs/ui/commits?until=2026-11-10T03:45:00Z",
+      "https://api.github.com/repos/hyper-elements/hyper-elements",
+      "https://api.github.com/repos/hyper-elements/hyper-elements/git/refs/tags/v0.3.1",
+      "https://api.github.com/repos/priestkos/cool-tech/contents/...",
+      "https://api.github.com/repos/shadcn-ui/ui/commits/8a3536678a528cc012b9e62484290e79d0be410f"
+    ],
+    "notes": "Toolchain pins rechecked from apps/ding-toast-lab / nov10 evidence against the Nov 13 09:15 IST launch cutoff (2026-11-10 03:45 UTC). All prior proven direct pins remain eligible; proven pins kept even when a newer eligible version exists (vite@8.3.7 and @vitejs/plugin-react@6.3.0 are now eligible, unlike on Nov 10). Cool-tech was not cloned; app-folder and seen-list checks used GitHub Contents API on main only. No root package.json or workspace lockfile exists; each app is self-contained."
+  },
+  "appInstallAudit": {
+    "appFolder": "apps/hyper-elements-studio",
+    "auditedAtUtc": "2026-11-13T03:52:00Z",
+    "installCommand": "cd apps/hyper-elements-studio && bun install",
+    "lockfile": "apps/hyper-elements-studio/bun.lock",
+    "nativePlatformBindingResolved": "@resvg/resvg-js-linux-x64-gnu@2.6.2",
+    "directPinsInstalled": [
+      "@hyper-elements/react@0.3.1",
+      "satori@0.33.5",
+      "@resvg/resvg-js@2.6.2",
+      "@react-pdf/renderer@4.9.0"
+    ],
+    "toolchainPinsInstalled": "Matched apps/ding-toast-lab proven set from brief",
+    "transitiveAuditStatus": "spot-checked @react-pdf/* and satori transitives in bun.lock; all resolved versions predate cutoff; no 0.4.x hyper-elements packages"
+  },
+  "repoClearance": {
+    "appsChecked": [
+      {
+        "appFolder": "apps/ui-sdk-behavior-lab",
+        "existsOnMain": false,
+        "trackingFile": "tracking/ui-sdk-behavior-lab.json",
+        "trackingFileExistsOnMain": false
+      },
+      {
+        "appFolder": "apps/hyper-elements-studio",
+        "existsOnMain": false,
+        "trackingFile": "tracking/hyper-elements-studio.json",
+        "trackingFileExistsOnMain": false
+      }
+    ],
+    "seenBookmarksIdsChecked": [
+      "ui-sdk",
+      "ui-sdk-behavior-lab",
+      "ui-sdk-core",
+      "vercel-ui-sdk",
+      "hyper-elements",
+      "hyper-elements-studio",
+      "hyperelements",
+      "unlayer-hyper-elements"
+    ],
+    "seenBookmarksContainsAny": false,
+    "builtCountOnMainAtCheck": 40,
+    "skippedCountOnMainAtCheck": 5,
+    "rootPackageJsonExists": false,
+    "workspaceRegistrationRequired": false,
+    "decision": "clear-to-launch-brief"
+  },
+  "toolchain": {
+    "create-vite": {
+      "version": "9.3.3",
+      "published": "2026-10-27T09:28:12.933Z",
+      "publishedIst": "2026-10-27T14:58:12.933000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-vXkNaFdSq3eMfk7W0oo8FgTe6n/tTsvk8q7iGvZLQSPVj8AyZZ3dT0QMaYzcxaULsGxTx59n4tpvZtfVKUPvRg==",
+      "shasum": "0086d819fe631e89b20ff4af6f54661fce342056",
+      "peers": {},
+      "dependencies": {},
+      "source": "https://registry.npmjs.org/create-vite/9.3.3",
+      "hoursBeforeCutoffApprox": 330.3,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff.",
+      "newerEligibleNotSelected": [
+        {
+          "version": "9.3.4",
+          "published": "2026-11-05T06:03:53.720Z",
+          "publishedIst": "2026-11-05T11:33:53.720+05:30",
+          "note": "Current npm latest at check; proven 9.3.3 kept."
+        }
+      ]
+    },
+    "react": {
+      "version": "19.3.1",
+      "published": "2026-10-14T16:47:15.290Z",
+      "publishedIst": "2026-10-14T22:17:15.290000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw==",
+      "shasum": "26e9523fc36ea06be5050ebb780249a133260ad7",
+      "peers": {},
+      "dependencies": {},
+      "source": "https://registry.npmjs.org/react/19.3.1",
+      "hoursBeforeCutoffApprox": 635.0,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff."
+    },
+    "react-dom": {
+      "version": "19.3.1",
+      "published": "2026-10-14T16:49:10.081Z",
+      "publishedIst": "2026-10-14T22:19:10.081000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-Y0bARz53lhEC1NMCASs0/j+faB/zqt3R8hpvg1e8+61ZVJ4UL0UdC4cBbXfZMcIuhrfgeILTLe+ZeBCavQPtKQ==",
+      "shasum": "b384c53cfcbe9c2a5d09d863b98455de9d68afe2",
+      "peers": {
+        "react": "^19.3.1"
+      },
+      "dependencies": {
+        "scheduler": "^0.28.0"
+      },
+      "source": "https://registry.npmjs.org/react-dom/19.3.1",
+      "hoursBeforeCutoffApprox": 634.9,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff."
+    },
+    "vite": {
+      "version": "8.3.5",
+      "published": "2026-10-21T06:38:54.907Z",
+      "publishedIst": "2026-10-21T12:08:54.907000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-z1YpjieJ9g0ebTmQpLBv/oq9E3F9EIlOe+7LahW8SrE3LTiG3udBRUXQOlYXP9b+IC2q2phHeVxj9xGlw34OEQ==",
+      "shasum": "9614f66026cb92fe486cb9d3c90780b2a69fc85d",
+      "peers": {
+        "tsx": "^4.8.1",
+        "jiti": ">=1.21.0",
+        "less": "^4.0.0",
+        "sass": "^1.70.0",
+        "yaml": "^2.4.2",
+        "stylus": ">=0.54.8",
+        "terser": "^5.16.0",
+        "esbuild": "^0.27.0 || ^0.28.0",
+        "sugarss": "^5.0.0",
+        "@types/node": "^20.19.0 || >=22.12.0",
+        "sass-embedded": "^1.70.0",
+        "@vitejs/devtools": "^0.7.1 || ^0.8.0"
+      },
+      "dependencies": {
+        "postcss": "^8.5.30",
+        "rolldown": "~1.2.14",
+        "picomatch": "^4.0.7",
+        "tinyglobby": "^0.2.17",
+        "lightningcss": "^1.33.0"
+      },
+      "source": "https://registry.npmjs.org/vite/8.3.5",
+      "hoursBeforeCutoffApprox": 477.1,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff.",
+      "newerEligibleNotSelected": [
+        {
+          "version": "8.3.6",
+          "published": "2026-11-05T05:40:52.195Z",
+          "publishedIst": "2026-11-05T11:10:52.195+05:30"
+        },
+        {
+          "version": "8.3.7",
+          "published": "2026-11-09T10:25:29.212Z",
+          "publishedIst": "2026-11-09T15:55:29.212+05:30",
+          "note": "Now eligible vs this cutoff; proven 8.3.5 kept. Do not jump to 8.3.8 (published 2026-11-11T02:49:46.387Z, too new)."
+        }
+      ]
+    },
+    "@vitejs/plugin-react": {
+      "version": "6.1.2",
+      "published": "2026-10-05T10:08:27.143Z",
+      "publishedIst": "2026-10-05T15:38:27.143000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-fhJNGUdscQa4HkI0xFxwonWyhnVReCPDbXI7FH7jmzpnVCrFQI7PRrhWecO263610vOrs9tr2Y4xcf8uAdFxbw==",
+      "shasum": "924d47e890a78cdf2b72f3f41fe8ab98e089b81e",
+      "peers": {
+        "vite": "^8.0.0",
+        "oxc-transform-react": "^0.152.0",
+        "@rolldown/plugin-babel": "^0.1.7 || ^0.2.0",
+        "babel-plugin-react-compiler": "^1.0.0"
+      },
+      "dependencies": {
+        "@rolldown/pluginutils": "^1.0.1"
+      },
+      "source": "https://registry.npmjs.org/@vitejs/plugin-react/6.1.2",
+      "hoursBeforeCutoffApprox": 857.6,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff.",
+      "newerEligibleNotSelected": [
+        {
+          "version": "6.2.0",
+          "published": "2026-11-02T07:47:32.754Z",
+          "publishedIst": "2026-11-02T13:17:32.754+05:30"
+        },
+        {
+          "version": "6.3.0",
+          "published": "2026-11-09T06:12:31.033Z",
+          "publishedIst": "2026-11-09T11:42:31.033+05:30",
+          "note": "Current npm latest at check and now eligible; proven 6.1.2 kept."
+        }
+      ]
+    },
+    "typescript": {
+      "version": "6.0.3",
+      "published": "2026-04-16T23:38:27.905Z",
+      "publishedIst": "2026-04-17T05:08:27.905000+05:30",
+      "eligible": true,
+      "license": "Apache-2.0",
+      "integrity": "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==",
+      "shasum": "90251dc007916e972786cb94d74d15b185577d21",
+      "peers": {},
+      "dependencies": {},
+      "source": "https://registry.npmjs.org/typescript/6.0.3",
+      "hoursBeforeCutoffApprox": 4972.1,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff."
+    },
+    "shadcn": {
+      "version": "4.22.1",
+      "published": "2026-10-18T18:12:18.511Z",
+      "publishedIst": "2026-10-18T23:42:18.511000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-LbB4Lro+b0qSVki/tgL5edtKylEnXe1ppxMJC12d7NHPgaT+eSgJGMQULwP72V7X9tbiUq7xfx3VDAfB7jdGoA==",
+      "shasum": "8b7a0e0b14c105c51d24e2ba6731a0dc2c54bcbb",
+      "peers": {},
+      "dependencies": {
+        "cn": "^0.2.4",
+        "ora": "^8.2.0",
+        "zod": "^4.2.0",
+        "diff": "^8.0.2",
+        "open": "^11.0.4",
+        "execa": "^9.6.0",
+        "kleur": "^4.1.5",
+        "socks": "^2.8.8",
+        "dedent": "^1.6.0",
+        "recast": "^0.23.11",
+        "undici": "^7.29.1",
+        "postcss": "^8.5.23",
+        "prompts": "^2.4.2",
+        "fs-extra": "^11.3.1",
+        "ts-morph": "^26.0.0",
+        "commander": "^14.0.0",
+        "deepmerge": "^4.3.1",
+        "fast-glob": "^3.3.3",
+        "fuzzysort": "^3.1.0",
+        "@babel/core": "^7.28.0",
+        "browserslist": "^4.29.3",
+        "@babel/parser": "^7.28.0",
+        "tsconfig-paths": "^4.2.0",
+        "@dotenvx/dotenvx": "^1.48.4",
+        "@shadcn/registry": "0.2.0",
+        "stringify-object": "^5.0.0",
+        "postcss-selector-parser": "^7.1.6",
+        "@babel/preset-typescript": "^7.27.1",
+        "@modelcontextprotocol/sdk": "^1.32.0",
+        "validate-npm-package-name": "^7.0.1",
+        "@types/validate-npm-package-name": "^4.0.2",
+        "@babel/plugin-transform-typescript": "^7.28.0"
+      },
+      "source": "https://registry.npmjs.org/shadcn/4.22.1",
+      "hoursBeforeCutoffApprox": 537.5,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff.",
+      "newerEligibleNotSelected": [
+        {
+          "version": "4.23.0",
+          "published": "2026-10-27T12:33:51.724Z",
+          "publishedIst": "2026-10-27T18:03:51.724+05:30",
+          "note": "Current npm latest at check; proven 4.22.1 kept."
+        }
+      ]
+    },
+    "@base-ui/react": {
+      "version": "1.9.0",
+      "published": "2026-10-09T08:52:43.788Z",
+      "publishedIst": "2026-10-09T14:22:43.788000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-S8CSYosASBKtpL8SWUfS78rFElfLijiCgA7oHOK22jCJ95FULsYyKwBNFOgudt0RA+/7yNc7F81bOvQnRgbBiQ==",
+      "shasum": "950dbd8cd4fd6f8d8796fa6a227346115eca8204",
+      "peers": {
+        "react": "^17 || ^18 || ^19",
+        "date-fns": "^4.0.0",
+        "react-dom": "^17 || ^18 || ^19",
+        "@date-fns/tz": "^1.2.0",
+        "@types/react": "^17 || ^18 || ^19"
+      },
+      "dependencies": {
+        "@babel/runtime": "^7.29.7 || ^8.0.0",
+        "@base-ui/utils": "0.5.0",
+        "@floating-ui/utils": "^0.2.12",
+        "@floating-ui/react-dom": "^2.1.9",
+        "use-sync-external-store": "^1.7.0"
+      },
+      "source": "https://registry.npmjs.org/@base-ui/react/1.9.0",
+      "hoursBeforeCutoffApprox": 762.9,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff."
+    },
+    "class-variance-authority": {
+      "version": "0.7.1",
+      "published": "2024-11-26T08:20:34.604Z",
+      "publishedIst": "2024-11-26T13:50:34.604000+05:30",
+      "eligible": true,
+      "license": "Apache-2.0",
+      "integrity": "sha512-Ka+9Trutv7G8M6WT6SeiRWz792K5qEqIGEGzXKhAE6xOWAY6pPH8U+9IY3oCMv6kqTmLsv7Xh/2w2RigkePMsg==",
+      "shasum": "4008a798a0e4553a781a57ac5177c9fb5d043787",
+      "peers": {},
+      "dependencies": {
+        "clsx": "^2.1.1"
+      },
+      "source": "https://registry.npmjs.org/class-variance-authority/0.7.1",
+      "hoursBeforeCutoffApprox": 17131.4,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff."
+    },
+    "clsx": {
+      "version": "2.1.1",
+      "published": "2024-04-23T05:26:04.645Z",
+      "publishedIst": "2024-04-23T10:56:04.645000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==",
+      "shasum": "eed397c9fd8bd882bfb18deab7102049a2f32999",
+      "peers": {},
+      "dependencies": {},
+      "source": "https://registry.npmjs.org/clsx/2.1.1",
+      "hoursBeforeCutoffApprox": 22342.3,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff."
+    },
+    "tailwind-merge": {
+      "version": "3.7.0",
+      "published": "2026-09-12T20:10:15.257Z",
+      "publishedIst": "2026-09-13T01:40:15.257000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-XPPUyAc+cvspz3lHTcR/QgPfW2A0lv/xQNIjX3HGhLR+Nq2lHaLq5MtTesHn8GUr3W3DguT2KT5x3NVgRtYwmA==",
+      "shasum": "61e9a67ab11b64138dea7d4fa5b74a33e17f2c87",
+      "peers": {},
+      "dependencies": {},
+      "source": "https://registry.npmjs.org/tailwind-merge/3.7.0",
+      "hoursBeforeCutoffApprox": 1399.6,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff."
+    },
+    "tw-animate-css": {
+      "version": "1.4.0",
+      "published": "2025-09-24T05:25:53.055Z",
+      "publishedIst": "2025-09-24T10:55:53.055000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-7bziOlRqH0hJx80h/3mbicLW7o8qLsH5+RaLR2t+OHM3D0JlWGODQKQ4cxbK7WlvmUxpcj6Kgu6EKqjrGFe3QQ==",
+      "shasum": "b4a06f68244cba39428aa47e65e6e4c0babc21ee",
+      "peers": {},
+      "dependencies": {},
+      "source": "https://registry.npmjs.org/tw-animate-css/1.4.0",
+      "hoursBeforeCutoffApprox": 9886.3,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff."
+    },
+    "@tailwindcss/vite": {
+      "version": "4.3.3",
+      "published": "2026-07-16T12:04:06.316Z",
+      "publishedIst": "2026-07-16T17:34:06.316000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-yYU8cogLeSh/ms2jh8Fj7jaba/EWa7Ja6GoUqYZaraEuCI5YS6ms6ObZgjjedm+jm6XZjdNRWBpPP6Z86oOxcw==",
+      "shasum": "1f4037badcb5e6c6bb574d3d8a0172c83f26b97f",
+      "peers": {
+        "vite": "^5.2.0 || ^6 || ^7 || ^8"
+      },
+      "dependencies": {
+        "tailwindcss": "4.3.3",
+        "@tailwindcss/node": "4.3.3",
+        "@tailwindcss/oxide": "4.3.3"
+      },
+      "source": "https://registry.npmjs.org/@tailwindcss/vite/4.3.3",
+      "hoursBeforeCutoffApprox": 2799.7,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff.",
+      "newerEligibleNotSelected": [
+        {
+          "version": "4.3.4",
+          "published": "2026-11-02T21:30:06.195Z",
+          "publishedIst": "2026-11-03T03:00:06.195+05:30"
+        },
+        {
+          "version": "4.3.5",
+          "published": "2026-11-06T15:16:27.506Z",
+          "publishedIst": "2026-11-06T20:46:27.506+05:30",
+          "note": "Current npm latest at check; proven 4.3.3 kept."
+        }
+      ]
+    },
+    "tailwindcss": {
+      "version": "4.3.3",
+      "published": "2026-07-16T12:03:35.267Z",
+      "publishedIst": "2026-07-16T17:33:35.267000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-gOhV3P7ufE62QDGg1zVaTgCR+EtPv92k2nIhVcVKcLmxT1sUBsQGhnZj175j+MqRt4zLF7ic+sCYjfhxMxj7YQ==",
+      "shasum": "c006861611c213c1877893ab5b23daa16be2bb55",
+      "peers": {},
+      "dependencies": {},
+      "source": "https://registry.npmjs.org/tailwindcss/4.3.3",
+      "hoursBeforeCutoffApprox": 2799.7,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff.",
+      "newerEligibleNotSelected": [
+        {
+          "version": "4.3.4",
+          "published": "2026-11-02T21:30:42.446Z",
+          "publishedIst": "2026-11-03T03:00:42.446+05:30"
+        },
+        {
+          "version": "4.3.5",
+          "published": "2026-11-06T15:16:02.164Z",
+          "publishedIst": "2026-11-06T20:46:02.164+05:30",
+          "note": "Current npm latest at check; proven 4.3.3 kept."
+        }
+      ]
+    },
+    "@types/bun": {
+      "version": "1.4.4",
+      "published": "2026-10-23T00:09:43.191Z",
+      "publishedIst": "2026-10-23T05:39:43.191000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-9wkRDXUXK124pEnAutE6n/l18j+i9GC5IAHK8TmX/2nlySETmky0OU6yL5U8pW1AoKh++AN9auDCr647BfurjQ==",
+      "shasum": "37e9d2532c71eabba10b4c88403e4d8ed6f609fe",
+      "peers": {},
+      "dependencies": {
+        "bun-types": "1.4.4"
+      },
+      "source": "https://registry.npmjs.org/@types/bun/1.4.4",
+      "hoursBeforeCutoffApprox": 435.6,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff."
+    },
+    "@types/node": {
+      "version": "24.19.2",
+      "published": "2026-10-09T18:44:25.189Z",
+      "publishedIst": "2026-10-10T00:14:25.189000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-93d49wCWJkCyN87MxLpNN6KXPCwFw7bVUg79mGUV1OS40JGWwVCr8n61DXCSqz7CV6/VfPkb7xec7uP2M+QHWQ==",
+      "shasum": "8718eedbc0f89648de6525be9f4a9c61cdbaa502",
+      "peers": {},
+      "dependencies": {
+        "undici-types": ">=7.24.0 <7.24.7"
+      },
+      "source": "https://registry.npmjs.org/@types/node/24.19.2",
+      "hoursBeforeCutoffApprox": 753.0,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff."
+    },
+    "@types/react": {
+      "version": "19.3.0",
+      "published": "2026-09-09T18:08:49.750Z",
+      "publishedIst": "2026-09-09T23:38:49.750000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg==",
+      "shasum": "3b3ce8d8c1627fb5ccd4dadd57ef445c5a153b77",
+      "peers": {},
+      "dependencies": {
+        "csstype": "^3.2.2"
+      },
+      "source": "https://registry.npmjs.org/@types/react/19.3.0",
+      "hoursBeforeCutoffApprox": 1473.6,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff."
+    },
+    "@types/react-dom": {
+      "version": "19.3.0",
+      "published": "2026-09-09T18:07:51.886Z",
+      "publishedIst": "2026-09-09T23:37:51.886000+05:30",
+      "eligible": true,
+      "license": "MIT",
+      "integrity": "sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q==",
+      "shasum": "90294a9266efd928a5266f2110d60d5dba5015d2",
+      "peers": {
+        "@types/react": "^19.3.0"
+      },
+      "dependencies": {},
+      "source": "https://registry.npmjs.org/@types/react-dom/19.3.0",
+      "hoursBeforeCutoffApprox": 1473.6,
+      "note": "Proven pin kept from apps/ding-toast-lab / prior briefs; rechecked vs Nov 13 09:15 IST cutoff."
+    }
+  },
+  "shadcnSourceCandidate": {
+    "repo": "https://github.com/shadcn-ui/ui",
+    "commit": "8a3536678a528cc012b9e62484290e79d0be410f",
+    "committedUtc": "2026-11-04T07:50:45Z",
+    "committedIst": "2026-11-04T13:20:45+05:30",
+    "message": "feat(registry): add community registries (#12589)",
+    "eligibleVsCutoff": true,
+    "note": "CLI age does not prove registry age; pin/inspect registry items at this revision. Re-verified committer date via GitHub API on Nov 13."
+  },
+  "optionalIfNeeded": {
+    "lucide-react": {
+      "newestEligible": "1.70.0",
+      "published": "2026-11-06T06:15:46.080Z",
+      "publishedIst": "2026-11-06T11:45:46.080+05:30",
+      "eligible": true,
+      "latestAtCheck": "1.72.0",
+      "latestPublished": "2026-11-11T06:15:40.696Z",
+      "latestEligible": false,
+      "note": "Do not add unless a shadcn component actually needs it. Never install 1.72.0."
+    }
+  },
+  "uiSdk": {
+    "decision": "clean-room",
+    "reason": "Every npm version of @ui-sdk/* is younger than the 72h cutoff. Do not install @ui-sdk/core, @ui-sdk/react, or any other @ui-sdk/* package, and do not copy source from the repo or tarball.",
+    "repo": "https://github.com/vercel-labs/ui",
+    "website": "https://ui-sdk.dev",
+    "launchPost": "https://x.com/vercel/status/2120950020249895314",
+    "license": "Apache-2.0",
+    "copyright": "Copyright 2026 Vercel, Inc.",
+    "licenseSource": "https://github.com/vercel-labs/ui/blob/26ac6b3441335614cb413b54e56a9f9b0ff70f15/LICENSE",
+    "defaultBranch": "main",
+    "description": "A library of behaviors for agents to build the next generation of user interfaces.",
+    "repoCreatedAtUtc": "2026-10-26T17:39:27Z",
+    "repoCreatedAtIst": "2026-10-26T23:09:27+05:30",
+    "stargazersCountAtCheck": 1864,
+    "stargazersCheckedAtUtc": "2026-11-13T03:30:53Z",
+    "homepage": "https://ui-sdk.dev",
+    "npmPackagesChecked": {
+      "@ui-sdk/core": {
+        "created": "2026-11-12T17:05:52.769Z",
+        "createdIst": "2026-11-12T22:35:52.769+05:30",
+        "latest": "0.1.0-beta.1",
+        "latestPublished": "2026-11-12T17:12:06.305Z",
+        "latestPublishedIst": "2026-11-12T22:42:06.305+05:30",
+        "versions": [
+          {
+            "version": "0.0.0-stage",
+            "published": "2026-11-12T17:05:52.769Z",
+            "eligible": false
+          },
+          {
+            "version": "0.1.0-beta.1",
+            "published": "2026-11-12T17:12:06.305Z",
+            "eligible": false,
+            "isNpmLatest": true,
+            "integrity": "sha512-sWsZW8RN6Gviir7REQYuDIafm9hierHQE31OJ+2g+1Pp3lDVKp/dk0+0dxFvqOQRmBveRvlE9FiARgNlQ9dMFw==",
+            "shasum": "7e645be865b80a408498ead43490ef0bf274930e"
+          }
+        ],
+        "eligible": false,
+        "hoursAfterCutoffApprox": 61.4,
+        "license": "Apache-2.0"
+      },
+      "@ui-sdk/react": {
+        "created": "2026-11-12T17:06:25.955Z",
+        "latest": "0.1.0-beta.1",
+        "latestPublished": "2026-11-12T17:09:05.554Z",
+        "latestPublishedIst": "2026-11-12T22:39:05.554+05:30",
+        "peerDependencies": {
+          "react": ">=19",
+          "react-dom": ">=19",
+          "@types/react": ">=19.2.10",
+          "@ui-sdk/core": "^0.1.0-beta.1"
+        },
+        "eligible": false
+      },
+      "@ui-sdk/vue": {
+        "created": "2026-11-12T17:06:37.003Z",
+        "latest": "0.1.0-beta.1",
+        "latestPublished": "2026-11-12T17:09:16.382Z",
+        "eligible": false
+      },
+      "@ui-sdk/svelte": {
+        "created": "2026-11-12T17:06:37.277Z",
+        "latest": "0.1.0-beta.1",
+        "latestPublished": "2026-11-12T17:10:48.347Z",
+        "eligible": false
+      },
+      "@ui-sdk/solid": {
+        "created": "2026-11-12T17:06:31.706Z",
+        "latest": "0.1.0-beta.1",
+        "latestPublished": "2026-11-12T17:10:44.132Z",
+        "eligible": false
+      },
+      "@ui-sdk/web-components": {
+        "status": "404-not-on-npm-at-check"
+      }
+    },
+    "unrelatedNpmPackageNamedUiSdk": {
+      "note": "The unscoped package name 'ui-sdk' on npm is an unrelated 2016 stub, not Vercel UI SDK. Do not install it."
+    },
+    "creditSnapshotCommit": "26ac6b3441335614cb413b54e56a9f9b0ff70f15",
+    "creditSnapshotCommitMessage": "feat(docs): add previous and next buttons beside the page title (#348)",
+    "creditSnapshotCommitterDateUtc": "2026-11-10T01:00:49Z",
+    "creditSnapshotCommitterDateIst": "2026-11-10T06:30:49+05:30",
+    "creditSnapshotEligible": true,
+    "creditSnapshotNote": "Latest commit on main with committer date at or before the cutoff, from GitHub Commits API ?until=2026-11-10T03:45:00Z. Record for credit only. Do not clone, vendor, or copy that tree.",
+    "currentMainTipAtCheck": "c53df2f45c75",
+    "currentMainTipCommitterDateUtc": "2026-11-12T20:44:21Z",
+    "currentMainTipEligible": false,
+    "npmLatestTagAtCheck": "@ui-sdk/core@0.1.0-beta.1 also tagged on git as 8ff63026369a6b6bff01cad78e9bccedb0edb5aa, committer 2026-11-12T16:37:35Z, too new.",
+    "eligibleFromIstForFirstPublish": "2026-11-15T22:35:52.769+05:30",
+    "eligibleFromIstForLatestBeta": "2026-11-15T22:42:06.305+05:30",
+    "swapNote": "A follow-up can swap the clean-room primitives for @ui-sdk/core@0.1.0-beta.1 (and @ui-sdk/react if needed) after about 2026-11-15 10:42 PM IST, once those versions are \u226572h old and re-audited. Do not ship a stub import now."
+  },
+  "hyperElements": {
+    "decision": "real-package",
+    "reason": "Newest coherent eligible set is @hyper-elements/react@0.3.1 plus optional peers satori@0.33.5, @resvg/resvg-js@2.6.2, and @react-pdf/renderer@4.9.0. That tarball already exports email/web HTML via render(), PDF via renderPdf(), image via renderImage(), validate() with actionable fix strings, and outline(). No fallback to clean-room is required. Visual email-client emulator packages have no eligible version and stay out of scope.",
+    "repo": "https://github.com/hyper-elements/hyper-elements",
+    "website": "https://hyperelements.dev/",
+    "launchPost": "https://x.com/unlayer/status/2120874197102575864",
+    "license": "MIT",
+    "copyright": "Copyright (c) 2025 Unlayer, Inc.",
+    "author": "Unlayer",
+    "licenseSource": "https://raw.githubusercontent.com/hyper-elements/hyper-elements/v0.3.1/LICENSE and the 0.3.1 npm tarball LICENSE",
+    "defaultBranch": "main",
+    "repoCreatedAtUtc": "2025-08-25T16:24:19Z",
+    "repoCreatedAtIst": "2025-08-25T21:54:19+05:30",
+    "stargazersCountAtCheck": 435,
+    "pinnedNpm": {
+      "name": "@hyper-elements/react",
+      "version": "0.3.1",
+      "published": "2026-11-09T08:41:08.258Z",
+      "publishedIst": "2026-11-09T14:11:08.258+05:30",
+      "eligible": true,
+      "hoursBeforeCutoffApprox": 19.1,
+      "isNpmLatest": false,
+      "npmLatestAtCheck": "0.4.3",
+      "npmLatestPublished": "2026-11-12T19:01:31.510Z",
+      "npmLatestPublishedIst": "2026-11-13T00:31:31.510+05:30",
+      "npmLatestEligible": false,
+      "tooNewVersionsNotSelected": [
+        {
+          "version": "0.3.2",
+          "published": "2026-11-10T17:04:15.608Z"
+        },
+        {
+          "version": "0.4.0",
+          "published": "2026-11-10T17:05:44.571Z"
+        },
+        {
+          "version": "0.4.1",
+          "published": "2026-11-10T22:45:47.426Z"
+        },
+        {
+          "version": "0.4.2",
+          "published": "2026-11-11T23:45:45.707Z"
+        },
+        {
+          "version": "0.4.3",
+          "published": "2026-11-12T19:01:31.510Z"
+        }
+      ],
+      "olderEligibleNotSelected": [
+        "0.0.0-stage",
+        "0.0.1",
+        "0.3.0"
+      ],
+      "license": "MIT",
+      "integrity": "sha512-5p/N3mp7zgYPuE+BwSKw1h0CSauZmN5uJrmW6+93R5Wi46qRCVoFleaaxsebRCS8LfDj8dKm7rHI8RVZjNMK8w==",
+      "shasum": "46629f1fa54670a56580186d719a5e947e5d18d9",
+      "tarball": "https://registry.npmjs.org/@hyper-elements/react/-/react-0.3.1.tgz",
+      "source": "https://registry.npmjs.org/@hyper-elements/react/0.3.1",
+      "dependencies": {},
+      "peerDependencies": {
+        "react": ">=18",
+        "react-dom": ">=18",
+        "satori": "^0.33.5",
+        "@resvg/resvg-js": "^2.6.2",
+        "@react-pdf/renderer": "^4.9.0"
+      },
+      "peerDependenciesMeta": {
+        "satori": {
+          "optional": true
+        },
+        "@resvg/resvg-js": {
+          "optional": true
+        },
+        "@react-pdf/renderer": {
+          "optional": true
+        }
+      },
+      "exports": [
+        ".",
+        "./pdf",
+        "./image",
+        "./builder",
+        "./inspect",
+        "./package.json"
+      ],
+      "confirmedInTarball": [
+        "package/LICENSE",
+        "package/README.md",
+        "package/GUIDE.md",
+        "package/REFERENCE.md",
+        "package/package.json",
+        "package/dist/primitives.d.ts",
+        "package/dist/pdf.d.ts",
+        "package/dist/image.d.ts",
+        "package/dist/inspect.d.ts",
+        "package/dist/builder.d.ts"
+      ]
+    },
+    "githubRelease": {
+      "tag": "v0.3.1",
+      "publishedUtc": "2026-11-09T08:37:00Z",
+      "publishedIst": "2026-11-09T14:07:00+05:30",
+      "eligible": true,
+      "url": "https://github.com/hyper-elements/hyper-elements/releases/tag/v0.3.1"
+    },
+    "pinnedCommit": {
+      "sha": "571ec52fef7285f583e53123bae71594d886f88b",
+      "source": "git ref refs/tags/v0.3.1 (type=commit)",
+      "committerDateUtc": "2026-11-08T21:37:13Z",
+      "committerDateIst": "2026-11-09T03:07:13+05:30",
+      "message": "Roots for every component, prop and style; /inspect; a compatibility baseline (#115)",
+      "eligible": true
+    },
+    "verifiedApiFromTarball031": {
+      "mainEntryExportsUsedByDemo": {
+        "roots": [
+          "Email",
+          "Page",
+          "Document",
+          "Canvas"
+        ],
+        "layout": [
+          "Section",
+          "Row",
+          "Column",
+          "Grid"
+        ],
+        "content": [
+          "Heading",
+          "Text",
+          "Button",
+          "Image",
+          "Divider",
+          "Span",
+          "Link"
+        ],
+        "functions": {
+          "render": "async (element, options?) => Promise<RenderResult> with html, text, head, body, bodyStyle, diagnostics",
+          "validate": "sync (element, options?) => ValidationResult { valid, diagnostics }",
+          "outline": "sync (element) => string (laid-out template as text; throws ElementsError on errors)",
+          "formatDiagnostics": "sync (diagnostics) => string",
+          "prepare": "optional; used internally by pdf/image writers"
+        },
+        "Diagnostic": [
+          "code",
+          "severity",
+          "message",
+          "path",
+          "nodeId?",
+          "clients?",
+          "fix?",
+          "see?"
+        ],
+        "emailClientValidation": "validate()/render() accept options.emailClients; DEFAULT_EMAIL_CLIENTS covers classic Outlook, Outlook.com, Outlook for Mac, Outlook and Gmail apps, Gmail, Apple Mail, Yahoo, AOL, Samsung Email. This is diagnostic text, not a visual emulator."
+      },
+      "subpathExports": {
+        "./pdf": "renderPdf(element, options?) => Promise<{ pdf: Uint8Array, diagnostics }>. Requires a Document root. Fonts and images must be passed as bytes (loads none itself). Fonts: TTF, OTF or WOFF, not WOFF2.",
+        "./image": "renderImage(element, options?) => Promise<{ image: Uint8Array, width, height, diagnostics }>. Requires a Canvas root. format 'png' (default) or 'svg'. Fonts required. Images optional as bytes.",
+        "./inspect": "inspect(), describeComponent(), describeComponents() available; outline() on the main entry is the required layout inspector for this demo.",
+        "./builder": "toDesign()/fromDesign() exist in 0.3.1 but are out of scope for this MVP."
+      },
+      "runtimeNote": "README: renders on your own server with no network calls. renderPdf/renderImage need Node-native optional peers. Email/Page/Document HTML may be produced in-process; if render() cannot run in the browser, do all outputs in a local Bun/Vite server path. Zero runtime network."
+    }
+  },
+  "demoDependencies": {
+    "@hyper-elements/react": "see hyperElements.pinnedNpm",
+    "satori": {
+      "version": "0.33.5",
+      "source": "https://registry.npmjs.org/satori/0.33.5",
+      "tarball": "https://registry.npmjs.org/satori/-/satori-0.33.5.tgz",
+      "published": "2026-09-22T16:01:32.703Z",
+      "publishedIst": "2026-09-22T21:31:32.703+05:30",
+      "eligible": true,
+      "hoursBeforeCutoffApprox": 1163.7,
+      "isNpmLatest": false,
+      "license": "MPL-2.0",
+      "integrity": "sha512-PNW6ktrQ8SM6kk7u4aOuTkkUewkzyTOrj+QeEzXSsnNMAdff4ire9CAqIz8+4C3rCiBtK8QTELv52AZEd1PbRw==",
+      "shasum": "408dae33d3af0e2b4e309335c9f866445af4bd2f",
+      "peerRangeFromHyperElementsReact031": "^0.33.5",
+      "peerRangeNote": "Caret on 0.33.5 means >=0.33.5 <0.34.0. Do not install satori@0.63.2 (npm latest, eligible by age but outside the peer range). 0.33.5 is the newest 0.33.x.",
+      "dependencies": {
+        "fflate": "0.7.3",
+        "linebreak": "^1.1.0",
+        "harfbuzzjs": "0.10.0",
+        "escape-html": "^1.0.3",
+        "yoga-layout": "^3.2.1",
+        "css-box-shadow": "1.0.0-3",
+        "emoji-regex-xs": "^2.0.1",
+        "parse-css-color": "^0.2.1",
+        "css-gradient-parser": "^0.0.17",
+        "css-to-react-native": "^3.0.0",
+        "@shuding/opentype.js": "1.4.0-beta.0",
+        "postcss-value-parser": "^4.2.0",
+        "css-background-parser": "^0.1.0"
+      },
+      "decision": "Pin satori@0.33.5 as a required peer for @hyper-elements/react/image. Preserve MPL-2.0 notices. Audit every resolved transitive after install."
+    },
+    "@resvg/resvg-js": {
+      "version": "2.6.2",
+      "source": "https://registry.npmjs.org/@resvg/resvg-js/2.6.2",
+      "tarball": "https://registry.npmjs.org/@resvg/resvg-js/-/resvg-js-2.6.2.tgz",
+      "published": "2024-03-26T13:43:37.598Z",
+      "publishedIst": "2024-03-26T19:13:37.598+05:30",
+      "eligible": true,
+      "isNpmLatest": true,
+      "license": "MPL-2.0",
+      "integrity": "sha512-xBaJish5OeGmniDj9cW5PRa/PtmuVU3ziqrbr5xJj901ZDN4TosrVaNZpEiLZAxdfnhAe7uQ7QFWfjPe9d9K2Q==",
+      "shasum": "3e92a907d88d879256c585347c5b21a7f3bb5b46",
+      "peerRangeFromHyperElementsReact031": "^2.6.2",
+      "optionalDependencies": {
+        "@resvg/resvg-js-darwin-x64": "2.6.2",
+        "@resvg/resvg-js-darwin-arm64": "2.6.2",
+        "@resvg/resvg-js-android-arm64": "2.6.2",
+        "@resvg/resvg-js-linux-x64-gnu": "2.6.2",
+        "@resvg/resvg-js-linux-x64-musl": "2.6.2",
+        "@resvg/resvg-js-win32-x64-msvc": "2.6.2",
+        "@resvg/resvg-js-linux-arm64-gnu": "2.6.2",
+        "@resvg/resvg-js-win32-ia32-msvc": "2.6.2",
+        "@resvg/resvg-js-android-arm-eabi": "2.6.2",
+        "@resvg/resvg-js-linux-arm64-musl": "2.6.2",
+        "@resvg/resvg-js-win32-arm64-msvc": "2.6.2",
+        "@resvg/resvg-js-linux-arm-gnueabihf": "2.6.2"
+      },
+      "optionalDependenciesNote": "Platform packages are all version-locked to 2.6.2. Agent must still verify npm publication time for whichever optional binding the lockfile resolves. Do not use 2.7.0-alpha.* prereleases.",
+      "decision": "Pin @resvg/resvg-js@2.6.2 as a required peer for PNG output. Preserve MPL-2.0 notices. Native addon: run renderImage on the server side, not in the browser."
+    },
+    "@react-pdf/renderer": {
+      "version": "4.9.0",
+      "source": "https://registry.npmjs.org/@react-pdf/renderer/4.9.0",
+      "tarball": "https://registry.npmjs.org/@react-pdf/renderer/-/renderer-4.9.0.tgz",
+      "published": "2026-08-27T22:59:33.090Z",
+      "publishedIst": "2026-08-28T04:29:33.090+05:30",
+      "eligible": true,
+      "isNpmLatest": true,
+      "license": "MIT",
+      "integrity": "sha512-RAbARMwjcSYEpqpaWoWXz0uOGF1HjAl5hdJr889r5mgkPhF9xhX4CXSvcEbLTgFVj+KWbcar31MzcXYoANk/Ag==",
+      "shasum": "1735cfa662a25c176b41a5d1131ca822d5e53cd9",
+      "npmGitHead": "2c0b6d4a5d9db397d8cf5de4215e43b08ad5a7ca",
+      "peerRangeFromHyperElementsReact031": "^4.9.0",
+      "peerDependencies": {
+        "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+      },
+      "dependencies": {
+        "queue": "^6.0.1",
+        "events": "^3.3.0",
+        "pdfkit": "0.20.1",
+        "prop-types": "^15.6.2",
+        "object-assign": "^4.1.1",
+        "@babel/runtime": "^7.20.13",
+        "@react-pdf/fns": "3.1.3",
+        "@react-pdf/font": "^4.1.2",
+        "@react-pdf/types": "^2.14.0",
+        "@react-pdf/layout": "^5.2.0",
+        "@react-pdf/render": "^4.7.0",
+        "@react-pdf/primitives": "^4.4.0",
+        "@react-pdf/reconciler": "^2.0.0"
+      },
+      "decision": "Pin @react-pdf/renderer@4.9.0 as a required peer for renderPdf. Preserve MIT notices. Audit every resolved transitive after install. Prefer running renderPdf server-side."
+    }
+  },
+  "tooNewDoNotInstall": {
+    "@hyper-elements/email-clients": {
+      "latest": "0.4.4",
+      "created": "2026-11-10T17:13:11.109Z",
+      "createdIst": "2026-11-10T22:43:11.109+05:30",
+      "eligibleVersions": [],
+      "earliestEligibleFromIst": "2026-11-13T22:43:11.109+05:30",
+      "note": "Visual Outlook/Gmail/Apple Mail emulator. No version is \u226572h old at this launch. Do not install. 0.3.1 already reports email-client diagnostics via validate(); that is not a visual preview. Defer emulator previews."
+    },
+    "@hyper-elements/email-client-models": {
+      "latest": "1.8.1",
+      "created": "2026-11-10T05:04:25.045Z",
+      "createdIst": "2026-11-10T10:34:25.045+05:30",
+      "eligibleVersions": [],
+      "note": "Dependency of email-clients. No eligible version. Do not install."
+    },
+    "@hyper-elements/cli": {
+      "latest": "0.1.0",
+      "created": "2026-11-12T19:03:33.163Z",
+      "eligibleVersions": [],
+      "note": "Too new; not needed for the studio MVP."
+    },
+    "hyper-elements": {
+      "latest": "0.1.0",
+      "created": "2026-11-12T15:40:02.924Z",
+      "eligibleVersions": [],
+      "note": "Unscoped wrapper depending on @hyper-elements/cli. Too new. Do not install."
+    },
+    "@hyper-elements/migrate": {
+      "newestEligible": "0.2.1",
+      "newestEligiblePublished": "2026-11-09T08:49:28.790Z",
+      "latest": "0.3.2",
+      "note": "Has an eligible 0.2.1 but it is a React Email / Unlayer Elements codemod, not needed for this demo. Do not add it."
+    }
+  }
+}
