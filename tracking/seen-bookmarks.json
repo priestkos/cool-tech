@@ -399,6 +399,14 @@
       "date": "2026-11-12",
       "sourceRefs": ["https://github.com/vltpkg/vltpkg", "https://docs.vlt.sh/client/selectors/security-insights"],
       "note": "Seen in Nov 12 scout (runner-up); owner chose Skip today. Seen but not built."
+    },
+    {
+      "id": "poppy",
+      "title": "Personal Agent Protocol (Poppy) v1.0 by Sierra",
+      "url": "https://x.com/SierraPlatform/status/2121296788766519431",
+      "date": "2026-11-14",
+      "sourceRefs": ["https://personalagentprotocol.org/docs/1.0/spec", "https://github.com/personal-agent-protocol/personal-agent-protocol", "https://sierra.ai/blog/releasing-poppy"],
+      "note": "Seen in Nov 14 scout (main pick); owner chose the runner-up instead. Seen but not built."
     }
   ]
 }
