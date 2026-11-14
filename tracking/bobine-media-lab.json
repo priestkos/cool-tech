@@ -1,0 +1,15 @@
+{
+  "id": "bobine",
+  "title": "Bobine Media Lab (clean-room media players)",
+  "url": "https://bobine.fyi",
+  "date": "2026-11-14",
+  "sourceRefs": [
+    "https://bobine.fyi",
+    "https://x.com/sanyampunia/status/2120796070540365928"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "clean-room",
+    "eligibleFromIst": "2026-11-15T13:59:00+05:30",
+    "note": "No public repository or license at scout time; independent players in apps/bobine-media-lab with no bobine registry install."
+  }
+}

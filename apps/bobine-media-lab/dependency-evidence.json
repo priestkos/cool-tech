@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "app": "bobine-media-lab",
+    "auditedAtUtc": "2026-11-14T05:20:00Z",
+    "cutoffUtc": "2026-11-08T05:20:00Z",
+    "cutoffIst": "2026-11-08T10:50:00+05:30",
+    "launchIst": "2026-11-12T13:59:00+05:30",
+    "minimumReleaseAgeSeconds": 259200,
+    "lockfile": "bun.lock",
+    "decision": "Direct deps pinned to cool-tech proven set; hls.js@1.7.4 (2026-10-28) lazy-loaded only for .m3u8."
+  },
+  "directDependencies": [
+    { "name": "react", "version": "19.3.1", "published": "2026-10-14T16:47:15.290Z", "eligible": true, "license": "MIT" },
+    { "name": "vite", "version": "8.3.5", "published": "2026-10-21T06:38:54.907Z", "eligible": true, "license": "MIT" },
+    { "name": "hls.js", "version": "1.7.4", "published": "2026-10-28T17:30:16.005Z", "eligible": true, "license": "Apache-2.0" },
+    { "name": "shadcn", "version": "4.22.1", "published": "2026-10-18T18:12:18.511Z", "eligible": true, "license": "MIT", "registrySourcePin": "shadcn-ui/ui@8a3536678a528cc012b9e62484290e79d0be410f" }
+  ],
+  "notes": [
+    "vite@8.3.8 intentionally not used (younger than cutoff).",
+    "UI components copied from eligible shadcn base-mira preset already vetted in apps/ding-toast-lab.",
+    "Complete transitive verification not claimed; bun age gate plus direct publish-time audit only."
+  ]
+}
