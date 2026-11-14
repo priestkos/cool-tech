@@ -359,6 +359,21 @@
         "pinnedCommit": "571ec52fef7285f583e53123bae71594d886f88b",
         "note": "Pinned @hyper-elements/react@0.3.1 with satori@0.33.5, @resvg/resvg-js@2.6.2, @react-pdf/renderer@4.9.0. No email-client emulator packages."
       }
+    },
+    {
+      "id": "bobine",
+      "title": "Bobine Media Lab (clean-room media players)",
+      "url": "https://bobine.fyi",
+      "date": "2026-11-14",
+      "sourceRefs": [
+        "https://bobine.fyi",
+        "https://x.com/sanyampunia/status/2120796070540365928"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "clean-room",
+        "eligibleFromIst": "2026-11-15T13:59:00+05:30",
+        "note": "No public repository or license at scout time; independent players in apps/bobine-media-lab with no bobine registry install."
+      }
     }
   ],
   "skipped": [
