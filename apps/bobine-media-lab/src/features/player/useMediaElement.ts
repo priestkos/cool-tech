@@ -12,6 +12,34 @@ export type MediaElementState = {
   captionsOn: boolean
 }
 
+export function isMediaPlaying(paused: boolean, ended: boolean): boolean {
+  return !paused && !ended
+}
+
+export function finiteDuration(duration: number): number {
+  return duration || 0
+}
+
+export function clampSeekTime(currentTime: number, delta: number, duration: number): number {
+  return Math.min(Math.max(0, currentTime + delta), duration || Infinity)
+}
+
+export function clampVolume(value: number): number {
+  return Math.min(1, Math.max(0, value))
+}
+
+export function normalizePlaybackRate(rate: number): PlaybackRate {
+  return (PLAYBACK_RATES.includes(rate as PlaybackRate) ? rate : 1) as PlaybackRate
+}
+
+export function isCaptionTrack(kind: string): boolean {
+  return kind === "captions" || kind === "subtitles"
+}
+
+export function captionTrackMode(on: boolean): TextTrackMode {
+  return on ? "showing" : "hidden"
+}
+
 export function useMediaElement(
   mediaRef: React.RefObject<HTMLMediaElement | null>,
   options: { initialCaptions?: boolean } = {}
@@ -30,14 +58,12 @@ export function useMediaElement(
     const el = mediaRef.current
     if (!el) return
     setState({
-      playing: !el.paused && !el.ended,
+      playing: isMediaPlaying(el.paused, el.ended),
       currentTime: el.currentTime,
-      duration: el.duration || 0,
+      duration: finiteDuration(el.duration),
       volume: el.volume,
       muted: el.muted,
-      playbackRate: (PLAYBACK_RATES.includes(el.playbackRate as PlaybackRate)
-        ? el.playbackRate
-        : 1) as PlaybackRate,
+      playbackRate: normalizePlaybackRate(el.playbackRate),
       captionsOn: options.initialCaptions ?? state.captionsOn,
     })
   }, [mediaRef, options.initialCaptions, state.captionsOn])
@@ -83,8 +109,7 @@ export function useMediaElement(
     (delta: number) => {
       const el = mediaRef.current
       if (!el) return
-      const next = Math.min(Math.max(0, el.currentTime + delta), el.duration || Infinity)
-      el.currentTime = next
+      el.currentTime = clampSeekTime(el.currentTime, delta, el.duration)
     },
     [mediaRef]
   )
@@ -93,7 +118,7 @@ export function useMediaElement(
     (next: number) => {
       const el = mediaRef.current
       if (!el) return
-      el.volume = Math.min(1, Math.max(0, next))
+      el.volume = clampVolume(next)
     },
     [mediaRef]
   )
@@ -120,8 +145,8 @@ export function useMediaElement(
       const el = mediaRef.current
       if (!el) return
       for (const track of el.textTracks) {
-        if (track.kind === "captions" || track.kind === "subtitles") {
-          track.mode = on ? "showing" : "hidden"
+        if (isCaptionTrack(track.kind)) {
+          track.mode = captionTrackMode(on)
         }
       }
     },

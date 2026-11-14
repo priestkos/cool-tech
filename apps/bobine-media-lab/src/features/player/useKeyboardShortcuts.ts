@@ -56,6 +56,14 @@ export function dispatchShortcutAction(
   }
 }
 
+export function shouldDispatchShortcut(
+  root: { contains: (node: Node) => boolean } | null | undefined,
+  active: Node | null
+): boolean {
+  if (!root || !active) return true
+  return active === root || root.contains(active)
+}
+
 export function useKeyboardShortcuts(
   enabled: boolean,
   ctx: KeyboardHandlerContext,
@@ -77,10 +85,7 @@ export function useKeyboardShortcuts(
 
       if (action !== "showHelp" && typingInField) return
 
-      const root = targetRef?.current
-      if (root && active && !root.contains(active) && active !== root) {
-        return
-      }
+      if (!shouldDispatchShortcut(targetRef?.current, active)) return
 
       event.preventDefault()
       dispatchShortcutAction(action, ctx)
