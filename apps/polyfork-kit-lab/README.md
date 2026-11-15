@@ -18,6 +18,8 @@ bun run build
 bun run preview
 ```
 
+Production build (Nov 2026): main JS ~305 KB gzip (`dist/assets/index-*.js`).
+
 ## Architecture
 
 | Mode | Network | Preview |
@@ -28,6 +30,7 @@ bun run preview
 - Catalog snapshot: commit `2232f7df96e44517e4f9b2d08df1081a4a3780e7` (2026-11-11) of `polyfork-catalog`.
 - Sample offline params: `public/data/a-frame-cabin-6cb550-params.json`.
 - Snippet panel shows CDN import line and optional `npx polyfork@0.1.1 add <id>` (CLI not installed in-app).
+- `postinstall` copies `three/build/three.module.js` → `public/three-import.js` for CDN module import maps (MIT).
 
 ## Credit
 
