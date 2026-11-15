@@ -3,6 +3,7 @@ import {
   candelaToSpotIntensity,
   exitanceToEmissiveIntensity,
   EMISSIVE_REFERENCE_LM_PER_M2,
+  hemisphereLuxToIntensity,
   luxToDirectionalIntensity,
   lumensToPointIntensity,
   sunDirectionFromAzimuthElevation,
@@ -37,5 +38,24 @@ describe("physical units", () => {
   test("sun straight up", () => {
     const [, y] = sunDirectionFromAzimuthElevation(0, 90)
     expect(y).toBeCloseTo(1, 5)
+  })
+
+  test("clamps negative flux and scales hemisphere lux", () => {
+    expect(lumensToPointIntensity(-5)).toBe(0)
+    expect(candelaToSpotIntensity(-1)).toBe(0)
+    expect(exitanceToEmissiveIntensity(-10)).toBe(0)
+    expect(hemisphereLuxToIntensity(0)).toBe(0)
+    expect(hemisphereLuxToIntensity(-20)).toBe(0)
+    expect(hemisphereLuxToIntensity(10_000)).toBeCloseTo(1.5, 5)
+  })
+
+  test("sun direction at north and below the horizon", () => {
+    const [x, y, z] = sunDirectionFromAzimuthElevation(0, 0)
+    expect(x).toBeCloseTo(0, 5)
+    expect(y).toBeCloseTo(0, 5)
+    expect(z).toBeCloseTo(1, 5)
+
+    const below = sunDirectionFromAzimuthElevation(180, -15)
+    expect(below[1]).toBeLessThan(0)
   })
 })

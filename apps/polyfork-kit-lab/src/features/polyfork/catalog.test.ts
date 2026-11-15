@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test"
-import { assetTypes, filterAssets } from "./catalog"
+import { assetTypes, filterAssets, kitById, parseCatalogSnapshot, thumbnailForMode } from "./catalog"
 import type { CatalogAsset } from "./types"
 
 const sample: CatalogAsset[] = [
@@ -47,5 +47,43 @@ describe("filterAssets", () => {
 describe("assetTypes", () => {
   test("unique sorted", () => {
     expect(assetTypes(sample)).toEqual(["building", "character"])
+  })
+})
+
+describe("catalog snapshot and thumbnails", () => {
+  test("matches id and type, and ignores surrounding space", () => {
+    expect(filterAssets(sample, " FOX ", "all", "all").map((a) => a.id)).toEqual(["fox-base"])
+    expect(filterAssets(sample, "BUILD", "all", "all").map((a) => a.id)).toEqual([
+      "a-frame-cabin-6cb550",
+    ])
+    expect(filterAssets(sample, "cabin", "nature-forest-kit-f29d6a", "all")).toEqual([])
+  })
+
+  test("parseCatalogSnapshot rejects an empty catalog", () => {
+    expect(() => parseCatalogSnapshot(null)).toThrow(/Invalid catalog snapshot/)
+    expect(() => parseCatalogSnapshot({ assets: [], kits: [{ id: "k" }] })).toThrow(
+      /Invalid catalog snapshot/
+    )
+    expect(() => parseCatalogSnapshot({ assets: sample, kits: [] })).toThrow(/Invalid catalog snapshot/)
+    const parsed = parseCatalogSnapshot({ assets: sample, kits: [{ id: "k" }] })
+    expect(parsed.assets).toHaveLength(2)
+  })
+
+  test("kit lookup and thumbnail policy", () => {
+    const kits = [
+      {
+        id: "campground-lake-ad32b0",
+        title: "Camp",
+        complete: true,
+        parts: 1,
+        page: "",
+        index: "",
+        cover: "",
+      },
+    ]
+    expect(kitById(kits, "campground-lake-ad32b0")?.title).toBe("Camp")
+    expect(kitById(kits, "missing")).toBeUndefined()
+    expect(thumbnailForMode(sample[0]!, "offline")).toBeNull()
+    expect(thumbnailForMode(sample[0]!, "live")).toBe(sample[0]!.thumbnail)
   })
 })
