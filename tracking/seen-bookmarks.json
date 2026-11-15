@@ -374,6 +374,37 @@
         "eligibleFromIst": "2026-11-15T13:59:00+05:30",
         "note": "No public repository or license at scout time; independent players in apps/bobine-media-lab with no bobine registry install."
       }
+    },
+    {
+      "id": "polyfork",
+      "title": "Polyfork Kit Lab (parametric low-poly three.js kits)",
+      "url": "https://polyfork.dev",
+      "date": "2026-11-15",
+      "sourceRefs": [
+        "https://polyfork.dev",
+        "https://github.com/lucas-martinic/polyfork-catalog",
+        "https://x.com/songsong/status/2121055884294185400"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "eligible",
+        "note": "Catalog snapshot pinned at 2232f7df and polyfork CLI 0.1.1 (Nov 2) eligible; Polyfork .mjs modules are loaded live from polyfork.dev only and never committed."
+      }
+    },
+    {
+      "id": "threert",
+      "title": "ThreeRT Scene Lab (clean-room physical-units scene editor)",
+      "url": "https://threert.dev",
+      "date": "2026-11-15",
+      "sourceRefs": [
+        "https://threert.dev",
+        "https://github.com/meshy-dev/ThreeRT",
+        "https://x.com/ThreeRT3D/status/2121238880808829385"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "clean-room",
+        "eligibleFromIst": "2026-11-16T06:05:00+05:30",
+        "note": "@threert/scene 0.1.1 younger than 72h at build time; independent plain three.js lab in apps/threert-scene-lab with no @threert packages or copied source."
+      }
     }
   ],
   "skipped": [
