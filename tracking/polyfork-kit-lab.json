@@ -1,0 +1,18 @@
+{
+  "id": "polyfork",
+  "title": "Polyfork Kit Lab",
+  "url": "https://polyfork.dev",
+  "date": "2026-11-15",
+  "sourceRefs": [
+    "https://polyfork.dev",
+    "https://github.com/lucas-martinic/polyfork-catalog",
+    "https://polyfork.dev/licensing",
+    "https://x.com/songsong/status/2121055884294185400"
+  ],
+  "upstreamAgeAssessment": {
+    "catalogIndexPin": "2232f7df96e44517e4f9b2d08df1081a4a3780e7",
+    "polyforkCli": "0.1.1 (MIT, Nov 2 2026) referenced in UI only",
+    "runtimeCdnModules": "mutable; loaded only in Live Polyfork CDN mode; never committed",
+    "note": "Offline default uses snapshot + placeholders; three@0.187.0 and React/Vite pins match sibling demos vs launch-minus-72h cutoff."
+  }
+}
