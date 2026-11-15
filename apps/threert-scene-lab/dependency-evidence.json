@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "app": "threert-scene-lab",
+    "auditedAtUtc": "2026-11-14T22:16:00Z",
+    "cutoffUtc": "2026-11-12T03:50:00Z",
+    "cutoffIst": "2026-11-12T09:20:00+05:30",
+    "minimumReleaseAgeSeconds": 259200,
+    "lockfile": "bun.lock",
+    "decision": "Direct pins match proven cool-tech toolchain; three@0.187.0 pre-cutoff; no @threert/* packages."
+  },
+  "directDependencies": [
+    {
+      "name": "three",
+      "version": "0.187.0",
+      "published": "2026-10-30T08:09:24.504Z",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "@types/three",
+      "version": "0.187.0",
+      "published": "2026-10-30T18:05:26.397Z",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "vite",
+      "version": "8.3.5",
+      "published": "2026-10-21T06:38:54.907Z",
+      "eligible": true,
+      "license": "MIT",
+      "note": "vite@8.3.8 intentionally not used (younger than cutoff)"
+    },
+    {
+      "name": "react",
+      "version": "19.3.1",
+      "published": "2026-10-14T16:47:15.290Z",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "shadcn",
+      "version": "4.22.1",
+      "published": "2026-10-18T18:12:18.511Z",
+      "eligible": true,
+      "license": "MIT",
+      "registrySourcePin": "shadcn-ui/ui@8a3536678a528cc012b9e62484290e79d0be410f"
+    }
+  ],
+  "threertUpstream": {
+    "creditedOnly": true,
+    "vendored": false,
+    "packagesInstalled": [],
+    "eligibleFromIst": "2026-11-16T06:05:00+05:30",
+    "website": "https://threert.dev",
+    "repo": "https://github.com/meshy-dev/ThreeRT"
+  }
+}
