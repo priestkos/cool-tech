@@ -1,0 +1,17 @@
+{
+  "id": "selfgraph",
+  "title": "SelfGraph Lab",
+  "url": "https://github.com/hydra-db/selfgraph",
+  "date": "2026-11-16",
+  "sourceRefs": [
+    "https://github.com/hydra-db/selfgraph",
+    "https://x.com/hydra_db/status/2121641812804698511"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "package-pinned",
+    "pinnedVersion": "@hydradb/selfgraph@0.1.0",
+    "publishedUtc": "2026-11-09T18:30:54.391Z",
+    "note": "Browser UI uses clean-room in-memory graph; SDK 0.1.0 used in bun tests for ID harness. 0.2.x deferred past cutoff."
+  },
+  "license": "Apache-2.0"
+}
