@@ -1,0 +1,17 @@
+{
+  "id": "kitesurf",
+  "title": "Kitesurf CDP Lab",
+  "url": "https://kitesurf.dev",
+  "date": "2026-11-16",
+  "sourceRefs": [
+    "https://kitesurf.dev",
+    "https://github.com/cloudflare/kitesurf",
+    "https://blog.cloudflare.com/kitesurf-open-source/",
+    "https://x.com/celso/status/2120994509551223020"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "clean-room",
+    "note": "Kitesurf repo younger than launch-minus-72h; lab uses original CDP fixtures and lab-generated screenshots only — no upstream source install."
+  },
+  "license": "Apache-2.0"
+}
