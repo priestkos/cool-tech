@@ -405,6 +405,36 @@
         "eligibleFromIst": "2026-11-16T06:05:00+05:30",
         "note": "@threert/scene 0.1.1 younger than 72h at build time; independent plain three.js lab in apps/threert-scene-lab with no @threert packages or copied source."
       }
+    },
+    {
+      "id": "selfgraph",
+      "title": "SelfGraph Lab (versioned knowledge graph with provenance)",
+      "url": "https://github.com/hydra-db/selfgraph",
+      "date": "2026-11-16",
+      "sourceRefs": [
+        "https://github.com/hydra-db/selfgraph",
+        "https://x.com/hydra_db/status/2121641812804698511"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "eligible",
+        "note": "@hydradb/selfgraph 0.1.0 (Nov 9) pinned and used in tests for entityId parity; browser uses a lab in-memory store because the SDK needs Neo4j/Kuzu. 0.2.x deferred under the 3-day rule."
+      }
+    },
+    {
+      "id": "kitesurf",
+      "title": "Kitesurf CDP Lab (CDP playground for Cloudflare's agent browser)",
+      "url": "https://kitesurf.dev",
+      "date": "2026-11-16",
+      "sourceRefs": [
+        "https://kitesurf.dev",
+        "https://github.com/cloudflare/kitesurf",
+        "https://blog.cloudflare.com/kitesurf-open-source/",
+        "https://x.com/celso/status/2120994509551223020"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "clean-room",
+        "note": "No Kitesurf code included; lab-authored CDP fixtures by default, optional live connection to a user-run local Kitesurf at ws://127.0.0.1:8787."
+      }
     }
   ],
   "skipped": [
