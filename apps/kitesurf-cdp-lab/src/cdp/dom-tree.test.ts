@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test"
-import { buildDomTreeFromDocument, parseAttributePairs } from "./dom-tree"
+import { buildDomTreeFromDocument, flattenDomTree, parseAttributePairs } from "./dom-tree"
 import { PAGE_LOAD_TRANSCRIPTS } from "../fixtures/transcripts"
 
 describe("buildDomTreeFromDocument", () => {
@@ -25,5 +25,41 @@ describe("parseAttributePairs", () => {
       id: "x",
       class: "btn",
     })
+  })
+
+  test("drops a dangling key and accepts missing attributes", () => {
+    expect(parseAttributePairs(undefined)).toEqual({})
+    expect(parseAttributePairs([])).toEqual({})
+    expect(parseAttributePairs(["id", "main", "class"])).toEqual({ id: "main" })
+  })
+})
+
+describe("dom tree edges", () => {
+  test("prefers localName, skips empty values, and flattens nesting", () => {
+    expect(buildDomTreeFromDocument(undefined)).toBeNull()
+    expect(flattenDomTree(null)).toEqual([])
+    const tree = buildDomTreeFromDocument({
+      nodeId: 1,
+      nodeName: "DIV",
+      localName: "div",
+      attributes: ["id", "main", "class"],
+      nodeValue: "",
+      children: [
+        {
+          nodeId: 2,
+          nodeName: "#text",
+          localName: "",
+          nodeValue: "Hi",
+          attributes: ["alt"],
+        },
+      ],
+    })
+    expect(tree?.name).toBe("div")
+    expect(tree?.value).toBeUndefined()
+    expect(tree?.attributes).toEqual({ id: "main" })
+    expect(tree?.children[0]?.name).toBe("#text")
+    expect(tree?.children[0]?.value).toBe("Hi")
+    expect(tree?.children[0]?.attributes).toEqual({})
+    expect(flattenDomTree(tree)).toEqual(['<div id="main">', "  <#text>Hi"])
   })
 })
