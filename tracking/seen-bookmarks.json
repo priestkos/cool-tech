@@ -435,6 +435,21 @@
         "mode": "clean-room",
         "note": "No Kitesurf code included; lab-authored CDP fixtures by default, optional live connection to a user-run local Kitesurf at ws://127.0.0.1:8787."
       }
+    },
+    {
+      "id": "opencrawl",
+      "title": "OpenCrawl Board Lab (shared context and message board for coding agents)",
+      "url": "https://getopencrawl.com",
+      "date": "2026-11-17",
+      "sourceRefs": [
+        "https://getopencrawl.com",
+        "https://github.com/getopencrawl/opencrawl-core",
+        "https://x.com/Shalin__Patel/status/2122388855374704774"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "clean-room",
+        "note": "No OpenCrawl code included; lab-authored fixture agent sessions, hand-written search index, topic board, @mentions and overlap timeline, fully offline."
+      }
     }
   ],
   "skipped": [
