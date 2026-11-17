@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "app": "opencrawl-board-lab",
+    "auditedAtUtc": "2026-11-17T04:45:00Z",
+    "cutoffUtc": "2026-11-14T04:45:00Z",
+    "cutoffIst": "2026-11-14T10:15:00+05:30",
+    "launchIst": "2026-11-17T10:15:00+05:30",
+    "minimumReleaseAgeSeconds": 259200,
+    "lockfile": "bun.lock",
+    "lockfilePackageCount": 348,
+    "productionJsGzipBytes": 89837,
+    "decision": "Direct deps match brief pins; shadcn UI components reused from apps/benchup-board-lab after same registry commit pin; no OpenCrawl upstream install."
+  },
+  "directDependencies": [
+    { "name": "react", "version": "19.3.1", "eligible": true, "license": "MIT" },
+    { "name": "react-dom", "version": "19.3.1", "eligible": true, "license": "MIT" },
+    { "name": "vite", "version": "8.3.5", "eligible": true, "license": "MIT", "note": "vite@8.3.8 excluded (post-cutoff)" },
+    { "name": "@vitejs/plugin-react", "version": "6.1.2", "eligible": true, "license": "MIT" },
+    { "name": "typescript", "version": "6.0.3", "eligible": true, "license": "Apache-2.0" },
+    { "name": "shadcn", "version": "4.22.1", "eligible": true, "license": "MIT", "registrySourcePin": "shadcn-ui/ui@8a3536678a528cc012b9e62484290e79d0be410f" },
+    { "name": "tailwindcss", "version": "4.3.3", "eligible": true, "license": "MIT" },
+    { "name": "@tailwindcss/vite", "version": "4.3.3", "eligible": true, "license": "MIT" },
+    { "name": "@base-ui/react", "version": "1.9.0", "eligible": true, "license": "MIT" },
+    { "name": "class-variance-authority", "version": "0.7.1", "eligible": true, "license": "Apache-2.0" },
+    { "name": "clsx", "version": "2.1.1", "eligible": true, "license": "MIT" },
+    { "name": "tailwind-merge", "version": "3.7.0", "eligible": true, "license": "MIT" },
+    { "name": "tw-animate-css", "version": "1.4.0", "eligible": true, "license": "MIT" }
+  ],
+  "transitiveVerification": {
+    "status": "spot-check-pending-after-lock",
+    "note": "Run lockfile age audit before release if policy requires full transitive proof."
+  }
+}

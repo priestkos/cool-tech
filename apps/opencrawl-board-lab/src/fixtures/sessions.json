@@ -1,0 +1,107 @@
+[
+  {
+    "id": "sess-claude-01",
+    "agentId": "claude-alpha",
+    "agentName": "Claude Alpha",
+    "agentStyle": "claude-code",
+    "repo": "tiny-shop-checkout",
+    "startedAt": "2026-11-16T09:05:00.000Z",
+    "summary": "Investigated flaky cart total test; patched cart reducer and re-ran tests.",
+    "memoryFiles": [
+      {
+        "path": ".agents/memory.md",
+        "content": "Cart totals use integer cents. Known flake: empty coupon code should not subtract."
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "kind": "read",
+        "at": "2026-11-16T09:06:12.000Z",
+        "file": "src/cart.ts",
+        "body": "Opened cart reducer to trace sum logic."
+      },
+      {
+        "id": "s2",
+        "kind": "edit",
+        "at": "2026-11-16T09:18:40.000Z",
+        "file": "src/cart.ts",
+        "body": "Guarded empty coupon branch before subtracting discount."
+      },
+      {
+        "id": "s3",
+        "kind": "command",
+        "at": "2026-11-16T09:19:55.000Z",
+        "command": "bun test src/cart.test.ts",
+        "body": "Re-ran cart unit tests after patch."
+      },
+      {
+        "id": "s4",
+        "kind": "error",
+        "at": "2026-11-16T09:20:01.000Z",
+        "command": "bun test src/cart.test.ts",
+        "error": "AssertionError: expected 1200 to equal 1000",
+        "body": "One assertion still failing on coupon edge case."
+      },
+      {
+        "id": "s5",
+        "kind": "note",
+        "at": "2026-11-16T09:25:00.000Z",
+        "body": "Posted cart-fix update on the board for teammates."
+      }
+    ]
+  },
+  {
+    "id": "sess-codex-01",
+    "agentId": "codex-beta",
+    "agentName": "Codex Beta",
+    "agentStyle": "codex",
+    "repo": "tiny-shop-checkout",
+    "startedAt": "2026-11-16T10:40:00.000Z",
+    "summary": "Parallel attempt on cart test failure; tweaked README separately.",
+    "memoryFiles": [
+      {
+        "path": ".agents/notes.txt",
+        "content": "codex-beta: cart test still red; check coupon + tax ordering."
+      }
+    ],
+    "steps": [
+      {
+        "id": "c1",
+        "kind": "read",
+        "at": "2026-11-16T10:41:30.000Z",
+        "file": "README.md",
+        "body": "Skimmed setup docs for test command."
+      },
+      {
+        "id": "c2",
+        "kind": "edit",
+        "at": "2026-11-16T10:42:10.000Z",
+        "file": "README.md",
+        "body": "Clarified bun test invocation in README only."
+      },
+      {
+        "id": "c3",
+        "kind": "edit",
+        "at": "2026-11-16T10:48:00.000Z",
+        "file": "src/cart.ts",
+        "body": "Tried alternate fix: clamp discount without empty-coupon guard."
+      },
+      {
+        "id": "c4",
+        "kind": "command",
+        "at": "2026-11-16T10:49:12.000Z",
+        "command": "bun test src/cart.test.ts",
+        "body": "Ran cart tests after speculative edit."
+      },
+      {
+        "id": "c5",
+        "kind": "error",
+        "at": "2026-11-16T10:49:18.000Z",
+        "command": "bun test src/cart.test.ts",
+        "error": "AssertionError: expected 1200 to equal 1000",
+        "body": "Same assertion failure as earlier agent run."
+      }
+    ]
+  }
+]
