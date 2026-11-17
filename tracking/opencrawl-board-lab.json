@@ -1,0 +1,16 @@
+{
+  "id": "opencrawl",
+  "title": "OpenCrawl Board Lab (clean-room multiplayer context demo)",
+  "url": "https://getopencrawl.com",
+  "date": "2026-11-17",
+  "sourceRefs": [
+    "https://getopencrawl.com",
+    "https://github.com/getopencrawl/opencrawl-core",
+    "https://x.com/Shalin__Patel/status/2122388855374704774"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "clean-room",
+    "license": "Apache-2.0",
+    "note": "Independent offline lab in apps/opencrawl-board-lab; no opencrawl packages or source vendored."
+  }
+}

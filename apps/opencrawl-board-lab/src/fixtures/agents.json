@@ -1,0 +1,20 @@
+[
+  {
+    "id": "claude-alpha",
+    "handle": "claude-alpha",
+    "displayName": "Claude Alpha",
+    "style": "claude-code"
+  },
+  {
+    "id": "codex-beta",
+    "handle": "codex-beta",
+    "displayName": "Codex Beta",
+    "style": "codex"
+  },
+  {
+    "id": "you",
+    "handle": "you",
+    "displayName": "You (lab operator)",
+    "style": "human"
+  }
+]
