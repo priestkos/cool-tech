@@ -5,11 +5,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { MomentTile } from '@/components/moment-tile'
-import { DaylineScene } from '@/moments/dayline-scene'
-import { NatterScene } from '@/moments/natter-scene'
-import { StatTileScene } from '@/moments/stat-tile-scene'
-import { TallypayScene } from '@/moments/tallypay-scene'
-import { WaveletScene } from '@/moments/wavelet-scene'
+import { RenderMomentStage } from '@/moments/render-moment-stage'
 import type { MomentDefinition } from '@/lib/moment-registry'
 import type { MomentPhase } from '@/hooks/use-moments-controller'
 
@@ -18,44 +14,11 @@ type OpenMomentDialogProps = {
   onOpenChange: (open: boolean) => void
   def: MomentDefinition | null
   phase: MomentPhase
-  storyStep: number
-  animating: boolean
+  playing: boolean
+  playKey: number
   reduced: boolean
   onPhase: (phase: MomentPhase) => void
   onReplay: () => void
-}
-
-function renderPicture(
-  def: MomentDefinition,
-  phase: MomentPhase,
-  storyStep: number,
-  reduced: boolean,
-  compact: boolean,
-  large?: boolean,
-) {
-  const showCursor = def.id === 'wavelet' && !reduced
-  switch (def.id) {
-    case 'wavelet':
-      return (
-        <WaveletScene
-          phase={phase}
-          storyStep={storyStep}
-          showCursor={showCursor}
-          compact={compact}
-          large={large}
-        />
-      )
-    case 'dayline':
-      return <DaylineScene phase={phase} storyStep={storyStep} compact={compact} />
-    case 'tallypay':
-      return <TallypayScene phase={phase} storyStep={storyStep} compact={compact} />
-    case 'natter':
-      return <NatterScene phase={phase} storyStep={storyStep} compact={compact} />
-    case 'stat':
-      return <StatTileScene />
-    default:
-      return null
-  }
 }
 
 export function OpenMomentDialog({
@@ -63,8 +26,8 @@ export function OpenMomentDialog({
   onOpenChange,
   def,
   phase,
-  storyStep,
-  animating,
+  playing,
+  playKey,
   reduced,
   onPhase,
   onReplay,
@@ -79,17 +42,21 @@ export function OpenMomentDialog({
         <MomentTile
           def={def}
           phase={phase}
-          storyStep={storyStep}
-          animating={animating}
-          reduced={reduced}
-          compact={false}
           onPhase={onPhase}
           onReplay={onReplay}
-          picture={renderPicture(def, phase, storyStep, reduced, false, true)}
+          compact={false}
+          picture={
+            <RenderMomentStage
+              def={def}
+              phase={phase}
+              playing={playing}
+              playKey={playKey}
+              reduced={reduced}
+              large
+            />
+          }
         />
       </DialogContent>
     </Dialog>
   )
 }
-
-export { renderPicture }

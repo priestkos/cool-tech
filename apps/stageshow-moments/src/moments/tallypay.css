@@ -1,0 +1,31 @@
+.tp-stage {
+  position: relative;
+}
+.tp-window {
+  --ss-accent: #059669;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tp-merchant {
+  font-weight: 600;
+  font-size: 13px;
+}
+.tp-amount {
+  font-size: 28px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.tp-receipt {
+  position: absolute;
+  right: -12px;
+  bottom: 18px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--ss-surface);
+  box-shadow: 0 8px 24px color-mix(in oklab, var(--ss-ink) 14%, transparent);
+  border: 1px solid color-mix(in oklab, var(--ss-ink) 8%, transparent);
+}

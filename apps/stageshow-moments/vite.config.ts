@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      '@stageshow/kit': path.resolve(__dirname, './vendor/stageshow/kit'),
     },
   },
 })

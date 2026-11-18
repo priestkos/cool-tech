@@ -1,36 +1,55 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { GRID_STAGGER_MS, PAYOFF_HOLD_MS } from '@/lib/motion'
 import { MOMENTS, type MomentDefinition } from '@/lib/moment-registry'
-import { prefersReducedMotion, useReducedMotionEffective } from '@/lib/reduced-motion'
-import { createTimeline, type TimelineController } from '@/lib/timeline'
+import {
+  DAYLINE_PLAY_MS,
+} from '@/moments/dayline-stage'
+import { NATTER_PLAY_MS } from '@/moments/natter-stage'
+import { TALLYPAY_PLAY_MS } from '@/moments/tallypay-stage'
+import { WAVELET_PLAY_MS } from '@/moments/wavelet-stage'
 
 export type MomentPhase = 'before' | 'after'
 
 export type MomentRuntime = {
   phase: MomentPhase
-  storyStep: number
-  animating: boolean
+  playKey: number
+  playing: boolean
 }
 
-const INITIAL: MomentRuntime = { phase: 'before', storyStep: 0, animating: false }
+const INITIAL: MomentRuntime = { phase: 'before', playKey: 0, playing: false }
+
+const GRID_STAGGER_MS = 100
 
 function posterPhase(def: MomentDefinition): MomentPhase {
   return def.poster
 }
 
+function playDuration(id: string): number {
+  switch (id) {
+    case 'wavelet':
+      return WAVELET_PLAY_MS
+    case 'dayline':
+      return DAYLINE_PLAY_MS
+    case 'tallypay':
+      return TALLYPAY_PLAY_MS
+    case 'natter':
+      return NATTER_PLAY_MS
+    default:
+      return 1200
+  }
+}
+
+function prefersReducedMotion(): boolean {
+  if (typeof window === 'undefined') return false
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
 export function useMomentsController(demoReducedMotion: boolean) {
-  const osReduced = prefersReducedMotion()
-  const reduced = useReducedMotionEffective(osReduced, demoReducedMotion)
-  const timelinesRef = useRef<Map<string, TimelineController>>(new Map())
+  const reduced = demoReducedMotion || prefersReducedMotion()
+  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([])
 
-  const getTimeline = useCallback((id: string) => {
-    const map = timelinesRef.current
-    if (!map.has(id)) map.set(id, createTimeline())
-    return map.get(id)!
-  }, [])
-
-  const cancelAll = useCallback(() => {
-    for (const tl of timelinesRef.current.values()) tl.cancel()
+  const clearTimers = useCallback(() => {
+    for (const t of timersRef.current) clearTimeout(t)
+    timersRef.current = []
   }, [])
 
   const [runtime, setRuntime] = useState<Record<string, MomentRuntime>>(() =>
@@ -42,104 +61,70 @@ export function useMomentsController(demoReducedMotion: boolean) {
     setRuntime((prev) => ({ ...prev, [id]: { ...prev[id], ...patch } }))
   }, [])
 
-  const snapBefore = useCallback(
-    (id: string) => {
-      setMoment(id, { phase: 'before', storyStep: 0, animating: false })
-    },
-    [setMoment],
-  )
-
   const showPhase = useCallback(
     (id: string, phase: MomentPhase) => {
       const def = MOMENTS.find((m) => m.id === id)
       if (!def) return
-      if (reduced) {
+      if (reduced && phase === 'after') {
         setMoment(id, {
-          phase: phase === 'after' ? posterPhase(def) : 'before',
-          storyStep: 0,
-          animating: false,
+          phase: posterPhase(def),
+          playKey: runtime[id]?.playKey ?? 0,
+          playing: false,
         })
         return
       }
-      setMoment(id, { phase, storyStep: 0, animating: false })
+      setMoment(id, {
+        phase,
+        playKey: runtime[id]?.playKey ?? 0,
+        playing: false,
+      })
     },
-    [reduced, setMoment],
+    [reduced, runtime, setMoment],
   )
 
   const playStory = useCallback(
     (id: string) => {
       const def = MOMENTS.find((m) => m.id === id)
-      if (!def) return
-      const tl = getTimeline(id)
-      tl.cancel()
+      if (!def || def.kind === 'stat') return
       if (reduced) {
-        setMoment(id, { phase: posterPhase(def), storyStep: 0, animating: false })
+        setMoment(id, {
+          phase: posterPhase(def),
+          playKey: (runtime[id]?.playKey ?? 0) + 1,
+          playing: false,
+        })
         return
       }
-      snapBefore(id)
-      setMoment(id, { animating: true })
-
-      const beatsFor = (momentId: string) => {
-        switch (momentId) {
-          case 'wavelet':
-            return [
-              { delayMs: 400, action: () => setMoment(id, { storyStep: 1 }) },
-              { delayMs: 500, action: () => setMoment(id, { storyStep: 2 }) },
-              { delayMs: 350, action: () => setMoment(id, { storyStep: 3 }) },
-              { delayMs: 600, action: () => setMoment(id, { storyStep: 4 }) },
-              { delayMs: PAYOFF_HOLD_MS, action: () => undefined },
-            ]
-          case 'dayline':
-            return [
-              { delayMs: 300, action: () => setMoment(id, { storyStep: 1 }) },
-              { delayMs: 400, action: () => setMoment(id, { storyStep: 2 }) },
-              { delayMs: 500, action: () => setMoment(id, { storyStep: 3 }) },
-              { delayMs: PAYOFF_HOLD_MS, action: () => undefined },
-            ]
-          case 'tallypay':
-            return [
-              { delayMs: 250, action: () => setMoment(id, { storyStep: 1 }) },
-              { delayMs: 450, action: () => setMoment(id, { storyStep: 2 }) },
-              { delayMs: 500, action: () => setMoment(id, { storyStep: 3 }) },
-              { delayMs: 400, action: () => setMoment(id, { storyStep: 4 }) },
-              { delayMs: PAYOFF_HOLD_MS, action: () => undefined },
-            ]
-          case 'natter':
-            return [
-              { delayMs: 350, action: () => setMoment(id, { storyStep: 1 }) },
-              { delayMs: 700, action: () => setMoment(id, { storyStep: 2 }) },
-              { delayMs: 450, action: () => setMoment(id, { storyStep: 3 }) },
-              { delayMs: PAYOFF_HOLD_MS, action: () => undefined },
-            ]
-          default:
-            return [{ delayMs: 200, action: () => undefined }]
-        }
-      }
-
-      tl.play(beatsFor(id), () => {
-        setMoment(id, { phase: 'after', storyStep: 0, animating: false })
-      })
+      const nextKey = (runtime[id]?.playKey ?? 0) + 1
+      setMoment(id, { phase: 'before', playKey: nextKey, playing: true })
+      const end = setTimeout(() => {
+        setMoment(id, { phase: 'after', playKey: nextKey, playing: false })
+      }, playDuration(id))
+      timersRef.current.push(end)
     },
-    [getTimeline, reduced, setMoment, snapBefore],
+    [reduced, runtime, setMoment],
   )
 
   const setAll = useCallback(
     (phase: MomentPhase) => {
-      cancelAll()
+      clearTimers()
       for (const m of MOMENTS) {
         if (m.kind === 'stat') continue
         if (phase === 'after' && reduced) {
-          setMoment(m.id, { phase: posterPhase(m), storyStep: 0, animating: false })
+          setMoment(m.id, {
+            phase: posterPhase(m),
+            playKey: runtime[m.id]?.playKey ?? 0,
+            playing: false,
+          })
         } else {
           setMoment(m.id, {
             phase,
-            storyStep: 0,
-            animating: false,
+            playKey: runtime[m.id]?.playKey ?? 0,
+            playing: false,
           })
         }
       }
     },
-    [reduced, setMoment],
+    [clearTimers, reduced, runtime, setMoment],
   )
 
   useEffect(() => {
@@ -148,48 +133,31 @@ export function useMomentsController(demoReducedMotion: boolean) {
       return
     }
     const order = MOMENTS.filter((m) => m.kind !== 'stat')
-    const timers: ReturnType<typeof setTimeout>[] = []
     order.forEach((m, index) => {
-      timers.push(
-        setTimeout(() => playStory(m.id), 400 + index * GRID_STAGGER_MS),
-      )
+      const start = setTimeout(() => playStory(m.id), 400 + index * GRID_STAGGER_MS)
+      timersRef.current.push(start)
     })
-    timers.push(setTimeout(() => setLoadPlayed(true), 400 + order.length * GRID_STAGGER_MS + 4500))
-    return () => {
-      for (const t of timers) clearTimeout(t)
-      cancelAll()
-    }
-  }, [cancelAll, loadPlayed, playStory, reduced, setAll])
+    const done = setTimeout(
+      () => setLoadPlayed(true),
+      400 + order.length * GRID_STAGGER_MS + 5000,
+    )
+    timersRef.current.push(done)
+    return () => clearTimers()
+  }, [clearTimers, loadPlayed, playStory, reduced, setAll])
 
   const displayFor = useCallback(
-    (id: string): MomentRuntime => {
-      const r = runtime[id] ?? INITIAL
-      const def = MOMENTS.find((m) => m.id === id)
-      if (!def || def.kind === 'stat') return r
-      if (reduced && !r.animating) {
-        const phase =
-          r.phase === 'after' || r.phase === 'before'
-            ? r.phase === 'after'
-              ? posterPhase(def)
-              : 'before'
-            : posterPhase(def)
-        return { ...r, phase, storyStep: 0, animating: false }
-      }
-      return r
-    },
-    [reduced, runtime],
+    (id: string): MomentRuntime => runtime[id] ?? INITIAL,
+    [runtime],
   )
 
   return useMemo(
     () => ({
       reduced,
-      runtime,
       displayFor,
       showPhase,
       playStory,
       setAll,
-      snapBefore,
     }),
-    [displayFor, playStory, reduced, runtime, setAll, showPhase, snapBefore],
+    [displayFor, playStory, reduced, setAll, showPhase],
   )
 }
