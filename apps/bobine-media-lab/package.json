@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@base-ui/react": "1.9.0",
+    "bobinejs": "0.2.2",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "hls.js": "1.7.4",

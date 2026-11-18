@@ -1,3 +1,5 @@
+import type { VideoTrack } from "bobinejs"
+
 export const FIXTURES = {
   videoMp4: "/fixtures/test-clip.mp4",
   audioMp3: "/fixtures/test-audio.mp3",
@@ -5,9 +7,18 @@ export const FIXTURES = {
   hlsPlaylist: "/fixtures/hls/playlist.m3u8",
 } as const
 
+export const captionTracks: VideoTrack[] = [
+  {
+    src: FIXTURES.captionsVtt,
+    label: "English",
+    srcLang: "en",
+    kind: "captions",
+    default: true,
+  },
+]
+
 export const SHARED_VIDEO_PROPS = {
   src: FIXTURES.videoMp4,
-  poster: undefined,
   preload: "metadata" as const,
-  crossOrigin: undefined,
+  playsInline: true,
 }
