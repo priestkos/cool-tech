@@ -1,6 +1,6 @@
 # Ding Toast Lab
 
-Inspired single-toast playground ([Ding upstream](https://github.com/YusufCeng1z/ding)) — **not** an integration. Upstream commit/release (2026-11-07) is younger than the repo’s 72h dependency gate, so toast morph behavior is implemented locally with React state and CSS transitions.
+Playground for the real [**Ding**](https://github.com/YusufCeng1z/ding) toast engine, pinned at **`@yusufceng1z/ding@0.0.6`** and **`@yusufceng1z/ding-react@0.0.6`** (MIT). The morphing pill, timers, and promise helper come from upstream — not a local reimplementation.
 
 ## Commands
 
@@ -16,30 +16,27 @@ bun run dev
 | `bun run build` | Production build |
 | `bun run preview` | Preview production build |
 | `bun run typecheck` | `tsc -b` |
-| `bun test` | Toast model unit tests |
+| `bun test` | Upstream `createToaster()` tests |
 
 ## Architecture
 
-- `src/features/toast/model.ts` — toast snapshot, morph/dismiss, archive/undo helpers
-- `src/features/toast/fixtures.ts` — offline timer constants
-- `src/features/toast/useToastLab.ts` — timers, promise/progress simulation, dismiss pause
-- `src/features/toast/ToastStage.tsx` — accessible live toast UI
-- `src/features/toast/PlaygroundControls.tsx` — control cards
+- `src/features/toast/useDingLab.ts` — fixtures calling `toast.*` / `setSprings`
+- `src/features/toast/ToastInspector.tsx` — `useSyncExternalStore(toast.subscribe, …)` readout
+- `src/features/toast/PlaygroundControls.tsx` — shadcn control cards
+- `src/features/toast/ding.test.ts` — behavior via real `@yusufceng1z/ding` API
+- `App.tsx` — mounts `<Toaster position="top-center" />`
 
-## Verification (2026-11-07)
+## Upstream credit
 
-- `bun test` — 6 tests pass
-- `bun run typecheck` — clean
-- `bun run build` — clean
-- Browser smoke: desktop + ~390px, keyboard focus, reduced-motion, offline after build
-- Artifacts: `artifacts/demo.png`, `artifacts/demo.mp4`
+- Repo: https://github.com/YusufCeng1z/ding  
+- Docs: https://ding.yusufcengiz.dev  
+- License: MIT — see `THIRD_PARTY_LICENSES/ding-MIT-LICENSE.txt`
 
 ## Age policy
 
-`bunfig.toml` sets `minimumReleaseAge = 259200`. Pinned versions are listed in `PLAN.md` with registry publication times (IST). No `@yusufceng1z/ding`, no upstream source vendoring.
+`bunfig.toml` sets `minimumReleaseAge = 259200`. Ding `0.0.6` predates the launch cutoff (2026-11-15 ~09:45 IST). Newer npm versions (`0.0.7+`) are intentionally excluded.
 
 ## Limitations
 
-- One toast only (no queue)
-- No sound
-- Morph motion is approximate vs upstream spring physics
+- One visible toast (upstream default); held/queue modes not demoed
+- Sound API exists upstream but is not toggled in this lab
