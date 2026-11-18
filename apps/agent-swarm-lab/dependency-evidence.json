@@ -5,9 +5,9 @@
       "agent-swarm-lab"
     ],
     "preparedAtIst": "2026-11-09T09:00:00+05:30",
-    "launchApproxUtc": "2026-11-09T03:30:00Z",
-    "cutoffUtc": "2026-11-06T03:30:00Z",
-    "cutoffIst": "2026-11-06T09:00:00+05:30",
+    "launchApproxUtc": "2026-11-18T04:15:00Z",
+    "cutoffUtc": "2026-11-15T04:15:00Z",
+    "cutoffIst": "2026-11-15T09:45:00+05:30",
     "minimumReleaseAgeSeconds": 259200,
     "notes": "Toolchain pins rechecked from apps/ding-toast-lab and nov8 evidence against Nov 9 cutoff. Full lockfile transitive audit remains the cloud agent's job after install."
   },
@@ -331,11 +331,12 @@
       "0.1.2": "2026-11-08T08:20:16.216Z"
     },
     "latest": "0.1.2",
-    "eligible": false,
-    "reason": "Repo, first commit, and all npm publishes are younger than 72h at Nov 9 ~09:00 IST launch.",
-    "earliestSourceEligibleApproxIst": "2026-11-11T12:27:03+05:30",
-    "earliestNpm012EligibleApproxIst": "2026-11-11T13:50:16+05:30",
-    "decision": "Independent clean-room recreation only. Do not install or copy package/source. Credit original. Deferred real-package swap after ~Nov 11."
+    "pinnedInApp": "0.1.2",
+    "tag": "v0.1.2",
+    "commitSha": "547224afd5cbda6b87ff7bb17808b9718165908c",
+    "eligible": true,
+    "reason": "0.1.2 published 2026-11-08; older than Nov 15 2026 09:45 IST launch cutoff.",
+    "decision": "Installed from npm; THIRD_PARTY_LICENSES/agent-swarm-effect-LICENSE.txt."
   },
   "shadcnSourceCandidate": {
     "repo": "https://github.com/shadcn-ui/ui",

@@ -89,25 +89,3 @@
   }
 }
 
-::highlight(swarm-hidden) {
-  color: transparent;
-  text-decoration-color: transparent;
-}
-
-.swarm-target[data-swarm-phase="pre"] .swarm-typable {
-  visibility: visible;
-}
-
-.swarm-target[data-swarm-phase="complete"] .swarm-frame-pending {
-  border-color: var(--border);
-}
-
-[data-motion="off"] .swarm-canvas {
-  display: none !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .swarm-canvas {
-    display: none !important;
-  }
-}
