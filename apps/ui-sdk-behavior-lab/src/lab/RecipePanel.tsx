@@ -9,18 +9,27 @@ import {
 const RECIPES = [
   {
     widget: "Combobox",
-    primitives: ["anchored popup", "dismiss layer", "typeahead filter", "single selection"],
-    note: "Agents wire these four behaviors before styling.",
+    primitives: [
+      "@ui-sdk/core popover preset",
+      "bindLayer dismiss",
+      "listbox typeahead filter",
+      "createSelection single value",
+    ],
+    note: "Implemented via @ui-sdk/react/combobox in the SDK column.",
   },
   {
     widget: "Multi-select list",
-    primitives: ["multi selection toggles", "aria-multiselectable listbox", "live selection announcements"],
-    note: "Selection state is separate from visual chips.",
+    primitives: [
+      "@ui-sdk/react Select multiple",
+      "createSelection toggle + extend",
+      "announce polite live region",
+    ],
+    note: "Value is T[]; list stays open while toggling.",
   },
   {
     widget: "Sortable tasks",
-    primitives: ["reorder reducer", "pointer drag", "polite live region + visible log"],
-    note: "Announce the new index after each drop.",
+    primitives: ["movedTo", "reorderMessage", "pointer drag (lab chrome)"],
+    note: "Full createReorder lives in primitives; this lab uses movedTo + messages.",
   },
 ]
 
@@ -30,7 +39,8 @@ export function RecipePanel() {
       <CardHeader>
         <CardTitle>Agent recipe</CardTitle>
         <CardDescription>
-          Independent recreation — not the official @ui-sdk/* package graph.
+          Maps widgets to the pinned @ui-sdk/core / @ui-sdk/react APIs (
+          <code className="text-[0.65rem]">0.1.0-beta.2</code>).
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4 text-sm">
@@ -46,18 +56,19 @@ export function RecipePanel() {
           </div>
         ))}
         <p className="text-[0.65rem] leading-relaxed text-muted-foreground">
-          Credit: Vercel UI SDK (Apache-2.0) inspired the behavior set — this demo
-          does not install @ui-sdk/core or copy{" "}
+          Upstream:{" "}
           <a
             href="https://github.com/vercel-labs/ui"
             className="underline"
             rel="noreferrer"
           >
             vercel-labs/ui
-          </a>
-          . Eligible doc snapshot:{" "}
-          <code className="text-[0.6rem]">26ac6b344133</code>. Deferred swap after
-          ~2026-11-15 10:42 PM IST.
+          </a>{" "}
+          (Apache-2.0). Eligible git snapshot:{" "}
+          <code className="text-[0.6rem]">
+            220c1a0d7278872286a620a8e4ee4210ca46f9bd
+          </code>
+          .
         </p>
       </CardContent>
     </Card>

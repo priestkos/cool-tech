@@ -1,20 +1,31 @@
 {
-  "preparedAtIst": "2026-11-13T09:15:00+05:30",
-  "cutoffUtc": "2026-11-10T03:45:00Z",
+  "preparedAtIst": "2026-11-18T09:45:00+05:30",
+  "cutoffUtc": "2026-11-15T04:15:00Z",
+  "cutoffIst": "2026-11-15T09:45:00+05:30",
   "minimumReleaseAgeSeconds": 259200,
-  "decision": "clean-room-no-ui-sdk-npm",
+  "decision": "real-code-ui-sdk-npm-0.1.0-beta.2",
   "directDependencies": {
-    "source": "/agent/repos/cool-tech/uploads/nov13-dependency-evidence_d18d.json",
-    "toolchain": "toolchain section — all direct pins eligible at launch"
+    "toolchain": "create-vite@9.3.3, react@19.3.1, vite@8.3.5, shadcn@4.22.1, tailwindcss@4.3.3 — all predate cutoff",
+    "@ui-sdk/core": {
+      "version": "0.1.0-beta.2",
+      "publishedUtc": "2026-11-13T13:05:20.558Z",
+      "license": "Apache-2.0"
+    },
+    "@ui-sdk/react": {
+      "version": "0.1.0-beta.2",
+      "publishedUtc": "2026-11-13T13:04:27.623Z",
+      "license": "Apache-2.0"
+    },
+    "@ui-sdk/web": {
+      "version": "0.1.0-beta.2",
+      "publishedUtc": "2026-11-13T13:05:27.702Z",
+      "license": "Apache-2.0"
+    }
   },
-  "uiSdk": {
-    "install": false,
-    "reason": "All @ui-sdk/* versions younger than 72h cutoff",
-    "eligibleSwapAfterIst": "2026-11-15T22:42:06.305+05:30"
-  },
+  "ineligibleNewer": "@ui-sdk/* beta.3+ published on or after 2026-11-15T07:14:50Z",
   "lockfile": {
     "path": "bun.lock",
-    "note": "Full transitive audit performed at install via bun with minimumReleaseAge=259200 in bunfig.toml; see CI/agent validation in PR."
+    "note": "Install with bunfig.toml minimumReleaseAge=259200"
   },
   "shadcnRegistryPin": {
     "repo": "shadcn-ui/ui",
