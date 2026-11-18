@@ -3,30 +3,30 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
-import type { SceneLabFile, ToneMappingMode } from "@/features/scene/schema"
+import type { SceneDocument, ToneMappingMode } from "@/features/scene/document"
 
 type Props = {
-  scene: SceneLabFile
+  doc: SceneDocument
   jsonText: string
   parseErrors: string[]
   onJsonChange: (text: string) => void
   onApplyJson: () => void
-  onSunPatch: (patch: Partial<SceneLabFile["environment"]["sun"]>) => void
-  onRendererPatch: (patch: Partial<SceneLabFile["renderer"]>) => void
+  onSunPatch: (patch: Partial<SceneDocument["environment"]["sun"]>) => void
+  onPreviewPatch: (patch: Partial<SceneDocument["preview"]>) => void
 }
 
 const toneOptions: ToneMappingMode[] = ["aces", "reinhard", "linear", "none"]
 
 export function EditorPanel({
-  scene,
+  doc,
   jsonText,
   parseErrors,
   onJsonChange,
   onApplyJson,
   onSunPatch,
-  onRendererPatch,
+  onPreviewPatch,
 }: Props) {
-  const sun = scene.environment.sun
+  const sun = doc.environment.sun
 
   return (
     <div className="flex flex-col gap-3">
@@ -80,29 +80,29 @@ export function EditorPanel({
 
       <Card>
         <CardHeader className="pb-2">
-          <CardTitle className="text-sm">Exposure & tone mapping</CardTitle>
+          <CardTitle className="text-sm">Raster preview (three.js)</CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col gap-3">
           <div className="space-y-2">
-            <Label htmlFor="exposure">Exposure ({scene.renderer.exposure.toFixed(2)})</Label>
+            <Label htmlFor="exposure">Exposure ({doc.preview.exposure.toFixed(2)})</Label>
             <Slider
               id="exposure"
               min={0.25}
               max={2.5}
               step={0.05}
-              value={[scene.renderer.exposure]}
+              value={[doc.preview.exposure]}
               onValueChange={(v) => {
                 const n = Array.isArray(v) ? v[0] : v
-                onRendererPatch({
-                  exposure: typeof n === "number" ? n : scene.renderer.exposure,
+                onPreviewPatch({
+                  exposure: typeof n === "number" ? n : doc.preview.exposure,
                 })
               }}
             />
           </div>
           <ToneMappingSelect
-            value={scene.renderer.toneMapping}
+            value={doc.preview.toneMapping}
             onChange={(toneMapping: ToneMappingMode) =>
-              onRendererPatch({ toneMapping })
+              onPreviewPatch({ toneMapping })
             }
           />
         </CardContent>
@@ -110,7 +110,7 @@ export function EditorPanel({
 
       <Card>
         <CardHeader className="pb-2">
-          <CardTitle className="text-sm">Scene JSON (lab schema v1)</CardTitle>
+          <CardTitle className="text-sm">Scene JSON (lab v2 → @threert/scene)</CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col gap-2">
           <textarea

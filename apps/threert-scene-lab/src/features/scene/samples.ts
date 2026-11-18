@@ -1,18 +1,18 @@
-import type { SceneLabFile } from "./schema"
-import { SCENE_LAB_VERSION } from "./schema"
+import type { SceneDocument } from "./document"
+import { SCENE_DOC_VERSION } from "./document"
 
 export type SampleScene = {
   slug: string
   blurb: string
-  scene: SceneLabFile
+  doc: SceneDocument
 }
 
 const base = (
   name: string,
   description: string,
-  partial: Pick<SceneLabFile, "environment" | "meshes" | "lights" | "renderer">
-): SceneLabFile => ({
-  version: SCENE_LAB_VERSION,
+  partial: Pick<SceneDocument, "environment" | "meshes" | "lights" | "preview" | "camera">
+): SceneDocument => ({
+  version: SCENE_DOC_VERSION,
   meta: { name, description },
   ...partial,
 })
@@ -20,14 +20,14 @@ const base = (
 export const SAMPLE_SCENES: SampleScene[] = [
   {
     slug: "noon-courtyard",
-    blurb: "High sun, pale stone courtyard, low skylight fill.",
-    scene: base("Noon courtyard", "Original lab scene — not from ThreeRT samples.", {
+    blurb: "High sun lux, pale stone courtyard — built with @threert/scene.",
+    doc: base("Noon courtyard", "Lab sample using SkyAtmosphere + lux sun.", {
       environment: {
         sun: { azimuthDeg: 210, elevationDeg: 62, illuminanceLux: 90_000 },
         sky: { preset: "clear" },
-        hemisphereLux: 8_000,
       },
-      renderer: { exposure: 1.05, toneMapping: "aces" },
+      preview: { exposure: 1.05, toneMapping: "aces" },
+      camera: { fov: 48, position: [14, 9, 16], lookAt: [0, 1.2, 0] },
       meshes: [
         {
           id: "ground",
@@ -65,14 +65,14 @@ export const SAMPLE_SCENES: SampleScene[] = [
   },
   {
     slug: "night-street",
-    blurb: "Emissive lamp posts and warm spots — no sun.",
-    scene: base("Night street", "Emissive lamps with point fill.", {
+    blurb: "Emissive lamps (nits) and point lights (cd) — no sun.",
+    doc: base("Night street", "Emissive + PointLight candela.", {
       environment: {
         sun: { azimuthDeg: 270, elevationDeg: -10, illuminanceLux: 0 },
         sky: { preset: "night" },
-        hemisphereLux: 120,
       },
-      renderer: { exposure: 0.85, toneMapping: "aces" },
+      preview: { exposure: 0.85, toneMapping: "aces" },
+      camera: { fov: 50, position: [18, 6, 14], lookAt: [0, 2, 0] },
       meshes: [
         {
           id: "street",
@@ -103,7 +103,7 @@ export const SAMPLE_SCENES: SampleScene[] = [
           position: [-4, 3.2, 2],
           material: {
             color: "#ffdd99",
-            emissive: { color: "#ffcc66", exitanceLmPerM2: 4200 },
+            emissive: { color: "#ffcc66", intensityNits: 3200 },
             roughness: 0.4,
           },
         },
@@ -114,7 +114,7 @@ export const SAMPLE_SCENES: SampleScene[] = [
           position: [6, 3.2, 1],
           material: {
             color: "#ffdd99",
-            emissive: { color: "#ffcc66", exitanceLmPerM2: 3800 },
+            emissive: { color: "#ffcc66", intensityNits: 2800 },
             roughness: 0.4,
           },
         },
@@ -124,14 +124,14 @@ export const SAMPLE_SCENES: SampleScene[] = [
           id: "post-a",
           type: "point",
           position: [-4, 3, 2],
-          luminousFluxLm: 1200,
+          intensityCd: 18_000,
           distance: 18,
         },
         {
           id: "post-b",
           type: "point",
           position: [6, 3, 1],
-          luminousFluxLm: 1000,
+          intensityCd: 15_000,
           distance: 16,
         },
       ],
@@ -139,14 +139,14 @@ export const SAMPLE_SCENES: SampleScene[] = [
   },
   {
     slug: "interior-window",
-    blurb: "Single sun through a tall window, interior bounce.",
-    scene: base("Interior window light", "Window wash + soft fill.", {
+    blurb: "Window sun at 22k lux, interior bounce.",
+    doc: base("Interior window light", "Lower sun elevation through opening.", {
       environment: {
         sun: { azimuthDeg: 135, elevationDeg: 28, illuminanceLux: 22_000 },
         sky: { preset: "hazy" },
-        hemisphereLux: 2_500,
       },
-      renderer: { exposure: 1.1, toneMapping: "aces" },
+      preview: { exposure: 1.1, toneMapping: "aces" },
+      camera: { fov: 46, position: [8, 5, 10], lookAt: [1, 0.8, 0] },
       meshes: [
         {
           id: "floor",
@@ -183,14 +183,14 @@ export const SAMPLE_SCENES: SampleScene[] = [
   },
   {
     slug: "studio-softbox",
-    blurb: "Controlled spot key + low sun for product rim.",
-    scene: base("Studio softbox", "Spot key with sun rim.", {
+    blurb: "Spot key in cd with rim sun.",
+    doc: base("Studio softbox", "SpotLight + low sun.", {
       environment: {
         sun: { azimuthDeg: 300, elevationDeg: 18, illuminanceLux: 4_000 },
         sky: { preset: "overcast" },
-        hemisphereLux: 1_200,
       },
-      renderer: { exposure: 1.0, toneMapping: "reinhard" },
+      preview: { exposure: 1.0, toneMapping: "reinhard" },
+      camera: { fov: 42, position: [5, 4, 8], lookAt: [0, 0.8, 0] },
       meshes: [
         {
           id: "stage",
@@ -231,14 +231,14 @@ export const SAMPLE_SCENES: SampleScene[] = [
   },
   {
     slug: "overcast-plaza",
-    blurb: "Low sun illuminance, high hemisphere — flat outdoor light.",
-    scene: base("Overcast plaza", "Diffuse exterior with metal accents.", {
+    blurb: "Diffuse exterior under overcast sky.",
+    doc: base("Overcast plaza", "Moderate sun + metal sculpture.", {
       environment: {
         sun: { azimuthDeg: 180, elevationDeg: 35, illuminanceLux: 12_000 },
         sky: { preset: "overcast" },
-        hemisphereLux: 14_000,
       },
-      renderer: { exposure: 1.15, toneMapping: "aces" },
+      preview: { exposure: 1.15, toneMapping: "aces" },
+      camera: { fov: 48, position: [16, 7, 18], lookAt: [0, 2, 0] },
       meshes: [
         {
           id: "plaza",

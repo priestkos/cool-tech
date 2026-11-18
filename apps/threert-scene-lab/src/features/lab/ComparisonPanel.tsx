@@ -10,6 +10,10 @@ const LINKS = [
     label: "ThreeRT GitHub repository",
   },
   {
+    href: "https://www.npmjs.com/package/@threert/scene/v/0.1.1",
+    label: "npm @threert/scene@0.1.1",
+  },
+  {
     href: "https://x.com/ThreeRT3D/status/2121238880808829385",
     label: "ThreeRT launch post (Meshy, Nov 2026)",
   },
@@ -24,16 +28,17 @@ export function ComparisonPanel() {
         </CardHeader>
         <CardContent className="space-y-3 text-xs leading-relaxed text-muted-foreground">
           <p>
-            <strong className="text-foreground">This demo</strong> renders only the
-            conventional three.js WebGL path: shadow-mapped lights, tone-mapped
-            rasterization, and emissive materials. It runs fully offline in your
-            browser.
+            <strong className="text-foreground">This lab</strong> builds scenes with
+            the official <code className="text-[10px]">@threert/scene</code> package
+            (lux sun, SkyAtmosphere, cd lights, nits emissive). The right pane mirrors
+            that graph into real three.js for a conventional raster preview — the same
+            split described in the upstream README.
           </p>
           <p>
             <strong className="text-foreground">ThreeRT&apos;s native macOS/iOS clients</strong>{" "}
-            add hardware path tracing: sun disks in physical lux without shadow-map
-            artifacts, emissive and area lights traced in-path, and higher-fidelity
-            comparisons against plain three.js. We do not simulate path tracing here.
+            path-trace the bundle with hardware ray tracing (soft sun disks, traced
+            emissive and area lights). Vite cannot run that engine in-browser; we do
+            not fake path tracing here.
           </p>
           <p>
             Official side-by-side stills live on{" "}
@@ -45,16 +50,7 @@ export function ComparisonPanel() {
             >
               threert.dev
             </a>{" "}
-            and in the{" "}
-            <a
-              className="text-primary underline underline-offset-2 hover:text-foreground"
-              href="https://github.com/meshy-dev/ThreeRT"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              GitHub repo
-            </a>
-            — linked below; images are not copied into this lab.
+            — linked below, not copied into this repo.
           </p>
         </CardContent>
       </Card>
@@ -79,9 +75,8 @@ export function ComparisonPanel() {
             ))}
           </ul>
           <p className="mt-3 text-[11px] text-muted-foreground">
-            Independent clean-room recreation inspired by ThreeRT. No @threert/*
-            packages, no vendored ThreeRT source, scenes, or images. @threert/scene
-            may be revisited after ~16 Nov 2026 06:05 IST eligibility window.
+            Pinned upstream: npm @threert/scene@0.1.1 (2026-11-13 UTC), Git commit
+            1aae0b7f (MIT). See THIRD_PARTY_LICENSES and package README in this app.
           </p>
         </CardContent>
       </Card>

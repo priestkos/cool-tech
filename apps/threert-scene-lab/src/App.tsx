@@ -15,7 +15,9 @@ export default function App() {
         <header className="space-y-1">
           <h1 className="text-lg font-semibold tracking-tight">ThreeRT Scene Lab</h1>
           <p className="text-xs text-muted-foreground">
-            Independent scene-file + physical-units lab · inspired by{" "}
+            Scenes built with{" "}
+            <code className="text-[10px]">@threert/scene@0.1.1</code> · three.js
+            raster preview ·{" "}
             <a
               href="https://threert.dev"
               className="text-primary underline underline-offset-2"
@@ -23,8 +25,7 @@ export default function App() {
               target="_blank"
             >
               ThreeRT
-            </a>{" "}
-            · offline
+            </a>
           </p>
         </header>
 
@@ -37,17 +38,17 @@ export default function App() {
           </TabsList>
           <TabsContent value="editor" className="mt-2">
             <EditorPanel
-              scene={lab.scene}
+              doc={lab.doc}
               jsonText={lab.jsonText}
               parseErrors={lab.parseErrors}
               onJsonChange={lab.setJsonText}
               onApplyJson={lab.applyJson}
               onSunPatch={lab.patchSun}
-              onRendererPatch={lab.patchRenderer}
+              onPreviewPatch={lab.patchPreview}
             />
           </TabsContent>
           <TabsContent value="physical" className="mt-2">
-            <PhysicalPanel scene={lab.scene} />
+            <PhysicalPanel doc={lab.doc} built={lab.built} />
           </TabsContent>
           <TabsContent value="gallery" className="mt-2">
             <GalleryPanel
@@ -63,7 +64,7 @@ export default function App() {
       </aside>
 
       <main className="flex min-h-[360px] flex-1 flex-col gap-2 lg:min-h-0">
-        <SceneCanvas scene={lab.scene} />
+        <SceneCanvas doc={lab.doc} built={lab.built} />
       </main>
     </div>
   )
