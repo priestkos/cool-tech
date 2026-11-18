@@ -36,6 +36,15 @@ bun run dev
 
 `bunfig.toml` sets `minimumReleaseAge = 259200`. Ding `0.0.6` predates the launch cutoff (2026-11-15 ~09:45 IST). Newer npm versions (`0.0.7+`) are intentionally excluded.
 
+## Verification (2026-11-18)
+
+| Check | Result |
+|-------|--------|
+| `bun test` | 6 pass (`createToaster` + archive helpers) |
+| `bun run typecheck` | clean |
+| `bun run build` | clean; `index-*.js` gzip **97.77 kB** |
+| Browser smoke | desktop ~1440×900 + mobile ~390×844; console clean; localhost only |
+
 ## Limitations
 
 - One visible toast (upstream default); held/queue modes not demoed
