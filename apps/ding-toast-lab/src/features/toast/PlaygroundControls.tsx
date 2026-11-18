@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
-import type { SampleItem } from "./model"
+import type { SampleItem } from "./archive"
 
 type Props = {
   motionEnabled: boolean
@@ -105,8 +105,8 @@ export function PlaygroundControls({
         <CardHeader className="pb-2">
           <CardTitle className="text-base tracking-tight">Motion & access</CardTitle>
           <CardDescription>
-            Respects <code className="text-xs">prefers-reduced-motion</code>; toggle spring morphs for
-            comparison. Escape dismisses the toast.
+            Toggles Ding&apos;s spring solver via <code className="text-xs">setSprings</code>. Escape
+            dismisses via upstream <code className="text-xs">onToastKey</code>.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex items-center gap-3">

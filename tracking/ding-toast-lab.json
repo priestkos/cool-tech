@@ -1,19 +1,23 @@
 {
   "id": "ding-toast",
-  "title": "Ding Toast Lab (inspired single-toast morph playground)",
+  "title": "Ding Toast Lab (real @yusufceng1z/ding playground)",
   "url": "https://github.com/YusufCeng1z/ding",
   "date": "2026-11-07",
   "sourceRefs": [
-    "https://21st.dev/@yusufceng1z/components/ding-toast"
+    "https://github.com/YusufCeng1z/ding",
+    "https://www.npmjs.com/package/@yusufceng1z/ding",
+    "https://www.npmjs.com/package/@yusufceng1z/ding-react",
+    "https://ding.yusufcengiz.dev"
   ],
   "upstreamAgeAssessment": {
-    "mode": "inspired-fixture-only",
-    "latestCommit": "a4931673435acd02a6887f72c3f17317bc541318",
-    "latestCommitAt": "2026-11-07T08:09:04+05:30",
-    "releaseTag": "v0.0.2",
-    "releaseAt": "2026-11-07T08:29:18+05:30",
-    "eligibleAfterCommit": "2026-11-10T08:09:04+05:30",
-    "eligibleAfterRelease": "2026-11-10T08:29:18+05:30",
-    "note": "No @yusufceng1z/ding install; independent implementation only."
+    "mode": "real-code",
+    "pinnedPackage": "@yusufceng1z/ding",
+    "pinnedVersion": "0.0.6",
+    "pinnedReactAdapter": "@yusufceng1z/ding-react@0.0.6",
+    "releaseTag": "v0.0.6",
+    "publishedUtc": "2026-11-14T10:44:28.446Z",
+    "alsoEligibleCommit": "d6acfa681c4bc86650cee7c2d32a6d93e008a7d6",
+    "license": "MIT",
+    "note": "Remake uses npm 0.0.6 (eligible vs 2026-11-15 09:45 IST cutoff). Replaced inspired-fixture-only local morph implementation."
   }
 }
