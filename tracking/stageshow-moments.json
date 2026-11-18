@@ -1,1 +1,20 @@
-{"id": "stageshow", "title": "Stageshow by Benji Taylor: an agent skill for polished faux product UI stills, animations and bento grids", "url": "https://x.com/benjitaylor/status/2116593247854453244", "date": "2026-11-01"}
+{
+  "id": "stageshow",
+  "title": "Stageshow by Benji Taylor: an agent skill for polished faux product UI stills, animations and bento grids",
+  "url": "https://x.com/benjitaylor/status/2116593247854453244",
+  "date": "2026-11-01",
+  "sourceRefs": [
+    "https://github.com/benjitaylor/skills/tree/stageshow-v1.1.1/stageshow",
+    "https://github.com/benjitaylor/skills/commit/299140fafd08df55a9c234e610c3f64af3f45531",
+    "https://github.com/benjitaylor/skills/releases/tag/stageshow-v1.1.1"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "pinnedVersion": "stageshow-v1.1.1",
+    "pinnedCommit": "299140fafd08df55a9c234e610c3f64af3f45531",
+    "committedUtc": "2026-11-05T03:24:25Z",
+    "publishedUtc": "2026-11-05T03:34:27Z",
+    "license": "MIT (stageshow/LICENSE, Benji Taylor)",
+    "note": "Full kit vendored under apps/stageshow-moments/vendor/stageshow/kit; moments authored with Stage/Act API."
+  }
+}

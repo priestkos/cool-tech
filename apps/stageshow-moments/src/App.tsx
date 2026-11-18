@@ -1,12 +1,13 @@
 import './App.css'
 import { useEffect, useState } from 'react'
 import { MomentTile } from '@/components/moment-tile'
-import { OpenMomentDialog, renderPicture } from '@/components/open-moment-dialog'
+import { OpenMomentDialog } from '@/components/open-moment-dialog'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import { useMomentsController } from '@/hooks/use-moments-controller'
 import { MOMENTS } from '@/lib/moment-registry'
+import { RenderMomentStage } from '@/moments/render-moment-stage'
 import './moments.css'
 
 function useCompactLayout() {
@@ -29,9 +30,8 @@ export default function App() {
   const [demoReduced, setDemoReduced] = useState(false)
   const [openId, setOpenId] = useState<string | null>(null)
   const layout = useCompactLayout()
-  const { reduced, displayFor, showPhase, playStory, setAll } = useMomentsController(
-    demoReduced,
-  )
+  const { reduced, displayFor, showPhase, playStory, setAll } =
+    useMomentsController(demoReduced)
 
   const openDef = MOMENTS.find((m) => m.id === openId) ?? null
   const openRuntime = openId ? displayFor(openId) : null
@@ -41,12 +41,15 @@ export default function App() {
       <div className="page">
         <header className="page-header">
           <div>
-            <p className="page-eyebrow">Unofficial demo</p>
+            <p className="page-eyebrow">Benji Taylor · Stageshow kit</p>
             <h1 className="page-title">Stageshow Moments</h1>
             <p className="page-lead">
-              Unofficial demo built by following Benji Taylor&apos;s Stageshow skill. Not made by
-              or affiliated with Benji Taylor, and not the Stageshow kit. All brands shown are
-              fictional.
+              Community lab using the real{' '}
+              <a href="https://github.com/benjitaylor/skills/tree/stageshow-v1.1.1/stageshow">
+                Stageshow React kit
+              </a>{' '}
+              (vendored at <code>stageshow-v1.1.1</code>). Fictional product names only; not
+              affiliated with Benji Taylor.
             </p>
           </div>
           <div className="page-actions">
@@ -70,30 +73,25 @@ export default function App() {
         >
           {MOMENTS.map((def) => {
             const r = displayFor(def.id)
+            const compact =
+              layout.stack || (layout.article && def.span === '2x1')
             return (
               <MomentTile
                 key={def.id}
                 def={def}
                 phase={r.phase}
-                storyStep={r.storyStep}
-                animating={r.animating}
-                reduced={reduced}
-                compact={layout.stack || (layout.article && def.span === '2x1')}
+                compact={compact}
                 onPhase={(p) => showPhase(def.id, p)}
                 onReplay={() => playStory(def.id)}
                 onOpen={def.kind === 'stat' ? undefined : () => setOpenId(def.id)}
                 picture={
-                  def.kind === 'stat' ? (
-                    renderPicture(def, r.phase, r.storyStep, reduced, layout.stack)
-                  ) : (
-                    renderPicture(
-                      def,
-                      r.phase,
-                      r.storyStep,
-                      reduced,
-                      layout.stack || (layout.article && def.span === '2x1'),
-                    )
-                  )
+                  <RenderMomentStage
+                    def={def}
+                    phase={r.phase}
+                    playing={r.playing}
+                    playKey={r.playKey}
+                    reduced={reduced}
+                  />
                 }
               />
             )
@@ -102,24 +100,13 @@ export default function App() {
 
         <footer className="page-footer">
           <p>
-            Illustrations, not working apps. Design guidance from{' '}
-            <Tooltip>
-              <TooltipTrigger
-                render={
-                  <a href="https://benji.org/stageshow" target="_blank" rel="noreferrer">
-                    Stageshow
-                  </a>
-                }
-              />
-              <TooltipContent>Agent skill for faux product UI</TooltipContent>
-            </Tooltip>{' '}
-            ·{' '}
+            Illustrations, not working apps. Kit:{' '}
             <a
-              href="https://github.com/benjitaylor/skills/tree/main/stageshow"
+              href="https://github.com/benjitaylor/skills/tree/stageshow-v1.1.1/stageshow"
               target="_blank"
               rel="noreferrer"
             >
-              skills repo
+              benjitaylor/skills @ stageshow-v1.1.1
             </a>{' '}
             ·{' '}
             <a
@@ -137,9 +124,9 @@ export default function App() {
           onOpenChange={(o) => !o && setOpenId(null)}
           def={openDef}
           phase={openRuntime?.phase ?? 'before'}
-          storyStep={openRuntime?.storyStep ?? 0}
-          animating={openRuntime?.animating ?? false}
-          reduced={reduced}
+          playing={openRuntime?.playing ?? false}
+          playKey={openRuntime?.playKey ?? 0}
+          reduced={reduced || demoReduced}
           onPhase={(p) => openId && showPhase(openId, p)}
           onReplay={() => openId && playStory(openId)}
         />

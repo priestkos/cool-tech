@@ -8,13 +8,10 @@ import { cn } from '@/lib/utils'
 type MomentTileProps = {
   def: MomentDefinition
   phase: MomentPhase
-  storyStep: number
-  animating: boolean
-  reduced: boolean
-  compact: boolean
   onPhase: (phase: MomentPhase) => void
   onReplay: () => void
   onOpen?: () => void
+  compact: boolean
   picture: ReactNode
 }
 
