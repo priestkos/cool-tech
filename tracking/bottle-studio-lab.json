@@ -3,12 +3,20 @@
   "title": "bottle-studio (interactive 3D bottle product studio)",
   "url": "https://github.com/amirmushichge/bottle-studio",
   "date": "2026-11-07",
-  "demoMode": "inspired-independent",
+  "demoMode": "real-code",
   "sourceRefs": [
     "https://github.com/amirmushichge/bottle-studio",
     "https://amirmushichge.github.io/bottle-studio/",
-    "https://github.com/amirmushichge/bottle-studio/releases/tag/v1.0.0"
+    "https://github.com/amirmushichge/bottle-studio/releases/tag/v1.0.0",
+    "apps/bottle-studio-lab/vendor/amirmushichge-bottle-studio/de876d4/index.html"
   ],
   "sourceCommit": "de876d4fb2bd3a37654647d4c585170237fe4123",
-  "ageAssessment": "Root commit and v1.0.0 published 2026-11-07 IST; younger than 72h at demo build — vendoring blocked; demo is independent implementation only."
+  "sourceTag": "v1.0.0",
+  "upstreamLicense": "MIT",
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "pinnedCommitUtc": "2026-11-06T19:56:27Z",
+    "launchCutoffIst": "2026-11-15T09:45:00+05:30",
+    "note": "v1.0.0 and root commit are older than 72h before Nov 18 2026 launch; full index.html vendored with offline three@0.170.0."
+  }
 }

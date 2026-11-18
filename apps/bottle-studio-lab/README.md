@@ -1,42 +1,51 @@
 # Bottle Studio Lab
 
-Independent local 3D bottle product studio demo for the [cool-tech](https://github.com/priestkos/cool-tech) monorepo.
+Vite/Bun wrapper around the **real** [bottle-studio](https://github.com/amirmushichge/bottle-studio) v1.0.0 single-file app (MIT). The 3D stage, controls, shaders, and render loop are vendored upstream code — not a clean-room reimplementation.
 
-**Inspiration only:** [bottle-studio](https://github.com/amirmushichge/bottle-studio) (too young at build time for vendoring). This app reimplements similar *behavior* with procedural Three.js geometry—no upstream code or assets.
+## Pinned upstream
+
+| Field | Value |
+|---|---|
+| Tag | `v1.0.0` |
+| Commit | `de876d4fb2bd3a37654647d4c585170237fe4123` |
+| Committer UTC | 2026-11-06T19:56:27Z |
+| Vendored file | `vendor/amirmushichge-bottle-studio/de876d4/index.html` |
+| License | MIT — `THIRD_PARTY_LICENSES/amirmushichge-bottle-studio-LICENSE.txt` |
+
+Provenance and content hash: `vendor/amirmushichge-bottle-studio/de876d4/PROVENANCE.md`.
 
 ## Commands
 
 ```bash
 cd apps/bottle-studio-lab
-bun install
-bun run dev      # http://localhost:5173
+bun install          # bunfig minimumReleaseAge 259200
+bun run prepare:upstream   # copies three@0.170.0 + patched stage to public/
+bun run dev          # http://localhost:5173 (runs prepare via predev)
 bun run test
 bun run typecheck
 bun run build
-bun run preview  # offline production smoke
+bun run preview
 ```
 
 ## Architecture
 
-- `src/features/studio/state.ts` — clamped studio state, silhouettes, light preset multipliers (Bun-tested).
-- `geometry.ts` — `LatheGeometry` bottle profile, fill clip, cap.
-- `wordmark.ts` — canvas texture label plane.
-- `scene.ts` — WebGL renderer, OrbitControls, lights, dispose lifecycle.
-- `StudioCanvas.tsx` / `StudioControls.tsx` — canvas + shadcn control shell.
+- `vendor/amirmushichge-bottle-studio/de876d4/index.html` — verbatim upstream (73 841 bytes).
+- `scripts/prepare-upstream.mjs` — lab-only patches: local three import map, remove Google Fonts `<link>` for offline use.
+- `public/bottle-studio/` — generated runtime (gitignored vendor tree; regenerated on install/dev/build).
+- `src/upstream/bottle-studio-api.ts` — testable DEFAULTS/presets/clamps/profile math extracted from upstream.
+- `src/features/studio/UpstreamStage.tsx` — iframe host for the vendored stage.
 
-## Verification (2026-11-07)
+## Verification
 
-| Check | Result |
+| Check | Command / note |
 |---|---|
-| `bun test` | 4 pass (`state.test.ts`) |
-| `bun run typecheck` | pass |
-| `bun run build` | pass |
-| Age gate | `bunfig.toml` minimumReleaseAge 259200; pins per `PLAN.md` |
-| Browser smoke | Desktop + ~390px width; keyboard-reachable controls; reduced-motion respected |
-| Artifacts | `artifacts/demo-screenshot.png`, `artifacts/demo-recording.mp4` |
+| Unit tests | `bun test` (upstream API) |
+| Types | `bun run typecheck` |
+| Production build | `bun run build` |
+| Bundle size | `gzip -c dist/assets/*.js` after build |
+| Browser | Desktop ~1440×900 and mobile ~390×844; no console errors; no unexpected network (stage is local) |
 
-## Limitations
+## Credits
 
-- Independent visual approximation, not pixel-match to upstream.
-- Large JS bundle (Three); no code-splitting in MVP.
-- Wordmark is a flat plane, not wrapped UV label.
+- **Bottle Studio** — Amir Mushich, MIT: https://github.com/amirmushichge/bottle-studio  
+- **three.js** — vendored 0.170.0 per upstream import map (npm publish 2026-10-30, eligible under launch cutoff).
