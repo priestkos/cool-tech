@@ -1,8 +1,9 @@
 # Agent Swarm Lab
 
-Offline demo of a **clean-room** agent-swarm visual effect: canvas “agents” draw a card frame, a scan line sweeps, and an I-beam cursor types text in while copy stays hidden via the **CSS Custom Highlight API** (`::highlight(swarm-hidden)`), not DOM span-splitting.
+Offline playground for the official **`agent-swarm-effect@0.1.2`** (MIT © [Zade](https://github.com/zadescoxp/agent-swarm-effect)): wrap shadcn cards with `<Swarm>`, tune trigger/speed/theme, and watch canvas agents draw frames, scan, and type text in via the **CSS Custom Highlight API**.
 
-This is **not** the official [`agent-swarm-effect`](https://www.npmjs.com/package/agent-swarm-effect) package. Upstream ([website](https://zadescoxp.github.io/agent-swarm-effect/), [GitHub MIT © Zade](https://github.com/zadescoxp/agent-swarm-effect)) was published **2026-11-08** — under the repo’s 72h dependency rule at launch — so no upstream code was installed or copied. After **~2026-11-11** a follow-up could swap to the real npm package.
+- **Upstream:** [npm](https://www.npmjs.com/package/agent-swarm-effect) · [site](https://zadescoxp.github.io/agent-swarm-effect/) · [GitHub](https://github.com/zadescoxp/agent-swarm-effect) · pin **0.1.2** / tag `v0.1.2`
+- **License copy:** `THIRD_PARTY_LICENSES/agent-swarm-effect-LICENSE.txt`
 
 ## Commands
 
@@ -18,24 +19,23 @@ bun run preview
 
 ## Architecture
 
-- `src/features/swarm/Swarm.tsx` — wrapper, rAF state machine, highlight sync, shared overlay canvas.
-- `src/features/swarm/machine.ts` — pure phase/tick/replay/reduced-motion logic (unit-tested).
-- `src/features/swarm/highlight.ts` — typable text segments + `CSS.highlights` hidden ranges.
-- `src/features/swarm/canvas.ts` — agents, frame stroke, scan line, I-beam caret drawing.
-- `src/features/lab/PlaygroundControls.tsx` — speed, theme, trigger, labels, replay.
+- `src/App.tsx` — two `<Swarm>` instances (landing + stats grid), refs for `replay()` / `play()`.
+- `src/features/lab/PlaygroundControls.tsx` — lab chrome mapped to upstream props.
+- `src/lib/highlight-capability.ts` — Custom Highlight capability hint for the control panel.
+- Tests: `src/tests/upstream-swarm.test.ts` — exports + `createSwarm` controller surface.
 
 ## Browser support (Custom Highlight API)
 
-Hides typable text only when `CSS.highlights` is available. Supported in Chromium 105+, Safari 17.2+, Firefox 136+. Otherwise text remains visible and the canvas animation still runs.
+Character-by-character typing uses `CSS.highlights` (Chromium 105+, Safari 17.2+, Firefox 140+). Where unavailable, upstream shows text when the typist arrives.
 
 ## Dependency age
 
-`bunfig.toml` sets `minimumReleaseAge = 259200`. Direct pins and lockfile audit live in `dependency-evidence.json` (cutoff **2026-11-06T03:30:00Z**). Lockfile audit: **0** resolved versions newer than cutoff; see `lockfileAudit.tooNew`.
+`bunfig.toml` sets `minimumReleaseAge = 259200`. Direct pins and lockfile audit live in `dependency-evidence.json` (cutoff **~2026-11-15T04:15:00Z**, launch minus 72h). Upstream `agent-swarm-effect@0.1.2` published **2026-11-08T08:20:16Z** — eligible.
 
 ## shadcn / MIT
 
-UI primitives follow shadcn minimalist (`base-mira`) patterns; component files reused from sibling `ding-toast-lab` after registry provenance review (see `dependency-evidence.json` → `shadcnSourceCandidate`).
+UI primitives follow shadcn minimalist (`base-mira`) patterns; see `dependency-evidence.json` → `shadcnSourceCandidate`.
 
-## Deferred
+## What changed (remake)
 
-- Replace clean-room `Swarm` with official `agent-swarm-effect` once npm/source passes 72h age gate (~2026-11-11).
+Replaced the Nov 9 clean-room canvas/highlight recreation with the real npm package while keeping the lab UI and controls.

@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import type { TriggerMode } from "@/features/swarm/types"
+import type { SwarmTrigger } from "agent-swarm-effect/vanilla"
 import { cn } from "@/lib/utils"
 
 type Props = {
@@ -16,8 +16,8 @@ type Props = {
   onSpeedChange: (v: number) => void
   themeDark: boolean
   onThemeChange: (dark: boolean) => void
-  trigger: TriggerMode
-  onTriggerChange: (mode: TriggerMode) => void
+  trigger: SwarmTrigger
+  onTriggerChange: (mode: SwarmTrigger) => void
   showLabels: boolean
   onShowLabelsChange: (v: boolean) => void
   motionEnabled: boolean
@@ -79,7 +79,7 @@ export function PlaygroundControls({
           <select
             id="trigger"
             value={trigger}
-            onChange={(e) => onTriggerChange(e.target.value as TriggerMode)}
+            onChange={(e) => onTriggerChange(e.target.value as SwarmTrigger)}
             className={cn(
               "border-input bg-background h-9 w-full rounded-md border px-3 text-sm",
               "focus-visible:ring-ring focus-visible:ring-2 focus-visible:outline-none",
