@@ -1,14 +1,22 @@
 {
   "meta": {
     "app": "threert-scene-lab",
-    "auditedAtUtc": "2026-11-14T22:16:00Z",
-    "cutoffUtc": "2026-11-12T03:50:00Z",
-    "cutoffIst": "2026-11-12T09:20:00+05:30",
+    "auditedAtUtc": "2026-11-18T09:15:00Z",
+    "cutoffUtc": "2026-11-15T04:15:00Z",
+    "cutoffIst": "2026-11-15T09:45:00+05:30",
     "minimumReleaseAgeSeconds": 259200,
     "lockfile": "bun.lock",
-    "decision": "Direct pins match proven cool-tech toolchain; three@0.187.0 pre-cutoff; no @threert/* packages."
+    "decision": "Remake uses @threert/scene@0.1.1 + proven cool-tech toolchain; three@0.187.0 for browser preview."
   },
   "directDependencies": [
+    {
+      "name": "@threert/scene",
+      "version": "0.1.1",
+      "published": "2026-11-13T00:35:32.034Z",
+      "eligible": true,
+      "license": "MIT",
+      "repoCommit": "1aae0b7f81a5ba6a4491bc624baf4a5799ffb060"
+    },
     {
       "name": "three",
       "version": "0.187.0",
@@ -48,11 +56,10 @@
     }
   ],
   "threertUpstream": {
-    "creditedOnly": true,
-    "vendored": false,
-    "packagesInstalled": [],
-    "eligibleFromIst": "2026-11-16T06:05:00+05:30",
+    "mode": "real-code",
+    "packagesInstalled": ["@threert/scene@0.1.1"],
     "website": "https://threert.dev",
-    "repo": "https://github.com/meshy-dev/ThreeRT"
+    "repo": "https://github.com/meshy-dev/ThreeRT",
+    "commit": "1aae0b7f81a5ba6a4491bc624baf4a5799ffb060"
   }
 }

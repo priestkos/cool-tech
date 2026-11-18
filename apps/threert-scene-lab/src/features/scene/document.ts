@@ -1,4 +1,5 @@
-export const SCENE_LAB_VERSION = 1 as const
+/** Lab JSON v2 — maps to scenes built with `@threert/scene` (physical lux / cd / nits). */
+export const SCENE_DOC_VERSION = 2 as const
 
 export type ToneMappingMode = "aces" | "reinhard" | "linear" | "none"
 export type SkyPreset = "clear" | "hazy" | "overcast" | "night"
@@ -7,37 +8,37 @@ export type Vec3 = [number, number, number]
 
 export type MeshGeometry = "box" | "plane" | "sphere" | "cylinder"
 
-export type SceneLabMaterial = {
+export type SceneMaterial = {
   color: string
   roughness?: number
   metalness?: number
   emissive?: {
     color: string
-    /** Luminous exitance (lm/m²) for emissive surfaces in this lab schema. */
-    exitanceLmPerM2?: number
+    /** Emissive luminance scale (nits multiplier) per `@threert/scene` MeshStandardMaterial. */
+    intensityNits?: number
   }
 }
 
-export type SceneLabMesh = {
+export type SceneMesh = {
   id: string
   name?: string
   geometry: MeshGeometry
-  /** box: [w,h,d]; plane: [w,d]; sphere: [radius]; cylinder: [radius,height] */
   size?: Vec3
   position: Vec3
   rotation?: Vec3
-  material: SceneLabMaterial
+  material: SceneMaterial
 }
 
-export type SceneLabPointLight = {
+export type ScenePointLight = {
   id: string
   type: "point"
   position: Vec3
-  luminousFluxLm: number
+  /** Luminous intensity in candela (`PointLight.intensity` in @threert/scene). */
+  intensityCd: number
   distance?: number
 }
 
-export type SceneLabSpotLight = {
+export type SceneSpotLight = {
   id: string
   type: "spot"
   position: Vec3
@@ -48,36 +49,42 @@ export type SceneLabSpotLight = {
   penumbra?: number
 }
 
-export type SceneLabLight = SceneLabPointLight | SceneLabSpotLight
+export type SceneLight = ScenePointLight | SceneSpotLight
 
-export type SceneLabSun = {
+export type SceneSun = {
   azimuthDeg: number
   elevationDeg: number
+  /** Illuminance in lux (`DirectionalLight.intensity`). */
   illuminanceLux: number
 }
 
-export type SceneLabEnvironment = {
-  sun: SceneLabSun
+export type SceneEnvironment = {
+  sun: SceneSun
   sky: { preset: SkyPreset }
-  /** Diffuse skylight illuminance on a horizontal surface (lx). */
-  hemisphereLux?: number
 }
 
-export type SceneLabRenderer = {
+export type ScenePreview = {
   exposure: number
   toneMapping: ToneMappingMode
 }
 
-export type SceneLabFile = {
-  version: typeof SCENE_LAB_VERSION
-  meta: { name: string; description?: string }
-  environment: SceneLabEnvironment
-  renderer: SceneLabRenderer
-  meshes: SceneLabMesh[]
-  lights: SceneLabLight[]
+export type SceneCamera = {
+  fov: number
+  position: Vec3
+  lookAt: Vec3
 }
 
-export type ParseSuccess = { ok: true; scene: SceneLabFile }
+export type SceneDocument = {
+  version: typeof SCENE_DOC_VERSION
+  meta: { name: string; description?: string }
+  environment: SceneEnvironment
+  preview: ScenePreview
+  camera: SceneCamera
+  meshes: SceneMesh[]
+  lights: SceneLight[]
+}
+
+export type ParseSuccess = { ok: true; doc: SceneDocument }
 export type ParseFailure = { ok: false; errors: string[] }
 export type ParseResult = ParseSuccess | ParseFailure
 
@@ -101,14 +108,14 @@ function pushIfMissing(errors: string[], path: string, cond: boolean) {
   if (!cond) errors.push(path)
 }
 
-export function validateSceneLabJson(raw: unknown): ParseResult {
+export function validateSceneDocument(raw: unknown): ParseResult {
   const errors: string[] = []
 
   if (!isRecord(raw)) {
     return { ok: false, errors: ["Root must be an object."] }
   }
 
-  pushIfMissing(errors, "version must be 1", raw.version === SCENE_LAB_VERSION)
+  pushIfMissing(errors, "version must be 2", raw.version === SCENE_DOC_VERSION)
 
   if (!isRecord(raw.meta) || !isString(raw.meta.name)) {
     errors.push("meta.name is required")
@@ -127,12 +134,6 @@ export function validateSceneLabJson(raw: unknown): ParseResult {
           errors.push(`environment.sun.${key} must be a finite number`)
         }
       }
-      if (
-        typeof sun.elevationDeg === "number" &&
-        (sun.elevationDeg < -15 || sun.elevationDeg > 90)
-      ) {
-        errors.push("environment.sun.elevationDeg should be between -15° and 90°")
-      }
     }
     if (!isRecord(env.sky) || typeof env.sky.preset !== "string") {
       errors.push("environment.sky.preset required")
@@ -142,25 +143,28 @@ export function validateSceneLabJson(raw: unknown): ParseResult {
         errors.push(`environment.sky.preset must be one of ${presets.join(", ")}`)
       }
     }
-    if (
-      env.hemisphereLux !== undefined &&
-      (typeof env.hemisphereLux !== "number" || !Number.isFinite(env.hemisphereLux))
-    ) {
-      errors.push("environment.hemisphereLux must be a finite number when set")
-    }
   }
 
-  if (!isRecord(raw.renderer)) {
-    errors.push("renderer object required")
+  if (!isRecord(raw.preview)) {
+    errors.push("preview object required")
   } else {
-    const r = raw.renderer
+    const r = raw.preview
     if (typeof r.exposure !== "number" || !Number.isFinite(r.exposure) || r.exposure <= 0) {
-      errors.push("renderer.exposure must be a positive number")
+      errors.push("preview.exposure must be a positive number")
     }
     const modes: ToneMappingMode[] = ["aces", "reinhard", "linear", "none"]
     if (!modes.includes(r.toneMapping as ToneMappingMode)) {
-      errors.push(`renderer.toneMapping must be one of ${modes.join(", ")}`)
+      errors.push(`preview.toneMapping must be one of ${modes.join(", ")}`)
     }
+  }
+
+  if (!isRecord(raw.camera)) {
+    errors.push("camera object required")
+  } else {
+    const c = raw.camera
+    if (typeof c.fov !== "number" || c.fov <= 0) errors.push("camera.fov required")
+    if (!isVec3(c.position)) errors.push("camera.position must be [x,y,z]")
+    if (!isVec3(c.lookAt)) errors.push("camera.lookAt must be [x,y,z]")
   }
 
   if (!Array.isArray(raw.meshes)) {
@@ -180,9 +184,6 @@ export function validateSceneLabJson(raw: unknown): ParseResult {
         errors.push(`meshes[${i}].geometry invalid`)
       }
       if (!isVec3(m.position)) errors.push(`meshes[${i}].position must be [x,y,z]`)
-      if (m.rotation !== undefined && !isVec3(m.rotation)) {
-        errors.push(`meshes[${i}].rotation must be [x,y,z] when set`)
-      }
       if (!isRecord(m.material) || !isString(m.material.color)) {
         errors.push(`meshes[${i}].material.color required`)
       }
@@ -203,8 +204,8 @@ export function validateSceneLabJson(raw: unknown): ParseResult {
       else ids.add(l.id)
       if (l.type === "point") {
         if (!isVec3(l.position)) errors.push(`lights[${i}].position required`)
-        if (typeof l.luminousFluxLm !== "number" || l.luminousFluxLm < 0) {
-          errors.push(`lights[${i}].luminousFluxLm must be a non-negative number`)
+        if (typeof l.intensityCd !== "number" || l.intensityCd < 0) {
+          errors.push(`lights[${i}].intensityCd must be non-negative`)
         }
       } else if (l.type === "spot") {
         if (!isVec3(l.position)) errors.push(`lights[${i}].position required`)
@@ -220,10 +221,10 @@ export function validateSceneLabJson(raw: unknown): ParseResult {
 
   if (errors.length > 0) return { ok: false, errors }
 
-  return { ok: true, scene: raw as SceneLabFile }
+  return { ok: true, doc: raw as SceneDocument }
 }
 
-export function parseSceneLabJson(text: string): ParseResult {
+export function parseSceneDocumentJson(text: string): ParseResult {
   let parsed: unknown
   try {
     parsed = JSON.parse(text)
@@ -231,9 +232,9 @@ export function parseSceneLabJson(text: string): ParseResult {
     const msg = e instanceof Error ? e.message : "Invalid JSON"
     return { ok: false, errors: [`JSON parse error: ${msg}`] }
   }
-  return validateSceneLabJson(parsed)
+  return validateSceneDocument(parsed)
 }
 
-export function serializeSceneLab(scene: SceneLabFile): string {
-  return JSON.stringify(scene, null, 2)
+export function serializeSceneDocument(doc: SceneDocument): string {
+  return JSON.stringify(doc, null, 2)
 }

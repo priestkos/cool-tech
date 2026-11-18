@@ -1,59 +1,68 @@
 import { useCallback, useMemo, useState } from "react"
-import type { SceneLabFile } from "@/features/scene/schema"
-import { parseSceneLabJson, serializeSceneLab } from "@/features/scene/schema"
+import { buildThreertScene, type BuiltThreertScene } from "@/features/scene/build"
+import type { SceneDocument } from "@/features/scene/document"
+import {
+  parseSceneDocumentJson,
+  serializeSceneDocument,
+} from "@/features/scene/document"
 import { SAMPLE_SCENES, sampleBySlug } from "@/features/scene/samples"
 
 const DEFAULT_SLUG = "noon-courtyard"
 
 export function useSceneLab() {
-  const initial = useMemo(
-    () => sampleBySlug(DEFAULT_SLUG)?.scene ?? SAMPLE_SCENES[0].scene,
+  const initialDoc = useMemo(
+    () => sampleBySlug(DEFAULT_SLUG)?.doc ?? SAMPLE_SCENES[0].doc,
     []
   )
 
-  const [scene, setScene] = useState<SceneLabFile>(initial)
-  const [jsonText, setJsonText] = useState(() => serializeSceneLab(initial))
+  const [doc, setDoc] = useState<SceneDocument>(initialDoc)
+  const [built, setBuilt] = useState<BuiltThreertScene>(() =>
+    buildThreertScene(initialDoc)
+  )
+  const [jsonText, setJsonText] = useState(() => serializeSceneDocument(initialDoc))
   const [parseErrors, setParseErrors] = useState<string[]>([])
   const [activeSlug, setActiveSlug] = useState(DEFAULT_SLUG)
 
-  const syncJsonFromScene = useCallback((next: SceneLabFile) => {
-    setScene(next)
-    setJsonText(serializeSceneLab(next))
+  const rebuild = useCallback((next: SceneDocument) => {
+    setDoc(next)
+    setBuilt(buildThreertScene(next))
+    setJsonText(serializeSceneDocument(next))
     setParseErrors([])
   }, [])
 
   const applyJson = useCallback(() => {
-    const result = parseSceneLabJson(jsonText)
+    const result = parseSceneDocumentJson(jsonText)
     if (!result.ok) {
       setParseErrors(result.errors)
       return false
     }
-    setScene(result.scene)
-    setParseErrors([])
+    rebuild(result.doc)
+    setActiveSlug("")
     return true
-  }, [jsonText])
+  }, [jsonText, rebuild])
 
   const loadSample = useCallback(
     (slug: string) => {
       const sample = sampleBySlug(slug)
       if (!sample) return
       setActiveSlug(slug)
-      syncJsonFromScene(sample.scene)
+      rebuild(sample.doc)
     },
-    [syncJsonFromScene]
+    [rebuild]
   )
 
   const patchSun = useCallback(
-    (patch: Partial<SceneLabFile["environment"]["sun"]>) => {
-      setScene((prev) => {
-        const next: SceneLabFile = {
+    (patch: Partial<SceneDocument["environment"]["sun"]>) => {
+      setDoc((prev) => {
+        const next: SceneDocument = {
           ...prev,
           environment: {
             ...prev.environment,
             sun: { ...prev.environment.sun, ...patch },
           },
         }
-        setJsonText(serializeSceneLab(next))
+        setBuilt(buildThreertScene(next))
+        setJsonText(serializeSceneDocument(next))
         setParseErrors([])
         return next
       })
@@ -61,14 +70,14 @@ export function useSceneLab() {
     []
   )
 
-  const patchRenderer = useCallback(
-    (patch: Partial<SceneLabFile["renderer"]>) => {
-      setScene((prev) => {
-        const next: SceneLabFile = {
+  const patchPreview = useCallback(
+    (patch: Partial<SceneDocument["preview"]>) => {
+      setDoc((prev) => {
+        const next: SceneDocument = {
           ...prev,
-          renderer: { ...prev.renderer, ...patch },
+          preview: { ...prev.preview, ...patch },
         }
-        setJsonText(serializeSceneLab(next))
+        setJsonText(serializeSceneDocument(next))
         setParseErrors([])
         return next
       })
@@ -77,7 +86,8 @@ export function useSceneLab() {
   )
 
   return {
-    scene,
+    doc,
+    built,
     jsonText,
     setJsonText,
     parseErrors,
@@ -85,7 +95,7 @@ export function useSceneLab() {
     loadSample,
     activeSlug,
     patchSun,
-    patchRenderer,
+    patchPreview,
     samples: SAMPLE_SCENES,
   }
 }

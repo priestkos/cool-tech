@@ -2,20 +2,21 @@
 
 ## Goal
 
-Offline lab that independently explores a ThreeRT-style scene workflow: physical sun lux, emissive and artificial lights, a lab-owned JSON scene schema, and live three.js preview (browser raster path only).
+Offline lab that edits lab JSON, builds scenes with **`@threert/scene@0.1.1`**, shows physical-unit readouts from the upstream API, and previews via real **three.js** rasterization in the browser.
 
 ## Single-user MVP
 
-- Local editor with JSON + sun/exposure controls, physical-unit readouts, five original sample scenes, comparison/credit panel with external links only.
+- JSON editor + sun/preview sliders, physical readouts (`lightDesc`), five sample scenes, compare/credit panel, three.js canvas mirroring the ThreeRT scene graph.
 - No API keys, accounts, or runtime network fetches.
 
-**Out of scope:** `@threert/*` packages, copied ThreeRT scenes/images, faked path tracing, native macOS/iOS clients.
+**Out of scope:** Native path tracing in Vite, `@threert/gameplay`, glTF import, Cloudflare deploy.
 
 ## Vertical slices
 
-1. **Schema + preview** — Validate lab scene JSON; sun azimuth/elevation/lux; three.js canvas with OrbitControls.
-2. **Physical panel + gallery** — Lux/lm/cd/emissive readouts; sample scenes (courtyard, night street, interior, studio, overcast).
-3. **Compare + credit** — Honest browser vs native explainer; links to threert.dev / GitHub / launch post.
+1. **Document + build** — Lab JSON v2 → `buildThreertScene()` with `DirectionalLight` lux, `SkyAtmosphere`, meshes, cd lights.
+2. **Binding tests** — `RecordingEngine` + `SceneBinding.sync()` prove upstream engine contract.
+3. **Preview bridge** — Mirror `@threert/scene` graph into three.js WebGL for the canvas.
+4. **Compare + credit** — Honest browser vs native explainer; npm/GitHub links.
 
 ## Stack
 
@@ -23,16 +24,16 @@ Offline lab that independently explores a ThreeRT-style scene workflow: physical
 |-------|-----|
 | Bun + Vite 8.3.5 | Monorepo demo convention |
 | React 19 + TS 6 | Proven pins from sibling apps |
-| three@0.187.0 | Physically meaningful lights + preview |
+| `@threert/scene@0.1.1` | Official ThreeRT scene API (pinned ≥72h) |
+| three@0.187.0 | Browser raster preview only |
 | shadcn base-mira | Tabs, cards, sliders for lab chrome |
 
 ## Testing
 
-- `bun test`: schema validation, parse errors, physical conversions, sun direction, all samples validate, JSON round-trip.
-- `bun run typecheck`, `bun run build` + bundle size.
-- Browser smoke desktop/mobile; screenshot + interaction video for PR.
+- `bun test`: document validation, `SceneBinding` sync, lux/cd via `lightDesc`.
+- `bun run typecheck`, `bun run build` (gzip bundle ~278 kB JS at Nov 2026 rebuild).
+- Browser smoke desktop/mobile; screenshot + video for PR.
 
 ## Deferred
 
-- Swap to real `@threert/scene` after ~2026-11-16 06:05 IST eligibility.
-- Area lights, glTF import, collaborative editing, Cloudflare deploy preview.
+- `@threert/gameplay` input loop, glTF samples from upstream repo, area lights in JSON editor, deploy preview.

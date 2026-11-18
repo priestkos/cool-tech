@@ -1,86 +1,95 @@
-import type { Vec3 } from "./schema"
-
-/** Reference used to map emissive exitance into three.js emissiveIntensity. */
-export const EMISSIVE_REFERENCE_LM_PER_M2 = 1000
+import {
+  DirectionalLight,
+  Light,
+  Mesh,
+  PointLight,
+  SpotLight,
+  lightDesc,
+  type LightDesc,
+} from "@threert/scene"
+import type { BuiltThreertScene } from "./build"
+import type { SceneDocument } from "./document"
 
 export type UnitReadout = {
   label: string
   physicalValue: string
-  threeJsValue: string
+  threertValue: string
   note: string
 }
 
-export function sunDirectionFromAzimuthElevation(
-  azimuthDeg: number,
-  elevationDeg: number
-): Vec3 {
-  const az = (azimuthDeg * Math.PI) / 180
-  const el = (elevationDeg * Math.PI) / 180
-  const cosEl = Math.cos(el)
-  const x = cosEl * Math.sin(az)
-  const y = Math.sin(el)
-  const z = cosEl * Math.cos(az)
-  return [x, y, z]
-}
-
-/**
- * With physicallyCorrectLights (legacy off), Three.js uses lux for directional lights.
- */
-export function luxToDirectionalIntensity(lux: number): number {
-  return Math.max(0, lux)
-}
-
-export function lumensToPointIntensity(lm: number): number {
-  return Math.max(0, lm)
-}
-
-export function candelaToSpotIntensity(cd: number): number {
-  return Math.max(0, cd)
-}
-
-export function exitanceToEmissiveIntensity(exitanceLmPerM2: number): number {
-  return Math.max(0, exitanceLmPerM2 / EMISSIVE_REFERENCE_LM_PER_M2)
-}
-
-export function hemisphereLuxToIntensity(lux: number): number {
-  /** Skylight fill: scale hemispherical lux into a small ambient contribution. */
-  return Math.max(0, lux * 0.000_15)
-}
-
 export function sunLuxReadout(lux: number): UnitReadout {
-  const intensity = luxToDirectionalIntensity(lux)
   return {
-    label: "Sun (directional)",
-    physicalValue: `${lux.toLocaleString()} lx (illuminance on horizontal surface at solar noon reference)`,
-    threeJsValue: `DirectionalLight.intensity = ${intensity.toLocaleString()} (lux, physical units)`,
-    note: "Browser path uses shadow-mapped directional light; ThreeRT native path traces sun disk without shadow maps.",
+    label: "Sun (DirectionalLight)",
+    physicalValue: `${lux.toLocaleString()} lx illuminance`,
+    threertValue: `new DirectionalLight(0xffffff, ${lux.toLocaleString()}).setSunAngles(…)`,
+    note: "@threert/scene stores sun intensity in lux; native ThreeRT path-traces the disk without shadow maps.",
   }
 }
 
-export function pointLmReadout(lm: number): UnitReadout {
+export function pointCdReadout(cd: number): UnitReadout {
   return {
     label: "Point light",
-    physicalValue: `${lm.toLocaleString()} lm (luminous flux)`,
-    threeJsValue: `PointLight.intensity = ${lumensToPointIntensity(lm).toLocaleString()} lm`,
-    note: "Inverse-square falloff applies in three.js physical point lights.",
+    physicalValue: `${cd.toLocaleString()} cd (luminous intensity)`,
+    threertValue: `new PointLight(color, ${cd.toLocaleString()})`,
+    note: "ThreeRT PointLight intensity is candela, not lumens.",
   }
 }
 
 export function spotCdReadout(cd: number): UnitReadout {
   return {
     label: "Spot light",
-    physicalValue: `${cd.toLocaleString()} cd (luminous intensity along beam axis)`,
-    threeJsValue: `SpotLight.intensity = ${candelaToSpotIntensity(cd).toLocaleString()} cd`,
-    note: "Cone angle and penumbra shape the beam; intensity is candela in physical mode.",
+    physicalValue: `${cd.toLocaleString()} cd along beam axis`,
+    threertValue: `new SpotLight(color, ${cd.toLocaleString()}, …)`,
+    note: "Cone angle and penumbra shape the beam in both raster and path-traced modes.",
   }
 }
 
-export function emissiveReadout(exitanceLmPerM2: number): UnitReadout {
-  const ei = exitanceToEmissiveIntensity(exitanceLmPerM2)
+export function emissiveNitsReadout(nits: number): UnitReadout {
   return {
     label: "Emissive material",
-    physicalValue: `${exitanceLmPerM2.toLocaleString()} lm/m² (luminous exitance, lab schema)`,
-    threeJsValue: `Material.emissiveIntensity = ${ei.toFixed(3)} (÷ ${EMISSIVE_REFERENCE_LM_PER_M2} reference)`,
-    note: "Mesh emits light in three.js; native ThreeRT can treat emissive sources in path space.",
+    physicalValue: `${nits.toLocaleString()} nits (emissiveIntensity)`,
+    threertValue: `material.emissiveIntensity = ${nits.toLocaleString()}`,
+    note: "Per @threert/scene: emitted luminance = emissive × emissiveIntensity (nits).",
   }
+}
+
+function readoutFromLightDesc(desc: LightDesc): UnitReadout | null {
+  switch (desc.type) {
+    case "directional":
+      return sunLuxReadout(desc.intensity)
+    case "point":
+      return pointCdReadout(desc.intensity)
+    case "spot":
+      return spotCdReadout(desc.intensity)
+    default:
+      return null
+  }
+}
+
+/** Physical readouts from lights in a built ThreeRT scene via `lightDesc()`. */
+export function readoutsFromBuiltScene(
+  doc: SceneDocument,
+  built: BuiltThreertScene
+): UnitReadout[] {
+  const out: UnitReadout[] = [sunLuxReadout(doc.environment.sun.illuminanceLux)]
+
+  const walk = (o: { children: typeof built.scene.children }) => {
+    for (const child of o.children) {
+      if ((child as Light).isLight && !(child as Mesh).isMesh) {
+        const light = child as DirectionalLight | PointLight | SpotLight
+        if (light.type === "DirectionalLight" && light === built.sun) continue
+        const r = readoutFromLightDesc(lightDesc(light))
+        if (r) out.push(r)
+      }
+      if ((child as Mesh).isMesh) {
+        const mesh = child as Mesh
+        const nits = mesh.material.emissiveIntensity
+        if (nits > 0) out.push(emissiveNitsReadout(nits))
+      }
+      if (child.children.length) walk(child)
+    }
+  }
+  walk(built.scene)
+
+  return out
 }

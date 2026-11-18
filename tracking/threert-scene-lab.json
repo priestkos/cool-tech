@@ -1,16 +1,20 @@
 {
   "id": "threert",
-  "title": "ThreeRT Scene Lab (clean-room physical scenes)",
+  "title": "ThreeRT Scene Lab (@threert/scene)",
   "url": "https://threert.dev",
   "date": "2026-11-15",
   "sourceRefs": [
     "https://threert.dev",
     "https://github.com/meshy-dev/ThreeRT",
+    "https://www.npmjs.com/package/@threert/scene/v/0.1.1",
     "https://x.com/ThreeRT3D/status/2121238880808829385"
   ],
   "upstreamAgeAssessment": {
-    "mode": "clean-room",
-    "eligibleFromIst": "2026-11-16T06:05:00+05:30",
-    "note": "No @threert/* install; independent schema, scenes, and UI in apps/threert-scene-lab. Path tracing described as native-only; browser uses three.js raster path."
+    "mode": "real-code",
+    "pinnedPackage": "@threert/scene@0.1.1",
+    "publishedUtc": "2026-11-13T00:35:32.034Z",
+    "pinnedCommit": "1aae0b7f81a5ba6a4491bc624baf4a5799ffb060",
+    "license": "MIT",
+    "note": "apps/threert-scene-lab builds scenes with @threert/scene 0.1.1; browser preview uses three.js raster path."
   }
 }
