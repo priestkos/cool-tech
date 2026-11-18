@@ -1,15 +1,23 @@
 {
   "id": "bobine",
-  "title": "Bobine Media Lab (clean-room media players)",
+  "title": "Bobine Media Lab (bobinejs real-code player demo)",
   "url": "https://bobine.fyi",
   "date": "2026-11-14",
   "sourceRefs": [
     "https://bobine.fyi",
+    "https://github.com/SanyamPunia/bobine",
+    "https://www.npmjs.com/package/bobinejs",
+    "https://bobine.fyi/r/video-player.json",
     "https://x.com/sanyampunia/status/2120796070540365928"
   ],
   "upstreamAgeAssessment": {
-    "mode": "clean-room",
-    "eligibleFromIst": "2026-11-15T13:59:00+05:30",
-    "note": "No public repository or license at scout time; independent players in apps/bobine-media-lab with no bobine registry install."
+    "mode": "real-code",
+    "license": "MIT",
+    "pinnedPackage": "bobinejs@0.2.2",
+    "pinnedPublishedUtc": "2026-11-11T22:33:19.712Z",
+    "pinnedTagSha": "7065c1780ef9457c6e6b4fb43ac706c9a0183bc2",
+    "alternateEligibleCommit": "27f8ba10b519c654ebe2b07af9f77e017e7c8253",
+    "cutoffIst": "2026-11-15T09:45:00+05:30",
+    "note": "Remake Nov 2026: npm bobinejs@0.2.2 replaces clean-room players; hls.js peer lazy-loaded via bobinejs/hls."
   }
 }

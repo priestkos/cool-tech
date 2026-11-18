@@ -1,41 +1,49 @@
 import { useState } from "react"
+import { VideoPlayer } from "bobinejs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
-import { VideoPlayer } from "@/features/player/VideoPlayer"
-import { FIXTURES, SHARED_VIDEO_PROPS } from "./fixtures"
+import { captionTracks, SHARED_VIDEO_PROPS } from "./fixtures"
 
-export function SwapPanel({ onToggleHelp }: { onToggleHelp?: () => void }) {
-  const [useCleanRoom, setUseCleanRoom] = useState(true)
-
-  const shared = {
-    ...SHARED_VIDEO_PROPS,
-    captionSrc: FIXTURES.captionsVtt,
-  }
+export function SwapPanel() {
+  const [useBobine, setUseBobine] = useState(true)
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Native vs clean-room swap</CardTitle>
+        <CardTitle>Native vs bobine swap</CardTitle>
         <CardDescription>
-          Same local clip and the same props on both players — toggle custom chrome without changing
-          the media contract.
+          Same local clip and caption track — toggle between the browser&apos;s native controls and the
+          official bobinejs player.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <SwapPlayerLabel checked={useCleanRoom} onCheckedChange={setUseCleanRoom} />
-        {useCleanRoom ? (
-          <VideoPlayer {...shared} onToggleHelp={onToggleHelp} data-testid="clean-room-player" />
+        <SwapPlayerLabel checked={useBobine} onCheckedChange={setUseBobine} />
+        {useBobine ? (
+          <VideoPlayer
+            {...SHARED_VIDEO_PROPS}
+            tracks={captionTracks}
+            data-testid="bobine-player"
+            persistKey="bobine-media-lab-swap"
+          />
         ) : (
           <div className="overflow-hidden rounded-xl border border-border">
             <video
               className="aspect-video w-full bg-black"
               controls
-              playsInline
               data-testid="native-player"
-              {...shared}
+              {...SHARED_VIDEO_PROPS}
             >
-              <track kind="captions" src={FIXTURES.captionsVtt} srcLang="en" label="English" />
+              {captionTracks.map((track) => (
+                <track
+                  key={track.src}
+                  kind={track.kind ?? "subtitles"}
+                  src={track.src}
+                  srcLang={track.srcLang}
+                  label={track.label}
+                  default={track.default}
+                />
+              ))}
             </video>
           </div>
         )}
@@ -55,10 +63,10 @@ function SwapPlayerLabel({
     <div className="flex items-center justify-between gap-3 rounded-lg border border-border bg-muted/30 px-3 py-2">
       <div>
         <Label htmlFor="swap-toggle" className="text-xs font-medium">
-          Use clean-room player
+          Use bobinejs player
         </Label>
         <p className="text-muted-foreground text-[0.65rem]">
-          Off shows the native <code>&lt;video&gt;</code> with browser controls
+          Off shows native <code>&lt;video&gt;</code> with browser controls
         </p>
       </div>
       <Switch id="swap-toggle" checked={checked} onCheckedChange={onCheckedChange} />

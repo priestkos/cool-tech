@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react"
+import { AudioPlayer, VideoPlayer } from "bobinejs"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
-import { AudioPlayer } from "@/features/player/AudioPlayer"
-import { ShortcutOverlay } from "@/features/player/ShortcutOverlay"
-import { applyTheme, resolveInitialTheme, toggleTheme, type LabTheme } from "@/features/player/theme"
-import { VideoPlayer } from "@/features/player/VideoPlayer"
-import { FIXTURES } from "@/features/lab/fixtures"
+import { FIXTURES, captionTracks } from "@/features/lab/fixtures"
 import { HlsPanel } from "@/features/lab/HlsPanel"
+import { ShortcutOverlay } from "@/features/lab/ShortcutOverlay"
 import { SwapPanel } from "@/features/lab/SwapPanel"
+import { applyTheme, resolveInitialTheme, toggleTheme, type LabTheme } from "@/features/lab/theme"
+
+const BOBINE_PIN = "bobinejs@0.2.2"
 
 export default function App() {
   const [theme, setTheme] = useState<LabTheme>(() => resolveInitialTheme())
@@ -46,10 +47,11 @@ export default function App() {
               <h1 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
                 Bobine Media Lab
               </h1>
-              <Badge variant="outline">Clean-room demo</Badge>
+              <Badge variant="secondary">Real upstream</Badge>
+              <Badge variant="outline">{BOBINE_PIN}</Badge>
             </div>
             <p className="text-muted-foreground max-w-2xl text-sm leading-relaxed">
-              Independent recreation inspired by{" "}
+              Local offline demo using the official{" "}
               <a
                 href="https://bobine.fyi"
                 className="text-foreground underline underline-offset-2"
@@ -58,8 +60,7 @@ export default function App() {
               >
                 bobine
               </a>{" "}
-              (Sanyam Punia) — not the official player. No registry source was copied; upstream had
-              no visible license at scout time.
+              React players from npm ({BOBINE_PIN}, MIT). Fixtures only — no remote media.
             </p>
           </div>
           <div className="flex flex-col items-start gap-2 sm:items-end">
@@ -81,47 +82,64 @@ export default function App() {
       </header>
 
       <main className="mx-auto grid max-w-6xl gap-6 px-4 py-8">
-        <SwapPanel onToggleHelp={() => setHelpOpen((o) => !o)} />
+        <SwapPanel />
         <div className="grid gap-6 lg:grid-cols-2">
           <Card>
             <CardHeader>
               <CardTitle>Video controls slice</CardTitle>
-              <CardDescription>Captions, speed, PiP, and fullscreen on the clean-room player.</CardDescription>
+              <CardDescription>
+                Official bobinejs <code>VideoPlayer</code> — captions, speed, PiP, fullscreen.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <VideoPlayer
                 src={FIXTURES.videoMp4}
-                captionSrc={FIXTURES.captionsVtt}
-                onToggleHelp={() => setHelpOpen((o) => !o)}
+                tracks={captionTracks}
+                preload="metadata"
+                persistKey="bobine-media-lab-video"
+                metadata={{ title: "Lab clip", artist: "Local fixture" }}
               />
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
               <CardTitle>Audio player</CardTitle>
-              <CardDescription>Same control strip on a local MP3 fixture.</CardDescription>
+              <CardDescription>
+                bobinejs <code>AudioPlayer</code> on a local MP3 with speed toggle.
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <AudioPlayer src={FIXTURES.audioMp3} preload="metadata" />
+              <AudioPlayer
+                src={FIXTURES.audioMp3}
+                preload="metadata"
+                title="Lab tone"
+                description="Local MP3 fixture"
+                showSpeed
+                persistKey="bobine-media-lab-audio"
+              />
             </CardContent>
           </Card>
         </div>
         <HlsPanel />
         <footer className="text-muted-foreground border-t border-border pt-4 text-xs">
-          Credits:{" "}
-          <a href="https://bobine.fyi" className="underline" target="_blank" rel="noreferrer">
-            bobine.fyi
-          </a>
-          ,{" "}
+          Upstream:{" "}
           <a
-            href="https://x.com/sanyampunia/status/2120796070540365928"
+            href="https://github.com/SanyamPunia/bobine"
             className="underline"
             target="_blank"
             rel="noreferrer"
           >
-            launch post
-          </a>
-          . hls.js is Apache-2.0. Local fixtures only — no runtime network.
+            github.com/SanyamPunia/bobine
+          </a>{" "}
+          ·{" "}
+          <a href="https://bobine.fyi" className="underline" target="_blank" rel="noreferrer">
+            bobine.fyi
+          </a>{" "}
+          · MIT ({BOBINE_PIN}). Peer{" "}
+          <a href="https://github.com/video-dev/hls.js" className="underline" target="_blank" rel="noreferrer">
+            hls.js
+          </a>{" "}
+          Apache-2.0, lazy-loaded for HLS only.
         </footer>
       </main>
     </div>

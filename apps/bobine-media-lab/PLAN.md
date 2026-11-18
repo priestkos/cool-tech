@@ -2,32 +2,33 @@
 
 ## Goal
 
-Offline lab demonstrating independent clean-room video and audio players with native-element prop parity, custom controls, keyboard shortcuts, captions, PiP, speed, lazy HLS, and light/dark theme tokens.
+Offline lab that runs the official **bobinejs@0.2.2** video and audio players on local fixtures, with native-vs-bobine swap, lazy HLS via the package `hlsLoader`, and lab chrome for theme and shortcut help.
 
 ## Single-user MVP and outs
 
-**In:** swap view (native vs clean-room), shared controls, shortcut overlay (`?`), local fixtures (MP4/MP3/VTT/HLS), lazy `hls.js` load panel, theme toggle, unit tests for shortcuts/props/HLS gate.
+**In:** `VideoPlayer` / `AudioPlayer` from npm, swap panel (native `<video>` vs bobine), HLS toggle using `bobinejs/hls`, `?` shortcut cheat sheet aligned with bobine hotkeys, light/dark lab theme, unit tests against `bobinejs` exports (`formatTime`, `createMediaStore`, `describeMediaError`, HLS gate).
 
-**Out:** bobine registry install or copied source, remote streams, API keys, accounts, runtime network beyond local assets.
+**Out:** Clean-room player copies, shadcn registry source install for bobine components, remote streams, API keys, accounts, runtime network beyond local assets and optional peer `hls.js` lazy load.
 
 ## Vertical slices
 
-1. Video swap + play/pause/seek/volume + keyboard overlay.
-2. Captions, speed menu, PiP (graceful fallback), theme tokens.
-3. Audio player + HLS lazy-load proof panel.
+1. Wire bobine players on MP4/MP3 + swap view.
+2. Captions (`tracks`), speed/PiP/fullscreen via upstream controls.
+3. HLS fixture with instrumented `hlsLoader` telemetry panel.
 
 ## Stack
 
-- **Bun + Vite 8.3.5 + React 19.3.1** — matches proven cool-tech pins, fast local dev.
-- **Tailwind 4 + shadcn base-mira** — minimalist lab chrome from eligible registry pin.
-- **hls.js 1.7.4** — dynamic import only for `.m3u8` sources.
+- **Bun + Vite 8.3.5 + React 19.3.1** — cool-tech proven pins; `bunfig.toml` minimum release age.
+- **bobinejs@0.2.2** (MIT) — real upstream players and media store.
+- **hls.js@1.7.4** — optional peer for bobine HLS adapter (lazy import).
+- **Tailwind 4 + shadcn base-mira** — lab shell only (eligible registry pin).
 
 ## Testing
 
-- `bun test`: shortcuts, prop passthrough, speed/caption state, theme class, HLS import gate (mocked).
-- Manual: swap view, overlay, captions/speed/PiP/theme, audio, HLS panel; desktop + mobile.
+- `bun test`: upstream `formatTime`, `describeMediaError`, `createMediaStore` seek/volume, HLS loader gate via lab wrapper.
+- Manual: swap, playback, captions, HLS toggle, desktop ~1440×900 and mobile ~390×844; console clean.
 
 ## Deferred
 
-- Post–Nov 15 2026 IST registry comparison if bobine publishes a license.
-- Mobile-native PiP where unsupported; advanced accessibility audit beyond focus labels.
+- shadcn registry commit `27f8ba10…` comparison vs npm pin (not required when using npm).
+- Full visual parity audit vs bobine.fyi marketing site.
