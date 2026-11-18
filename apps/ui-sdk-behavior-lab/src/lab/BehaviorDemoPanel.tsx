@@ -1,9 +1,28 @@
-import { useId, useState, type HTMLAttributes } from "react"
-import { formatSelectionAnnouncement } from "@/behaviors/live-region"
-import { isSelected, toggleMulti } from "@/behaviors/selection"
-import { useAnchoredPopup } from "@/behaviors/useAnchoredPopup"
+import { createTypeahead, isTypeaheadKey, labelOf } from "@ui-sdk/core"
+import {
+  Popover,
+  PopoverClose,
+  PopoverContent,
+  PopoverDescription,
+  PopoverTitle,
+  PopoverTrigger,
+} from "@ui-sdk/react/popover"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@ui-sdk/react/select"
+import { useMemo, useRef, useState, type KeyboardEvent } from "react"
 import { Button } from "@/components/ui/button"
-import { BEHAVIOR_DEMOS, FRUIT_ITEMS, type LabBehaviorId } from "@/lib/fixtures"
+import { BEHAVIOR_DEMOS, FRUIT_SDK_ITEMS, type LabBehaviorId } from "@/lib/fixtures"
+import {
+  sdkOptionClass,
+  sdkPopupClass,
+  sdkSelectTriggerClass,
+} from "@/lib/sdk-styles"
 import { cn } from "@/lib/utils"
 
 type BehaviorDemoPanelProps = {
@@ -69,34 +88,34 @@ function PopupDemo({
 }: {
   onInspectTarget: (el: HTMLElement | null) => void
 }) {
-  const { open, toggle, triggerRef, popupRef, popupStyle } = useAnchoredPopup()
   return (
-    <div className="space-y-2">
-      <Button
-        ref={triggerRef}
-        type="button"
-        aria-expanded={open}
-        aria-haspopup="dialog"
-        onClick={() => {
-          toggle()
-          onInspectTarget(triggerRef.current)
-        }}
+    <Popover
+      onOpenChange={(open) => {
+        if (open) {
+          const trigger = document.querySelector<HTMLButtonElement>(
+            '[data-slot="sdk-popup-trigger"]',
+          )
+          onInspectTarget(trigger ?? null)
+        }
+      }}
+    >
+      <PopoverTrigger
+        data-slot="sdk-popup-trigger"
+        className="inline-flex h-9 items-center rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+        onFocus={(e) => onInspectTarget(e.currentTarget)}
       >
-        {open ? "Close popup" : "Open popup"}
-      </Button>
-      {open ? (
-        <div
-          ref={popupRef}
-          role="dialog"
-          aria-modal="false"
-          style={popupStyle}
-          className="rounded-md border border-border bg-popover px-3 py-2 text-sm shadow-md"
-          tabIndex={-1}
-        >
-          Dismiss with Escape or an outside click.
-        </div>
-      ) : null}
-    </div>
+        Open popover
+      </PopoverTrigger>
+      <PopoverContent className={cn(sdkPopupClass, "w-64 p-3")} sideOffset={6}>
+        <PopoverTitle className="text-sm font-medium">Dismiss layer</PopoverTitle>
+        <PopoverDescription className="mt-1 text-xs text-muted-foreground">
+          Escape or an outside press closes this panel (@ui-sdk/react/popover).
+        </PopoverDescription>
+        <PopoverClose className="mt-3 inline-flex h-8 items-center rounded-md border border-border px-2 text-xs">
+          Close
+        </PopoverClose>
+      </PopoverContent>
+    </Popover>
   )
 }
 
@@ -105,39 +124,41 @@ function SingleSelectDemo({
 }: {
   onInspectTarget: (el: HTMLElement | null) => void
 }) {
-  const listId = useId()
-  const [value, setValue] = useState<string | null>(null)
+  const slice = FRUIT_SDK_ITEMS.slice(0, 5)
   return (
-    <div
-      id={listId}
-      role="listbox"
-      aria-label="Fruits"
-      className="max-w-xs space-y-1"
-      onFocus={(e) => onInspectTarget(e.currentTarget)}
-      tabIndex={0}
+    <Select
+      items={slice}
+      placeholder="Pick a fruit"
+      onOpenChange={(open) => {
+        if (open) {
+          const trigger = document.querySelector<HTMLElement>(
+            '[data-slot="sdk-select-trigger"]',
+          )
+          onInspectTarget(trigger ?? null)
+        }
+      }}
     >
-      {FRUIT_ITEMS.slice(0, 5).map((item) => (
-        <div
-          key={item.id}
-          role="option"
-          aria-selected={value === item.id}
-          tabIndex={-1}
-          className={cn(
-            "cursor-pointer rounded-sm px-2 py-1 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40",
-            value === item.id && "bg-accent font-medium",
-          )}
-          onClick={() => setValue(item.id)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault()
-              setValue(item.id)
-            }
-          }}
-        >
-          {item.label}
-        </div>
-      ))}
-    </div>
+      <SelectLabel className="text-xs font-medium">Fruits</SelectLabel>
+      <SelectTrigger
+        data-slot="sdk-select-trigger"
+        className={sdkSelectTriggerClass}
+        onFocus={(e) => onInspectTarget(e.currentTarget)}
+      >
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent className={sdkPopupClass}>
+        {slice.map((item) => (
+          <SelectItem
+            key={item.value}
+            value={item.value}
+            label={item.label}
+            className={sdkOptionClass}
+          >
+            {item.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
   )
 }
 
@@ -148,45 +169,38 @@ function MultiSelectDemo({
   onInspectTarget: (el: HTMLElement | null) => void
   onAnnounce: (text: string) => void
 }) {
-  const [selected, setSelected] = useState<string[]>([])
+  const slice = FRUIT_SDK_ITEMS.slice(0, 6)
   return (
-    <div
-      role="listbox"
-      aria-multiselectable="true"
-      aria-label="Favorite fruits"
-      className="max-w-xs space-y-1"
-      tabIndex={0}
-      onFocus={(e) => onInspectTarget(e.currentTarget)}
+    <Select
+      multiple
+      items={slice}
+      defaultValue={[]}
+      placeholder="Favorite fruits"
+      onValueChange={(value) => {
+        const count = Array.isArray(value) ? value.length : 0
+        onAnnounce(`Selected ${count} fruit(s) via @ui-sdk/react Select.`)
+      }}
+      onOpenChange={(open) => {
+        if (open) onInspectTarget(document.activeElement as HTMLElement | null)
+      }}
     >
-      {FRUIT_ITEMS.slice(0, 6).map((item) => {
-        const on = isSelected(selected, item.id)
-        return (
-          <OptionRow
-            key={item.id}
-            role="option"
-            aria-selected={on}
-            className={cn(
-              "flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1 text-sm",
-              on && "bg-accent",
-            )}
-            onClick={() => {
-              const next = toggleMulti(selected, item.id)
-              setSelected(next)
-              onAnnounce(formatSelectionAnnouncement(item.label, !on))
-            }}
+      <SelectLabel className="text-xs font-medium">Multi</SelectLabel>
+      <SelectTrigger className={sdkSelectTriggerClass}>
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent className={sdkPopupClass}>
+        {slice.map((item) => (
+          <SelectItem
+            key={item.value}
+            value={item.value}
+            label={item.label}
+            className={sdkOptionClass}
           >
-            <input
-              type="checkbox"
-              readOnly
-              checked={on}
-              tabIndex={-1}
-              aria-hidden
-            />
             {item.label}
-          </OptionRow>
-        )
-      })}
-    </div>
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
   )
 }
 
@@ -195,36 +209,55 @@ function TypeaheadDemo({
 }: {
   onInspectTarget: (el: HTMLElement | null) => void
 }) {
-  const [query, setQuery] = useState("")
-  const filtered = FRUIT_ITEMS.filter((i) =>
-    i.label.toLowerCase().includes(query.toLowerCase()),
-  )
+  const typeahead = useMemo(() => createTypeahead(400), [])
+  const listRef = useRef<HTMLDivElement>(null)
+  const [focusIndex, setFocusIndex] = useState(-1)
+  const options = FRUIT_SDK_ITEMS.slice(0, 8)
+
+  const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (!isTypeaheadKey(event.nativeEvent)) return
+    const nodes = listRef.current?.querySelectorAll<HTMLElement>("[role=option]")
+    if (!nodes?.length) return
+    const labels = Array.from(nodes).map((node) => labelOf(node))
+    const index = typeahead(event.key, labels, focusIndex)
+    if (index >= 0) {
+      event.preventDefault()
+      setFocusIndex(index)
+      nodes[index]?.focus()
+    }
+  }
+
   return (
     <div className="max-w-xs space-y-2">
-      <input
-        aria-label="Filter fruits"
-        className="h-8 w-full rounded-md border border-input px-2 text-sm"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
+      <p className="text-xs text-muted-foreground">
+        Focus the listbox and type letters —{" "}
+        <code className="text-[0.6rem]">createTypeahead</code> from @ui-sdk/core.
+      </p>
+      <div
+        ref={listRef}
+        role="listbox"
+        aria-label="Fruits (typeahead)"
+        tabIndex={0}
+        className="max-h-40 space-y-0.5 overflow-auto rounded-md border border-border p-1 outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+        onKeyDown={onKeyDown}
         onFocus={(e) => onInspectTarget(e.currentTarget)}
-      />
-      <ul className="text-sm text-muted-foreground">
-        {filtered.map((i) => (
-          <li key={i.id}>{i.label}</li>
+      >
+        {options.map((item, index) => (
+          <div
+            key={item.value}
+            role="option"
+            tabIndex={-1}
+            aria-selected={focusIndex === index}
+            className={cn(
+              sdkOptionClass,
+              focusIndex === index && "bg-accent",
+            )}
+            onFocus={() => setFocusIndex(index)}
+          >
+            {item.label}
+          </div>
         ))}
-      </ul>
-    </div>
-  )
-}
-
-function OptionRow({
-  className,
-  children,
-  ...props
-}: HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div className={className} {...props}>
-      {children}
+      </div>
     </div>
   )
 }

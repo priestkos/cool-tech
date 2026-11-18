@@ -12,6 +12,9 @@
   },
   "dependencies": {
     "@base-ui/react": "1.9.0",
+    "@ui-sdk/core": "0.1.0-beta.2",
+    "@ui-sdk/react": "0.1.0-beta.2",
+    "@ui-sdk/web": "0.1.0-beta.2",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "react": "19.3.1",

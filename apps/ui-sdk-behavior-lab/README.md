@@ -1,6 +1,6 @@
 # UI SDK Behavior Lab
 
-Local offline lab demonstrating a **clean-room recreation** of [Vercel UI SDK](https://ui-sdk.dev)–style interaction behaviors (popup, selection, typeahead, dismiss, sortable + live region). This is **not** the official SDK.
+Local offline lab using the **real** [Vercel UI SDK](https://ui-sdk.dev) npm packages pinned at **`0.1.0-beta.2`** (Apache-2.0): `@ui-sdk/core`, `@ui-sdk/react`, and `@ui-sdk/web`. It demonstrates popup, selection, typeahead, dismiss, sortable helpers, and live announcements, with ARIA inspection and a Base UI combobox reference column.
 
 ## Commands
 
@@ -15,23 +15,29 @@ bun run build
 
 ## Architecture
 
-- `src/behaviors/` — small state helpers and hooks (no `@ui-sdk/*`, no copied `vercel-labs/ui` source)
-- `src/widgets/` — composed combobox + sortable list
 - `src/lab/` — behavior picker, ARIA inspector, keyboard walkthrough, agent recipe panel
+- `src/widgets/` — `@ui-sdk/react` combobox, Base UI reference combobox, sortable task list
+- `src/behaviors/` — unit tests against `@ui-sdk/core` foundation APIs (+ local ARIA inspector helpers)
+- Lab chrome — pinned shadcn 4.22.1 minimalist (not part of upstream)
 
-## Credit & provenance
+## Upstream pin
+
+| Package | Version | Published (UTC) |
+|---------|---------|-----------------|
+| `@ui-sdk/core` | `0.1.0-beta.2` | 2026-11-13T13:05:20.558Z |
+| `@ui-sdk/react` | `0.1.0-beta.2` | 2026-11-13T13:04:27.623Z |
+| `@ui-sdk/web` | `0.1.0-beta.2` | 2026-11-13T13:05:27.702Z |
+
+Eligible git snapshot: `220c1a0d7278872286a620a8e4ee4210ca46f9bd`.
+
+## Credit & license
 
 | Resource | Link |
 |----------|------|
 | UI SDK site | https://ui-sdk.dev |
-| Upstream repo | https://github.com/vercel-labs/ui (Apache-2.0, Copyright 2026 Vercel, Inc.) |
-| Launch post | https://x.com/vercel/status/2120950020249895314 |
-| Eligible doc snapshot (credit only) | `26ac6b3441335614cb413b54e56a9f9b0ff70f15` |
+| Upstream repo | https://github.com/vercel-labs/ui |
+| License | Apache-2.0 — see `THIRD_PARTY_LICENSES/ui-sdk-LICENSE.txt` |
 
-Every `@ui-sdk/*` npm version at lab launch was **younger than 72h**; this demo intentionally does **not** install `@ui-sdk/core`, `@ui-sdk/react`, or vendored upstream source. See `dependency-evidence.json`.
+shadcn registry reference commit: `shadcn-ui/ui@8a3536678a528cc012b9e62484290e79d0be410f`.
 
-**Deferred:** swap to `@ui-sdk/core@0.1.0-beta.1` after ~**2026-11-15 10:42 PM IST** once eligible and re-audited.
-
-## shadcn / registry
-
-UI chrome uses pinned shadcn 4.22.1 + Base UI components. Registry reference commit: `shadcn-ui/ui@8a3536678a528cc012b9e62484290e79d0be410f` (MIT / project licenses apply to copied registry files).
+Dependency age evidence: `dependency-evidence.json`.

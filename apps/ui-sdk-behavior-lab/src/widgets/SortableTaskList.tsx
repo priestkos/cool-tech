@@ -1,6 +1,5 @@
-import { useCallback, useId, useState } from "react"
-import { formatReorderAnnouncement } from "@/behaviors/live-region"
-import { moveItemInList } from "@/behaviors/sortable"
+import { movedTo, reorderMessage } from "@/sdk/reorder"
+import { useCallback, useState } from "react"
 import { TASK_ITEMS } from "@/lib/fixtures"
 import { cn } from "@/lib/utils"
 
@@ -13,17 +12,30 @@ export function SortableTaskList({
   onAnnounce,
   onInspectTarget,
 }: SortableTaskListProps) {
-  const liveId = useId()
   const [items, setItems] = useState(TASK_ITEMS)
   const [dragIndex, setDragIndex] = useState<number | null>(null)
 
   const onDrop = useCallback(
     (toIndex: number) => {
       if (dragIndex === null) return
-      const next = moveItemInList(items, dragIndex, toIndex)
+      const keys = items.map((i) => i.id)
+      const nextKeys = movedTo(keys, keys[dragIndex], toIndex)
+      const next = nextKeys.map(
+        (id) => items.find((i) => i.id === id)!,
+      )
       setItems(next)
       const moved = items[dragIndex]
-      onAnnounce(formatReorderAnnouncement(moved.label, dragIndex, toIndex))
+      const position = nextKeys.indexOf(moved.id) + 1
+      onAnnounce(
+        reorderMessage({
+          type: "drop",
+          key: moved.id,
+          label: moved.label,
+          count: 1,
+          position,
+          total: next.length,
+        }),
+      )
       setDragIndex(null)
     },
     [dragIndex, items, onAnnounce],
@@ -60,15 +72,9 @@ export function SortableTaskList({
           </li>
         ))}
       </ul>
-      <div
-        id={liveId}
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-        className="sr-only"
-      />
       <p className="text-[0.65rem] text-muted-foreground">
-        Moves are duplicated in the announcement log panel.
+        Order commits with @ui-sdk/core <code className="text-[0.6rem]">movedTo</code>
+        ; announcements use <code className="text-[0.6rem]">reorderMessage</code>.
       </p>
     </div>
   )

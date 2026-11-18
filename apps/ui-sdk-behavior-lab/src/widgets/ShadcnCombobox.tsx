@@ -14,7 +14,7 @@ export function ShadcnCombobox({ onInspectTarget }: ShadcnComboboxProps) {
   return (
     <div className="space-y-2">
       <span id={labelId} className="text-xs font-medium">
-        shadcn / Base UI combobox
+        Base UI combobox (reference)
       </span>
       <Combobox.Root
         items={labels}
@@ -24,7 +24,7 @@ export function ShadcnCombobox({ onInspectTarget }: ShadcnComboboxProps) {
             const input = document.querySelector<HTMLInputElement>(
               '[data-slot="shadcn-combobox-input"]',
             )
-            onInspectTarget?.(input)
+            onInspectTarget?.(input ?? null)
           }
         }}
       >
@@ -61,7 +61,7 @@ export function ShadcnCombobox({ onInspectTarget }: ShadcnComboboxProps) {
         </Combobox.Portal>
       </Combobox.Root>
       <p className="text-[0.65rem] text-muted-foreground">
-        Reference surface for keyboard comparison (not @ui-sdk/*).
+        Second column for keyboard comparison — not part of UI SDK.
       </p>
     </div>
   )

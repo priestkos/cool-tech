@@ -1,6 +1,6 @@
-import type { SelectItem } from "@/behaviors/selection"
+export type FruitItem = { id: string; label: string }
 
-export const FRUIT_ITEMS: SelectItem[] = [
+export const FRUIT_ITEMS: FruitItem[] = [
   { id: "apple", label: "Apple" },
   { id: "apricot", label: "Apricot" },
   { id: "banana", label: "Banana" },
@@ -10,6 +10,11 @@ export const FRUIT_ITEMS: SelectItem[] = [
   { id: "mango", label: "Mango" },
   { id: "orange", label: "Orange" },
 ]
+
+export const FRUIT_SDK_ITEMS = FRUIT_ITEMS.map((item) => ({
+  value: item.id,
+  label: item.label,
+}))
 
 export const TASK_ITEMS = [
   { id: "t1", label: "Wire popup dismiss layer" },
@@ -34,31 +39,33 @@ export const BEHAVIOR_DEMOS: {
   {
     id: "popup",
     title: "Anchored popup",
-    description: "Open, position below trigger, dismiss on Escape / outside click.",
+    description:
+      "@ui-sdk/react Popover: open, position, dismiss on Escape / outside press.",
   },
   {
     id: "single-select",
     title: "Single selection",
-    description: "One active option with aria-selected wiring.",
+    description: "@ui-sdk/react Select with one value and aria-selected wiring.",
   },
   {
     id: "multi-select",
     title: "Multi selection",
-    description: "Toggle many options; listbox aria-multiselectable.",
+    description: "Select with multiple — toggle items; list stays open.",
   },
   {
     id: "typeahead",
-    title: "Typeahead filter",
-    description: "Narrows visible options as you type.",
+    title: "Typeahead",
+    description:
+      "@ui-sdk/core createTypeahead on a focusable listbox (WAI-ARIA pattern).",
   },
   {
     id: "combobox",
     title: "Composed combobox",
-    description: "Popup + selection + typeahead assembled for agents.",
+    description: "Official Combobox vs Base UI comparison below.",
   },
   {
     id: "sortable",
     title: "Sortable list",
-    description: "Reorder with pointer; announce new index in a live region.",
+    description: "Reorder with pointer; announce via reorderMessage.",
   },
 ]

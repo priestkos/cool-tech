@@ -13,8 +13,7 @@ import { BehaviorDemoPanel } from "@/lab/BehaviorDemoPanel"
 import { KeyboardWalkthrough } from "@/lab/KeyboardWalkthrough"
 import { RecipePanel } from "@/lab/RecipePanel"
 import type { LabBehaviorId } from "@/lib/fixtures"
-import { FRUIT_ITEMS } from "@/lib/fixtures"
-import { PrimitiveCombobox } from "@/widgets/PrimitiveCombobox"
+import { SdkCombobox } from "@/widgets/SdkCombobox"
 import { ShadcnCombobox } from "@/widgets/ShadcnCombobox"
 import { SortableTaskList } from "@/widgets/SortableTaskList"
 
@@ -51,15 +50,17 @@ export default function App() {
               UI SDK Behavior Lab
             </h1>
             <p className="max-w-2xl text-xs text-muted-foreground">
-              Independent clean-room recreation of UI SDK–style behaviors. Not
-              the official SDK — no @ui-sdk/* install.{" "}
+              Runs the real{" "}
               <a
                 href="https://ui-sdk.dev"
                 className="underline"
                 rel="noreferrer"
               >
-                ui-sdk.dev
-              </a>
+                UI SDK
+              </a>{" "}
+              packages at{" "}
+              <code className="text-[0.65rem]">@ui-sdk/*@0.1.0-beta.2</code>{" "}
+              (Apache-2.0).
             </p>
           </div>
           <Badge variant="outline" className="w-fit">
@@ -92,13 +93,12 @@ export default function App() {
             <CardHeader>
               <CardTitle>Combobox comparison</CardTitle>
               <CardDescription>
-                Clean-room assembly vs Base UI / shadcn-styled combobox.
+                Official @ui-sdk/react combobox vs Base UI reference column.
               </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-6 md:grid-cols-2">
-              <PrimitiveCombobox
-                items={FRUIT_ITEMS}
-                label="Primitive combobox"
+              <SdkCombobox
+                label="UI SDK combobox"
                 onInspectTarget={onInspectTarget}
               />
               <ShadcnCombobox onInspectTarget={onInspectTarget} />
