@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "app": "eve-agent-lab",
+    "auditedAtUtc": "2026-11-19T05:40:00Z",
+    "cutoffUtc": "2026-11-16T05:35:00Z",
+    "cutoffIst": "2026-11-16T11:05:00+05:30",
+    "launchIst": "2026-11-19T11:05:00+05:30",
+    "minimumReleaseAgeSeconds": 259200,
+    "lockfile": "bun.lock",
+    "productionJsGzipBytes": 210921,
+    "decision": "Pins eve@1.0.0 and ai@7.0.172 (newest eligible >=7.0.172 under Bun age gate). ai@7.0.177 excluded (published after cutoff)."
+  },
+  "directDependencies": [
+    {
+      "name": "eve",
+      "version": "1.0.0",
+      "publishedUtc": "2026-11-15T22:08:04.965Z",
+      "eligible": true,
+      "license": "Apache-2.0",
+      "integrity": "sha512-N4v0GYcJ/ClAtffQo8viUjBVR+F/FhaAQ/tfke4rC2mSyJueUczrT5GvQF3tiX+6Uq612O2n0IJUGpAwHr7OvQ=="
+    },
+    {
+      "name": "ai",
+      "version": "7.0.172",
+      "publishedUtc": "2026-11-13T05:59:50.596Z",
+      "eligible": true,
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "react",
+      "version": "19.3.1",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "react-dom",
+      "version": "19.3.1",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "vite",
+      "version": "8.3.5",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "@vitejs/plugin-react",
+      "version": "6.1.2",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "typescript",
+      "version": "6.0.3",
+      "eligible": true,
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "shadcn",
+      "version": "4.22.1",
+      "eligible": true,
+      "license": "MIT",
+      "registrySourcePin": "shadcn-ui/ui@8a3536678a528cc012b9e62484290e79d0be410f"
+    },
+    {
+      "name": "tailwindcss",
+      "version": "4.3.3",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "@tailwindcss/vite",
+      "version": "4.3.3",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "@base-ui/react",
+      "version": "1.9.0",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "zod",
+      "version": "4.6.5",
+      "eligible": true,
+      "license": "MIT"
+    },
+    {
+      "name": "lucide-react",
+      "version": "1.70.0",
+      "publishedUtc": "2026-11-06T06:15:46.080Z",
+      "eligible": true,
+      "license": "ISC"
+    },
+    {
+      "name": "@opentelemetry/api",
+      "version": "1.9.0",
+      "eligible": true,
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "@opentelemetry/sdk-trace-base",
+      "version": "1.30.1",
+      "eligible": true,
+      "license": "Apache-2.0"
+    }
+  ],
+  "transitiveVerification": {
+    "status": "spot-check-pending",
+    "note": "Direct pins verified against cutoff; full transitive audit deferred per brief."
+  }
+}
