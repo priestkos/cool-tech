@@ -450,6 +450,51 @@
         "mode": "clean-room",
         "note": "No OpenCrawl code included; lab-authored fixture agent sessions, hand-written search index, topic board, @mentions and overlap timeline, fully offline."
       }
+    },
+    {
+      "id": "allo",
+      "title": "Allo Type Lab (variable typeface axis, feature and UI-preset playground)",
+      "url": "https://allo.joshpuckett.me",
+      "date": "2026-11-17",
+      "sourceRefs": [
+        "https://allo.joshpuckett.me",
+        "https://github.com/joshpuckett/allo",
+        "https://x.com/joshpuckett/status/2122329345670988258"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Uses real allo-font@1.0.0 (OFL-1.1, published 2026-11-15T20:13Z), fonts bundled locally; merged in PR #79."
+      }
+    },
+    {
+      "id": "zriz",
+      "title": "Zriz Crop Studio (iOS Photos-style headless React image cropper)",
+      "url": "https://zriz.dev",
+      "date": "2026-11-19",
+      "sourceRefs": [
+        "https://zriz.dev",
+        "https://github.com/pqoqubbw/zriz",
+        "https://x.com/pqoqubbw/status/2120196887156543507"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Uses real @zriz/react@0.2.1 and @zriz/core@0.2.1 (MIT, published 2026-11-11); merged in PR #80."
+      }
+    },
+    {
+      "id": "eve",
+      "title": "Eve Agent Lab (Vercel eve durable agents: approvals, crash resume, traces)",
+      "url": "https://eve.dev",
+      "date": "2026-11-19",
+      "sourceRefs": [
+        "https://eve.dev",
+        "https://github.com/vercel/eve",
+        "https://x.com/vercel/status/2122758127968027108"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Uses real eve@1.0.0 (Apache-2.0, published 2026-11-15T22:08Z) with ai@7.0.172 and an offline mock model; merged in PR #81."
+      }
     }
   ],
   "skipped": [
