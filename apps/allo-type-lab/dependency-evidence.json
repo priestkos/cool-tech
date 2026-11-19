@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "app": "allo-type-lab",
+    "auditedAtUtc": "2026-11-19T04:10:00Z",
+    "cutoffUtc": "2026-11-16T04:00:00Z",
+    "cutoffIst": "2026-11-16T09:30:00+05:30",
+    "minimumReleaseAgeSeconds": 259200,
+    "lockfile": "bun.lock",
+    "decision": "Direct deps pinned per cool-tech brief; allo-font@1.0.0 published 2026-11-15T20:13:30.343Z (eligible). Versions 1.0.1–1.0.3 excluded."
+  },
+  "upstreamFont": {
+    "name": "allo-font",
+    "version": "1.0.0",
+    "publishedUtc": "2026-11-15T20:13:30.343Z",
+    "integrity": "sha512-lHuzg9QRgC7pJVWH2JHmmg530v6b2kF9g3PdctfN9N1EtVI5j3rD9esAZ6ZXDgM5hrZe6HdVbTXFZyOCU9/VrA==",
+    "license": "OFL-1.1",
+    "gitCommit": "4bef023e21d938ab2b6982d3dda5fa334e1e5a9b"
+  },
+  "directDependencies": [
+    { "name": "allo-font", "version": "1.0.0", "eligible": true, "license": "OFL-1.1" },
+    { "name": "react", "version": "19.3.1", "eligible": true, "license": "MIT" },
+    { "name": "react-dom", "version": "19.3.1", "eligible": true, "license": "MIT" },
+    { "name": "vite", "version": "8.3.5", "eligible": true, "license": "MIT" },
+    { "name": "@vitejs/plugin-react", "version": "6.1.2", "eligible": true, "license": "MIT" },
+    { "name": "typescript", "version": "6.0.3", "eligible": true, "license": "Apache-2.0" },
+    { "name": "tailwindcss", "version": "4.3.3", "eligible": true, "license": "MIT" },
+    { "name": "@tailwindcss/vite", "version": "4.3.3", "eligible": true, "license": "MIT" },
+    { "name": "shadcn", "version": "4.22.1", "eligible": true, "license": "MIT", "registrySourcePin": "shadcn-ui/ui@8a3536678a528cc012b9e62484290e79d0be410f" },
+    { "name": "@base-ui/react", "version": "1.9.0", "eligible": true, "license": "MIT" },
+    { "name": "lucide-react", "version": "1.70.0", "publishedUtc": "2026-11-06T06:15:46.080Z", "eligible": true, "license": "ISC" }
+  ],
+  "shadcnSourceCandidate": {
+    "repo": "shadcn-ui/ui",
+    "commit": "8a3536678a528cc012b9e62484290e79d0be410f",
+    "committerDateUtc": "2026-11-04T07:50:45Z"
+  },
+  "note": "UI primitives copied from in-repo ding-toast-lab after matching eligible pins; full lockfile transitive audit not repeated in this file."
+}

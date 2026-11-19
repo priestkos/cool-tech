@@ -1,0 +1,21 @@
+{
+  "id": "allo",
+  "title": "Allo Type Lab (real allo-font variable playground)",
+  "url": "https://allo.joshpuckett.me",
+  "date": "2026-11-17",
+  "sourceRefs": [
+    "https://allo.joshpuckett.me",
+    "https://github.com/joshpuckett/allo",
+    "https://www.npmjs.com/package/allo-font",
+    "https://x.com/joshpuckett/status/2122329345670988258"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "OFL-1.1",
+    "pinnedPackage": "allo-font@1.0.0",
+    "pinnedPublishedUtc": "2026-11-15T20:13:30.343Z",
+    "pinnedTagSha": "4bef023e21d938ab2b6982d3dda5fa334e1e5a9b",
+    "cutoffIst": "2026-11-16T09:30:00+05:30",
+    "note": "Nov 2026 launch demo: axis playground, OpenType toggles, contextual calt box, UI presets; npm 1.0.1–1.0.3 excluded."
+  }
+}
