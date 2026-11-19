@@ -1,0 +1,33 @@
+@import "@zriz/react/styles.css";
+
+[data-zriz-part="viewport"] {
+  border-radius: var(--radius-lg);
+  background: color-mix(in oklab, var(--muted) 40%, transparent);
+  color: var(--foreground);
+}
+
+[data-zriz-part="area"] {
+  outline: 2px solid var(--foreground);
+  outline-offset: -1px;
+}
+
+[data-zriz-item="handle"] {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: var(--background);
+  border: 2px solid var(--foreground);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+}
+
+[data-zriz-part="dial"] {
+  color: var(--foreground);
+}
+
+[data-zriz-part="zoom"] {
+  color: var(--foreground);
+}
+
+.zriz-toolbar [data-zriz-part] {
+  font: inherit;
+}
