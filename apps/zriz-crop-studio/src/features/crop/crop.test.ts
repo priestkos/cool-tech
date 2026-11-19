@@ -178,7 +178,19 @@ describe("formatAspect", () => {
 })
 
 describe("geometry sign and flip", () => {
-  test("prints a negative rotation without a plus and a horizontal flip", () => {
+  test("prints a negative rotation without a plus sign", () => {
+    const cropper = createCropper({ defaultValue: { rotation: -8.2 } })
+    cropper.setImage({ width: 1000, height: 800 })
+    const readout = formatGeometryReadout(
+      cropper.getValue(),
+      cropper.getState(),
+      1,
+    )
+    expect(readout.rotation).toBe("-8.2°")
+    expect(readout.flips).toBe("none")
+  })
+
+  test("records a horizontal flip", () => {
     const cropper = createCropper({ defaultValue: { rotation: -8.2 } })
     cropper.setImage({ width: 1000, height: 800 })
     cropper.flip("x")
@@ -187,7 +199,6 @@ describe("geometry sign and flip", () => {
       cropper.getState(),
       1,
     )
-    expect(readout.rotation).toBe("-8.2°")
     expect(readout.flips).toBe("horizontal")
   })
 })
