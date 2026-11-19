@@ -1,0 +1,22 @@
+{
+  "id": "zriz",
+  "title": "Zriz Crop Studio (real @zriz/react playground)",
+  "url": "https://zriz.dev",
+  "date": "2026-11-19",
+  "sourceRefs": [
+    "https://zriz.dev",
+    "https://github.com/pqoqubbw/zriz",
+    "https://www.npmjs.com/package/@zriz/react",
+    "https://www.npmjs.com/package/@zriz/core",
+    "https://x.com/pqoqubbw/status/2120196887156543507"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "pinnedPackage": "@zriz/react",
+    "pinnedVersion": "0.2.1",
+    "pinnedCore": "@zriz/core@0.2.1",
+    "publishedUtc": "2026-11-11T22:56:15.000Z",
+    "license": "MIT",
+    "note": "Demo uses npm @zriz/react@0.2.1 and @zriz/core@0.2.1 (eligible vs 2026-11-16T05:35:00Z cutoff)."
+  }
+}

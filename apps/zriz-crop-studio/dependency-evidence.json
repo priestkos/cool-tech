@@ -1,0 +1,49 @@
+{
+  "cutoffUtc": "2026-11-16T05:35:00.000Z",
+  "cutoffNote": "Launch ~2026-11-19 05:35Z minus 72 hours",
+  "directDependencies": [
+    {
+      "name": "@zriz/react",
+      "version": "0.2.1",
+      "license": "MIT",
+      "publishedUtc": "2026-11-11T22:56:15.000Z",
+      "integrity": "sha512-0eJPMh+aWqHTlt1CopuNsfaMlfKjcmn7yxnyUHIOnFFxRnHSfdiDq+M5e1HopnkIijOpuDxQr9wRYE7fCDf2Ew==",
+      "eligible": true,
+      "source": "https://www.npmjs.com/package/@zriz/react/v/0.2.1"
+    },
+    {
+      "name": "@zriz/core",
+      "version": "0.2.1",
+      "license": "MIT",
+      "publishedUtc": "2026-11-11T22:56:24.000Z",
+      "integrity": "sha512-CAsVJRv92KGy+BKzbKIgcSYVv3zbVOhLiPQpTLdW0+c+iYwv0UdjAE9buNUzFxgSa6VaAZMYASwWbSjtCQGuxQ==",
+      "eligible": true,
+      "source": "https://www.npmjs.com/package/@zriz/core/v/0.2.1"
+    },
+    {
+      "name": "react",
+      "version": "19.3.1",
+      "eligible": true,
+      "source": "https://www.npmjs.com/package/react"
+    },
+    {
+      "name": "vite",
+      "version": "8.3.5",
+      "eligible": true,
+      "source": "https://www.npmjs.com/package/vite"
+    },
+    {
+      "name": "shadcn",
+      "version": "4.22.1",
+      "eligible": true,
+      "source": "https://www.npmjs.com/package/shadcn"
+    }
+  ],
+  "shadcnRegistryCommit": {
+    "repo": "https://github.com/shadcn-ui/ui",
+    "sha": "8a3536678a528cc012b9e62484290e79d0be410f",
+    "committedUtc": "2026-11-04T07:50:45.000Z",
+    "note": "UI primitives copied from apps/ding-toast-lab (same pins); CLI 4.22.1 with local components.json style base-mira"
+  },
+  "transitiveVerification": "Bun lockfile resolved 2026-11-19; full transitive npm publish-time audit not claimed for every nested package."
+}
