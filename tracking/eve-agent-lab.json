@@ -1,0 +1,22 @@
+{
+  "id": "eve",
+  "title": "Eve Agent Lab (real eve@1.0.0 playground)",
+  "url": "https://eve.dev",
+  "date": "2026-11-19",
+  "sourceRefs": [
+    "https://eve.dev",
+    "https://github.com/vercel/eve",
+    "https://www.npmjs.com/package/eve/v/1.0.0",
+    "https://x.com/vercel/status/2122758127968027108",
+    "https://x.com/rauchg/status/2122771609261879478"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "pinnedPackage": "eve",
+    "pinnedVersion": "1.0.0",
+    "pinnedAiSdk": "ai@7.0.172",
+    "publishedUtc": "2026-11-15T22:08:04.965Z",
+    "license": "Apache-2.0",
+    "note": "Mock-model offline lab via eve/vite + useEveAgent; Node 24+ required."
+  }
+}
