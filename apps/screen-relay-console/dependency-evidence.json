@@ -1,0 +1,336 @@
+{
+  "meta": {
+    "preparedFor": [
+      "apps/screen-relay-console",
+      "tracking/screen-relay-console.json"
+    ],
+    "preparedAtIst": "2026-11-20T10:11:49+05:30",
+    "preparedAtUtc": "2026-11-20T04:41:49+00:00",
+    "approvalNote": "Sai approved 'Build both' on the Nov 20 2026 scout (main: screen-relay, runner-up: Frostwind). This file covers screen-relay only. No cloud agent was launched as part of brief preparation.",
+    "cutoffAtCheckUtc": "2026-11-17T04:41:49+00:00",
+    "cutoffAtCheckIst": "2026-11-17T10:11:49+05:30",
+    "minimumReleaseAgeSeconds": 259200,
+    "verdict": "all-resolved-versions-eligible",
+    "tooYoungInResolvedTree": [],
+    "sources": [
+      "npm view screen-relay time --json",
+      "npm view screen-relay@0.1.0 (license, dist, engines, dependencies, gitHead)",
+      "npm install screen-relay@0.1.0 --ignore-scripts --package-lock-only --before=2026-11-17T04:40:48.000Z in /tmp/screen-relay-depcheck",
+      "registry.npmjs.org time maps for every resolved name@version",
+      "https://github.com/vercel-labs/screen-relay tag v0.1.0 / commit ff50f4327fabe834f09fe774158297aa481d23d9",
+      "https://raw.githubusercontent.com/vercel-labs/screen-relay/v0.1.0/LICENSE",
+      "https://raw.githubusercontent.com/vercel-labs/screen-relay/v0.1.0/package.json",
+      "https://raw.githubusercontent.com/vercel-labs/screen-relay/v0.1.0/README.md",
+      "https://raw.githubusercontent.com/vercel-labs/screen-relay/v0.1.0/packages.tsv",
+      "downloaded tarball inventory and sha512 verify of screen-relay-0.1.0.tgz"
+    ],
+    "notes": "0.1.0 itself became eligible at 2026-11-20 08:09:33 IST, about two hours before this check. All eight transitive packages are substantially older. Re-verify against the actual launch timestamp minus 72h. Toolchain pins are the proven cool-tech set from prior briefs and were not re-resolved in this file."
+  },
+  "resolution": {
+    "method": "npm install screen-relay@0.1.0 --ignore-scripts --package-lock-only --before=2026-11-17T04:40:48.000Z",
+    "lockfilePackages": 10,
+    "note": "screen-relay@0.1.0 declares exact versions for its three direct dependencies. The --before resolve and the default 0.1.0 tree are the same set of versions listed under resolvedTree."
+  },
+  "upstream": {
+    "npmName": "screen-relay",
+    "pin": "0.1.0",
+    "licenseNpm": "Apache-2.0",
+    "repo": "https://github.com/vercel-labs/screen-relay",
+    "repoLicenseSpdx": "Apache-2.0",
+    "tag": "v0.1.0",
+    "commit": "ff50f4327fabe834f09fe774158297aa481d23d9",
+    "commitMessage": "Install from npm and set up the machine on first run (#52)",
+    "committerDateUtc": "2026-11-17T02:30:19Z",
+    "committerDateIst": "2026-11-17T08:00:19+05:30",
+    "licenseFile": "LICENSE",
+    "licenseCopyright": "Copyright 2026 Vercel Inc.",
+    "docs": "https://relay.labs.vercel.dev",
+    "launchPost": "https://x.com/ctatedev/status/2123261550399995944"
+  },
+  "resolvedTree": [
+    {
+      "name": "screen-relay",
+      "version": "0.1.0",
+      "role": "direct-pin",
+      "published": "2026-11-17T02:39:33.185Z",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=22"
+      },
+      "integrity": "sha512-eK4VWRmm1O8gLjCi/M94qTRjEjNhgNZMU3H3iYFfyXUSGKJaHKf3di7FrPBYL2LAAAPqVS7iC+OXupB3X3B1rA==",
+      "shasum": "2a7a840338030d0b7a8e9e8bf35c947e61586d0f",
+      "tarball": "https://registry.npmjs.org/screen-relay/-/screen-relay-0.1.0.tgz",
+      "fileCount": 88,
+      "unpackedSize": 992410,
+      "tarballBytes": 245927,
+      "gitHead": "ff50f4327fabe834f09fe774158297aa481d23d9",
+      "gitTag": "v0.1.0",
+      "dependencies": {
+        "@clack/prompts": "1.9.0",
+        "@vercel/detect-agent": "1.2.7",
+        "yaml": "2.9.1"
+      },
+      "optionalDependencies": null,
+      "peerDependencies": null,
+      "hasInstallScript": false,
+      "os": null,
+      "cpu": null,
+      "source": "https://registry.npmjs.org/screen-relay/0.1.0",
+      "publishedIst": "2026-11-17T08:09:33.185000+05:30",
+      "eligibleAtCheck": true,
+      "eligibleFromIst": "2026-11-20T08:09:33.185000+05:30",
+      "hoursBeforeCutoffApprox": 2.04
+    },
+    {
+      "name": "@clack/prompts",
+      "version": "1.9.0",
+      "role": "direct-of-screen-relay",
+      "published": "2026-11-09T13:07:55.649Z",
+      "license": "MIT",
+      "engines": {
+        "node": ">= 20.12.0"
+      },
+      "integrity": "sha512-tEj8X2No2A1c9NDnZECxiiJ8TP3vmFlN9tLlLeSaMqVW4tUmVG2R4qpv/eP4zymWxnymYLkLcIYVV0VcWj3RCQ==",
+      "shasum": "23dfad8d03bf58330fc54a88f82e20d5fb7d110a",
+      "tarball": "https://registry.npmjs.org/@clack/prompts/-/prompts-1.9.0.tgz",
+      "fileCount": 5,
+      "unpackedSize": 94642,
+      "dependencies": {
+        "sisteransi": "^2.0.0",
+        "@clack/core": "1.6.0",
+        "fast-wrap-ansi": "^0.2.0",
+        "fast-string-width": "^3.0.2"
+      },
+      "hasInstallScript": false,
+      "source": "https://registry.npmjs.org/@clack/prompts/1.9.0",
+      "publishedIst": "2026-11-09T18:37:55.649000+05:30",
+      "eligibleAtCheck": true,
+      "eligibleFromIst": "2026-11-12T18:37:55.649000+05:30",
+      "hoursBeforeCutoffApprox": 183.56
+    },
+    {
+      "name": "@clack/core",
+      "version": "1.6.0",
+      "role": "transitive",
+      "published": "2026-11-09T13:08:16.076Z",
+      "license": "MIT",
+      "engines": {
+        "node": ">= 20.12.0"
+      },
+      "integrity": "sha512-4GZynIB2IIe431odxesswvWTCP6orvqd6e2b07b3VFWBQRqUqIHc/EPIZwFoKS692QBp+ooPuXKaJV8g4kXuYA==",
+      "shasum": "943babea58496602d92666be05ac14d1a703ab9b",
+      "tarball": "https://registry.npmjs.org/@clack/core/-/core-1.6.0.tgz",
+      "fileCount": 5,
+      "unpackedSize": 56045,
+      "dependencies": {
+        "sisteransi": "^2.0.0",
+        "fast-wrap-ansi": "^0.2.0",
+        "fast-string-width": "^3.0.2"
+      },
+      "hasInstallScript": false,
+      "source": "https://registry.npmjs.org/@clack/core/1.6.0",
+      "publishedIst": "2026-11-09T18:38:16.076000+05:30",
+      "eligibleAtCheck": true,
+      "eligibleFromIst": "2026-11-12T18:38:16.076000+05:30",
+      "hoursBeforeCutoffApprox": 183.56
+    },
+    {
+      "name": "@vercel/detect-agent",
+      "version": "1.2.7",
+      "role": "direct-of-screen-relay",
+      "published": "2026-10-13T06:08:24.974Z",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "integrity": "sha512-5tWaC9V+u4SHcSMKBz9FQb3Dhl/1A2lQ6QqHovu8uQeb8dTyjEevpJMANm/uQEn/usYB63fpdjWYjkJ8/bGtjA==",
+      "shasum": "e67a49607a97a5d0c0500277a0f83b4f807cd4e6",
+      "tarball": "https://registry.npmjs.org/@vercel/detect-agent/-/detect-agent-1.2.7.tgz",
+      "fileCount": 6,
+      "unpackedSize": 23709,
+      "dependencies": {},
+      "hasInstallScript": false,
+      "source": "https://registry.npmjs.org/@vercel/detect-agent/1.2.7",
+      "publishedIst": "2026-10-13T11:38:24.974000+05:30",
+      "eligibleAtCheck": true,
+      "eligibleFromIst": "2026-10-16T11:38:24.974000+05:30",
+      "hoursBeforeCutoffApprox": 838.56
+    },
+    {
+      "name": "yaml",
+      "version": "2.9.1",
+      "role": "direct-of-screen-relay",
+      "published": "2026-09-11T20:30:10.905Z",
+      "license": "ISC",
+      "engines": {
+        "node": ">= 14.6"
+      },
+      "integrity": "sha512-3NxN8+78OdzbT7C/WjGsyfPAtJaN3FNDsWxv7Y7mcDsT/oOmgW8BpyQQFFBnvZE3j9Y2Sdz1ULFLezL7Eb2yFw==",
+      "shasum": "c16233fb31944e705cfefaff38795587f57588ce",
+      "tarball": "https://registry.npmjs.org/yaml/-/yaml-2.9.1.tgz",
+      "fileCount": 233,
+      "unpackedSize": 686297,
+      "dependencies": null,
+      "hasInstallScript": false,
+      "source": "https://registry.npmjs.org/yaml/2.9.1",
+      "publishedIst": "2026-09-12T02:00:10.905000+05:30",
+      "eligibleAtCheck": true,
+      "eligibleFromIst": "2026-09-15T02:00:10.905000+05:30",
+      "hoursBeforeCutoffApprox": 1592.19
+    },
+    {
+      "name": "fast-string-width",
+      "version": "3.0.2",
+      "role": "transitive",
+      "published": "2025-09-30T10:31:05.462Z",
+      "license": "MIT",
+      "engines": null,
+      "integrity": "sha512-gX8LrtNEI5hq8DVUfRQMbr5lpaS4nMIWV+7XEbXk2b8kiQIizgnlr12B4dA3ZEx3308ze0O4Q1R+cHts8kyUJg==",
+      "shasum": "16dbabb491ce5585b5ecb675b65c165d71688eeb",
+      "tarball": "https://registry.npmjs.org/fast-string-width/-/fast-string-width-3.0.2.tgz",
+      "fileCount": 5,
+      "unpackedSize": 3515,
+      "dependencies": {
+        "fast-string-truncated-width": "^3.0.2"
+      },
+      "hasInstallScript": false,
+      "source": "https://registry.npmjs.org/fast-string-width/3.0.2",
+      "publishedIst": "2025-09-30T16:01:05.462000+05:30",
+      "eligibleAtCheck": true,
+      "eligibleFromIst": "2025-10-03T16:01:05.462000+05:30",
+      "hoursBeforeCutoffApprox": 9906.18
+    },
+    {
+      "name": "fast-string-truncated-width",
+      "version": "3.0.3",
+      "role": "transitive",
+      "published": "2025-09-30T19:48:51.801Z",
+      "license": "MIT",
+      "engines": null,
+      "integrity": "sha512-0jjjIEL6+0jag3l2XWWizO64/aZVtpiGE3t0Zgqxv0DPuxiMjvB3M24fCyhZUO4KomJQPj3LTSUnDP3GpdwC0g==",
+      "shasum": "23afe0da67d752ca0727538f1e6967759728ce49",
+      "tarball": "https://registry.npmjs.org/fast-string-truncated-width/-/fast-string-truncated-width-3.0.3.tgz",
+      "fileCount": 9,
+      "unpackedSize": 12139,
+      "dependencies": null,
+      "hasInstallScript": false,
+      "source": "https://registry.npmjs.org/fast-string-truncated-width/3.0.3",
+      "publishedIst": "2025-10-01T01:18:51.801000+05:30",
+      "eligibleAtCheck": true,
+      "eligibleFromIst": "2025-10-04T01:18:51.801000+05:30",
+      "hoursBeforeCutoffApprox": 9896.88
+    },
+    {
+      "name": "fast-wrap-ansi",
+      "version": "0.2.2",
+      "role": "transitive",
+      "published": "2026-05-19T15:07:02.121Z",
+      "license": "MIT",
+      "engines": null,
+      "integrity": "sha512-7F2Fl+TjRSenLqlU3UjSH0iyqopqoZIu7eZVpEirP2g1GtWa2G/ecEmBdgz31+Mxr+ELclgg6sokpSFIQiZ02Q==",
+      "shasum": "95e952a0145bce3f59ad56e179f84c48d4072935",
+      "tarball": "https://registry.npmjs.org/fast-wrap-ansi/-/fast-wrap-ansi-0.2.2.tgz",
+      "fileCount": 5,
+      "unpackedSize": 10710,
+      "dependencies": {
+        "fast-string-width": "^3.0.2"
+      },
+      "hasInstallScript": false,
+      "source": "https://registry.npmjs.org/fast-wrap-ansi/0.2.2",
+      "publishedIst": "2026-05-19T20:37:02.121000+05:30",
+      "eligibleAtCheck": true,
+      "eligibleFromIst": "2026-05-22T20:37:02.121000+05:30",
+      "hoursBeforeCutoffApprox": 4357.58
+    },
+    {
+      "name": "sisteransi",
+      "version": "2.0.0",
+      "role": "transitive",
+      "published": "2026-06-25T15:00:27.007Z",
+      "license": "MIT",
+      "engines": {
+        "node": ">=20"
+      },
+      "integrity": "sha512-2WCqLdt12eN6ehLI50S2/ZxoowXU3DD1KVPRyVP0WEsFahrGZZmCdq1K59qjJljMRIDTwx1D9YaRK+hDneBUMg==",
+      "shasum": "d3d7a694075c2b17094cf1a691afd7937643b936",
+      "tarball": "https://registry.npmjs.org/sisteransi/-/sisteransi-2.0.0.tgz",
+      "fileCount": 5,
+      "unpackedSize": 7426,
+      "dependencies": null,
+      "hasInstallScript": false,
+      "source": "https://registry.npmjs.org/sisteransi/2.0.0",
+      "publishedIst": "2026-06-25T20:30:27.007000+05:30",
+      "eligibleAtCheck": true,
+      "eligibleFromIst": "2026-06-28T20:30:27.007000+05:30",
+      "hoursBeforeCutoffApprox": 3469.69
+    }
+  ],
+  "tooNewDoNotInstall": [
+    {
+      "name": "screen-relay",
+      "version": "0.1.1",
+      "published": "2026-11-18T22:21:50.435Z",
+      "publishedIst": "2026-11-19T03:51:50.435000+05:30",
+      "eligibleFromIst": "2026-11-22T03:51:50.435000+05:30",
+      "note": "Do not install. Too new until Nov 22 2026, 3:51:50 AM IST."
+    },
+    {
+      "name": "screen-relay",
+      "version": "0.1.2",
+      "published": "2026-11-19T03:08:43.034Z",
+      "publishedIst": "2026-11-19T08:38:43.034000+05:30",
+      "eligibleFromIst": "2026-11-22T08:38:43.034000+05:30",
+      "note": "Do not install. Too new until Nov 22 2026, 8:38:43 AM IST. Latest on npm as of this check."
+    }
+  ],
+  "platformAndRuntime": {
+    "engines": {
+      "node": ">=22"
+    },
+    "prebuiltNativeBinariesInTarball": false,
+    "tarballFileCount": 88,
+    "tarballContents": "JS CLI/SDK/viewer under dist/, engine C++/ObjC source under src/engine/, Makefile, packages.tsv, LICENSE, THIRD-PARTY-NOTICES.md, skills. No ELF, Mach-O, or DLL.",
+    "optionalDependencies": null,
+    "installScripts": false,
+    "engineBuild": {
+      "how": "screen-relay install builds the engine on the machine from bundled source. Not a prebuilt optional npm binary.",
+      "linux": "Debian, Ubuntu, Fedora, Arch, or Alpine; x64 and ARM64. Default backend X11 with XFCE (Xvfb listed for virtual displays). Wayland via screen-relay install --backend wayland (sway, Xwayland, foot). System packages include a C++17 compiler, make, pkg-config, x264, libwebsockets, zlib, and the X11 or Wayland dev libraries in packages.tsv.",
+      "macos": "macOS 12.3 or later, Apple silicon and Intel. Homebrew and Xcode Command Line Tools. Engine attaches to the signed-in display.",
+      "windows": "npm package provides client commands only; engine is built by hand.",
+      "linkedLibrariesNotDistributed": {
+        "x264": "GPL-2.0-or-later. An engine binary that links x264 is covered by the GPL if redistributed. Do not vendor or attach a prebuilt engine to the PR.",
+        "libwebsockets": "MIT",
+        "zlib": "zlib license",
+        "x11AndWayland": "MIT and similar permissive licenses"
+      }
+    },
+    "defaultListen": "127.0.0.1:8080 with no token. --public or a non-loopback bind creates a token. Demo must stay on loopback.",
+    "viewer": "H.264 WebCodecs (current Chrome, Edge, or Safari).",
+    "oneController": true,
+    "mockModeRequired": "CI, screenshots, and many cloud-agent machines will lack a display and/or the packages needed to build the engine. The demo must ship a mock that replays recorded frames."
+  },
+  "toolchainPins": {
+    "note": "Proven cool-tech React/Vite/shadcn set; eligible vs launch minus 72h per brief.",
+    "direct": [
+      "create-vite@9.3.3",
+      "react@19.3.1",
+      "react-dom@19.3.1",
+      "vite@8.3.5",
+      "@vitejs/plugin-react@6.1.2",
+      "typescript@6.0.3",
+      "shadcn@4.22.1",
+      "@base-ui/react@1.9.0",
+      "class-variance-authority@0.7.1",
+      "clsx@2.1.1",
+      "tailwind-merge@3.7.0",
+      "tw-animate-css@1.4.0",
+      "@tailwindcss/vite@4.3.3",
+      "tailwindcss@4.3.3",
+      "@types/bun@1.4.4",
+      "@types/node@24.19.2",
+      "@types/react@19.3.0",
+      "@types/react-dom@19.3.0"
+    ],
+    "lockfile": "bun.lock"
+  }
+}

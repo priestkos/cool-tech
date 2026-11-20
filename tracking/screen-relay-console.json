@@ -1,0 +1,22 @@
+{
+  "id": "screen-relay",
+  "title": "screen-relay Console (Vercel Labs desktop relay lab)",
+  "url": "https://github.com/vercel-labs/screen-relay",
+  "date": "2026-11-20",
+  "sourceRefs": [
+    "https://github.com/vercel-labs/screen-relay",
+    "https://relay.labs.vercel.dev",
+    "https://www.npmjs.com/package/screen-relay/v/0.1.0",
+    "https://x.com/ctatedev/status/2123261550399995944"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "Apache-2.0",
+    "pinnedPackage": "screen-relay@0.1.0",
+    "pinnedIntegrity": "sha512-eK4VWRmm1O8gLjCi/M94qTRjEjNhgNZMU3H3iYFfyXUSGKJaHKf3di7FrPBYL2LAAAPqVS7iC+OXupB3X3B1rA==",
+    "pinnedTag": "v0.1.0",
+    "pinnedTagSha": "ff50f4327fabe834f09fe774158297aa481d23d9",
+    "cutoffIst": "2026-11-17T10:11:49+05:30",
+    "note": "Nov 20 2026 launch: SDK console, viewer control lease, agent loop, doctor readout; 0.1.1+ excluded. Cloud validation in mock mode (no relay-engine)."
+  }
+}

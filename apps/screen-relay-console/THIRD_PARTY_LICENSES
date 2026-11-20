@@ -1,0 +1,17 @@
+screen-relay Console — third-party notices
+
+## screen-relay 0.1.0
+
+- Package: https://www.npmjs.com/package/screen-relay/v/0.1.0
+- Repository: https://github.com/vercel-labs/screen-relay (tag v0.1.0)
+- License: Apache License 2.0
+- Copyright 2026 Vercel Inc.
+
+The full Apache 2.0 text is in the installed package at `node_modules/screen-relay/LICENSE` and upstream at
+https://raw.githubusercontent.com/vercel-labs/screen-relay/v0.1.0/LICENSE
+
+Engine build caveat (from upstream): a locally compiled engine may link system x264 (GPL-2.0-or-later). See upstream `THIRD-PARTY-NOTICES.md`.
+
+## UI toolchain
+
+React, Vite, Tailwind, and shadcn/ui components use their respective npm licenses (MIT and similar). Pins and publication evidence are recorded in `dependency-evidence.json`.
