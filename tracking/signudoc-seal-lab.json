@@ -1,0 +1,19 @@
+{
+  "id": "signudoc",
+  "title": "SignuDoc Seal Lab (offline signing & audit chain demo)",
+  "url": "https://github.com/NYLLON-SOFTWARE/SignuDoc",
+  "date": "2026-11-20",
+  "sourceRefs": [
+    "https://github.com/NYLLON-SOFTWARE/SignuDoc",
+    "https://github.com/NYLLON-SOFTWARE/SignuDoc/tree/23add9893ac0a9747f3aeba5d112d89581c8abea",
+    "https://x.com/kevinrose/status/2122394902168473975"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "MIT",
+    "pinnedCommit": "23add9893ac0a9747f3aeba5d112d89581c8abea",
+    "pinnedCommitterUtc": "2026-11-17T04:03:27Z",
+    "cutoffUtc": "2026-11-17T04:15:00Z",
+    "note": "Pinned SignuDoc commit predates launch minus 72h; lab adapts audit chain and pdf-coords only, not full Next/Postgres stack."
+  }
+}
