@@ -495,6 +495,34 @@
         "mode": "real-code",
         "note": "Uses real eve@1.0.0 (Apache-2.0, published 2026-11-15T22:08Z) with ai@7.0.172 and an offline mock model; merged in PR #81."
       }
+    },
+    {
+      "id": "signudoc",
+      "title": "SignuDoc Seal Lab (offline PDF signing with hash-chained audit trail)",
+      "url": "https://github.com/NYLLON-SOFTWARE/SignuDoc",
+      "date": "2026-11-20",
+      "sourceRefs": [
+        "https://github.com/NYLLON-SOFTWARE/SignuDoc",
+        "https://x.com/kevinrose/status/2122394902168473975"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Adapts SignuDoc MIT code at commit 23add9893ac0a9747f3aeba5d112d89581c8abea (committed 2026-11-17T04:03:27Z); merged in PR #84."
+      }
+    },
+    {
+      "id": "screen-relay",
+      "title": "screen-relay Console (Vercel Labs desktop streaming and agent control)",
+      "url": "https://github.com/vercel-labs/screen-relay",
+      "date": "2026-11-20",
+      "sourceRefs": [
+        "https://github.com/vercel-labs/screen-relay",
+        "https://x.com/ctatedev/status/2123261550399995944"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Uses real screen-relay@0.1.0 (Apache-2.0, published 2026-11-17T02:39Z) with mock frame mode when no engine is built; merged in PR #83."
+      }
     }
   ],
   "skipped": [
@@ -543,6 +571,17 @@
       "date": "2026-11-14",
       "sourceRefs": ["https://personalagentprotocol.org/docs/1.0/spec", "https://github.com/personal-agent-protocol/personal-agent-protocol", "https://sierra.ai/blog/releasing-poppy"],
       "note": "Seen in Nov 14 scout (main pick); owner chose the runner-up instead. Seen but not built."
+    },
+    {
+      "id": "mine-ui",
+      "title": "Mine UI (Minecraft-inspired shadcn registry kit) by @pushpak1300",
+      "url": "https://mineui.laravel.cloud",
+      "date": "2026-11-20",
+      "sourceRefs": [
+        "https://mineui.laravel.cloud",
+        "https://x.com/pushpak1300/status/2122422220844909015"
+      ],
+      "note": "Seen in Nov 18 scout; no license found and GitHub repo removed. Owner cancelled it on 2026-11-20. Seen but not built."
     }
   ]
 }
