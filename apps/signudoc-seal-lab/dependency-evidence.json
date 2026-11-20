@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "app": "signudoc-seal-lab",
+    "auditedAtUtc": "2026-11-20T04:30:00Z",
+    "cutoffUtc": "2026-11-17T04:15:00Z",
+    "minimumReleaseAgeSeconds": 259200,
+    "lockfile": "bun.lock",
+    "transitiveSpotCheckNote": "Bun install age gate plus direct-pin list from brief; full transitive audit deferred to lockfile review."
+  },
+  "upstreamSignuDoc": {
+    "url": "https://github.com/NYLLON-SOFTWARE/SignuDoc",
+    "pinnedCommit": "23add9893ac0a9747f3aeba5d112d89581c8abea",
+    "committerUtc": "2026-11-17T04:03:27Z",
+    "license": "MIT",
+    "licensePath": "LICENSE"
+  },
+  "directDependencies": [
+    { "name": "react", "version": "19.3.1", "eligible": true, "license": "MIT" },
+    { "name": "react-dom", "version": "19.3.1", "eligible": true, "license": "MIT" },
+    { "name": "vite", "version": "8.3.5", "eligible": true, "license": "MIT" },
+    { "name": "@vitejs/plugin-react", "version": "6.1.2", "eligible": true, "license": "MIT" },
+    { "name": "typescript", "version": "6.0.3", "eligible": true, "license": "Apache-2.0" },
+    { "name": "shadcn", "version": "4.22.1", "eligible": true, "license": "MIT" },
+    { "name": "pdf-lib", "version": "1.17.1", "eligible": true, "license": "MIT" },
+    { "name": "pdfjs-dist", "version": "5.5.207", "eligible": true, "license": "Apache-2.0" },
+    { "name": "lucide-react", "version": "1.70.0", "eligible": true, "license": "ISC" },
+    { "name": "tailwindcss", "version": "4.3.3", "eligible": true, "license": "MIT" }
+  ],
+  "decision": "Pinned toolchain from cool-tech brief; SignuDoc code vendored as adapted MIT modules, not npm package."
+}
