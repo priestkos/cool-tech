@@ -1,0 +1,20 @@
+{
+  "id": "frostwind",
+  "title": "Frostwind World Lab (real compiler biome frames)",
+  "url": "https://github.com/trinity-works/frostwind",
+  "date": "2026-11-22",
+  "sourceRefs": [
+    "https://github.com/trinity-works/frostwind",
+    "https://github.com/trinity-works/frostwind/tree/537ed51d215096df54ab45770f4f811481a2986b",
+    "https://project-frostwind.fly.dev/",
+    "https://x.com/marnold_mch/status/2123416870808363492"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "MIT",
+    "pinnedCommit": "537ed51d215096df54ab45770f4f811481a2986b",
+    "pinnedCommitterUtc": "2026-11-19T09:21:43Z",
+    "cutoffUtc": "2026-11-19T09:46:04Z",
+    "note": "Vendored Frostwind src at pin; four biome compile lab with scale table and deterministic seed fingerprints."
+  }
+}
