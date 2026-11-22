@@ -1,5 +1,54 @@
 {
-  "proposed": [],
+  "proposed": [
+    {
+      "id": "reverb-tts",
+      "title": "Reverb-TTS on ruNNtime (browser WebGPU voice cloning)",
+      "url": "https://huggingface.co/spaces/software-mansion/Reverb-TTS-runntime",
+      "date": "2026-11-21",
+      "sourceRefs": [
+        "https://github.com/software-mansion/runntime",
+        "https://www.npmjs.com/package/runntime/v/0.3.0",
+        "https://huggingface.co/software-mansion/Reverb-TTS",
+        "https://huggingface.co/spaces/software-mansion/Reverb-TTS-runntime"
+      ],
+      "note": "Seen in Nov 21 scout (main pick); owner approved and scheduled Reverb Voice Lab (runntime@0.3.0, HF revision 9c0da9d). Seen but not built."
+    },
+    {
+      "id": "zen-sand-ui",
+      "title": "Zen Sand UI (sand-simulated rake slider, stone toggle, signature and thinking controls)",
+      "url": "https://github.com/finktheartist/zen-sand-ui",
+      "date": "2026-11-21",
+      "sourceRefs": [
+        "https://github.com/finktheartist/zen-sand-ui",
+        "https://github.com/finktheartist/zen-sand-ui/tree/8e9b289523e6fdcb19e8be9db5b7ea6a9ccc6c7b",
+        "https://zen-sand-ui.vercel.app"
+      ],
+      "note": "Seen in Nov 21 scout (runner-up); owner approved and scheduled Zen Sand Garden (pin 8e9b289). Seen but not built."
+    },
+    {
+      "id": "sprite-stacking",
+      "title": "sprite-stacking (four-view fake-3D pixel sprite stacks by Daniel White)",
+      "url": "https://github.com/danielwh2/sprite-stacking",
+      "date": "2026-11-22",
+      "sourceRefs": [
+        "https://github.com/danielwh2/sprite-stacking",
+        "https://github.com/danielwh2/sprite-stacking/tree/6fecdfd0d6e5a0595f979550e05f4b1fcde550fe"
+      ],
+      "note": "Seen in Nov 22 scout (main pick); owner approved and scheduled Sprite Stack Studio (pin 6fecdfd). Seen but not built."
+    },
+    {
+      "id": "asog",
+      "title": "Animated SOG (compact 4D Gaussian splat clips with PlayCanvas and three.js players)",
+      "url": "https://github.com/arrival-space/animated-sog",
+      "date": "2026-11-22",
+      "sourceRefs": [
+        "https://github.com/arrival-space/animated-sog",
+        "https://github.com/arrival-space/animated-sog/tree/69e2de220813904f8ac9c4b69841b21468ca160c",
+        "https://arrival.space"
+      ],
+      "note": "Seen in Nov 22 scout (runner-up); owner approved and scheduled ASOG Player Lab (pin 69e2de2). Seen but not built."
+    }
+  ],
   "built": [
     {
       "id": "react-bits-sound-lab",
@@ -522,6 +571,20 @@
       "upstreamAgeAssessment": {
         "mode": "real-code",
         "note": "Uses real screen-relay@0.1.0 (Apache-2.0, published 2026-11-17T02:39Z) with mock frame mode when no engine is built; merged in PR #83."
+      }
+    },
+    {
+      "id": "frostwind",
+      "title": "Frostwind World Lab (real compiler biome frames)",
+      "url": "https://github.com/trinity-works/frostwind",
+      "date": "2026-11-22",
+      "sourceRefs": [
+        "https://github.com/trinity-works/frostwind",
+        "https://x.com/marnold_mch/status/2123416870808363492"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Vendors Frostwind MIT code at commit 537ed51d215096df54ab45770f4f811481a2986b (committed 2026-11-19T09:21:43Z); merged in PR #86."
       }
     }
   ],
