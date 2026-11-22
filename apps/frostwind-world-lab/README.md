@@ -19,6 +19,7 @@ bun run build
 ## Architecture
 
 - Vendored Frostwind `src/` at the pinned commit; `FrostwoodWorld` GPU pipeline from `render.js`.
+- Local security patch over upstream `537ed51`: `vendor/frostwind/src/main.js` `boom()` uses DOM APIs instead of `innerHTML` (CodeQL).
 - React + shadcn minimalist chrome; compile runs in-browser (WebGL), no runtime network.
 - Scale rows from `scale.js` and `body-deer.js` (`measureDeer`, `northBuck.bodyLengthM`).
 

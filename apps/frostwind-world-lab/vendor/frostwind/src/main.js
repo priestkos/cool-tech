@@ -40,7 +40,9 @@ $('vision-mascot').src=dreamMachines;
 
 function boom(title,detail){
   const el=$('boom');
-  el.innerHTML='<b>'+title+'</b><br><br>'+detail;
+  const bold=document.createElement('b');
+  bold.textContent=title;
+  el.replaceChildren(bold,document.createElement('br'),document.createElement('br'),document.createTextNode(detail));
   el.style.display='block'; showLoad(false);
 }
 function showLoad(on){
