@@ -1,19 +1,6 @@
 {
   "proposed": [
     {
-      "id": "reverb-tts",
-      "title": "Reverb-TTS on ruNNtime (browser WebGPU voice cloning)",
-      "url": "https://huggingface.co/spaces/software-mansion/Reverb-TTS-runntime",
-      "date": "2026-11-21",
-      "sourceRefs": [
-        "https://github.com/software-mansion/runntime",
-        "https://www.npmjs.com/package/runntime/v/0.3.0",
-        "https://huggingface.co/software-mansion/Reverb-TTS",
-        "https://huggingface.co/spaces/software-mansion/Reverb-TTS-runntime"
-      ],
-      "note": "Seen in Nov 21 scout (main pick); owner approved and scheduled Reverb Voice Lab (runntime@0.3.0, HF revision 9c0da9d). Seen but not built."
-    },
-    {
       "id": "zen-sand-ui",
       "title": "Zen Sand UI (sand-simulated rake slider, stone toggle, signature and thinking controls)",
       "url": "https://github.com/finktheartist/zen-sand-ui",
@@ -585,6 +572,21 @@
       "upstreamAgeAssessment": {
         "mode": "real-code",
         "note": "Vendors Frostwind MIT code at commit 537ed51d215096df54ab45770f4f811481a2986b (committed 2026-11-19T09:21:43Z); merged in PR #86."
+      }
+    },
+    {
+      "id": "reverb-tts",
+      "title": "Reverb Voice Lab (runntime WebGPU voice cloning)",
+      "url": "https://huggingface.co/software-mansion/Reverb-TTS",
+      "date": "2026-11-22",
+      "sourceRefs": [
+        "https://www.npmjs.com/package/runntime/v/0.3.0",
+        "https://huggingface.co/software-mansion/Reverb-TTS/tree/9c0da9ddfd47619375ce8e5aeede4681fe32d24d",
+        "https://github.com/software-mansion/runntime"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Uses real runntime@0.3.0 (MIT, published 2026-11-19T14:12:45Z) with Reverb-TTS weights pinned to HF revision 9c0da9ddfd47619375ce8e5aeede4681fe32d24d; merged in PR #88."
       }
     }
   ],
