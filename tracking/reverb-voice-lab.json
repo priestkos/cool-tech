@@ -1,0 +1,25 @@
+{
+  "id": "reverb-voice-lab",
+  "title": "Reverb Voice Lab (runntime WebGPU voice cloning)",
+  "url": "https://huggingface.co/software-mansion/Reverb-TTS",
+  "date": "2026-11-22",
+  "demoMode": "real-runtime",
+  "sourceRefs": [
+    "https://www.npmjs.com/package/runntime/v/0.3.0",
+    "https://huggingface.co/software-mansion/Reverb-TTS/tree/9c0da9ddfd47619375ce8e5aeede4681fe32d24d",
+    "https://github.com/software-mansion-labs/Reverb-TTS",
+    "https://docs.swmansion.com/runntime"
+  ],
+  "pinnedVersions": {
+    "runntime": "0.3.0",
+    "reverbHfRevision": "9c0da9ddfd47619375ce8e5aeede4681fe32d24d"
+  },
+  "upstreamAgeAssessment": {
+    "mode": "real-runtime",
+    "runntimePublishedUtc": "2026-11-19T14:12:45.389Z",
+    "reverbRevisionUtc": "2026-11-19",
+    "cutoffIst": "2026-11-19T09:00:00+05:30",
+    "eligible": true,
+    "note": "runntime 0.3.0 adds createTextToSpeech; weights pinned to HF 9c0da9d, not main."
+  }
+}
