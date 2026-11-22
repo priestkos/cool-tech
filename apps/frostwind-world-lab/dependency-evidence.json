@@ -1,0 +1,21 @@
+{
+  "cutoffUtc": "2026-11-19T09:46:04Z",
+  "cutoffNote": "Launch minus 72h per 2026-11-22T09:46:04Z launcher verification",
+  "frostwind": {
+    "url": "https://github.com/trinity-works/frostwind",
+    "commit": "537ed51d215096df54ab45770f4f811481a2986b",
+    "committerDateUtc": "2026-11-19T09:21:43Z",
+    "licensePath": "vendor/frostwind/LICENSE",
+    "mode": "vendored-src"
+  },
+  "directDependencies": [
+    { "name": "three", "version": "0.160.1", "publishedUtc": "2024-01-22T08:01:11.125Z", "eligible": true },
+    { "name": "react", "version": "19.3.1", "eligible": true, "note": "cool-tech lab pin" },
+    { "name": "vite", "version": "8.3.5", "eligible": true, "note": "cool-tech lab pin" }
+  ],
+  "decisions": [
+    "Frostwind not on npm; MIT src vendored at pinned commit",
+    "Remotion, Playwright, @fontsource/inter from upstream package.json not installed",
+    "esbuild not added; chunk worker left empty (sync chunk path per upstream tests)"
+  ]
+}
