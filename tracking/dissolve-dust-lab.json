@@ -1,0 +1,23 @@
+{
+  "id": "dissolve-dust-lab",
+  "title": "Dissolve Dust Lab (real dissolve-ui web grain engine)",
+  "url": "https://github.com/dissolve-ui/dissolve",
+  "date": "2026-11-23",
+  "sourceRefs": [
+    "https://github.com/dissolve-ui/dissolve",
+    "https://github.com/rs-4/dissolve",
+    "https://www.npmjs.com/package/dissolve-ui/v/0.0.6",
+    "https://dissolve.rselmi.com",
+    "https://x.com/rsStats_/status/2124194035703398830"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "MIT",
+    "pinnedPackage": "dissolve-ui@0.0.6",
+    "pinnedPublishedUtc": "2026-11-19T13:27:51.976Z",
+    "pinnedCommit": "06eddec11725e5874eafce69e97d10cca0f7f882",
+    "pinnedCommitCommitterUtc": "2026-11-19T13:34:07Z",
+    "cutoffUtc": "2026-11-20T05:35:00.000Z",
+    "note": "Web registry copied via dissolve-ui@0.0.6 CLI; 0.0.7 and Nov 21 components excluded."
+  }
+}
