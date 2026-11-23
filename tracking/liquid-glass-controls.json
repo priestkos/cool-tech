@@ -1,0 +1,21 @@
+{
+  "id": "liquid-glass-controls",
+  "title": "Liquid Glass Controls (real bilalgursen/liquid-glass lab)",
+  "url": "https://github.com/bilalgursen/liquid-glass",
+  "date": "2026-11-23",
+  "sourceRefs": [
+    "https://github.com/bilalgursen/liquid-glass",
+    "https://github.com/bilalgursen/liquid-glass/tree/d11b3f62407f8d5ec1573c8591e2047248c52cbf",
+    "https://liquid-glass-interface.pages.dev",
+    "https://x.com/bilalgursen777/status/2124533364283552065"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "MIT",
+    "pinCommit": "d11b3f62407f8d5ec1573c8591e2047248c52cbf",
+    "pinCommitterUtc": "2026-11-19T12:46:57Z",
+    "threePackage": "three@0.185.1",
+    "cutoffUtc": "2026-11-20T05:35:00Z",
+    "note": "Vendored liquid-glass/ at pin; no analytics script; post-pin dd8497f excluded."
+  }
+}
