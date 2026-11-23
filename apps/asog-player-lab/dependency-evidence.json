@@ -1,0 +1,43 @@
+{
+  "cutoffUtc": "2026-11-20T12:20:00Z",
+  "launchNote": "Planned launch ~2026-11-23T12:20:00Z; packages must predate cutoff by >=72h",
+  "animatedSog": {
+    "repo": "https://github.com/arrival-space/animated-sog",
+    "commit": "69e2de220813904f8ac9c4b69841b21468ca160c",
+    "committerUtc": "2026-11-20T11:55:02Z",
+    "license": "MIT",
+    "licensePath": "vendor/animated-sog/LICENSE",
+    "vendorHashesFile": "vendor-hashes.txt"
+  },
+  "directDependencies": [
+    {
+      "name": "three",
+      "version": "0.187.0",
+      "publishedUtc": "2026-10-30T08:09:24.504Z",
+      "license": "MIT",
+      "integrity": "sha512-Qiu7R+Cmh8CstZsY1uJOSWnVlfo7ZtNLV7mF8Jltk3LB3AtDu9cRKkAk8Y4z6KKw35z7Y7Urd7jWY8etA=="
+    },
+    {
+      "name": "react",
+      "version": "19.3.1"
+    },
+    {
+      "name": "react-dom",
+      "version": "19.3.1"
+    },
+    {
+      "name": "vite",
+      "version": "8.3.5"
+    },
+    {
+      "name": "@types/three",
+      "version": "0.187.0"
+    },
+    {
+      "name": "lucide-react",
+      "version": "1.70.0",
+      "publishedUtc": "2026-11-06T06:15:46.080Z"
+    }
+  ],
+  "transitiveAudit": "Lockfile committed via bun install; spot-check only at launch — full npm tarball time audit deferred to CI policy."
+}

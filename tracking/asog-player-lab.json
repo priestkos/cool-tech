@@ -1,0 +1,22 @@
+{
+  "id": "asog-player-lab",
+  "title": "ASOG Player Lab (real Animated SOG three.js player)",
+  "url": "https://github.com/arrival-space/animated-sog",
+  "date": "2026-11-23",
+  "sourceRefs": [
+    "https://github.com/arrival-space/animated-sog",
+    "https://github.com/arrival-space/animated-sog/tree/69e2de220813904f8ac9c4b69841b21468ca160c",
+    "https://arrival.space",
+    "https://arrival-space.github.io/animated-sog/examples/three/",
+    "https://x.com/PixelBilly/status/2123790744183816344"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "MIT",
+    "pinnedCommit": "69e2de220813904f8ac9c4b69841b21468ca160c",
+    "pinnedCommitterUtc": "2026-11-20T11:55:02Z",
+    "cutoffUtc": "2026-11-20T12:20:00Z",
+    "threeVersion": "0.187.0",
+    "note": "Vendored js/src decoder and AsogThreePlayer; bundled rubloff-1s and rubloff-6s test clips; WebGL2 lab chrome."
+  }
+}
