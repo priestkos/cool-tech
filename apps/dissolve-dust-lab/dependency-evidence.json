@@ -1,0 +1,32 @@
+{
+  "cutoffUtc": "2026-11-20T05:35:00.000Z",
+  "cutoffIst": "2026-11-20T11:05:00+05:30",
+  "launchUtc": "2026-11-23T05:35:00.000Z",
+  "mode": "direct-pins-plus-cli-copy",
+  "dissolveUi": {
+    "package": "dissolve-ui@0.0.6",
+    "publishedUtc": "2026-11-19T13:27:51.976Z",
+    "gitHead": "c132c00946aeec98bb8145d5fee287818fa4542b",
+    "sourceCommit": "06eddec11725e5874eafce69e97d10cca0f7f882",
+    "sourceCommitterUtc": "2026-11-19T13:34:07Z",
+    "license": "MIT",
+    "obtainMethod": "bunx dissolve-ui@0.0.6 init --web; add scratch-card toast swipe-to-delete glossy-button like-button",
+    "registryPath": "node_modules/dissolve-ui/registry/web",
+    "hashChecks": {
+      "engine.ts": "sha256-match src/components/dissolve vs registry/web (see bun test)"
+    },
+    "excluded": ["dissolve-ui@0.0.7", "live dissolve.rselmi.com registry"]
+  },
+  "directDependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "vite": "8.3.5",
+    "@vitejs/plugin-react": "6.1.2",
+    "typescript": "6.0.3",
+    "shadcn": "4.22.1",
+    "tailwindcss": "4.3.3",
+    "@tailwindcss/vite": "4.3.3",
+    "lucide-react": "1.70.0"
+  },
+  "transitiveVerification": "Bun lockfile committed; age gate minimumReleaseAge=259200 in bunfig.toml. Full transitive publish-time audit not exhaustively re-listed here."
+}
