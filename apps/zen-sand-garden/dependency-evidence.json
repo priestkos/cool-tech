@@ -1,0 +1,76 @@
+{
+  "cutoffUtc": "2026-11-20T16:35:00Z",
+  "launchUtc": "2026-11-23T16:35:00Z",
+  "zenSandUi": {
+    "repo": "https://github.com/finktheartist/zen-sand-ui",
+    "pinnedCommit": "8e9b289523e6fdcb19e8be9db5b7ea6a9ccc6c7b",
+    "pinnedCommitterUtc": "2026-11-20T16:21:59Z",
+    "license": "MIT",
+    "npmPackage": false,
+    "vendoredFiles": {
+      "public/zen-sand-ui/slider.js": "5a8bbdc276742c1ae43c57b880dc60b016aaf4f8b9242114851fada65657df5a",
+      "public/zen-sand-ui/toggle.js": "fc5a39d4e4402c625f5d0aeb958e4f2c0637ea51a4b9f2b9ebe82addc19e1b86",
+      "public/zen-sand-ui/signature.js": "eacf4bc257d0f6a694a1a7f2c43bb820f926beb22d22763acfc88db7e2c6a6c2",
+      "public/zen-sand-ui/thinking.js": "e61313462c8257aedd315ec69f329b088d71a780f160683ceba30b3314a95b1a",
+      "THIRD_PARTY_LICENSES": "056e3d84530a1353df8ccad533823e2fd3a8cd94bec7dac2342b1d33eb60d624"
+    },
+    "loadPattern": "classic script tags in index.html (not ES modules)"
+  },
+  "directDependencies": [
+    {
+      "name": "react",
+      "version": "19.3.1",
+      "publishedUtc": "2026-10-14T16:47:15.290Z",
+      "license": "MIT"
+    },
+    {
+      "name": "react-dom",
+      "version": "19.3.1",
+      "publishedUtc": "2026-10-14T16:49:10.081Z",
+      "license": "MIT"
+    },
+    {
+      "name": "vite",
+      "version": "8.3.5",
+      "publishedUtc": "2026-10-21T06:38:54.907Z",
+      "license": "MIT"
+    },
+    {
+      "name": "@vitejs/plugin-react",
+      "version": "6.1.2",
+      "publishedUtc": "2026-10-05T10:08:27.143Z",
+      "license": "MIT"
+    },
+    {
+      "name": "typescript",
+      "version": "6.0.3",
+      "publishedUtc": "2026-04-16T23:38:27.905Z",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "shadcn",
+      "version": "4.22.1",
+      "publishedUtc": "2026-10-18T18:12:18.511Z",
+      "license": "MIT"
+    },
+    {
+      "name": "@base-ui/react",
+      "version": "1.9.0",
+      "publishedUtc": "2026-10-09T08:52:43.788Z",
+      "license": "MIT"
+    },
+    {
+      "name": "tailwindcss",
+      "version": "4.3.3",
+      "publishedUtc": "2026-07-16T12:03:35.267Z",
+      "license": "MIT"
+    },
+    {
+      "name": "@tailwindcss/vite",
+      "version": "4.3.3",
+      "publishedUtc": "2026-07-16T12:04:06.316Z",
+      "license": "MIT"
+    }
+  ],
+  "notes": "Transitive npm versions resolved in bun.lock; all direct pins predate cutoff. Vendored Zen Sand files are not npm packages."
+}
