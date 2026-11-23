@@ -22,18 +22,6 @@
         "https://github.com/danielwh2/sprite-stacking/tree/6fecdfd0d6e5a0595f979550e05f4b1fcde550fe"
       ],
       "note": "Seen in Nov 22 scout (main pick); owner approved and scheduled Sprite Stack Studio (pin 6fecdfd). Seen but not built."
-    },
-    {
-      "id": "asog",
-      "title": "Animated SOG (compact 4D Gaussian splat clips with PlayCanvas and three.js players)",
-      "url": "https://github.com/arrival-space/animated-sog",
-      "date": "2026-11-22",
-      "sourceRefs": [
-        "https://github.com/arrival-space/animated-sog",
-        "https://github.com/arrival-space/animated-sog/tree/69e2de220813904f8ac9c4b69841b21468ca160c",
-        "https://arrival.space"
-      ],
-      "note": "Seen in Nov 22 scout (runner-up); owner approved and scheduled ASOG Player Lab (pin 69e2de2). Seen but not built."
     }
   ],
   "built": [
@@ -615,6 +603,20 @@
       "upstreamAgeAssessment": {
         "mode": "real-code",
         "note": "Uses real dissolve-ui@0.0.6 (MIT, published 2026-11-19T13:27:51Z) at commit 06eddec11725e5874eafce69e97d10cca0f7f882; merged in PR #91."
+      }
+    },
+    {
+      "id": "asog",
+      "title": "ASOG Player Lab (real Animated SOG three.js player)",
+      "url": "https://github.com/arrival-space/animated-sog",
+      "date": "2026-11-23",
+      "sourceRefs": [
+        "https://github.com/arrival-space/animated-sog",
+        "https://x.com/PixelBilly/status/2123790744183816344"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Vendors arrival-space/animated-sog MIT code at commit 69e2de220813904f8ac9c4b69841b21468ca160c (committed 2026-11-20T11:55:02Z); demo slug asog-player-lab (apps/asog-player-lab); merged in PR #93 (96f5a0e)."
       }
     }
   ],
