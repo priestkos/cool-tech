@@ -7,6 +7,8 @@ import {
   labToCardBlur,
   labToCardOptics,
   labToKnobBounce,
+  labToLayerBlur,
+  labToLayerOptics,
   labToPressSpring,
   labToSliderRefraction,
   labToSwitchRefraction,
@@ -65,6 +67,33 @@ describe("tuning maps to real kit APIs", () => {
     const snappy = labToPressSpring(90)
     expect(snappy.pressSpeed).toBeGreaterThan(soft.pressSpeed)
     expect(labToKnobBounce(90)).toBeGreaterThan(labToKnobBounce(10))
+  })
+})
+
+describe("tuning edge clamps", () => {
+  test("press bounce stays inside 0.05..0.95 and speed tracks the knob", () => {
+    expect(labToPressSpring(0).pressSpeed).toBe(8)
+    expect(labToPressSpring(100).pressSpeed).toBe(36)
+    expect(labToPressSpring(0).pressBounce).toBeCloseTo(0.1, 5)
+    expect(labToPressSpring(100).pressBounce).toBeCloseTo(0.7, 5)
+    expect(labToPressSpring(200).pressBounce).toBe(0.95)
+    expect(labToPressSpring(-100).pressBounce).toBe(0.05)
+  })
+
+  test("card frost saturates and negative blur clamps to 0", () => {
+    expect(labToCardOptics(0).frostMix).toBe(0)
+    expect(labToCardOptics(25).frostMix).toBe(0.5)
+    expect(labToCardOptics(100).frostMix).toBe(1)
+    expect(labToCardBlur(-10)).toBe(0)
+    expect(labToCardBlur(100)).toBe(20)
+    expect(labToLayerBlur(-10)).toBe(0)
+  })
+
+  test("layer refraction uses its own curve", () => {
+    expect(labToLayerOptics(0, 0).refraction).toBeCloseTo(0.4, 5)
+    expect(labToCardOptics(0).refraction).toBeCloseTo(0.35, 5)
+    expect(labToLayerOptics(100, 40).refraction).toBeCloseTo(2.6, 5)
+    expect(labToLayerOptics(100, 40).refraction).not.toBe(labToCardOptics(100).refraction)
   })
 })
 
