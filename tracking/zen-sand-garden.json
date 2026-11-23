@@ -1,0 +1,20 @@
+{
+  "id": "zen-sand-garden",
+  "title": "Zen Sand Garden (real Zen Sand UI custom elements)",
+  "url": "https://github.com/finktheartist/zen-sand-ui",
+  "date": "2026-11-23",
+  "sourceRefs": [
+    "https://github.com/finktheartist/zen-sand-ui",
+    "https://github.com/finktheartist/zen-sand-ui/tree/8e9b289523e6fdcb19e8be9db5b7ea6a9ccc6c7b",
+    "https://zen-sand-ui.vercel.app",
+    "https://x.com/crtvTeknologist/status/2123815420016681109"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "MIT",
+    "pinnedCommit": "8e9b289523e6fdcb19e8be9db5b7ea6a9ccc6c7b",
+    "pinnedCommitterUtc": "2026-11-20T16:21:59Z",
+    "cutoffUtc": "2026-11-20T16:35:00Z",
+    "note": "Four byte-identical control scripts + LICENSE vendored to public/zen-sand-ui/; shadcn settings lab with tray size, sound, and fake agent run."
+  }
+}
