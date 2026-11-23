@@ -1,18 +1,6 @@
 {
   "proposed": [
     {
-      "id": "zen-sand-ui",
-      "title": "Zen Sand UI (sand-simulated rake slider, stone toggle, signature and thinking controls)",
-      "url": "https://github.com/finktheartist/zen-sand-ui",
-      "date": "2026-11-21",
-      "sourceRefs": [
-        "https://github.com/finktheartist/zen-sand-ui",
-        "https://github.com/finktheartist/zen-sand-ui/tree/8e9b289523e6fdcb19e8be9db5b7ea6a9ccc6c7b",
-        "https://zen-sand-ui.vercel.app"
-      ],
-      "note": "Seen in Nov 21 scout (runner-up); owner approved and scheduled Zen Sand Garden (pin 8e9b289). Seen but not built."
-    },
-    {
       "id": "sprite-stacking",
       "title": "sprite-stacking (four-view fake-3D pixel sprite stacks by Daniel White)",
       "url": "https://github.com/danielwh2/sprite-stacking",
@@ -617,6 +605,20 @@
       "upstreamAgeAssessment": {
         "mode": "real-code",
         "note": "Vendors arrival-space/animated-sog MIT code at commit 69e2de220813904f8ac9c4b69841b21468ca160c (committed 2026-11-20T11:55:02Z); demo slug asog-player-lab (apps/asog-player-lab); merged in PR #93 (96f5a0e)."
+      }
+    },
+    {
+      "id": "zen-sand-ui",
+      "title": "Zen Sand Garden (real Zen Sand UI custom elements)",
+      "url": "https://github.com/finktheartist/zen-sand-ui",
+      "date": "2026-11-23",
+      "sourceRefs": [
+        "https://github.com/finktheartist/zen-sand-ui",
+        "https://x.com/crtvTeknologist/status/2123815420016681109"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Vendors finktheartist/zen-sand-ui MIT code at commit 8e9b289523e6fdcb19e8be9db5b7ea6a9ccc6c7b (committed 2026-11-20T16:21:59Z); demo slug zen-sand-garden (apps/zen-sand-garden); merged in PR #95 (e4d20e3)."
       }
     }
   ],
