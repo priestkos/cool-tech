@@ -155,7 +155,21 @@
       "id": "stageshow",
       "title": "Stageshow by Benji Taylor: an agent skill for polished faux product UI stills, animations and bento grids",
       "url": "https://x.com/benjitaylor/status/2116593247854453244",
-      "date": "2026-11-01"
+      "date": "2026-11-01",
+      "sourceRefs": [
+        "https://github.com/benjitaylor/skills/tree/stageshow-v1.1.1/stageshow",
+        "https://github.com/benjitaylor/skills/commit/299140fafd08df55a9c234e610c3f64af3f45531",
+        "https://github.com/benjitaylor/skills/releases/tag/stageshow-v1.1.1"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "pinnedVersion": "stageshow-v1.1.1",
+        "pinnedCommit": "299140fafd08df55a9c234e610c3f64af3f45531",
+        "committedUtc": "2026-11-05T03:24:25Z",
+        "publishedUtc": "2026-11-05T03:34:27Z",
+        "license": "MIT (stageshow/LICENSE, Benji Taylor)",
+        "note": "Full kit vendored under apps/stageshow-moments/vendor/stageshow/kit; moments authored with Stage/Act API."
+      }
     },
     {
       "id": "spark-radix",
@@ -213,7 +227,7 @@
     },
     {
       "id": "screenshot-to-tokens",
-      "title": "Screenshot to Tokens (screenshot → three-tier design tokens, CSS rewrite, pixel+WCAG verify; fixture lab)",
+      "title": "Screenshot to Tokens (screenshot \u2192 three-tier design tokens, CSS rewrite, pixel+WCAG verify; fixture lab)",
       "url": "https://x.com/precogpunk/status/2117740495526834365",
       "date": "2026-11-06"
     },
@@ -228,32 +242,45 @@
       "title": "bottle-studio (interactive 3D bottle product studio)",
       "url": "https://github.com/amirmushichge/bottle-studio",
       "date": "2026-11-07",
-      "demoMode": "inspired-independent",
+      "demoMode": "real-code",
       "sourceRefs": [
         "https://github.com/amirmushichge/bottle-studio",
         "https://amirmushichge.github.io/bottle-studio/",
-        "https://github.com/amirmushichge/bottle-studio/releases/tag/v1.0.0"
+        "https://github.com/amirmushichge/bottle-studio/releases/tag/v1.0.0",
+        "apps/bottle-studio-lab/vendor/amirmushichge-bottle-studio/de876d4/index.html"
       ],
       "sourceCommit": "de876d4fb2bd3a37654647d4c585170237fe4123",
-      "ageAssessment": "Root commit and v1.0.0 published 2026-11-07 IST; younger than 72h at demo build — vendoring blocked; demo is independent implementation only."
+      "sourceTag": "v1.0.0",
+      "upstreamLicense": "MIT",
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "pinnedCommitUtc": "2026-11-06T19:56:27Z",
+        "launchCutoffIst": "2026-11-15T09:45:00+05:30",
+        "note": "v1.0.0 and root commit are older than 72h before Nov 18 2026 launch; full index.html vendored with offline three@0.170.0."
+      }
     },
     {
       "id": "ding-toast",
-      "title": "Ding Toast Lab (inspired single-toast morph playground)",
+      "title": "Ding Toast Lab (real @yusufceng1z/ding playground)",
       "url": "https://github.com/YusufCeng1z/ding",
       "date": "2026-11-07",
       "sourceRefs": [
+        "https://github.com/YusufCeng1z/ding",
+        "https://www.npmjs.com/package/@yusufceng1z/ding",
+        "https://www.npmjs.com/package/@yusufceng1z/ding-react",
+        "https://ding.yusufcengiz.dev",
         "https://21st.dev/@yusufceng1z/components/ding-toast"
       ],
       "upstreamAgeAssessment": {
-        "mode": "inspired-fixture-only",
-        "latestCommit": "a4931673435acd02a6887f72c3f17317bc541318",
-        "latestCommitAt": "2026-11-07T08:09:04+05:30",
-        "releaseTag": "v0.0.2",
-        "releaseAt": "2026-11-07T08:29:18+05:30",
-        "eligibleAfterCommit": "2026-11-10T08:09:04+05:30",
-        "eligibleAfterRelease": "2026-11-10T08:29:18+05:30",
-        "note": "No @yusufceng1z/ding install; independent implementation only."
+        "mode": "real-code",
+        "pinnedPackage": "@yusufceng1z/ding",
+        "pinnedVersion": "0.0.6",
+        "pinnedReactAdapter": "@yusufceng1z/ding-react@0.0.6",
+        "releaseTag": "v0.0.6",
+        "publishedUtc": "2026-11-14T10:44:28.446Z",
+        "alsoEligibleCommit": "d6acfa681c4bc86650cee7c2d32a6d93e008a7d6",
+        "license": "MIT",
+        "note": "Remake uses npm 0.0.6 (eligible vs 2026-11-15 09:45 IST cutoff). Replaced inspired-fixture-only local morph implementation."
       }
     },
     {
@@ -310,19 +337,25 @@
     },
     {
       "id": "agent-swarm-effect",
-      "title": "Agent Swarm Lab (clean-room re-creation)",
+      "title": "Agent Swarm Lab (agent-swarm-effect playground)",
       "url": "https://github.com/zadescoxp/agent-swarm-effect",
       "date": "2026-11-09",
       "sourceRefs": [
         "https://zadescoxp.github.io/agent-swarm-effect/",
+        "https://www.npmjs.com/package/agent-swarm-effect",
+        "https://github.com/zadescoxp/agent-swarm-effect/tree/v0.1.2",
         "https://x.com/zadescoxp/status/2119338919544463556"
       ],
       "upstreamAgeAssessment": {
-        "mode": "clean-room",
-        "npmCreated": "2026-11-08T07:17:26.640Z",
-        "eligible": false,
-        "eligibleFromIst": "2026-11-11T13:50:00+05:30",
-        "note": "Upstream under 72h at build; independent re-creation, no install or copied code; lockfile age audit 356/356 eligible. Real package swap possible after eligibility."
+        "mode": "real-code",
+        "pinnedPackage": "agent-swarm-effect",
+        "pinnedVersion": "0.1.2",
+        "pinnedTag": "v0.1.2",
+        "pinnedCommitSha": "547224afd5cbda6b87ff7bb17808b9718165908c",
+        "npmPublishedUtc": "2026-11-08T08:20:16.216Z",
+        "license": "MIT",
+        "launchCutoffApproxIst": "2026-11-15T09:45:00+05:30",
+        "note": "Installed from npm at 0.1.2; clean-room modules removed Nov 18 remake."
       }
     },
     {
@@ -347,22 +380,28 @@
     },
     {
       "id": "ui-sdk",
-      "title": "UI SDK Behavior Lab (clean-room behavior primitives)",
+      "title": "UI SDK Behavior Lab",
       "url": "https://ui-sdk.dev",
       "date": "2026-11-13",
       "sourceRefs": [
         "https://ui-sdk.dev",
         "https://github.com/vercel-labs/ui",
-        "https://x.com/vercel/status/2120950020249895314",
-        "https://github.com/vercel-labs/ui/commit/26ac6b3441335614cb413b54e56a9f9b0ff70f15"
+        "https://www.npmjs.com/package/@ui-sdk/core/v/0.1.0-beta.2",
+        "https://github.com/vercel-labs/ui/commit/220c1a0d7278872286a620a8e4ee4210ca46f9bd",
+        "https://x.com/vercel/status/2120950020249895314"
       ],
       "upstreamAgeAssessment": {
-        "mode": "clean-room",
-        "npmLatest": "@ui-sdk/core@0.1.0-beta.1",
-        "npmLatestPublished": "2026-11-12T17:12:06.305Z",
-        "eligibleFromIst": "2026-11-15T22:42:06.305+05:30",
-        "creditSnapshotCommit": "26ac6b3441335614cb413b54e56a9f9b0ff70f15",
-        "note": "No @ui-sdk/* install; independent behaviors in apps/ui-sdk-behavior-lab."
+        "mode": "real-code",
+        "license": "Apache-2.0",
+        "pinnedPackages": {
+          "@ui-sdk/core": "0.1.0-beta.2",
+          "@ui-sdk/react": "0.1.0-beta.2",
+          "@ui-sdk/web": "0.1.0-beta.2"
+        },
+        "pinnedCommit": "220c1a0d7278872286a620a8e4ee4210ca46f9bd",
+        "publishedUtc": "2026-11-13T13:05:20.558Z",
+        "cutoffIst": "2026-11-15T09:45:00+05:30",
+        "note": "Demo installs eligible @ui-sdk/* 0.1.0-beta.2; behaviors tested via upstream APIs."
       }
     },
     {
@@ -386,17 +425,25 @@
     },
     {
       "id": "bobine",
-      "title": "Bobine Media Lab (clean-room media players)",
+      "title": "Bobine Media Lab (bobinejs real-code player demo)",
       "url": "https://bobine.fyi",
       "date": "2026-11-14",
       "sourceRefs": [
         "https://bobine.fyi",
+        "https://github.com/SanyamPunia/bobine",
+        "https://www.npmjs.com/package/bobinejs",
+        "https://bobine.fyi/r/video-player.json",
         "https://x.com/sanyampunia/status/2120796070540365928"
       ],
       "upstreamAgeAssessment": {
-        "mode": "clean-room",
-        "eligibleFromIst": "2026-11-15T13:59:00+05:30",
-        "note": "No public repository or license at scout time; independent players in apps/bobine-media-lab with no bobine registry install."
+        "mode": "real-code",
+        "license": "MIT",
+        "pinnedPackage": "bobinejs@0.2.2",
+        "pinnedPublishedUtc": "2026-11-11T22:33:19.712Z",
+        "pinnedTagSha": "7065c1780ef9457c6e6b4fb43ac706c9a0183bc2",
+        "alternateEligibleCommit": "27f8ba10b519c654ebe2b07af9f77e017e7c8253",
+        "cutoffIst": "2026-11-15T09:45:00+05:30",
+        "note": "Remake Nov 2026: npm bobinejs@0.2.2 replaces clean-room players; hls.js peer lazy-loaded via bobinejs/hls."
       }
     },
     {
@@ -407,27 +454,35 @@
       "sourceRefs": [
         "https://polyfork.dev",
         "https://github.com/lucas-martinic/polyfork-catalog",
-        "https://x.com/songsong/status/2121055884294185400"
+        "https://x.com/songsong/status/2121055884294185400",
+        "https://polyfork.dev/licensing"
       ],
       "upstreamAgeAssessment": {
-        "mode": "eligible",
-        "note": "Catalog snapshot pinned at 2232f7df and polyfork CLI 0.1.1 (Nov 2) eligible; Polyfork .mjs modules are loaded live from polyfork.dev only and never committed."
+        "catalogIndexPin": "2232f7df96e44517e4f9b2d08df1081a4a3780e7",
+        "polyforkCli": "0.1.1 (MIT, Nov 2 2026) referenced in UI only",
+        "runtimeCdnModules": "mutable; loaded only in Live Polyfork CDN mode; never committed",
+        "note": "Offline default uses snapshot + placeholders; three@0.187.0 and React/Vite pins match sibling demos vs launch-minus-72h cutoff.",
+        "mode": "eligible"
       }
     },
     {
       "id": "threert",
-      "title": "ThreeRT Scene Lab (clean-room physical-units scene editor)",
+      "title": "ThreeRT Scene Lab (@threert/scene)",
       "url": "https://threert.dev",
       "date": "2026-11-15",
       "sourceRefs": [
         "https://threert.dev",
         "https://github.com/meshy-dev/ThreeRT",
+        "https://www.npmjs.com/package/@threert/scene/v/0.1.1",
         "https://x.com/ThreeRT3D/status/2121238880808829385"
       ],
       "upstreamAgeAssessment": {
-        "mode": "clean-room",
-        "eligibleFromIst": "2026-11-16T06:05:00+05:30",
-        "note": "@threert/scene 0.1.1 younger than 72h at build time; independent plain three.js lab in apps/threert-scene-lab with no @threert packages or copied source."
+        "mode": "real-code",
+        "pinnedPackage": "@threert/scene@0.1.1",
+        "publishedUtc": "2026-11-13T00:35:32.034Z",
+        "pinnedCommit": "1aae0b7f81a5ba6a4491bc624baf4a5799ffb060",
+        "license": "MIT",
+        "note": "apps/threert-scene-lab builds scenes with @threert/scene 0.1.1; browser preview uses three.js raster path."
       }
     },
     {
@@ -632,7 +687,10 @@
       "title": "Intent UI: Intents and Persistence (IAP) RFC",
       "url": "https://x.com/BraydenWilmoth/status/2119813513006993813",
       "date": "2026-11-11",
-      "sourceRefs": ["https://intent-ui.com", "https://intent-ui.com/rfc"],
+      "sourceRefs": [
+        "https://intent-ui.com",
+        "https://intent-ui.com/rfc"
+      ],
       "note": "Seen in Nov 11 scout (main pick); owner chose Skip today. Seen but not built."
     },
     {
@@ -640,7 +698,10 @@
       "title": "Mintlify agent-traffic (AI agent and bot traffic classifier)",
       "url": "https://x.com/mintlify/status/2120234021368254922",
       "date": "2026-11-11",
-      "sourceRefs": ["https://github.com/mintlify/agent-traffic", "https://agent-traffic.mintlify.site"],
+      "sourceRefs": [
+        "https://github.com/mintlify/agent-traffic",
+        "https://agent-traffic.mintlify.site"
+      ],
       "note": "Seen in Nov 11 scout (runner-up); owner chose Skip today. Seen but not built."
     },
     {
@@ -648,7 +709,10 @@
       "title": "@shadcn/lint (Tailwind v4 design-system linter for coding agents)",
       "url": "https://x.com/awe0_io/status/2119116454360658418",
       "date": "2026-11-12",
-      "sourceRefs": ["https://github.com/shadcn-ui/lint", "https://x.com/VarunChopr17597/status/2120359834264523131"],
+      "sourceRefs": [
+        "https://github.com/shadcn-ui/lint",
+        "https://x.com/VarunChopr17597/status/2120359834264523131"
+      ],
       "note": "Seen in Nov 12 scout (main pick); owner chose Skip today. Seen but not built."
     },
     {
@@ -656,7 +720,10 @@
       "title": "vlt Security Insights (dependency-graph selector queries)",
       "url": "https://x.com/vltpkg/status/2120258033007653300",
       "date": "2026-11-12",
-      "sourceRefs": ["https://github.com/vltpkg/vltpkg", "https://docs.vlt.sh/client/selectors/security-insights"],
+      "sourceRefs": [
+        "https://github.com/vltpkg/vltpkg",
+        "https://docs.vlt.sh/client/selectors/security-insights"
+      ],
       "note": "Seen in Nov 12 scout (runner-up); owner chose Skip today. Seen but not built."
     },
     {
@@ -664,7 +731,11 @@
       "title": "Personal Agent Protocol (Poppy) v1.0 by Sierra",
       "url": "https://x.com/SierraPlatform/status/2121296788766519431",
       "date": "2026-11-14",
-      "sourceRefs": ["https://personalagentprotocol.org/docs/1.0/spec", "https://github.com/personal-agent-protocol/personal-agent-protocol", "https://sierra.ai/blog/releasing-poppy"],
+      "sourceRefs": [
+        "https://personalagentprotocol.org/docs/1.0/spec",
+        "https://github.com/personal-agent-protocol/personal-agent-protocol",
+        "https://sierra.ai/blog/releasing-poppy"
+      ],
       "note": "Seen in Nov 14 scout (main pick); owner chose the runner-up instead. Seen but not built."
     },
     {
@@ -680,4 +751,3 @@
     }
   ]
 }
-
