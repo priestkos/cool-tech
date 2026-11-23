@@ -588,6 +588,34 @@
         "mode": "real-code",
         "note": "Uses real runntime@0.3.0 (MIT, published 2026-11-19T14:12:45Z) with Reverb-TTS weights pinned to HF revision 9c0da9ddfd47619375ce8e5aeede4681fe32d24d; merged in PR #88."
       }
+    },
+    {
+      "id": "liquid-glass",
+      "title": "Liquid Glass Controls (real bilalgursen/liquid-glass lab)",
+      "url": "https://github.com/bilalgursen/liquid-glass",
+      "date": "2026-11-23",
+      "sourceRefs": [
+        "https://github.com/bilalgursen/liquid-glass",
+        "https://x.com/bilalgursen777/status/2124533364283552065"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Vendors liquid-glass MIT code at commit d11b3f62407f8d5ec1573c8591e2047248c52cbf (committed 2026-11-19T12:46:57Z); merged in PR #90."
+      }
+    },
+    {
+      "id": "dissolve",
+      "title": "Dissolve Dust Lab (real dissolve-ui web grain engine)",
+      "url": "https://github.com/dissolve-ui/dissolve",
+      "date": "2026-11-23",
+      "sourceRefs": [
+        "https://github.com/dissolve-ui/dissolve",
+        "https://x.com/rsStats_/status/2124194035703398830"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Uses real dissolve-ui@0.0.6 (MIT, published 2026-11-19T13:27:51Z) at commit 06eddec11725e5874eafce69e97d10cca0f7f882; merged in PR #91."
+      }
     }
   ],
   "skipped": [
