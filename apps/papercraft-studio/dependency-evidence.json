@@ -1,0 +1,39 @@
+{
+  "cutoffUtc": "2026-11-21T11:04:15Z",
+  "papercraft": {
+    "repo": "https://github.com/xikhar/papercraft",
+    "commit": "57c4c93a1f3b2743066b6ed41094d1bcbb69c3b5",
+    "committerUtc": "2026-11-21T00:26:56Z",
+    "licensePath": "public/papercraft-LICENSE",
+    "vendorHashes": {
+      "LICENSE": "af6de1c2f8b64543f158327a80eb008c195825b4400331296b51e1f9f686506c",
+      "paperkit-3d.js": "3c5f80f1d099c6316c4bb7874d136ec764f0d64cfad0c2b61302a57e8365c76d",
+      "paperkit-2d.js": "667e2aa66c4966b9845eba2828c04b240305a4ec16b75581496e0d6395aaea4c",
+      "paper-sound.js": "f6d18bbfdc0994594b246edffa398c11c3de6e8c2c7f237f7c9d58d1562773be",
+      "paper-motion.js": "5fe40c6ab754ad1fa2c85504214197c913755b5a6d8cb15c0ff0e8391ab6a75c",
+      "palettes.json": "74b35c18b1565e1f3b32fa6b593327c19fb850860429ca802d6e66aff4051ccf",
+      "scene-3d-official": "eaffb20a2b8898be473220974da1d621830bc09d9023c04e85dfcdbd7e80f8d0",
+      "scene-2d-official": "85437f5150a9e855c1006c24d9e5636a2dd9ebe6110889170ce86ae2a4230338",
+      "countryside.js": "77e63b9cb0c66b44fadf43fabadf654fc0b738e1ef6b228c05edce2ba8411a3a",
+      "built-ground.js": "1de8ff9903a521bbd223c46ac20c42a1b57ca7948ef4e9870fa1333782af7777"
+    },
+    "harnessEdits": {
+      "note": "Allowed hook: expose sound and setOpen on window.__papercraft only",
+      "popup-3d-harness-sha256": "da5a6e5f6bfb7f2b90298af26e175fc2adeed9bd19d47787796322d9481e695b",
+      "popup-2d-harness-sha256": "8563371139b0ec63b2b9baeb6ad5f7426df2948a92de127871a608072451fbc1"
+    }
+  },
+  "directDependencies": {
+    "three": {
+      "version": "0.187.0",
+      "published": "2026-10-30T08:09:24.504Z"
+    },
+    "react": { "version": "19.3.1", "published": "2026-10-14T16:47:15.290Z" },
+    "vite": { "version": "8.3.5", "published": "2026-10-21T06:38:54.907Z" }
+  },
+  "decisions": [
+    "No npm papercraft package",
+    "three served from node_modules copy at public/three/three.module.js",
+    "No CDN at runtime"
+  ]
+}

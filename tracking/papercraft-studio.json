@@ -1,0 +1,20 @@
+{
+  "id": "papercraft-studio",
+  "title": "Papercraft Studio (real xikhar pop-up papercraft skill)",
+  "url": "https://github.com/xikhar/papercraft",
+  "date": "2026-11-24",
+  "sourceRefs": [
+    "https://github.com/xikhar/papercraft",
+    "https://github.com/xikhar/papercraft/tree/57c4c93a1f3b2743066b6ed41094d1bcbb69c3b5",
+    "https://x.com/xikhar/status/2124565795003105494"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "MIT",
+    "pinnedCommit": "57c4c93a1f3b2743066b6ed41094d1bcbb69c3b5",
+    "pinnedCommitterUtc": "2026-11-21T00:26:56Z",
+    "cutoffUtc": "2026-11-21T11:04:15Z",
+    "threeVersion": "0.187.0",
+    "note": "Vendored paperkit, harness (allowed sound/setOpen hook), countryside 3D/2D templates; no papercraft npm package."
+  }
+}

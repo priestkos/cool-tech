@@ -1,0 +1,130 @@
+{
+  "_about": "Starting palettes by mood. Roles: page = bare paper stock (paths, light patches); ground = the printed ground [light, dark], authored paler and greyer than the cards (in the frame ~0.16-0.22 brighter and ~0.16-0.25 less saturated) so the pieces carry the colour; subject = the lead family of the main pieces (warm by default); accent = one small note of life or light (warm by default); water = [light, deep]; ink = linework (never black); leak = what shadows let through (warm amber by day on warm ground); haze = distance colour (display space, subtle, far only); key / fill = light colours (the fill comes from the camera side). dusk-violet and lantern-night are storybook-autumn re-lit with the 3D template's dusk and night sets: re-light any palette the same way (swap key, fill, leak and haze, keep the rest). The cut edge is not a palette colour: P.rim() derives it from each print. Every piece also gets 1-2 contrasting accents of its own (accentsFor is only a fallback). Restyle freely: derive your own with references/palettes.md.",
+  "storybook-autumn": {
+    "page": "#f3e6c6",
+    "ground": ["#cbc79f", "#a8ae84"],
+    "subject": ["#e0852c", "#c9542b", "#d9a03a", "#5f7c58", "#74452a"],
+    "accent": "#c8452d",
+    "water": ["#46aa9e", "#2e8079"],
+    "ink": "#5a3a28",
+    "leak": "#a0602c",
+    "haze": "#d8bf8e",
+    "key": "#ffdcb2",
+    "fill": "#f2dcc2"
+  },
+  "golden-hour": {
+    "page": "#f3e6c6",
+    "ground": ["#d8caa6", "#b4a07c"],
+    "subject": ["#e0852c", "#c8513b", "#dcb055", "#9c5636", "#5f7c58"],
+    "accent": "#c8452d",
+    "water": ["#46aa9e", "#2e8079"],
+    "ink": "#3a2412",
+    "leak": "#8f5034",
+    "haze": "#e6c08a",
+    "key": "#ffc890",
+    "fill": "#b9bcd8"
+  },
+  "desert-noon": {
+    "page": "#f0d9b0",
+    "ground": ["#d3b994", "#b49d7e"],
+    "subject": ["#b4683f", "#7f8f5a", "#c9563c", "#3d6f8f"],
+    "accent": "#4fa3a0",
+    "ink": "#5a3426",
+    "leak": "#8c6470",
+    "haze": "#c0905c",
+    "key": "#fff0d2",
+    "fill": "#d8b0b4"
+  },
+  "snow-cabin": {
+    "page": "#f1ece4",
+    "ground": ["#e8edf2", "#c9d6e6"],
+    "subject": ["#3f5e57", "#8a5236", "#b5483a"],
+    "accent": "#ffc45a",
+    "ink": "#3d3447",
+    "leak": "#6c84b0",
+    "haze": "#aab4c8",
+    "key": "#fbf0e0",
+    "fill": "#a4bbe0"
+  },
+  "blossom-spring": {
+    "page": "#f6e8de",
+    "ground": ["#dce1bb", "#bbbf9f"],
+    "subject": ["#f29db4", "#fbd3dc", "#6b4a3a", "#79b8b0"],
+    "accent": "#f3b04a",
+    "ink": "#5a3a3a",
+    "leak": "#8c6c88",
+    "haze": "#bc9ea4",
+    "key": "#ffe6cc",
+    "fill": "#c9b9da"
+  },
+  "misty-forest": {
+    "page": "#e3e2cf",
+    "ground": ["#a7bb9b", "#8e9f84"],
+    "subject": ["#355347", "#c4553f", "#9a9a86"],
+    "accent": "#f2d27a",
+    "ink": "#2f3a33",
+    "leak": "#44685c",
+    "haze": "#788e84",
+    "key": "#f8e2b6",
+    "fill": "#62857f"
+  },
+  "jungle": {
+    "page": "#f3e6c6",
+    "ground": ["#d5cba6", "#b5ad8d"],
+    "subject": ["#46613c", "#5f7c58", "#8c9765", "#74452a", "#e3b04b", "#f3e6c8"],
+    "accent": "#c8452d",
+    "water": ["#46aa9e", "#2e8079"],
+    "ink": "#332f1c",
+    "leak": "#a0602c",
+    "haze": "#a29c70",
+    "key": "#ffdcb2",
+    "fill": "#f2dcc2"
+  },
+  "dusk-violet": {
+    "page": "#f3e6c6",
+    "ground": ["#cbc79f", "#a8ae84"],
+    "subject": ["#e0852c", "#c9542b", "#d9a03a", "#5f7c58", "#74452a"],
+    "accent": "#ffc45a",
+    "water": ["#46aa9e", "#2e8079"],
+    "ink": "#5a3a28",
+    "leak": "#6a4a8a",
+    "haze": "#c98fa0",
+    "key": "#ffb38a",
+    "fill": "#6f63a8"
+  },
+  "lantern-night": {
+    "page": "#f3e6c6",
+    "ground": ["#cbc79f", "#a8ae84"],
+    "subject": ["#e0852c", "#c9542b", "#d9a03a", "#5f7c58", "#74452a"],
+    "accent": "#ffc45a",
+    "water": ["#46aa9e", "#2e8079"],
+    "ink": "#5a3a28",
+    "leak": "#26368a",
+    "haze": "#0e1a44",
+    "key": "#c8d6ff",
+    "fill": "#7890d0"
+  },
+  "sea-teal": {
+    "page": "#e6efe8",
+    "ground": ["#c2e9d6", "#a5c6b6"],
+    "subject": ["#e9d2a6", "#e07a5f", "#f2a65a", "#5f8f5a"],
+    "accent": "#f6e7d0",
+    "water": ["#2f8f8a", "#1f5f6a"],
+    "ink": "#213a44",
+    "leak": "#3d6a78",
+    "haze": "#6fa3a6",
+    "key": "#f6f0dc",
+    "fill": "#7fb3c2"
+  },
+  "industrial-tin": {
+    "page": "#e9e1d0",
+    "ground": ["#d0bfa2", "#b0a28a"],
+    "subject": ["#5d6b78", "#7e97a8", "#b8693d", "#c9a24a", "#c4473b"],
+    "accent": "#ffc45a",
+    "ink": "#2e2219",
+    "leak": "#a0602c",
+    "haze": "#9aa3a8",
+    "key": "#f3e6cf",
+    "fill": "#9fb3c4"
+  }
+}
