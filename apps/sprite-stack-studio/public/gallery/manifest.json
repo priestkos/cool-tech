@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "id": "round-pot",
+      "title": "Round Pot",
+      "sheetUrl": "/gallery-data/assets/round-pot-sheet.png",
+      "stripUrl": "/gallery-data/assets/round-pot-strip.png",
+      "viewerUrl": "/viewer-embed/gallery/round-pot-viewer.html",
+      "options": {
+        "round": true,
+        "slices": 20,
+        "colours": 24
+      }
+    },
+    {
+      "id": "blocky-car",
+      "title": "Blocky Car",
+      "sheetUrl": "/gallery-data/assets/blocky-car-sheet.png",
+      "stripUrl": "/gallery-data/assets/blocky-car-strip.png",
+      "viewerUrl": "/viewer-embed/gallery/blocky-car-viewer.html",
+      "options": {
+        "round": false,
+        "slices": 18,
+        "colours": 24
+      }
+    },
+    {
+      "id": "pixel-tree",
+      "title": "Pixel Tree",
+      "sheetUrl": "/gallery-data/assets/pixel-tree-sheet.png",
+      "stripUrl": "/gallery-data/assets/pixel-tree-strip.png",
+      "viewerUrl": "/viewer-embed/gallery/pixel-tree-viewer.html",
+      "options": {
+        "round": false,
+        "slices": 40,
+        "colours": 24
+      }
+    },
+    {
+      "id": "lantern-crate",
+      "title": "Lantern Crate",
+      "sheetUrl": "/gallery-data/assets/lantern-crate-sheet.png",
+      "stripUrl": "/gallery-data/assets/lantern-crate-strip.png",
+      "viewerUrl": "/viewer-embed/gallery/lantern-crate-viewer.html",
+      "options": {
+        "round": false,
+        "slices": 22,
+        "colours": 24
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "sprite-stack-studio",
+  "title": "Sprite Stack Studio (real danielwh2 sprite-stacking slicer + viewer)",
+  "url": "https://github.com/danielwh2/sprite-stacking",
+  "date": "2026-11-24",
+  "sourceRefs": [
+    "https://github.com/danielwh2/sprite-stacking",
+    "https://github.com/danielwh2/sprite-stacking/tree/6fecdfd0d6e5a0595f979550e05f4b1fcde550fe",
+    "https://x.com/dwhitedesign/status/2123928042711958000"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "MIT",
+    "pinnedCommit": "6fecdfd0d6e5a0595f979550e05f4b1fcde550fe",
+    "pinnedCommitterUtc": "2026-11-21T01:28:57Z",
+    "cutoffUtc": "2026-11-21T01:57:04Z",
+    "pillow": "13.0.0",
+    "numpy": "2.5.5",
+    "note": "Bun + Vite React studio; Python CLI carve; unmodified viewer.html iframe. Original demo gallery sheets."
+  }
+}

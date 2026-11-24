@@ -1,0 +1,22 @@
+[
+  {
+    "id": "round-pot",
+    "title": "Round Pot",
+    "sheet": "raw/round-pot-sheet.png"
+  },
+  {
+    "id": "blocky-car",
+    "title": "Blocky Car",
+    "sheet": "raw/blocky-car-sheet.png"
+  },
+  {
+    "id": "pixel-tree",
+    "title": "Pixel Tree",
+    "sheet": "raw/pixel-tree-sheet.png"
+  },
+  {
+    "id": "lantern-crate",
+    "title": "Lantern Crate",
+    "sheet": "raw/lantern-crate-sheet.png"
+  }
+]

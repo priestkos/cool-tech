@@ -1,0 +1,49 @@
+{
+  "cutoffUtc": "2026-11-21T01:57:04Z",
+  "assessedAtUtc": "2026-11-24T01:57:04Z",
+  "spriteStacking": {
+    "repo": "https://github.com/danielwh2/sprite-stacking",
+    "commit": "6fecdfd0d6e5a0595f979550e05f4b1fcde550fe",
+    "committerUtc": "2026-11-21T01:28:57Z",
+    "licensePath": "vendor/danielwh2-sprite-stacking/6fecdfd0d6e5a0595f979550e05f4b1fcde550fe/LICENSE",
+    "blobs": {
+      "views_to_slices.py": "ad21a8b539a2a664f31cca23eba8c994aa09917d2d77ceb7d696f621b430a3cb",
+      "viewer.html": "b49824956ce0a6256ec129dc6b225d57d24e5ebe5fc9877b4f91cc3e55c8d551",
+      "LICENSE": "f18804c99164e7b8d7210d5e2f0f86028be21dfdf861d9a3a763c54722e41893",
+      "tests/check.py": "29562e2312fa3fc7c611e866ece1934fc6839e7e09aae8934097d073ccbba196"
+    },
+    "obtained": "git clone + checkout at build time; vendored in-repo (not npx skills add)"
+  },
+  "python": [
+    {
+      "name": "pillow",
+      "version": "13.0.0",
+      "publishedUtc": "2026-10-16T22:15:24.672561Z",
+      "eligible": true
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.5",
+      "publishedUtc": "2026-11-15T21:30:10.113098Z",
+      "eligible": true,
+      "requiresPython": ">=3.12"
+    }
+  ],
+  "npmDirect": [
+    { "name": "react", "version": "19.3.1", "publishedUtc": "2026-10-14T16:47:15.290Z", "eligible": true },
+    { "name": "react-dom", "version": "19.3.1", "publishedUtc": "2026-10-14T16:49:10.081Z", "eligible": true },
+    { "name": "vite", "version": "8.3.5", "publishedUtc": "2026-10-21T06:38:54.907Z", "eligible": true },
+    { "name": "@vitejs/plugin-react", "version": "6.1.2", "publishedUtc": "2026-10-05T10:08:27.143Z", "eligible": true },
+    { "name": "typescript", "version": "6.0.3", "publishedUtc": "2026-04-16T23:38:27.905Z", "eligible": true },
+    { "name": "shadcn", "version": "4.22.1", "publishedUtc": "2026-10-18T18:12:18.511Z", "eligible": true },
+    { "name": "@base-ui/react", "version": "1.9.0", "publishedUtc": "2026-10-09T08:52:43.788Z", "eligible": true },
+    { "name": "tailwindcss", "version": "4.3.3", "publishedUtc": "2026-07-16T12:03:35.267Z", "eligible": true },
+    { "name": "@tailwindcss/vite", "version": "4.3.3", "publishedUtc": "2026-07-16T12:04:06.316Z", "eligible": true }
+  ],
+  "bunfig": { "minimumReleaseAgeSeconds": 259200 },
+  "transitiveNote": "Lockfile committed; bun install respects minimumReleaseAge. Full transitive PyPI/npm audit not exhaustively re-listed here.",
+  "decisions": [
+    "No sprite-stacking npm package (upstream has none).",
+    "Viewer and slicer are vendored blobs at pin SHA; studio shell only wraps CLI + iframe."
+  ]
+}
