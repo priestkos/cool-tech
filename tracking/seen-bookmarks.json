@@ -9,17 +9,6 @@
         "https://github.com/xikhar/papercraft"
       ],
       "note": "Seen in Nov 24 scout; owner approved Build both on 2026-11-24 and scheduled to build. Seen but not built."
-    },
-    {
-      "id": "koipond",
-      "title": "koipond (procedural WebGL koi pond React component)",
-      "url": "https://github.com/Himanshu-Sangshetti/koipond",
-      "date": "2026-11-24",
-      "sourceRefs": [
-        "https://github.com/Himanshu-Sangshetti/koipond",
-        "https://koipond-demo.vercel.app"
-      ],
-      "note": "Seen in Nov 24 scout; owner approved Build both on 2026-11-24 and scheduled to build. Seen but not built."
     }
   ],
   "built": [
@@ -643,6 +632,20 @@
       "upstreamAgeAssessment": {
         "mode": "real-code",
         "note": "Vendors danielwh2/sprite-stacking MIT code at commit 6fecdfd0d6e5a0595f979550e05f4b1fcde550fe (committed 2026-11-21T01:28:57Z); demo slug sprite-stack-studio (apps/sprite-stack-studio); merged in PR #97 (d8ce2f39)."
+      }
+    },
+    {
+      "id": "koipond",
+      "title": "Koipond Lab (real @hxlfed/koipond React pond)",
+      "url": "https://github.com/Himanshu-Sangshetti/koipond",
+      "date": "2026-11-24",
+      "sourceRefs": [
+        "https://github.com/Himanshu-Sangshetti/koipond",
+        "https://x.com/himanshutwtxs/status/2124024110196138061"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Uses real @hxlfed/koipond@0.1.0 (MIT, published 2026-11-21T06:11:56Z); demo slug koipond-lab (apps/koipond-lab); merged in PR #100 (a93c179d)."
       }
     }
   ],
