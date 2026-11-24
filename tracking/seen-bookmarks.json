@@ -1,15 +1,25 @@
 {
   "proposed": [
     {
-      "id": "sprite-stacking",
-      "title": "sprite-stacking (four-view fake-3D pixel sprite stacks by Daniel White)",
-      "url": "https://github.com/danielwh2/sprite-stacking",
-      "date": "2026-11-22",
+      "id": "papercraft",
+      "title": "papercraft (agent skill for pop-up papercraft games, scenes and animations)",
+      "url": "https://github.com/xikhar/papercraft",
+      "date": "2026-11-24",
       "sourceRefs": [
-        "https://github.com/danielwh2/sprite-stacking",
-        "https://github.com/danielwh2/sprite-stacking/tree/6fecdfd0d6e5a0595f979550e05f4b1fcde550fe"
+        "https://github.com/xikhar/papercraft"
       ],
-      "note": "Seen in Nov 22 scout (main pick); owner approved and scheduled Sprite Stack Studio (pin 6fecdfd). Seen but not built."
+      "note": "Seen in Nov 24 scout; owner approved Build both on 2026-11-24 and scheduled to build. Seen but not built."
+    },
+    {
+      "id": "koipond",
+      "title": "koipond (procedural WebGL koi pond React component)",
+      "url": "https://github.com/Himanshu-Sangshetti/koipond",
+      "date": "2026-11-24",
+      "sourceRefs": [
+        "https://github.com/Himanshu-Sangshetti/koipond",
+        "https://koipond-demo.vercel.app"
+      ],
+      "note": "Seen in Nov 24 scout; owner approved Build both on 2026-11-24 and scheduled to build. Seen but not built."
     }
   ],
   "built": [
@@ -619,6 +629,20 @@
       "upstreamAgeAssessment": {
         "mode": "real-code",
         "note": "Vendors finktheartist/zen-sand-ui MIT code at commit 8e9b289523e6fdcb19e8be9db5b7ea6a9ccc6c7b (committed 2026-11-20T16:21:59Z); demo slug zen-sand-garden (apps/zen-sand-garden); merged in PR #95 (e4d20e3)."
+      }
+    },
+    {
+      "id": "sprite-stacking",
+      "title": "Sprite Stack Studio (real danielwh2 sprite-stacking slicer + viewer)",
+      "url": "https://github.com/danielwh2/sprite-stacking",
+      "date": "2026-11-24",
+      "sourceRefs": [
+        "https://github.com/danielwh2/sprite-stacking",
+        "https://x.com/dwhitedesign/status/2123928042711958000"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Vendors danielwh2/sprite-stacking MIT code at commit 6fecdfd0d6e5a0595f979550e05f4b1fcde550fe (committed 2026-11-21T01:28:57Z); demo slug sprite-stack-studio (apps/sprite-stack-studio); merged in PR #97 (d8ce2f39)."
       }
     }
   ],
