@@ -1,16 +1,5 @@
 {
-  "proposed": [
-    {
-      "id": "papercraft",
-      "title": "papercraft (agent skill for pop-up papercraft games, scenes and animations)",
-      "url": "https://github.com/xikhar/papercraft",
-      "date": "2026-11-24",
-      "sourceRefs": [
-        "https://github.com/xikhar/papercraft"
-      ],
-      "note": "Seen in Nov 24 scout; owner approved Build both on 2026-11-24 and scheduled to build. Seen but not built."
-    }
-  ],
+  "proposed": [],
   "built": [
     {
       "id": "react-bits-sound-lab",
@@ -646,6 +635,20 @@
       "upstreamAgeAssessment": {
         "mode": "real-code",
         "note": "Uses real @hxlfed/koipond@0.1.0 (MIT, published 2026-11-21T06:11:56Z); demo slug koipond-lab (apps/koipond-lab); merged in PR #100 (a93c179d)."
+      }
+    },
+    {
+      "id": "papercraft",
+      "title": "Papercraft Studio (real xikhar pop-up papercraft skill)",
+      "url": "https://github.com/xikhar/papercraft",
+      "date": "2026-11-24",
+      "sourceRefs": [
+        "https://github.com/xikhar/papercraft",
+        "https://x.com/xikhar/status/2124565795003105494"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Vendors xikhar/papercraft MIT code at commit 57c4c93a1f3b2743066b6ed41094d1bcbb69c3b5 (committed 2026-11-21T00:26:56Z); demo slug papercraft-studio (apps/papercraft-studio); merged in PR #99 (0a98b7d8)."
       }
     }
   ],
