@@ -1,0 +1,22 @@
+{
+  "id": "koipond-lab",
+  "title": "Koipond Lab (real @hxlfed/koipond React pond)",
+  "url": "https://github.com/Himanshu-Sangshetti/koipond",
+  "date": "2026-11-24",
+  "sourceRefs": [
+    "https://github.com/Himanshu-Sangshetti/koipond",
+    "https://www.npmjs.com/package/@hxlfed/koipond",
+    "https://koipond-demo.vercel.app",
+    "https://x.com/himanshutwtxs/status/2124024110196138061"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "MIT",
+    "pin": "@hxlfed/koipond@0.1.0",
+    "publishedUtc": "2026-11-21T06:11:56.314Z",
+    "gitHead": "a1479c597ac3ca551dfa5231dc58729c632c4d0d",
+    "cutoffUtc": "2026-11-21T11:04:15Z",
+    "threeVersion": "0.187.0",
+    "note": "npm package only; lab chrome wraps KoiPond with looks picker, props, feed handle, hero embed."
+  }
+}

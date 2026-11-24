@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-heading: var(--font-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  /* Pond-lab chrome: soft stone + teal accent */
+  --background: oklch(0.96 0.012 200);
+  --foreground: oklch(0.22 0.03 220);
+  --card: oklch(0.98 0.01 195 / 0.92);
+  --card-foreground: oklch(0.22 0.03 220);
+  --popover: oklch(0.98 0.01 195);
+  --popover-foreground: oklch(0.22 0.03 220);
+  --primary: oklch(0.42 0.09 195);
+  --primary-foreground: oklch(0.98 0.01 195);
+  --secondary: oklch(0.92 0.02 190);
+  --secondary-foreground: oklch(0.28 0.04 210);
+  --muted: oklch(0.93 0.015 195);
+  --muted-foreground: oklch(0.48 0.03 210);
+  --accent: oklch(0.88 0.04 175);
+  --accent-foreground: oklch(0.25 0.04 200);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.88 0.02 195);
+  --input: oklch(0.88 0.02 195);
+  --ring: oklch(0.55 0.08 195);
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply antialiased bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
