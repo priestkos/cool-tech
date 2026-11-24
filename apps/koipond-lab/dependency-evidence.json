@@ -1,0 +1,41 @@
+{
+  "cutoffUtc": "2026-11-21T11:04:15Z",
+  "launchVerifiedUtc": "2026-11-24T11:04:15Z",
+  "policy": "Each direct dependency npm publish time must be <= cutoffUtc (259200s Bun gate also enabled in bunfig.toml).",
+  "koipond": {
+    "name": "@hxlfed/koipond",
+    "version": "0.1.0",
+    "publishedUtc": "2026-11-21T06:11:56.314Z",
+    "license": "MIT",
+    "integrity": "sha512-eX3KK4qzsMNyTnsQhljphk0wtFvs1I9C6SmPFz630PPnUemn1/pzfIYTcAqDy7qwoXrJUJwhPalOQgiOMboIYw==",
+    "gitHead": "a1479c597ac3ca551dfa5231dc58729c632c4d0d",
+    "tarballSha256": "0581916e2e10d13ee3d3e9ded00b68f3cfec9819e9af28f2c391009441cf40f5",
+    "source": "https://registry.npmjs.org/@hxlfed/koipond/-/koipond-0.1.0.tgz",
+    "eligible": true
+  },
+  "three": {
+    "name": "three",
+    "version": "0.187.0",
+    "publishedUtc": "2026-10-30T08:09:24.504Z",
+    "license": "MIT",
+    "integrity": "sha512-Qiu7R+Cmh8CstZsY1uJOSWnVlfo7ZtNLV7mF8Jltk3LB3AtDu9cRZlcnRKkAk8Y4z6KKw35z7Y7Urd7jWY8etA==",
+    "eligible": true
+  },
+  "directDependencies": [
+    { "name": "react", "version": "19.3.1", "publishedUtc": "2026-10-14T16:47:15.290Z", "eligible": true },
+    { "name": "react-dom", "version": "19.3.1", "publishedUtc": "2026-10-14T16:49:10.081Z", "eligible": true },
+    { "name": "vite", "version": "8.3.5", "publishedUtc": "2026-10-21T06:38:54.907Z", "eligible": true },
+    { "name": "@vitejs/plugin-react", "version": "6.1.2", "publishedUtc": "2026-10-05T10:08:27.143Z", "eligible": true },
+    { "name": "typescript", "version": "6.0.3", "publishedUtc": "2026-04-16T23:38:27.905Z", "eligible": true },
+    { "name": "tailwindcss", "version": "4.3.3", "publishedUtc": "2026-07-16T12:03:35.267Z", "eligible": true },
+    { "name": "@tailwindcss/vite", "version": "4.3.3", "publishedUtc": "2026-07-16T12:04:06.316Z", "eligible": true },
+    { "name": "shadcn", "version": "4.22.1", "publishedUtc": "2026-10-18T18:12:18.511Z", "eligible": true },
+    { "name": "@base-ui/react", "version": "1.9.0", "publishedUtc": "2026-10-09T08:52:43.788Z", "eligible": true },
+    { "name": "lucide-react", "version": "1.70.0", "publishedUtc": "2026-11-06T06:15:46.080Z", "eligible": true },
+    { "name": "class-variance-authority", "version": "0.7.1", "publishedUtc": "2024-11-26T08:20:34.604Z", "eligible": true },
+    { "name": "clsx", "version": "2.1.1", "publishedUtc": "2024-04-23T05:26:04.645Z", "eligible": true },
+    { "name": "tailwind-merge", "version": "3.7.0", "publishedUtc": "2026-09-12T20:10:15.257Z", "eligible": true },
+    { "name": "tw-animate-css", "version": "1.4.0", "publishedUtc": "2025-09-24T05:25:53.055Z", "eligible": true }
+  ],
+  "transitiveNote": "Lockfile committed; full transitive audit not exhaustively re-listed — spot-check before production pinning changes."
+}
