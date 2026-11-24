@@ -21,7 +21,7 @@ Production UI bundle (Vite report): ~87 kB gzipped for React chrome; vendored co
 ## Architecture
 
 - **React shell** — shadcn minimalist controls.
-- **Iframe** — `/papercraft/studio/view-3d.html` or `view-2d.html` with local import maps (`three@0.187.0` from `public/three/`, `papercraft/` → vendored assets).
+- **Iframe** — Vite MPA entries `view-3d.html` / `view-2d.html` bundle `three@0.187.0` from npm and resolve `papercraft/` via Vite aliases (nothing under `public/three/`).
 - **Studio scenes** — remount countryside colours from `palettes.json`; harness files only add `sound` and `setOpen` on `__papercraft` (allowed hook).
 
 Sources were vendored from git at the pin above—not `npx skills add`, not the unrelated npm `papercraft` package, not jsDelivr.

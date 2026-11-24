@@ -33,7 +33,8 @@
   },
   "decisions": [
     "No npm papercraft package",
-    "three served from node_modules copy at public/three/three.module.js",
+    "three@0.187.0 from npm via Vite module graph (view-3d.html / view-2d.html entries); no public/three vendoring (CodeQL)",
+    "papercraft/ path alias to public/papercraft without editing vendored import specifiers",
     "No CDN at runtime"
   ]
 }

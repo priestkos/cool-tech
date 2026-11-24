@@ -27,9 +27,6 @@ export function buildTemplateUrl(
           : null
   if (mood) params.set("mood", mood)
   if (mode === "2d") params.set("tilt", tilt2d ? "9" : "0")
-  const base =
-    mode === "3d"
-      ? "/papercraft/studio/view-3d.html"
-      : "/papercraft/studio/view-2d.html"
+  const base = mode === "3d" ? "/view-3d.html" : "/view-2d.html"
   return `${base}?${params.toString()}`
 }
