@@ -7,11 +7,37 @@ A daily tech-demo playground. Each pick is one small, self-contained app in `app
 - `AGENTS.md` — rules for agents working in this repo
 - `skills/project-planning/` — opinionated Bun/shadcn planning skill
 - `apps/` — one demo per kebab-slug
-- `tracking/seen-bookmarks.json` — proposed, built, and skipped picks
+- `tracking/<slug>.json` — current pin and build mode for that demo
+- `tracking/seen-bookmarks.json` — rollup of proposed, built, and skipped picks
+
+## Run a demo
+
+Each app is its own Bun project:
+
+```bash
+cd apps/<slug>
+bun install
+bun run dev
+```
+
+`bun install` reads that app’s `bunfig.toml`, which sets `[install] minimumReleaseAge = 259200`. A release younger than 72 hours will not install. Commands, pins, and limits for one lab live in `apps/<slug>/README.md`.
+
+Some labs need more than the dev server:
+
+| App | Constraint |
+|---|---|
+| `apps/eve-agent-lab/` | Node.js 24+ for the eve dev process. Bun still installs packages and runs scripts. Default mode uses `mockModel` and no API key. |
+| `apps/reverb-voice-lab/` | WebGPU browser (recent Chrome, Edge, or Safari 26+). Weights are CC BY-NC 4.0. |
+| `apps/screen-relay-console/` | Node ≥22 for `screen-relay@0.1.0`. Mock PNG frames are the default. Live mode attaches to a local engine at `http://127.0.0.1:8080` after `npx screen-relay@0.1.0 install` and `screen-relay up -d`. |
+| `apps/polyfork-kit-lab/` | Offline catalog snapshot by default. Live mode is the only path that loads `.mjs` modules from `polyfork.dev`, and those modules are not committed. |
+
+## Provenance
+
+`tracking/<slug>.json` is the current pin and build mode. `tracking/seen-bookmarks.json` should match that file and the app README after a remake. The table below is the exception list: every other demo uses real upstream code at a pin at least three days old.
 
 ## Clean-room and inspired builds
 
-Demos use the real upstream code pinned to versions at least 3 days old unless they are listed here. The demos below do not include the project's original code.
+The demos below do not include the project's original code.
 
 | App | Build type | Upstream | Status |
 |---|---|---|---|
