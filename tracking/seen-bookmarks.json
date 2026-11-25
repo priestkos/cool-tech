@@ -705,6 +705,20 @@
         "mode": "real-code",
         "note": "Vendors xikhar/papercraft MIT code at commit 57c4c93a1f3b2743066b6ed41094d1bcbb69c3b5 (committed 2026-11-21T00:26:56Z); demo slug papercraft-studio (apps/papercraft-studio); merged in PR #99 (0a98b7d8)."
       }
+    },
+    {
+      "id": "panelo",
+      "title": "Panelo Agent Dashboard (real raycanvas-ai/paneloui lab)",
+      "url": "https://github.com/raycanvas-ai/paneloui",
+      "date": "2026-11-25",
+      "sourceRefs": [
+        "https://github.com/raycanvas-ai/paneloui",
+        "https://x.com/shadcnlabs/status/2125221634101723255"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Vendors raycanvas-ai/paneloui MIT code at commit 6517e2e7062f97501e46e73ba1e545f19ef556e2 (committed 2026-11-21T16:35:00Z) with @ui-sdk 0.1.0-beta.2; demo slug panelo-agent-dashboard (apps/panelo-agent-dashboard); merged in PR #103 (5fc460e)."
+      }
     }
   ],
   "skipped": [
