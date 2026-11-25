@@ -25,7 +25,20 @@ for dir in "$ROOT"/apps/*/; do
     printf '%s\tFAIL\tinstall\n' "$slug" | tee -a "$LOGS/status.tsv"
     continue
   fi
-  if ! ( cd "$dir" && bun run build -- --base="/apps/$slug/" >> "$log" 2>&1 ); then
+
+  # Most apps are "tsc -b && vite build", where extra args land on vite. An app
+  # whose script ends in another step would take --base on that step instead and
+  # silently build with the default base, so build those explicitly.
+  build_script=$( cd "$dir" && node -e "process.stdout.write(require('./package.json').scripts?.build ?? '')" 2>/dev/null )
+  if [ "$build_script" = "tsc -b && vite build" ]; then
+    ( cd "$dir" && bun run build -- --base="/apps/$slug/" >> "$log" 2>&1 )
+    rc=$?
+  else
+    ( cd "$dir" && bun x tsc -b >> "$log" 2>&1 && bun x vite build --base="/apps/$slug/" >> "$log" 2>&1 )
+    rc=$?
+    echo "note: '$build_script' has extra steps; built with tsc + vite directly" >> "$log"
+  fi
+  if [ $rc -ne 0 ]; then
     printf '%s\tFAIL\tbuild\n' "$slug" | tee -a "$LOGS/status.tsv"
     continue
   fi
