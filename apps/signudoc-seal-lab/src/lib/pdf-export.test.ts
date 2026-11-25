@@ -55,4 +55,36 @@ describe("pdf export", () => {
     const hash = await sha256Hex(pdfBytes)
     expect(hash).toHaveLength(64)
   })
+
+  test("rejects a drawn signature that is not a data URL", async () => {
+    const doc = await PDFDocument.create()
+    doc.addPage([400, 500])
+    const original = await doc.save()
+
+    await expect(
+      exportSignedPdf({
+        originalPdf: original,
+        pages: [{ page: 1, widthPt: 400, heightPt: 500 }],
+        fields: [
+          {
+            id: "f1",
+            signerId: "s1",
+            type: "signature",
+            page: 1,
+            x: 0.1,
+            y: 0.2,
+            width: 0.2,
+            height: 0.08,
+            required: true,
+            imageDataUrl: "not-a-data-url",
+            inputMethod: "drawn",
+            submittedAt: 2,
+          },
+        ],
+        title: "Sample",
+        audit: [],
+        documentHash: "ab".repeat(32),
+      }),
+    ).rejects.toThrow("Invalid drawn signature data URL.")
+  })
 })
