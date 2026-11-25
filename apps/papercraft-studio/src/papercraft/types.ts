@@ -27,6 +27,7 @@ export function buildTemplateUrl(
           : null
   if (mood) params.set("mood", mood)
   if (mode === "2d") params.set("tilt", tilt2d ? "9" : "0")
-  const base = mode === "3d" ? "/view-3d.html" : "/view-2d.html"
+  // Vite's base keeps this working at "/" in dev and "/apps/papercraft-studio/" on Pages.
+  const base = `${import.meta.env?.BASE_URL ?? "/"}${mode === "3d" ? "view-3d.html" : "view-2d.html"}`
   return `${base}?${params.toString()}`
 }
