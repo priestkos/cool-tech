@@ -2,11 +2,15 @@
 
 A daily tech-demo playground. Each pick is one small, self-contained app in `apps/<slug>/`.
 
+Live at **https://priestkos-cool-tech.pages.dev/** — one path per app, no paid backend or model enabled.
+
 ## Layout
 
 - `AGENTS.md` — rules for agents working in this repo
 - `skills/project-planning/` — opinionated Bun/shadcn planning skill
 - `apps/` — one demo per kebab-slug
+- `scripts/build-site.sh` — build every app into one static tree for Cloudflare Pages
+- `scripts/make-index.mjs` — writes the site index and the "not yet deployed" list
 - `tracking/<slug>.json` — current pin and build mode for that demo
 - `tracking/seen-bookmarks.json` — rollup of proposed, built, and skipped picks
 
@@ -22,6 +26,15 @@ bun run dev
 
 `bun install` reads that app’s `bunfig.toml`, which sets `[install] minimumReleaseAge = 259200`. A release younger than 72 hours will not install. Commands, pins, and limits for one lab live in `apps/<slug>/README.md`.
 
+Each app also typechecks, builds and tests on its own:
+
+```bash
+cd apps/<slug>
+bun run typecheck   # where the app defines it
+bun run build
+bun test
+```
+
 Some labs need more than the dev server:
 
 | App | Constraint |
@@ -30,6 +43,19 @@ Some labs need more than the dev server:
 | `apps/reverb-voice-lab/` | WebGPU browser (recent Chrome, Edge, or Safari 26+). Weights are CC BY-NC 4.0. |
 | `apps/screen-relay-console/` | Node ≥22 for `screen-relay@0.1.0`. Mock PNG frames are the default. Live mode attaches to a local engine at `http://127.0.0.1:8080` after `npx screen-relay@0.1.0 install` and `screen-relay up -d`. |
 | `apps/polyfork-kit-lab/` | Offline catalog snapshot by default. Live mode is the only path that loads `.mjs` modules from `polyfork.dev`, and those modules are not committed. |
+
+## Deploy
+
+One Cloudflare Pages project, one path per app. Every app is built with `--base=/apps/<slug>/` so its assets resolve under the deployed path.
+
+```bash
+scripts/build-site.sh                 # -> site-dist/ (apps/<slug>/ + index.html)
+npx wrangler pages deploy site-dist --project-name cool-tech
+```
+
+`scripts/build-site.sh` installs and builds every app, copies each `dist/` into `site-dist/apps/<slug>/`, and records a per-app log in `../site-build-logs/` so a broken app fails visibly instead of shipping a blank page. `scripts/make-index.mjs` then writes the index from each app's own `<title>`.
+
+Apps that call a server API this site does not host are listed under "Not yet deployed" on the index instead of being published half-working. That list lives in `scripts/make-index.mjs` — move an entry out of `PENDING` once its static build can stand alone.
 
 ## Provenance
 
@@ -52,3 +78,7 @@ The demos below do not include the project's original code.
 | `apps/selfgraph-lab/` | hybrid | https://github.com/hydra-db/selfgraph | hybrid: tests use the real package, browser store is clean-room |
 | `apps/stack-diagram-studio/` | recreation | https://github.com/caru-ini/stack-diagram | kept: The actual product is an agent skill plus Python logo fetch, not a Vite-installable library; running it faithfully needs an agent and network. |
 | `apps/vybbench-lab/` | inspired-fixture-only | https://github.com/cocolabsai/vybbench | kept: The official scorer is Python plus a HuggingFace dataset, not something to import in Vite. The current lab already uses published scores; swapping mock SVGs for official dataset stills would be a data fix, not a code remake. |
+
+## Not yet deployed
+
+Eleven apps build as static pages but cannot run on this static host yet; each one and its reason is listed on the [live index](https://priestkos-cool-tech.pages.dev/#not-yet-deployed). They split into apps that need a Workers function (`openui-agent-ui`, `copilotkit-genui-catalog`, `web-fetch-lab`) and apps that need a real process at runtime (`bun-fmt-playground`, `hyperframes-studio-lite`, `open-code-review-playground`, `sandbox-runtime-playground`, `hyper-elements-studio`, `screen-relay-console`, `sprite-stack-studio`, `eve-agent-lab`). No paid backend is enabled for any of them.

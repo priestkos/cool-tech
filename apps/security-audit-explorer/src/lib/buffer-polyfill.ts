@@ -1,6 +1,7 @@
 /** Minimal Buffer subset for vendored validator bytecode in browser bundles. */
 export function installBufferPolyfill() {
-  if (typeof globalThis.Buffer !== "undefined") return
+  const scope = globalThis as unknown as { Buffer?: unknown }
+  if (typeof scope.Buffer !== "undefined") return
 
   const encoder = new TextEncoder()
 

@@ -361,8 +361,6 @@ export function loadPersistedState(): Partial<LabState> | null {
       signingToken: string | null
     }
 
-    const envelope = null
-
     return {
       envelope: null,
       verifyRegistry: VerifyRegistry.fromJSON(parsed.verify ?? []),
