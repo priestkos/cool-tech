@@ -19,7 +19,8 @@ function walk(dir: string): string[] {
 describe("Looseleaf runtime host guard", () => {
   test("sketch.html uses local Kevin Sans link", () => {
     const html = readFileSync(SKETCH_HTML, "utf8")
-    expect(html).toContain('href="/fonts/kevin-sans.css"')
+    // Base-agnostic: "/fonts/..." in a default build, "/apps/<slug>/fonts/..." when built with --base.
+    expect(html).toMatch(/href="(?:\/apps\/looseleaf-sketch-mode\/)?fonts\/kevin-sans\.css"/)
     expect(html).toContain("data-ll-fonts")
     expect(html).not.toContain("kevintngo.github.io")
   })

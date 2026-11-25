@@ -2,3 +2,9 @@
 .env
 .env.*
 !.env.example
+
+# Build and deploy scratch
+.wrangler/
+site-dist/
+node_modules/
+dist/

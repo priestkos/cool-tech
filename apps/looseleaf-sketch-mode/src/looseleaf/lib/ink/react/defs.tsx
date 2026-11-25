@@ -72,7 +72,7 @@ function defsMarkup(kinds: readonly GrainMaskKind[], tiles: string): string {
   return s
 }
 
-export const KEVIN_SANS_CSS = "/fonts/kevin-sans.css"
+export const KEVIN_SANS_CSS = `${import.meta.env.BASE_URL}fonts/kevin-sans.css`
 
 export function ensureInkFonts(): void {
   if (typeof document === "undefined" || document.querySelector("[data-ll-fonts]")) return

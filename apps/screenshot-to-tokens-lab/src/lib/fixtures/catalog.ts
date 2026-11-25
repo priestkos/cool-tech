@@ -4,7 +4,7 @@ export const nimbusAnalytics: FixturePack = {
   id: "nimbus-analytics",
   title: "Nimbus Analytics",
   blurb: "Fictional SaaS metrics dashboard with cool blues.",
-  screenshotPath: "/fixtures/nimbus-analytics.svg",
+  screenshotPath: `${import.meta.env.BASE_URL}fixtures/nimbus-analytics.svg`,
   primitives: [
     {
       id: "blue-600",
@@ -136,7 +136,7 @@ export const orbitCommerce: FixturePack = {
   id: "orbit-commerce",
   title: "Orbit Commerce",
   blurb: "Fictional storefront admin with warm coral accents.",
-  screenshotPath: "/fixtures/orbit-commerce.svg",
+  screenshotPath: `${import.meta.env.BASE_URL}fixtures/orbit-commerce.svg`,
   primitives: [
     {
       id: "coral-500",
@@ -268,7 +268,7 @@ export const lumenOps: FixturePack = {
   id: "lumen-ops",
   title: "Lumen Ops",
   blurb: "Fictional ops console with mint status chips.",
-  screenshotPath: "/fixtures/lumen-ops.svg",
+  screenshotPath: `${import.meta.env.BASE_URL}fixtures/lumen-ops.svg`,
   primitives: [
     {
       id: "mint-500",

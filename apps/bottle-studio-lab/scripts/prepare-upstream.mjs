@@ -10,10 +10,11 @@ const pinDir = path.join(
 const publicDir = path.join(appRoot, "public/bottle-studio")
 const threeRoot = path.join(appRoot, "node_modules/three")
 
+// Relative so the vendored page also works when the app is served under /apps/<slug>/.
 const importMap = `{
   "imports": {
-    "three": "/bottle-studio/vendor/three/build/three.module.js",
-    "three/addons/": "/bottle-studio/vendor/three/examples/jsm/"
+    "three": "vendor/three/build/three.module.js",
+    "three/addons/": "vendor/three/examples/jsm/"
   }
 }`
 
@@ -29,7 +30,7 @@ function patchIndexHtml(source) {
   )
   html = html.replace(
     'content="https://amirmushichge.github.io/bottle-studio/assets/poster.jpg"',
-    'content="/bottle-studio/assets/poster.jpg"'
+    'content="assets/poster.jpg"'
   )
   return html
 }

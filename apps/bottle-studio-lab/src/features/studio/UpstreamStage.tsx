@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { UPSTREAM_PIN } from "@/upstream/bottle-studio-api"
 
-const STAGE_SRC = "/bottle-studio/index.html"
+const STAGE_SRC = `${import.meta.env.BASE_URL}bottle-studio/index.html`
 
 export function UpstreamStage() {
   const iframeRef = useRef<HTMLIFrameElement>(null)

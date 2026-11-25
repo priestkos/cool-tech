@@ -28,7 +28,7 @@ export default function App() {
             Upstream repo
           </a>
           <a
-            href="/bottle-studio/index.html"
+            href={`${import.meta.env.BASE_URL}bottle-studio/index.html`}
             target="_blank"
             rel="noreferrer"
             className="inline-flex h-6 items-center rounded-md px-2 text-xs text-muted-foreground hover:bg-muted hover:text-foreground"

@@ -67,7 +67,7 @@ export function useLab() {
   }, [])
 
   const loadSample = useCallback(async () => {
-    const res = await fetch("/sample-contract.pdf")
+    const res = await fetch(`${import.meta.env.BASE_URL}sample-contract.pdf`)
     const buf = new Uint8Array(await res.arrayBuffer())
     const pages = await extractPageMeta(buf)
     let envelope = createEnvelope({

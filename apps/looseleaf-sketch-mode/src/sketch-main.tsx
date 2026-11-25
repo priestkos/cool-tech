@@ -10,7 +10,7 @@ const fontLink = document.querySelector('link[data-ll-fonts]')
 if (!fontLink) {
   const link = document.createElement("link")
   link.rel = "stylesheet"
-  link.href = "/fonts/kevin-sans.css"
+  link.href = `${import.meta.env.BASE_URL}fonts/kevin-sans.css`
   link.setAttribute("data-ll-fonts", "")
   document.head.appendChild(link)
 }

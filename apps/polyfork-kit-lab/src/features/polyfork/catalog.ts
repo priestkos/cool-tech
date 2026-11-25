@@ -1,6 +1,6 @@
 import type { CatalogAsset, CatalogKit, CatalogSnapshot } from "./types"
 
-export const CATALOG_SNAPSHOT_PATH = "/catalog-snapshot.json"
+export const CATALOG_SNAPSHOT_PATH = `${import.meta.env.BASE_URL}catalog-snapshot.json`
 export const CATALOG_PIN_SHA = "2232f7df96e44517e4f9b2d08df1081a4a3780e7"
 export const CATALOG_PIN_DATE = "2026-11-11T05:23:02Z"
 

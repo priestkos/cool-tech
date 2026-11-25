@@ -9,7 +9,9 @@ import { Bell, CalendarDays, ClipboardList, House, LayoutGrid, ChartColumn, Shie
 export const focusRing = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
 
 export const org = { name: 'Visitly', agency: 'Thistledown Home Care' }
-export const user = { name: 'Nizam', role: 'Care coordinator', avatar: '/avatars/jaydon-aminoff.webp' }
+const asset = (p: string) => `${import.meta.env.BASE_URL}${p.startsWith("/") ? p.slice(1) : p}`
+
+export const user = { name: 'Nizam', role: 'Care coordinator', avatar: asset('/avatars/jaydon-aminoff.webp') }
 
 /** The board's day, and the minute it treats as "now". */
 export const TODAY = { weekday: 'Monday', short: 'Mon', month: 'Oct', date: 5 }
@@ -82,14 +84,14 @@ export type Visit = {
 const t = (h: number, m = 0) => h * 60 + m
 
 export const caregivers: Caregiver[] = [
-    { id: 'marisol', name: 'Marisol Quintanar', role: 'CNA', avatar: '/avatars/maria-lubin.webp', area: 'Wauwatosa' },
-    { id: 'abena', name: 'Abena Ofori', role: 'HHA', avatar: '/avatars/kianna-vaccaro.webp', area: 'Bay View' },
-    { id: 'davi', name: 'Davi Monteiro', role: 'CNA', avatar: '/avatars/john-clarkson.webp', area: 'West Allis' },
-    { id: 'noemi', name: 'Noemi Castellano', role: 'CNA', avatar: '/avatars/livia-saris.webp', area: 'Shorewood' },
-    { id: 'hiwot', name: 'Hiwot Bekele', role: 'HHA', avatar: '/avatars/ann-press.webp', area: 'Wauwatosa' },
+    { id: 'marisol', name: 'Marisol Quintanar', role: 'CNA', avatar: asset('/avatars/maria-lubin.webp'), area: 'Wauwatosa' },
+    { id: 'abena', name: 'Abena Ofori', role: 'HHA', avatar: asset('/avatars/kianna-vaccaro.webp'), area: 'Bay View' },
+    { id: 'davi', name: 'Davi Monteiro', role: 'CNA', avatar: asset('/avatars/john-clarkson.webp'), area: 'West Allis' },
+    { id: 'noemi', name: 'Noemi Castellano', role: 'CNA', avatar: asset('/avatars/livia-saris.webp'), area: 'Shorewood' },
+    { id: 'hiwot', name: 'Hiwot Bekele', role: 'HHA', avatar: asset('/avatars/ann-press.webp'), area: 'Wauwatosa' },
     { id: 'tessa', name: 'Tessa Lindqvist', role: 'PCA', area: 'Shorewood' },
-    { id: 'hana', name: 'Hana Morikawa', role: 'RN', avatar: '/avatars/aspen-lubin.webp', area: 'Bay View' },
-    { id: 'emil', name: 'Emil Haddad', role: 'HHA', avatar: '/avatars/michael-ekstrom.webp', area: 'West Allis' },
+    { id: 'hana', name: 'Hana Morikawa', role: 'RN', avatar: asset('/avatars/aspen-lubin.webp'), area: 'Bay View' },
+    { id: 'emil', name: 'Emil Haddad', role: 'HHA', avatar: asset('/avatars/michael-ekstrom.webp'), area: 'West Allis' },
     { id: 'bronagh', name: 'Bronagh Kelleher', role: 'CNA', area: 'Wauwatosa' },
     { id: 'gunnar', name: 'Gunnar Halvorsen', role: 'PCA', area: 'Bay View' },
     { id: 'priya', name: 'Priya Raman', role: 'CNA', area: 'Shorewood' },

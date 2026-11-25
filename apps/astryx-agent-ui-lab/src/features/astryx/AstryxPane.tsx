@@ -80,7 +80,7 @@ export function AstryxPane({
       <iframe
         ref={iframeRef}
         title="Astryx fixture preview"
-        src="/astryx-frame.html"
+        src={`${import.meta.env.BASE_URL}astryx-frame.html`}
         className="h-[min(520px,70vh)] w-full rounded-lg border border-border bg-background"
       />
     </section>

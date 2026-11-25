@@ -9,7 +9,7 @@ import { UploadZone } from "@/features/crop/UploadZone"
 import { exportCrop } from "@zriz/core/dom"
 import { presetById } from "@/features/crop/aspectPresets"
 
-const SAMPLE_SRC = "/sample.svg"
+const SAMPLE_SRC = `${import.meta.env.BASE_URL}sample.svg`
 
 export default function App() {
   const [src, setSrc] = useState<string | File | null>(SAMPLE_SRC)

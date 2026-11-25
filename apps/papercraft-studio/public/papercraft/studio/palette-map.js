@@ -73,7 +73,8 @@ export function paletteToCountryside2d(palette) {
 }
 
 export async function loadPalette(name) {
-  const res = await fetch('/papercraft/palettes.json');
+  // Relative to this module so the path survives being served under /apps/<slug>/.
+  const res = await fetch(new URL('../palettes.json', import.meta.url));
   const all = await res.json();
   const entry = all[name];
   if (!entry || !entry.subject) throw new Error(`Unknown palette: ${name}`);
