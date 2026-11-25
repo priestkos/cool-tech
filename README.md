@@ -63,7 +63,7 @@ Apps that call a server API this site does not host are listed under "Not yet de
 
 ## Clean-room and inspired builds
 
-The demos below do not include the project's original code.
+The demos below do not include the project's original code. A demo that does ship upstream source stays out of this table and records its pin in `tracking/<slug>.json` instead.
 
 | App | Build type | Upstream | Status |
 |---|---|---|---|
@@ -71,10 +71,13 @@ The demos below do not include the project's original code.
 | `apps/anatomy-machine-lab/` | inspired-fixture-only | https://github.com/wheresryan22/anatomy | kept: It is an agent skill, not a browser library; the official generator cannot run inside a no-key Vite app. |
 | `apps/benchup-board-lab/` | clean-room-recreation | https://github.com/BenchUp3D/benchup | kept: The official app is a Rust/WASM/WebGPU workspace, not an npm component; a remake can host or embed the official v0.7.2 browser dist rather than wrap it as a shadcn widget. |
 | `apps/design-agent-brief-studio/` | inspired-fixture-only | https://github.com/langchain-ai/design-agent | kept: The actual product is a hosted/agent pipeline with model credentials, not a Bun+Vite library. |
+| `apps/gradient-playground/` | clean-room | https://gradients.sh | kept: the demo ships its own shader engine under `src/lib/gradient-engine/` and only reproduces the public `npx shadcn add` command; no gradients.sh component source is copied. |
 | `apps/kitesurf-cdp-lab/` | clean-room | https://github.com/cloudflare/kitesurf | kept: Kitesurf is a Workers/WASM browser engine built with Bazel and wrangler, not a library you import in a Vite app. A faithful remake cannot live inside apps/kitesurf-cdp-lab alone. |
 | `apps/opencrawl-board-lab/` | clean-room | https://github.com/getopencrawl/opencrawl-core | kept: The official product is a Docker/MCP server and console, not a package you pin into a Bun+Vite+shadcn app. |
+| `apps/polyfork-kit-lab/` | hybrid | https://polyfork.dev | hybrid: bundles the public catalog snapshot (`polyfork-catalog`, CC BY 4.0 data) and leaves `.mjs` modules on the official CDN; the offline parametric preview is a local stand-in, not Polyfork source. |
 | `apps/reanimate-motion-diff-lab/` | inspired-recreation | https://github.com/NiazMorshed2007/reanimate | kept: It is a Claude Code skill with Playwright recording, not a library that runs inside a Vite page. |
 | `apps/screenshot-to-tokens-lab/` | inspired-fixture-only | https://github.com/nhunsaker/screenshot-to-tokens | kept: Faithful use of the official pipeline needs model/segmentation APIs and is not a no-key Bun+Vite integration. |
+| `apps/security-audit-explorer/` | hybrid | https://github.com/cloudflare/security-audit-skill | hybrid: the report schema and dependency-free validators are vendored at commit `c1c8a8c`; the explorer UI, triage state and example runs are local. |
 | `apps/selfgraph-lab/` | hybrid | https://github.com/hydra-db/selfgraph | hybrid: tests use the real package, browser store is clean-room |
 | `apps/stack-diagram-studio/` | recreation | https://github.com/caru-ini/stack-diagram | kept: The actual product is an agent skill plus Python logo fetch, not a Vite-installable library; running it faithfully needs an agent and network. |
 | `apps/vybbench-lab/` | inspired-fixture-only | https://github.com/cocolabsai/vybbench | kept: The official scorer is Python plus a HuggingFace dataset, not something to import in Vite. The current lab already uses published scores; swapping mock SVGs for official dataset stills would be a data fix, not a code remake. |
