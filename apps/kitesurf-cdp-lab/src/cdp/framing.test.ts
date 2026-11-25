@@ -18,6 +18,18 @@ describe("parseCdpFrame", () => {
     const event = { method: "Runtime.consoleAPICalled", params: { type: "log" } }
     expect(parseCdpFrame(JSON.stringify(event))).toEqual(event)
   })
+
+  test("parses error responses", () => {
+    const error = { id: 4, error: { code: -32000, message: "nope" } }
+    expect(parseCdpFrame(JSON.stringify(error))).toEqual(error)
+  })
+
+  test("rejects malformed frames", () => {
+    expect(() => parseCdpFrame("not-json")).toThrow()
+    expect(() => parseCdpFrame("null")).toThrow(/Invalid CDP frame/)
+    expect(() => parseCdpFrame("[]")).toThrow(/Unrecognized CDP frame/)
+    expect(() => parseCdpFrame('{"foo":1}')).toThrow(/Unrecognized CDP frame/)
+  })
 })
 
 describe("correlateTranscript", () => {
@@ -35,6 +47,40 @@ describe("correlateTranscript", () => {
           p.request.payload.id === p.response.payload.id
       )
     ).toBe(true)
+  })
+
+  test("tracks pending requests and orphaned responses", () => {
+    const request = {
+      atMs: 0,
+      direction: "request" as const,
+      payload: { id: 1, method: "Page.navigate" },
+    }
+    const response = {
+      atMs: 1,
+      direction: "response" as const,
+      payload: { id: 1, result: { frameId: "a" } },
+    }
+    const orphan = {
+      atMs: 2,
+      direction: "response" as const,
+      payload: { id: 99, error: { code: 1, message: "missing" } },
+    }
+    const event = {
+      atMs: 3,
+      direction: "event" as const,
+      payload: { method: "Runtime.consoleAPICalled" },
+    }
+    const pending = {
+      atMs: 4,
+      direction: "request" as const,
+      payload: { id: 2, method: "DOM.getDocument" },
+    }
+    const result = correlateTranscript([request, response, orphan, event, pending])
+    expect(result.pendingRequestCount).toBe(1)
+    expect(result.orphanedResponses).toEqual([orphan])
+    expect(result.pairs).toHaveLength(2)
+    expect(result.pairs[0]?.response).toBe(response)
+    expect(result.pairs[1]?.response).toBeUndefined()
   })
 })
 
