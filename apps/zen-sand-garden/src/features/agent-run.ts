@@ -7,13 +7,31 @@ export type AgentStep = {
   log: string
 }
 
-export const AGENT_SEQUENCE: readonly AgentStep[] = [
-  { state: "thinking", log: "Thinking…" },
-  { state: "searching", log: "Searching…" },
-  { state: "tool", log: "Using a tool…" },
-  { state: "writing", log: "Writing…" },
-  { state: "idle", log: "Ready" },
-] as const
+export function logForThinkingState(state: ThinkingState): string {
+  switch (state) {
+    case "thinking":
+      return "Thinking…"
+    case "searching":
+      return "Searching…"
+    case "tool":
+      return "Using a tool…"
+    case "writing":
+      return "Writing…"
+    case "idle":
+      return "Ready"
+    default: {
+      const _exhaustive: never = state
+      return _exhaustive
+    }
+  }
+}
+
+const SEQUENCE_STATES = ["thinking", "searching", "tool", "writing", "idle"] as const
+
+export const AGENT_SEQUENCE: readonly AgentStep[] = SEQUENCE_STATES.map((state) => ({
+  state,
+  log: logForThinkingState(state),
+}))
 
 function delay(ms: number, signal: AbortSignal): Promise<void> {
   return new Promise((resolve, reject) => {
@@ -45,12 +63,13 @@ export type AgentRunCallbacks = {
 export async function runAgentSequence(
   callbacks: AgentRunCallbacks,
   signal: AbortSignal,
+  holdMs: number = STATE_HOLD_MS,
 ): Promise<void> {
   for (const step of AGENT_SEQUENCE) {
     if (signal.aborted) return
     callbacks.onStep(step)
     if (step.state !== "idle") {
-      await delay(STATE_HOLD_MS, signal)
+      await delay(holdMs, signal)
     }
   }
 }

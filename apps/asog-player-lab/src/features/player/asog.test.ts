@@ -37,6 +37,31 @@ describe("playback clock", () => {
     expect(clock.playing).toBe(false)
     expect(clock.now()).toBeCloseTo(2.5, 5)
   })
+
+  test("seek while playing reports that time immediately and keeps playing", () => {
+    const clock = createPlaybackClock(true)
+    clock.set(4)
+    expect(clock.playing).toBe(true)
+    expect(clock.now()).toBeCloseTo(4, 2)
+  })
+
+  test("pause freezes elapsed time and resume continues from that base", async () => {
+    const clock = createPlaybackClock(false)
+    clock.set(1)
+    expect(clock.now()).toBe(1)
+    clock.toggle()
+    expect(clock.playing).toBe(true)
+    await new Promise((resolve) => setTimeout(resolve, 50))
+    expect(clock.now()).toBeGreaterThan(1.02)
+    clock.toggle()
+    expect(clock.playing).toBe(false)
+    const frozen = clock.now()
+    await new Promise((resolve) => setTimeout(resolve, 40))
+    expect(clock.now()).toBe(frozen)
+    clock.toggle()
+    expect(clock.playing).toBe(true)
+    expect(clock.now()).toBeCloseTo(frozen, 2)
+  })
 })
 
 describe("vendor file hashes", () => {

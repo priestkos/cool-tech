@@ -5,6 +5,7 @@ import { AsogThreePlayer } from "@animated-sog/three"
 import type { ClipId } from "./clips"
 import { CLIPS } from "./clips"
 import { createPlaybackClock } from "./playbackClock"
+import { CAMERA_FOV_DEG, frameOrbit } from "./frameOrbit"
 
 export type LoadPhase = "idle" | "loading" | "ready" | "error" | "no-webgl"
 
@@ -97,7 +98,7 @@ export function useAsogPlayer(clipId: ClipId, canvasRef: RefObject<HTMLCanvasEle
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, context: gl })
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(50, 1, 0.01, 500)
+    const camera = new THREE.PerspectiveCamera(CAMERA_FOV_DEG, 1, 0.01, 500)
     scene.add(camera)
 
     const controls = new OrbitControls(camera, canvas)
@@ -181,21 +182,15 @@ export function useAsogPlayer(clipId: ClipId, canvasRef: RefObject<HTMLCanvasEle
         playerRef.current = player
 
         const { min, max } = player.bounds
-        const centre = new THREE.Vector3(
-          (min[0] + max[0]) / 2,
-          (min[1] + max[1]) / 2,
-          (min[2] + max[2]) / 2,
+        const framed = frameOrbit(
+          [min[0], min[1], min[2]],
+          [max[0], max[1], max[2]],
         )
+        const centre = new THREE.Vector3(framed.target[0], framed.target[1], framed.target[2])
         player.object.updateMatrixWorld()
         centre.applyMatrix4(player.object.matrixWorld)
-        const size = Math.max(max[0] - min[0], max[1] - min[1], max[2] - min[2])
-        const distance = (size / (2 * Math.tan((25 * Math.PI) / 180))) * 1.25
         controls.target.copy(centre)
-        const offset = new THREE.Vector3(
-          0,
-          Math.sin((5 * Math.PI) / 180),
-          Math.cos((5 * Math.PI) / 180),
-        ).multiplyScalar(distance)
+        const offset = new THREE.Vector3(framed.offset[0], framed.offset[1], framed.offset[2])
         camera.position.copy(centre).add(offset)
         controls.update()
 

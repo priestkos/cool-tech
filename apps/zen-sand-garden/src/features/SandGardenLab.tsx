@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
-import { runAgentSequence } from "@/features/agent-run"
+import { logForThinkingState, runAgentSequence } from "@/features/agent-run"
 import type {
   SandSignatureEl,
   SandSliderEl,
@@ -108,28 +108,10 @@ export function SandGardenLab() {
   useEffect(() => {
     const el = thinkingRef.current
     if (!el) return
-    const logFor = (state: ThinkingState) => {
-      switch (state) {
-        case "thinking":
-          return "Thinking…"
-        case "searching":
-          return "Searching…"
-        case "tool":
-          return "Using a tool…"
-        case "writing":
-          return "Writing…"
-        case "idle":
-          return "Ready"
-        default: {
-          const _exhaustive: never = state
-          return _exhaustive
-        }
-      }
-    }
     const onAny = () => {
       const state = el.state
       setThinkingState(state)
-      if (!agentRunning) setStepLog(logFor(state))
+      if (!agentRunning) setStepLog(logForThinkingState(state))
     }
     el.addEventListener("input", onAny)
     el.addEventListener("change", onAny)
