@@ -42,4 +42,19 @@ describe("toast undo archive helpers", () => {
     const back = restoreInboxItem(trimmed, first)
     expect(back.some((i) => i.id === first.id)).toBe(true)
   })
+
+  test("remove of an unknown id leaves every row", () => {
+    const removed = removeInboxItem(INITIAL_INBOX, "missing")
+    expect(removed.map((i) => i.id)).toEqual(INITIAL_INBOX.map((i) => i.id))
+    expect(INITIAL_INBOX.map((i) => i.id)).toEqual(["a", "b", "c"])
+  })
+
+  test("restore refuses a duplicate and prepends a missing row", () => {
+    const first = INITIAL_INBOX[0]!
+    expect(restoreInboxItem(INITIAL_INBOX, first)).toBe(INITIAL_INBOX)
+    const without = removeInboxItem(INITIAL_INBOX, first.id)
+    const restored = restoreInboxItem(without, first)
+    expect(restored[0]).toBe(first)
+    expect(restored.map((i) => i.id)).toEqual(["a", "b", "c"])
+  })
 })
