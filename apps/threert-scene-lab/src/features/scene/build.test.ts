@@ -3,6 +3,7 @@ import {
   DirectionalLight,
   RecordingEngine,
   SceneBinding,
+  SpotLight,
   lightDesc,
 } from "@threert/scene"
 import { buildThreertScene } from "./build"
@@ -59,5 +60,44 @@ describe("@threert/scene build + binding", () => {
     }
     const built = buildThreertScene(doc)
     expect(built.sun.intensity).toBe(42_000)
+  })
+
+  test("plane without size uses unit lab geometry and does not cast", () => {
+    const doc = structuredClone(
+      SAMPLE_SCENES.find((sample) => sample.slug === "noon-courtyard")!.doc,
+    )
+    const plane = doc.meshes.find((mesh) => mesh.geometry === "plane")
+    expect(plane).toBeDefined()
+    if (!plane) return
+    delete plane.size
+    const built = buildThreertScene(doc)
+    const courtyard = built.scene.children.find((child) => child.name === "Courtyard")
+    expect(courtyard).toBeDefined()
+    if (!courtyard) return
+    expect(courtyard.castShadow).toBe(false)
+    expect(courtyard.userData.labGeo).toEqual({ kind: "plane", size: [1, 1, 1] })
+  })
+
+  test("spot light defaults target, penumbra, and distance", () => {
+    const doc = structuredClone(
+      SAMPLE_SCENES.find((sample) => sample.slug === "studio-softbox")!.doc,
+    )
+    doc.lights = [
+      {
+        id: "key",
+        type: "spot",
+        position: [1, 2, 3],
+        intensityCd: 10,
+        angleDeg: 90,
+      },
+    ]
+    const built = buildThreertScene(doc)
+    const spot = built.scene.children.find((child) => child instanceof SpotLight)
+    expect(spot).toBeInstanceOf(SpotLight)
+    if (!(spot instanceof SpotLight)) return
+    expect(spot.angle).toBeCloseTo(Math.PI / 2)
+    expect(spot.penumbra).toBe(0.2)
+    expect(spot.distance).toBe(0)
+    expect(spot.target?.position.toArray()).toEqual([0, 0, 0])
   })
 })

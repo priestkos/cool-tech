@@ -3,6 +3,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSy
 import path from "node:path";
 import type { Plugin, Connect } from "vite";
 import type { ServerResponse } from "node:http";
+import { resolveInsideAgentRoot } from "./agent-path";
 
 const agentRoot = path.resolve(process.cwd(), "agent");
 
@@ -104,12 +105,12 @@ export function eveAgentLabPlugin(): Plugin {
 
         if (req.method === "GET" && url.pathname === "/lab/api/agent-file") {
           const rel = url.searchParams.get("path") ?? "instructions.md";
-          const target = path.resolve(agentRoot, rel);
-          if (!target.startsWith(agentRoot)) {
-            sendJson(res, 403, { error: "Path escapes agent root." });
+          const resolved = resolveInsideAgentRoot(agentRoot, rel);
+          if (!resolved.ok) {
+            sendJson(res, 403, { error: resolved.error });
             return;
           }
-          sendJson(res, 200, { path: rel, content: readFileSync(target, "utf8") });
+          sendJson(res, 200, { path: rel, content: readFileSync(resolved.target, "utf8") });
           return;
         }
 
@@ -118,12 +119,12 @@ export function eveAgentLabPlugin(): Plugin {
             const body = (await readJsonBody(req)) as { path?: string; content?: string };
             const rel = body.path ?? "instructions.md";
             const content = body.content ?? "";
-            const target = path.resolve(agentRoot, rel);
-            if (!target.startsWith(agentRoot)) {
-              sendJson(res, 403, { error: "Path escapes agent root." });
+            const resolved = resolveInsideAgentRoot(agentRoot, rel);
+            if (!resolved.ok) {
+              sendJson(res, 403, { error: resolved.error });
               return;
             }
-            writeFileSync(target, content, "utf8");
+            writeFileSync(resolved.target, content, "utf8");
             sendJson(res, 200, { ok: true, path: rel });
           } catch (error) {
             sendJson(res, 400, { error: error instanceof Error ? error.message : "Bad request" });
