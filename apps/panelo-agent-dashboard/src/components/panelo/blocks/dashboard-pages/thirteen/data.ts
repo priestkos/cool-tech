@@ -1,4 +1,6 @@
 import { Bell, CalendarDays, ClipboardList, House, LayoutGrid, ChartColumn, ShieldCheck, UsersRound, type LucideIcon } from 'lucide-react'
+import { assetUrl } from '../../../../../lib/asset-url'
+export { clock, clockFull, hourLabel, initials } from '../../../../../lib/schedule-format'
 
 /* -------------------------------------------------------------------------- */
 /*  Demo data for dashboard-pages/thirteen: a home-care agency's dispatch      */
@@ -9,7 +11,7 @@ import { Bell, CalendarDays, ClipboardList, House, LayoutGrid, ChartColumn, Shie
 export const focusRing = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
 
 export const org = { name: 'Visitly', agency: 'Thistledown Home Care' }
-const asset = (p: string) => `${import.meta.env.BASE_URL}${p.startsWith("/") ? p.slice(1) : p}`
+const asset = (p: string) => assetUrl(import.meta.env.BASE_URL, p)
 
 export const user = { name: 'Nizam', role: 'Care coordinator', avatar: asset('/avatars/jaydon-aminoff.webp') }
 
@@ -205,19 +207,3 @@ export const alerts = [
     { id: 'a3', tone: 'info', title: 'Desmond Okonjo called out', body: '3 visits reassigned to Marisol, Emil and Bronagh.', time: '8:52 AM' },
     { id: 'a4', tone: 'info', title: 'Follow-up to review', body: 'Marisol left a note on Marguerite H.', time: '12:04 PM' },
 ] as const
-
-/* --------------------------------- Formats --------------------------------- */
-
-/** "7:30", "12:30" — the board's compact clock, no meridiem. */
-export const clock = (minutes: number) => `${Math.floor(minutes / 60) % 12 || 12}:${String(minutes % 60).padStart(2, '0')}`
-/** "10:00 AM". */
-export const clockFull = (minutes: number) => `${clock(minutes)} ${minutes < 12 * 60 ? 'AM' : 'PM'}`
-/** "7 AM". */
-export const hourLabel = (hour: number) => `${hour % 12 || 12} ${hour < 12 ? 'AM' : 'PM'}`
-export const initials = (name: string) =>
-    name
-        .split(' ')
-        .map((p) => p[0])
-        .slice(0, 2)
-        .join('')
-        .toUpperCase()

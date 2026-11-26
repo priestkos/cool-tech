@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises"
 import path from "node:path"
-import { MAX_UPLOAD_BYTES, type SlicerOptions } from "../src/constants"
 import { GALLERY_DIR, GALLERY_JSON } from "./paths"
+import { parseSliceOptions, resolveGalleryAsset, sliceTitle, uploadDecision } from "./slice-request"
 import { readJobFile, runSlicer } from "./slicer"
 
 const port = Number(process.env.SPRITE_STACK_STUDIO_API_PORT ?? "3924")
@@ -11,32 +11,6 @@ function json(data: unknown, status = 200) {
     status,
     headers: { "content-type": "application/json" },
   })
-}
-
-const IMAGE_TYPES = new Set(["image/png", "image/webp"])
-
-function parseOptions(form: FormData): SlicerOptions {
-  const slicesRaw = form.get("slices")
-  const coloursRaw = form.get("colours")
-  let slices: number | null | undefined
-  if (slicesRaw === null || slicesRaw === "") {
-    slices = undefined
-  } else {
-    const n = Number(slicesRaw)
-    slices = Number.isFinite(n) ? n : undefined
-  }
-  const colours = coloursRaw === null || coloursRaw === "" ? undefined : Number(coloursRaw)
-  return {
-    slices,
-    round: form.get("round") === "true",
-    colours: Number.isFinite(colours) ? colours : undefined,
-    order: (form.get("order") as "auto" | "reading") || undefined,
-    sideNose: (form.get("sideNose") as "left" | "right") || undefined,
-    shade: form.get("shade") ? Number(form.get("shade")) : undefined,
-    preview: form.get("preview") === "true",
-    normals: form.get("normals") === "true",
-    emissive: form.get("emissive") === "true",
-  }
 }
 
 Bun.serve({
@@ -59,8 +33,8 @@ Bun.serve({
 
     if (request.method === "GET" && pathname.startsWith("/gallery-data/assets/")) {
       const rel = pathname.slice("/gallery-data/assets/".length)
-      const filePath = path.join(GALLERY_DIR, rel)
-      if (!filePath.startsWith(GALLERY_DIR)) return new Response("Forbidden", { status: 403 })
+      const filePath = resolveGalleryAsset(GALLERY_DIR, rel)
+      if (filePath === null) return new Response("Forbidden", { status: 403 })
       const file = Bun.file(filePath)
       if (!(await file.exists())) return new Response("Not found", { status: 404 })
       return new Response(file)
@@ -107,27 +81,22 @@ Bun.serve({
         return json({ error: "Invalid multipart body" }, 400)
       }
 
-      const file = form.get("file")
-      if (!(file instanceof File)) {
-        return json({ error: "Missing file field" }, 400)
-      }
-
-      if (!IMAGE_TYPES.has(file.type) && !file.name.match(/\.(png|webp)$/i)) {
-        return json({ error: "Only PNG or WebP images are accepted" }, 415)
-      }
-
-      if (file.size > MAX_UPLOAD_BYTES) {
-        return json({ error: "File too large" }, 413)
-      }
+      const uploaded = form.get("file")
+      const decision = uploadDecision(
+        uploaded instanceof File ? { type: uploaded.type, name: uploaded.name, size: uploaded.size } : null,
+      )
+      if (!decision.ok) return json({ error: decision.error }, decision.status)
+      if (!(uploaded instanceof File)) return json({ error: "Missing file field" }, 400)
+      const file = uploaded
 
       const bytes = Buffer.from(await file.arrayBuffer())
-      const options = parseOptions(form)
+      const options = parseSliceOptions(form)
 
       try {
         const { jobId } = await runSlicer(bytes, file.name, options)
         return json({
           jobId,
-          title: file.name.replace(/\.[^.]+$/, ""),
+          title: sliceTitle(file.name),
           viewerUrl: `/viewer-embed/job/${jobId}/viewer.html`,
           stripUrl: `/api/job/${jobId}/strip.png`,
           sheetUrl: `/api/job/${jobId}/sheet.png`,

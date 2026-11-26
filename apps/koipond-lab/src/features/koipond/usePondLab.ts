@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react"
 import {
+  mergeWater,
   POND_DEFAULTS,
   type PondLabState,
   type PondLook,
@@ -22,7 +23,7 @@ export function usePondLab() {
   }, [patch])
 
   const setWater = useCallback((water: Partial<WaterOverride>) => {
-    setState((prev) => ({ ...prev, water: { ...prev.water, ...water } }))
+    setState((prev) => ({ ...prev, water: mergeWater(prev.water, water) }))
   }, [])
 
   const reset = useCallback(() => {

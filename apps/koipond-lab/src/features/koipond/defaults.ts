@@ -54,6 +54,10 @@ export const POND_DEFAULTS: PondLabState = {
   },
 }
 
+export function mergeWater(current: WaterOverride, patch: Partial<WaterOverride>): WaterOverride {
+  return { ...current, ...patch }
+}
+
 export function toKoiPondProps(state: PondLabState): KoiPondProps {
   return {
     look: state.look,

@@ -5,7 +5,7 @@ import { TrendsChart } from "@/components/panelo/blocks/charts/trends-chart"
 import { AboutCredits } from "@/components/lab/AboutCredits"
 import { AgentLabPanel } from "@/components/lab/AgentLabPanel"
 import { WorkflowTable } from "@/components/lab/WorkflowTable"
-import { seedWorkflows, type Workflow } from "@/components/lab/workflows"
+import { applyWorkflowPause, deleteWorkflow, seedWorkflows, type Workflow } from "@/components/lab/workflows"
 import { Badge } from "@/components/panelo/ui/badge"
 
 export default function App() {
@@ -13,17 +13,11 @@ export default function App() {
   const [deleteWithoutAsking, setDeleteWithoutAsking] = useState(false)
 
   const onTogglePause = useCallback((id: string, paused: boolean) => {
-    setWorkflows((rows) =>
-      rows.map((w) =>
-        w.id === id
-          ? { ...w, paused, status: paused ? "paused" : w.status === "paused" ? "active" : w.status }
-          : w,
-      ),
-    )
+    setWorkflows((rows) => applyWorkflowPause(rows, id, paused))
   }, [])
 
   const onDelete = useCallback((id: string) => {
-    setWorkflows((rows) => rows.filter((w) => w.id !== id))
+    setWorkflows((rows) => deleteWorkflow(rows, id))
   }, [])
 
   return (

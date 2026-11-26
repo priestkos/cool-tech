@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 
 import { flash, getAgent, pendingConfirm } from '@/components/panelo/lib/agent'
+import { describeAgentStep as describe } from '@/components/panelo/lib/describe-step'
 
 type Block = { type: string; id?: string; name?: string; input?: any; text?: string }
 export type AgentStep = { ref: string; action: string; args?: unknown[] }
@@ -12,26 +13,6 @@ export type AgentChatEntry = { role: 'user' | 'assistant'; text: string } | { ro
 
 // ponytail: a hard stop on tool round trips per request; raise it for long multi-screen tasks.
 const MAX_TURNS = 8
-
-/** A step in plain words for the activity log, like "Set Search workflows to slack". */
-function describe({ ref, action, args = [] }: Step) {
-    const [arg] = args
-    switch (action) {
-        case 'press':
-            return args.length ? `Chose ${arg} in ${ref}` : `Pressed ${ref}`
-        case 'setValue':
-            return `Set ${ref} to “${arg}”`
-        case 'setPressed':
-        case 'setChecked':
-            return arg ? ref : `Turned off ${ref}`
-        case 'setOpen':
-            return `${arg ? 'Opened' : 'Closed'} ${ref}`
-        case 'clear':
-            return `Cleared ${ref}`
-        default:
-            return `${action} ${ref}`
-    }
-}
 
 /**
  * Chat with an agent that operates the page through ui-sdk's bridge. The model runs on the server

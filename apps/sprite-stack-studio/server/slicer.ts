@@ -3,6 +3,7 @@ import { mkdir, readdir, rm, writeFile } from "node:fs/promises"
 import path from "node:path"
 import type { SlicerOptions } from "../src/constants"
 import { APP_ROOT, SLICER_PY, VENV_PYTHON } from "./paths"
+import { safeSheetBasename } from "./slice-request"
 
 const WORK_ROOT = path.join(APP_ROOT, ".cache/slicer-jobs")
 
@@ -19,7 +20,7 @@ export async function runSlicer(
   const jobDir = path.join(WORK_ROOT, jobId)
   await mkdir(jobDir, { recursive: true })
 
-  const safeBase = basename.replace(/[^a-zA-Z0-9._-]/g, "_").slice(0, 80) || "upload"
+  const safeBase = safeSheetBasename(basename)
   const sheetPath = path.join(jobDir, `${safeBase}-sheet.png`)
   const stripPath = path.join(jobDir, `${safeBase}-strip.png`)
   const htmlPath = path.join(jobDir, `${safeBase}-viewer.html`)

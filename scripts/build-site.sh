@@ -10,6 +10,8 @@
 set -uo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# shellcheck source=site-build-mode.sh
+source "$ROOT/scripts/site-build-mode.sh"
 OUT="${1:-$ROOT/site-dist}"
 LOGS="$OUT/../site-build-logs"
 mkdir -p "$OUT/apps" "$LOGS"
@@ -30,7 +32,8 @@ for dir in "$ROOT"/apps/*/; do
   # whose script ends in another step would take --base on that step instead and
   # silently build with the default base, so build those explicitly.
   build_script=$( cd "$dir" && node -e "process.stdout.write(require('./package.json').scripts?.build ?? '')" 2>/dev/null )
-  if [ "$build_script" = "tsc -b && vite build" ]; then
+  mode=$(site_build_mode "$build_script")
+  if [ "$mode" = "passthrough" ]; then
     ( cd "$dir" && bun run build -- --base="/apps/$slug/" >> "$log" 2>&1 )
     rc=$?
   else

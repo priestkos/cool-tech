@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test"
 import { LOOKS } from "@hxlfed/koipond"
-import { LOOK_ORDER, POND_DEFAULTS, toKoiPondProps } from "./defaults"
+import { LOOK_ORDER, mergeWater, POND_DEFAULTS, toKoiPondProps } from "./defaults"
 
 describe("koipond lab defaults", () => {
   test("LOOK_ORDER lists every LOOKS key", () => {
@@ -25,5 +25,30 @@ describe("koipond lab defaults", () => {
     })
     expect(props.water?.caustics).toBe(0.5)
     expect(props.water?.shallow).toBe("#112233")
+  })
+
+  test("mergeWater keeps untouched fields when patching clarity", () => {
+    const next = mergeWater(POND_DEFAULTS.water, { clarity: 0.25 })
+    expect(next.caustics).toBe(1)
+    expect(next.waves).toBe(1)
+    expect(next.clarity).toBe(0.25)
+  })
+
+  test("mergeWater adds shallow and overrides caustics", () => {
+    const next = mergeWater(POND_DEFAULTS.water, { shallow: "#112233", caustics: 0.2 })
+    expect(next.shallow).toBe("#112233")
+    expect(next.caustics).toBe(0.2)
+    expect(next.waves).toBe(1)
+    expect(next.clarity).toBe(1)
+  })
+
+  test("merged water stays omitted unless the override is enabled", () => {
+    const water = mergeWater(POND_DEFAULTS.water, { clarity: 0.25, caustics: 0.4 })
+    const hidden = toKoiPondProps({ ...POND_DEFAULTS, water, waterOverrideEnabled: false })
+    expect(hidden.water).toBeUndefined()
+    const shown = toKoiPondProps({ ...POND_DEFAULTS, water, waterOverrideEnabled: true })
+    expect(shown.water?.clarity).toBe(0.25)
+    expect(shown.water?.caustics).toBe(0.4)
+    expect(shown.water?.waves).toBe(1)
   })
 })
