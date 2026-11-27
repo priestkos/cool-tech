@@ -733,6 +733,20 @@
         "mode": "real-code",
         "note": "Uses real psychoscript@0.3.0 (MIT, published 2026-11-24T05:20:45Z); demo slug psychoscript-lab (apps/psychoscript-lab); merged in PR #105 (9e2f42ef)."
       }
+    },
+    {
+      "id": "mirage-terminal-lab",
+      "title": "Mirage Terminal Lab (browser Mirage 0.1.0)",
+      "url": "https://github.com/strukto-ai/mirage",
+      "date": "2026-11-27",
+      "sourceRefs": [
+        "https://github.com/strukto-ai/mirage",
+        "https://x.com/zechengzh/status/2125308941190250618"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Uses real @struktoai/mirage-browser@0.1.0 and @struktoai/mirage-core@0.1.0 (Apache-2.0, published 2026-11-24T13:53:37Z / 2026-11-24T13:56:25Z); demo slug mirage-terminal-lab (apps/mirage-terminal-lab); merged in PR #107 (d7e1b78)."
+      }
     }
   ],
   "skipped": [
