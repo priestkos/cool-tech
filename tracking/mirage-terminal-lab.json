@@ -1,0 +1,25 @@
+{
+  "id": "mirage-terminal-lab",
+  "title": "Mirage Terminal Lab (browser Mirage 0.1.0)",
+  "url": "https://github.com/strukto-ai/mirage",
+  "date": "2026-11-27",
+  "sourceRefs": [
+    "https://github.com/strukto-ai/mirage",
+    "https://docs.mirage.strukto.ai/typescript/quickstart",
+    "https://www.strukto.ai/mirage",
+    "https://x.com/zechengzh/status/2125308941190250618"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "Apache-2.0",
+    "packages": [
+      "@struktoai/mirage-browser@0.1.0",
+      "@struktoai/mirage-core@0.1.0"
+    ],
+    "publishedUtc": {
+      "@struktoai/mirage-browser@0.1.0": "2026-11-24T13:53:37Z",
+      "@struktoai/mirage-core@0.1.0": "2026-11-24T13:56:25Z"
+    },
+    "note": "Sai approved Nov 25 ('Build both', 'Wait for 0.1.0') alongside Panelo; offline RAM-only lab with profiles."
+  }
+}
