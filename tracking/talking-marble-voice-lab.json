@@ -1,0 +1,20 @@
+{
+  "id": "talking-marble-voice-lab",
+  "title": "Talking Marble Voice Lab (talking-marble 0.1.0)",
+  "url": "https://github.com/imjustinliao/Talking-Marble",
+  "date": "2026-11-28",
+  "sourceRefs": [
+    "https://github.com/imjustinliao/Talking-Marble",
+    "https://talking-marble.vercel.app/",
+    "https://x.com/imjustinliao/status/2125359641312014787"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "MIT",
+    "packages": ["talking-marble@0.1.0"],
+    "publishedUtc": {
+      "talking-marble@0.1.0": "2026-11-24T23:34:56.064Z"
+    },
+    "note": "Sai approved Nov 26 ('Build both (schedule)') alongside Inkworks; offline visual lab, no voice SDK."
+  }
+}
