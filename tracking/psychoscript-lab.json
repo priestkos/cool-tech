@@ -1,0 +1,26 @@
+{
+  "id": "psychoscript-lab",
+  "title": "Psychoscript Lab (real psychoscript VM)",
+  "url": "https://github.com/anomalyco/psychoscript",
+  "date": "2026-11-27",
+  "sourceRefs": [
+    "https://github.com/anomalyco/psychoscript",
+    "https://psychoscript.com",
+    "https://x.com/opencode/status/2125702030832349374"
+  ],
+  "upstreamAgeAssessment": {
+    "mode": "real-code",
+    "license": "MIT",
+    "package": "psychoscript@0.3.0",
+    "publishedUtc": "2026-11-24T05:20:45.186Z",
+    "note": "Bun server runs psychoscript@0.3.0 with mock Host.fn/namespace tools; pause/resume/fork + child-process resume."
+  },
+  "relatedCandidates": [
+    {
+      "id": "procedural-gems",
+      "url": "https://github.com/ZyFou/ProceduralGems",
+      "launchPost": "https://x.com/zy_fou/status/2126043200171512184",
+      "note": "Runner-up for today; approved and scheduled once 0.2.0 is 72h old (Nov 30)."
+    }
+  ]
+}
