@@ -719,6 +719,20 @@
         "mode": "real-code",
         "note": "Vendors raycanvas-ai/paneloui MIT code at commit 6517e2e7062f97501e46e73ba1e545f19ef556e2 (committed 2026-11-21T16:35:00Z) with @ui-sdk 0.1.0-beta.2; demo slug panelo-agent-dashboard (apps/panelo-agent-dashboard); merged in PR #103 (5fc460e)."
       }
+    },
+    {
+      "id": "psychoscript-lab",
+      "title": "Psychoscript Lab (real psychoscript VM)",
+      "url": "https://github.com/anomalyco/psychoscript",
+      "date": "2026-11-27",
+      "sourceRefs": [
+        "https://github.com/anomalyco/psychoscript",
+        "https://x.com/opencode/status/2125702030832349374"
+      ],
+      "upstreamAgeAssessment": {
+        "mode": "real-code",
+        "note": "Uses real psychoscript@0.3.0 (MIT, published 2026-11-24T05:20:45Z); demo slug psychoscript-lab (apps/psychoscript-lab); merged in PR #105 (9e2f42ef)."
+      }
     }
   ],
   "skipped": [
