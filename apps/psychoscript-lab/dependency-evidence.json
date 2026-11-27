@@ -1,0 +1,20 @@
+{
+  "cutoffUtc": "2026-11-24T05:20:45Z",
+  "launchVerifiedUtc": "2026-11-27T05:40:00Z",
+  "policy": "Each direct dependency publish time must be at least 72h before build; bunfig minimumReleaseAge=259200.",
+  "psychoscript": {
+    "name": "psychoscript",
+    "version": "0.3.0",
+    "publishedUtc": "2026-11-24T05:20:45.186Z",
+    "license": "MIT",
+    "eligible": true
+  },
+  "directDependencies": [
+    { "name": "psychoscript", "version": "0.3.0", "publishedUtc": "2026-11-24T05:20:45.186Z", "eligible": true },
+    { "name": "react", "version": "19.3.1", "publishedUtc": "2026-10-14T16:47:15.290Z", "eligible": true },
+    { "name": "react-dom", "version": "19.3.1", "publishedUtc": "2026-10-14T16:49:10.081Z", "eligible": true },
+    { "name": "vite", "version": "8.3.5", "publishedUtc": "2026-10-21T06:38:54.907Z", "eligible": true },
+    { "name": "playwright", "version": "1.64.1", "publishedUtc": "2026-10-14T11:54:49.998Z", "eligible": true },
+    { "name": "typescript", "version": "6.0.3", "publishedUtc": "2026-04-16T23:38:27.905Z", "eligible": true }
+  ]
+}
