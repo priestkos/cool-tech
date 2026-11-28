@@ -186,6 +186,25 @@ export const PRESETS: PresetCommand[] = [
   },
 ]
 
+export function presetsForProfile(profile: ProfileId): PresetCommand[] {
+  return PRESETS.filter((p) => !p.profile || p.profile === profile)
+}
+
+export function stepCommandHistory(
+  history: readonly string[],
+  historyIdx: number,
+  key: "ArrowUp" | "ArrowDown",
+): { historyIdx: number; input: string } | null {
+  if (history.length === 0) return null
+  if (key === "ArrowUp") {
+    const next = historyIdx < 0 ? history.length - 1 : Math.max(0, historyIdx - 1)
+    return { historyIdx: next, input: history[next] ?? "" }
+  }
+  const next = historyIdx < 0 ? -1 : historyIdx + 1
+  if (next >= history.length) return { historyIdx: -1, input: "" }
+  return { historyIdx: next, input: history[next] ?? "" }
+}
+
 async function resolveShell(
   exec: ExecuteResult | ShellExecution,
 ): Promise<ExecuteResult> {
@@ -315,7 +334,7 @@ export class MirageLab {
   }
 }
 
-function summarize(text: string, max = 160): string {
+export function summarize(text: string, max = 160): string {
   const one = text.replace(/\s+/g, " ").trim()
   return one.length <= max ? one : `${one.slice(0, max)}…`
 }

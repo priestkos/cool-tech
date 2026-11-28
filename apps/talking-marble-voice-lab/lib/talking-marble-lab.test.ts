@@ -18,6 +18,11 @@ import {
   syncPropsToWebComponent,
   DEFAULT_LAB_CONFIG,
   accessibleNameForMarble,
+  applyAudioMode,
+  applyLevelChange,
+  resolveLabPalette,
+  type MarbleLabConfig,
+  type MarbleViewerProps,
 } from "../src/lib/talking-marble-lab.ts"
 
 describe("talking-marble package exports", () => {
@@ -133,5 +138,190 @@ describe("offline app source", () => {
 
   test("built-in emotion list matches package", () => {
     expect(BUILTIN_EMOTIONS.length).toBe(8)
+  })
+})
+
+function labConfig(partial: Partial<MarbleLabConfig> = {}): MarbleLabConfig {
+  return { ...DEFAULT_LAB_CONFIG, ...partial }
+}
+
+describe("accessible name", () => {
+  test("decorative wins, trimmed aria-label wins, blank aria-label falls through, labGlow reads as lab glow", () => {
+    expect(
+      accessibleNameForMarble(
+        labConfig({
+          decorative: true,
+          ariaLabel: "Nova voice",
+          useAriaLabel: true,
+          label: "Ignored",
+          state: "speaking",
+        }),
+      ),
+    ).toBe("(decorative — hidden from assistive tech)")
+
+    expect(
+      accessibleNameForMarble(labConfig({ useAriaLabel: true, ariaLabel: "  Nova voice  " })),
+    ).toBe("Nova voice")
+
+    expect(
+      accessibleNameForMarble(
+        labConfig({
+          useAriaLabel: true,
+          ariaLabel: "   ",
+          label: "Assistant",
+          state: "speaking",
+        }),
+      ),
+    ).toBe("Assistant, speaking")
+
+    expect(accessibleNameForMarble(labConfig({ state: "labGlow" }))).toBe("Assistant, lab glow")
+  })
+})
+
+describe("resolveLabPalette", () => {
+  test("named mode returns the palette name and custom mode returns a copy", () => {
+    expect(resolveLabPalette(labConfig({ paletteMode: "named", paletteName: "lagoon" }))).toBe("lagoon")
+
+    const config = labConfig({
+      paletteMode: "custom",
+      customColors: ["#111111", "#222222", "#333333", "#444444"],
+    })
+    const palette = resolveLabPalette(config)
+    expect(palette).toEqual(["#111111", "#222222", "#333333", "#444444"])
+    expect(palette).not.toBe(config.customColors)
+    if (Array.isArray(palette)) {
+      palette[0] = "#ffffff"
+    }
+    expect(config.customColors[0]).toBe("#111111")
+  })
+})
+
+describe("marbleViewerProps audio routing", () => {
+  test("routes level, off, mock, and mic without leaking a stale level", () => {
+    const sentinel = { id: "sentinel-audio" } as MarbleViewerProps["audio"]
+
+    const levelZero = marbleViewerProps(labConfig({ audioMode: "level", level: 0 }), sentinel)
+    expect(levelZero.level).toBe(0)
+    expect(levelZero.audio).toBeNull()
+
+    const levelHigh = marbleViewerProps(labConfig({ audioMode: "level", level: 0.55 }), sentinel)
+    expect(levelHigh.level).toBe(0.55)
+    expect(levelHigh.audio).toBeNull()
+
+    const offZero = marbleViewerProps(labConfig({ audioMode: "off", level: 0 }), sentinel)
+    expect(offZero.level).toBeUndefined()
+    expect(offZero.audio).toBeNull()
+
+    const offHigh = marbleViewerProps(labConfig({ audioMode: "off", level: 0.33 }), sentinel)
+    expect(offHigh.level).toBe(0.33)
+    expect(offHigh.audio).toBeNull()
+
+    const mock = marbleViewerProps(labConfig({ audioMode: "mock", level: 0.8 }), sentinel)
+    expect(mock.audio).toBe(sentinel)
+    expect(mock.level).toBeUndefined()
+
+    const mic = marbleViewerProps(labConfig({ audioMode: "mic", level: 0.8 }), sentinel)
+    expect(mic.audio).toBe(sentinel)
+    expect(mic.level).toBeUndefined()
+
+    const unlabeled = marbleViewerProps(labConfig({ useAriaLabel: false, ariaLabel: "hidden" }), null)
+    expect(unlabeled.ariaLabel).toBeUndefined()
+
+    const emptyLabel = marbleViewerProps(labConfig({ useAriaLabel: true, ariaLabel: "" }), null)
+    expect(emptyLabel.ariaLabel).toBe("")
+
+    const haloStrength = marbleViewerProps(
+      labConfig({ halo: 0.4, paused: true, decorative: true }),
+      null,
+    )
+    expect(haloStrength.halo).toBe(0.4)
+    expect(haloStrength.paused).toBe(true)
+    expect(haloStrength.decorative).toBe(true)
+
+    const haloOff = marbleViewerProps(labConfig({ halo: false, paused: false, decorative: false }), null)
+    expect(haloOff.halo).toBe(false)
+    expect(haloOff.paused).toBe(false)
+    expect(haloOff.decorative).toBe(false)
+  })
+})
+
+describe("syncPropsToWebComponent", () => {
+  test("sets level when provided and clears a stale level", () => {
+    const el = {
+      state: "idle",
+      emotion: null as BuiltInEmotion | null,
+      palette: "pearl" as const,
+      level: 0.9,
+      size: 140,
+      halo: true as boolean | number,
+      paused: false,
+      label: "Assistant",
+      decorative: false,
+      audio: null as MarbleViewerProps["audio"],
+      presets: {} as Record<string, import("talking-marble").OrbPreset>,
+    }
+    const withLevel = marbleViewerProps(labConfig({ audioMode: "level", level: 0.9 }), null)
+    syncPropsToWebComponent(el, withLevel)
+    expect(el.level).toBe(0.9)
+
+    const cleared = marbleViewerProps(labConfig({ audioMode: "off", level: 0 }), null)
+    expect(cleared.level).toBeUndefined()
+    syncPropsToWebComponent(el, cleared)
+    expect(el.level).toBeUndefined()
+  })
+})
+
+describe("level and audio mode transitions", () => {
+  test("applyLevelChange crosses 0.02 only from idle or listening and leaves mock or mic alone", () => {
+    expect(applyLevelChange(labConfig({ state: "idle", audioMode: "level" }), 0.02).state).toBe("idle")
+    expect(applyLevelChange(labConfig({ state: "idle" }), 0.03).state).toBe("speaking")
+    expect(applyLevelChange(labConfig({ state: "listening" }), 0.03).state).toBe("speaking")
+
+    for (const state of ["thinking", "speaking", "error", "labGlow"] as const) {
+      expect(applyLevelChange(labConfig({ state }), 0.5).state).toBe(state)
+    }
+
+    const listening = applyLevelChange(labConfig({ state: "listening", audioMode: "level" }), 0)
+    expect(listening.state).toBe("listening")
+    expect(listening.level).toBe(0)
+
+    const fromOff = applyLevelChange(labConfig({ audioMode: "off", state: "idle" }), 0.5)
+    expect(fromOff.audioMode).toBe("level")
+    expect(fromOff.level).toBe(0.5)
+    expect(fromOff.state).toBe("speaking")
+
+    expect(applyLevelChange(labConfig({ audioMode: "mock", state: "idle" }), 0.5).audioMode).toBe("mock")
+    expect(applyLevelChange(labConfig({ audioMode: "mic", state: "listening" }), 0.5).audioMode).toBe("mic")
+  })
+
+  test("applyAudioMode leaves idle only when the mode is off", () => {
+    expect(applyAudioMode(labConfig({ state: "idle" }), "off")).toMatchObject({
+      audioMode: "off",
+      state: "idle",
+    })
+    expect(applyAudioMode(labConfig({ state: "idle" }), "level")).toMatchObject({
+      audioMode: "level",
+      state: "listening",
+    })
+    expect(applyAudioMode(labConfig({ state: "idle" }), "mock")).toMatchObject({
+      audioMode: "mock",
+      state: "listening",
+    })
+    expect(applyAudioMode(labConfig({ state: "idle" }), "mic")).toMatchObject({
+      audioMode: "mic",
+      state: "listening",
+    })
+    expect(applyAudioMode(labConfig({ state: "speaking" }), "level")).toMatchObject({
+      audioMode: "level",
+      state: "speaking",
+    })
+    expect(applyAudioMode(labConfig({ state: "speaking" }), "off")).toMatchObject({
+      audioMode: "off",
+      state: "speaking",
+    })
+    expect(applyAudioMode(labConfig({ state: "listening" }), "mock")).toMatchObject({
+      audioMode: "mock",
+      state: "listening",
+    })
   })
 })

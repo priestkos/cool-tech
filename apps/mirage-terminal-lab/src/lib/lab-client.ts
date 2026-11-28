@@ -5,4 +5,4 @@ export type {
   ProfileId,
   RunOutput,
 } from "../../lib/mirage-lab.ts"
-export { MirageLab, PRESETS } from "../../lib/mirage-lab.ts"
+export { MirageLab, PRESETS, presetsForProfile, stepCommandHistory } from "../../lib/mirage-lab.ts"

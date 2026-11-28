@@ -17,6 +17,8 @@ import {
   DEFAULT_LAB_CONFIG,
   PALETTE_NAMES,
   accessibleNameForMarble,
+  applyAudioMode,
+  applyLevelChange,
   marbleViewerProps,
   type AudioMode,
   type LabOrbState,
@@ -71,20 +73,11 @@ export default function App() {
   }, [])
 
   const onLevelChange = useCallback((value: number) => {
-    setConfig((c) => ({
-      ...c,
-      level: value,
-      audioMode: c.audioMode === "off" ? "level" : c.audioMode,
-      state: value > 0.02 && (c.state === "idle" || c.state === "listening") ? "speaking" : c.state,
-    }))
+    setConfig((c) => applyLevelChange(c, value))
   }, [])
 
   const onAudioMode = useCallback((mode: AudioMode) => {
-    setConfig((c) => ({
-      ...c,
-      audioMode: mode,
-      state: mode !== "off" && c.state === "idle" ? "listening" : c.state,
-    }))
+    setConfig((c) => applyAudioMode(c, mode))
   }, [])
 
   return (

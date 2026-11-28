@@ -108,6 +108,26 @@ export function marbleViewerProps(config: MarbleLabConfig, audio: MarbleViewerPr
   }
 }
 
+export function applyLevelChange(config: MarbleLabConfig, value: number): MarbleLabConfig {
+  return {
+    ...config,
+    level: value,
+    audioMode: config.audioMode === "off" ? "level" : config.audioMode,
+    state:
+      value > 0.02 && (config.state === "idle" || config.state === "listening")
+        ? "speaking"
+        : config.state,
+  }
+}
+
+export function applyAudioMode(config: MarbleLabConfig, mode: AudioMode): MarbleLabConfig {
+  return {
+    ...config,
+    audioMode: mode,
+    state: mode !== "off" && config.state === "idle" ? "listening" : config.state,
+  }
+}
+
 export function syncPropsToWebComponent(
   el: HTMLElement & {
     state: string

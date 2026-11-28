@@ -9,7 +9,8 @@ import { Separator } from "@/components/ui/separator"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import {
   MirageLab,
-  PRESETS,
+  presetsForProfile,
+  stepCommandHistory,
   type CommandLogEntry,
   type MountTreeNode,
   type ProfileId,
@@ -176,31 +177,18 @@ export default function App() {
 
   const onKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === "ArrowUp" && history.length > 0) {
+      if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+        const stepped = stepCommandHistory(history, historyIdx, e.key)
+        if (stepped === null) return
         e.preventDefault()
-        const next = historyIdx < 0 ? history.length - 1 : Math.max(0, historyIdx - 1)
-        setHistoryIdx(next)
-        setInput(history[next] ?? "")
-      }
-      if (e.key === "ArrowDown" && history.length > 0) {
-        e.preventDefault()
-        const next = historyIdx < 0 ? -1 : historyIdx + 1
-        if (next >= history.length) {
-          setHistoryIdx(-1)
-          setInput("")
-        } else {
-          setHistoryIdx(next)
-          setInput(history[next] ?? "")
-        }
+        setHistoryIdx(stepped.historyIdx)
+        setInput(stepped.input)
       }
     },
     [history, historyIdx],
   )
 
-  const profilePresets = useMemo(
-    () => PRESETS.filter((p) => !p.profile || p.profile === profile),
-    [profile],
-  )
+  const profilePresets = useMemo(() => presetsForProfile(profile), [profile])
 
   const exportTrace = useCallback(() => {
     if (!labRef.current) return
